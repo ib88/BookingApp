@@ -1,0 +1,25 @@
+{
+  "name": "test2",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "amadeus": "^5.7.1",
+    "body-parser": "^1.20.0",
+    "express": "^4.17.3",
+    "jquery": "^3.6.0",
+    "node-fetch": "^3.2.3",
+    "request": "^2.88.2",
+    "dotenv": "^10.0.0",
+    "util": "^0.12.4",
+    "web3": "^1.7.0"
+  },
+  "devDependencies": {
+    "lite-server": "^2.6.1"
+  }
+}

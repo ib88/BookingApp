@@ -1,0 +1,6 @@
+GET http://localhost:8888
+
+
+###
+GET http://localhost:8888/api/city-hotels/?cityCode=LON
+

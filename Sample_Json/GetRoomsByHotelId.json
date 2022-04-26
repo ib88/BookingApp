@@ -1,0 +1,3634 @@
+HTTP/1.1 200 OK
+X-Powered-By: Express
+Content-Type: application/json; charset=utf-8
+Content-Length: 51095
+ETag: W/"c797-eMF6JhP5PytvA7pJB5LOLzNqpBg"
+Date: Tue, 26 Apr 2022 14:02:03 GMT
+Connection: close
+
+{
+  "data": {
+    "type": "hotel-offers",
+    "hotel": {
+      "type": "hotel",
+      "hotelId": "EDLONDER",
+      "chainCode": "ED",
+      "dupeId": "502185711",
+      "name": "ED TEST PROPERTY1",
+      "cityCode": "LON",
+      "latitude": 51.50642,
+      "longitude": -0.1272,
+      "address": {
+        "lines": [
+          "TEST ADDRESS 1"
+        ],
+        "postalCode": "987654",
+        "cityName": "LONDON",
+        "countryCode": "GB"
+      }
+    },
+    "available": true,
+    "offers": [
+      {
+        "id": "O3Y5VM704P",
+        "checkInDate": "2022-04-26",
+        "checkOutDate": "2022-04-27",
+        "rateCode": "RAC",
+        "rateFamilyEstimated": {
+          "code": "BAR",
+          "type": "P"
+        },
+        "commission": {
+          "percentage": "10.0"
+        },
+        "room": {
+          "type": "A1Q",
+          "typeEstimated": {
+            "category": "STANDARD_ROOM",
+            "beds": 1,
+            "bedType": "QUEEN"
+          },
+          "description": {
+            "text": "Best Available Rate\nQUEEN ROOM UP TO 24 SQM FREE 150MBPS WIFI ENTRY\nBest Available Rate Room Only",
+            "lang": "EN"
+          }
+        },
+        "guests": {
+          "adults": 1
+        },
+        "price": {
+          "currency": "GBP",
+          "total": "505.00",
+          "taxes": [
+            {
+              "code": "VAT_GST_TAX",
+              "percentage": "20.00",
+              "included": true
+            }
+          ],
+          "variations": {
+            "average": {
+              "base": "505.00"
+            },
+            "changes": [
+              {
+                "startDate": "2022-04-26",
+                "endDate": "2022-04-27",
+                "base": "505.00"
+              }
+            ]
+          }
+        },
+        "policies": {
+          "guarantee": {
+            "acceptedPayments": {
+              "creditCards": [
+                "AX",
+                "UP",
+                "DC",
+                "JC",
+                "MC",
+                "VI"
+              ],
+              "methods": [
+                "TRAVEL_AGENT_ID",
+                "CORPORATE_ID",
+                "CREDIT_CARD"
+              ]
+            }
+          },
+          "paymentType": "guarantee",
+          "cancellation": {
+            "deadline": "2022-04-25T15:00:00+01:00"
+          }
+        },
+        "self": "https://test.api.amadeus.com/v2/shopping/hotel-offers/O3Y5VM704P",
+        "cancelPolicyHash": "4D0B6F834E83BA3ABB2401E31EAB71EDF50437BAF499A92C43281C6C4EA1DB2D"
+      },
+      {
+        "id": "BU4FOAE2UB",
+        "checkInDate": "2022-04-26",
+        "checkOutDate": "2022-04-27",
+        "rateCode": "RAC",
+        "rateFamilyEstimated": {
+          "code": "BAR",
+          "type": "P"
+        },
+        "commission": {
+          "percentage": "10.0"
+        },
+        "room": {
+          "type": "C1K",
+          "typeEstimated": {
+            "category": "STANDARD_ROOM",
+            "beds": 1,
+            "bedType": "KING"
+          },
+          "description": {
+            "text": "Best Available Rate\nKING ROOM UP TO 24 SQM FREE 150MBPS WIFI ENTRY\nBest Available Rate Room Only",
+            "lang": "EN"
+          }
+        },
+        "guests": {
+          "adults": 1
+        },
+        "price": {
+          "currency": "GBP",
+          "total": "575.00",
+          "taxes": [
+            {
+              "code": "VAT_GST_TAX",
+              "percentage": "20.00",
+              "included": true
+            }
+          ],
+          "variations": {
+            "average": {
+              "base": "575.00"
+            },
+            "changes": [
+              {
+                "startDate": "2022-04-26",
+                "endDate": "2022-04-27",
+                "base": "575.00"
+              }
+            ]
+          }
+        },
+        "policies": {
+          "guarantee": {
+            "acceptedPayments": {
+              "creditCards": [
+                "AX",
+                "UP",
+                "DC",
+                "JC",
+                "MC",
+                "VI"
+              ],
+              "methods": [
+                "TRAVEL_AGENT_ID",
+                "CORPORATE_ID",
+                "CREDIT_CARD"
+              ]
+            }
+          },
+          "paymentType": "guarantee",
+          "cancellation": {
+            "deadline": "2022-04-25T15:00:00+01:00"
+          }
+        },
+        "self": "https://test.api.amadeus.com/v2/shopping/hotel-offers/BU4FOAE2UB",
+        "cancelPolicyHash": "4D0B6F834E83BA3ABB2401E31EAB71EDF50437BAF499A92C43281C6C4EA1DB2D"
+      },
+      {
+        "id": "NEZG6JUZJ1",
+        "checkInDate": "2022-04-26",
+        "checkOutDate": "2022-04-27",
+        "rateCode": "RAC",
+        "rateFamilyEstimated": {
+          "code": "BAR",
+          "type": "P"
+        },
+        "commission": {
+          "percentage": "10.0"
+        },
+        "room": {
+          "type": "A1K",
+          "typeEstimated": {
+            "category": "DELUXE_ROOM",
+            "beds": 1,
+            "bedType": "KING"
+          },
+          "description": {
+            "text": "Best Available Rate\nDELUXE KING ROOM UP TO 29 SQM FREE 150MPBS WIFI\nBest Available Rate Room Only",
+            "lang": "EN"
+          }
+        },
+        "guests": {
+          "adults": 1
+        },
+        "price": {
+          "currency": "GBP",
+          "total": "635.00",
+          "taxes": [
+            {
+              "code": "VAT_GST_TAX",
+              "percentage": "20.00",
+              "included": true
+            }
+          ],
+          "variations": {
+            "average": {
+              "base": "635.00"
+            },
+            "changes": [
+              {
+                "startDate": "2022-04-26",
+                "endDate": "2022-04-27",
+                "base": "635.00"
+              }
+            ]
+          }
+        },
+        "policies": {
+          "guarantee": {
+            "acceptedPayments": {
+              "creditCards": [
+                "AX",
+                "UP",
+                "DC",
+                "JC",
+                "MC",
+                "VI"
+              ],
+              "methods": [
+                "TRAVEL_AGENT_ID",
+                "CORPORATE_ID",
+                "CREDIT_CARD"
+              ]
+            }
+          },
+          "paymentType": "guarantee",
+          "cancellation": {
+            "deadline": "2022-04-25T15:00:00+01:00"
+          }
+        },
+        "self": "https://test.api.amadeus.com/v2/shopping/hotel-offers/NEZG6JUZJ1",
+        "cancelPolicyHash": "4D0B6F834E83BA3ABB2401E31EAB71EDF50437BAF499A92C43281C6C4EA1DB2D"
+      },
+      {
+        "id": "G2LXYXM0H1",
+        "checkInDate": "2022-04-26",
+        "checkOutDate": "2022-04-27",
+        "rateCode": "RAC",
+        "rateFamilyEstimated": {
+          "code": "BAR",
+          "type": "P"
+        },
+        "commission": {
+          "percentage": "10.0"
+        },
+        "room": {
+          "type": "D1K",
+          "typeEstimated": {
+            "category": "DELUXE_ROOM",
+            "beds": 1,
+            "bedType": "KING"
+          },
+          "description": {
+            "text": "Best Available Rate\nDELUXE KING CITY VIEW UP TO 29 SQM FREE WIFI\nBest Available Rate Room Only",
+            "lang": "EN"
+          }
+        },
+        "guests": {
+          "adults": 1
+        },
+        "price": {
+          "currency": "GBP",
+          "total": "679.00",
+          "taxes": [
+            {
+              "code": "VAT_GST_TAX",
+              "percentage": "20.00",
+              "included": true
+            }
+          ],
+          "variations": {
+            "average": {
+              "base": "679.00"
+            },
+            "changes": [
+              {
+                "startDate": "2022-04-26",
+                "endDate": "2022-04-27",
+                "base": "679.00"
+              }
+            ]
+          }
+        },
+        "policies": {
+          "guarantee": {
+            "acceptedPayments": {
+              "creditCards": [
+                "AX",
+                "UP",
+                "DC",
+                "JC",
+                "MC",
+                "VI"
+              ],
+              "methods": [
+                "TRAVEL_AGENT_ID",
+                "CORPORATE_ID",
+                "CREDIT_CARD"
+              ]
+            }
+          },
+          "paymentType": "guarantee",
+          "cancellation": {
+            "deadline": "2022-04-25T15:00:00+01:00"
+          }
+        },
+        "self": "https://test.api.amadeus.com/v2/shopping/hotel-offers/G2LXYXM0H1",
+        "cancelPolicyHash": "4D0B6F834E83BA3ABB2401E31EAB71EDF50437BAF499A92C43281C6C4EA1DB2D"
+      },
+      {
+        "id": "1YRIHS34U4",
+        "checkInDate": "2022-04-26",
+        "checkOutDate": "2022-04-27",
+        "rateCode": "RAC",
+        "rateFamilyEstimated": {
+          "code": "BAR",
+          "type": "P"
+        },
+        "commission": {
+          "percentage": "10.0"
+        },
+        "room": {
+          "type": "T1K",
+          "typeEstimated": {
+            "category": "SUITE",
+            "beds": 1,
+            "bedType": "KING"
+          },
+          "description": {
+            "text": "Best Available Rate\nJUNIOR SUITE UP TO 40 SQM FREE WIFI STUDIO FEEL\nBest Available Rate Room Only",
+            "lang": "EN"
+          }
+        },
+        "guests": {
+          "adults": 1
+        },
+        "price": {
+          "currency": "GBP",
+          "total": "1095.00",
+          "taxes": [
+            {
+              "code": "VAT_GST_TAX",
+              "percentage": "20.00",
+              "included": true
+            }
+          ],
+          "variations": {
+            "average": {
+              "base": "1095.00"
+            },
+            "changes": [
+              {
+                "startDate": "2022-04-26",
+                "endDate": "2022-04-27",
+                "base": "1095.00"
+              }
+            ]
+          }
+        },
+        "policies": {
+          "guarantee": {
+            "acceptedPayments": {
+              "creditCards": [
+                "AX",
+                "UP",
+                "DC",
+                "JC",
+                "MC",
+                "VI"
+              ],
+              "methods": [
+                "TRAVEL_AGENT_ID",
+                "CORPORATE_ID",
+                "CREDIT_CARD"
+              ]
+            }
+          },
+          "paymentType": "guarantee",
+          "cancellation": {
+            "deadline": "2022-04-25T15:00:00+01:00"
+          }
+        },
+        "self": "https://test.api.amadeus.com/v2/shopping/hotel-offers/1YRIHS34U4",
+        "cancelPolicyHash": "4D0B6F834E83BA3ABB2401E31EAB71EDF50437BAF499A92C43281C6C4EA1DB2D"
+      },
+      {
+        "id": "92HDKV19AD",
+        "checkInDate": "2022-04-26",
+        "checkOutDate": "2022-04-27",
+        "rateCode": "RAC",
+        "rateFamilyEstimated": {
+          "code": "BAR",
+          "type": "P"
+        },
+        "commission": {
+          "percentage": "10.0"
+        },
+        "room": {
+          "type": "U1K",
+          "typeEstimated": {
+            "category": "SUITE",
+            "beds": 1,
+            "bedType": "KING"
+          },
+          "description": {
+            "text": "Best Available Rate\nCORNER SUITE UP TO 52 SQM VIP SERVICES GIFTS\nBest Available Rate Room Only",
+            "lang": "EN"
+          }
+        },
+        "guests": {
+          "adults": 1
+        },
+        "price": {
+          "currency": "GBP",
+          "total": "1995.00",
+          "taxes": [
+            {
+              "code": "VAT_GST_TAX",
+              "percentage": "20.00",
+              "included": true
+            }
+          ],
+          "variations": {
+            "average": {
+              "base": "1995.00"
+            },
+            "changes": [
+              {
+                "startDate": "2022-04-26",
+                "endDate": "2022-04-27",
+                "base": "1995.00"
+              }
+            ]
+          }
+        },
+        "policies": {
+          "guarantee": {
+            "acceptedPayments": {
+              "creditCards": [
+                "AX",
+                "UP",
+                "DC",
+                "JC",
+                "MC",
+                "VI"
+              ],
+              "methods": [
+                "TRAVEL_AGENT_ID",
+                "CORPORATE_ID",
+                "CREDIT_CARD"
+              ]
+            }
+          },
+          "paymentType": "guarantee",
+          "cancellation": {
+            "deadline": "2022-04-25T15:00:00+01:00"
+          }
+        },
+        "self": "https://test.api.amadeus.com/v2/shopping/hotel-offers/92HDKV19AD",
+        "cancelPolicyHash": "4D0B6F834E83BA3ABB2401E31EAB71EDF50437BAF499A92C43281C6C4EA1DB2D"
+      },
+      {
+        "id": "5GV7ZLVCY1",
+        "checkInDate": "2022-04-26",
+        "checkOutDate": "2022-04-27",
+        "rateCode": "RAC",
+        "rateFamilyEstimated": {
+          "code": "BAR",
+          "type": "P"
+        },
+        "commission": {
+          "percentage": "10.0"
+        },
+        "room": {
+          "type": "E1K",
+          "typeEstimated": {
+            "category": "SUITE",
+            "beds": 1,
+            "bedType": "KING"
+          },
+          "description": {
+            "text": "Best Available Rate\nCAPITAL SUITE UP TO 86 SQM GIFTS DRINKS TROLLEY\nBest Available Rate Room Only",
+            "lang": "EN"
+          }
+        },
+        "guests": {
+          "adults": 1
+        },
+        "price": {
+          "currency": "GBP",
+          "total": "2795.00",
+          "taxes": [
+            {
+              "code": "VAT_GST_TAX",
+              "percentage": "20.00",
+              "included": true
+            }
+          ],
+          "variations": {
+            "average": {
+              "base": "2795.00"
+            },
+            "changes": [
+              {
+                "startDate": "2022-04-26",
+                "endDate": "2022-04-27",
+                "base": "2795.00"
+              }
+            ]
+          }
+        },
+        "policies": {
+          "guarantee": {
+            "acceptedPayments": {
+              "creditCards": [
+                "AX",
+                "UP",
+                "DC",
+                "JC",
+                "MC",
+                "VI"
+              ],
+              "methods": [
+                "TRAVEL_AGENT_ID",
+                "CORPORATE_ID",
+                "CREDIT_CARD"
+              ]
+            }
+          },
+          "paymentType": "guarantee",
+          "cancellation": {
+            "deadline": "2022-04-25T15:00:00+01:00"
+          }
+        },
+        "self": "https://test.api.amadeus.com/v2/shopping/hotel-offers/5GV7ZLVCY1",
+        "cancelPolicyHash": "4D0B6F834E83BA3ABB2401E31EAB71EDF50437BAF499A92C43281C6C4EA1DB2D"
+      },
+      {
+        "id": "XYP7QX06HT",
+        "checkInDate": "2022-04-26",
+        "checkOutDate": "2022-04-27",
+        "rateCode": "RA1",
+        "commission": {
+          "percentage": "10.0"
+        },
+        "boardType": "BREAKFAST",
+        "room": {
+          "type": "A1Q",
+          "typeEstimated": {
+            "category": "STANDARD_ROOM",
+            "beds": 1,
+            "bedType": "QUEEN"
+          },
+          "description": {
+            "text": "Bed and Breakfast\nQUEEN ROOM UP TO 24 SQM FREE 150MBPS WIFI ENTRY\nBed and Breakfast Breakfast included",
+            "lang": "EN"
+          }
+        },
+        "guests": {
+          "adults": 1
+        },
+        "price": {
+          "currency": "GBP",
+          "total": "534.00",
+          "taxes": [
+            {
+              "code": "VAT_GST_TAX",
+              "percentage": "20.00",
+              "included": true
+            }
+          ],
+          "variations": {
+            "average": {
+              "base": "534.00"
+            },
+            "changes": [
+              {
+                "startDate": "2022-04-26",
+                "endDate": "2022-04-27",
+                "base": "534.00"
+              }
+            ]
+          }
+        },
+        "policies": {
+          "guarantee": {
+            "acceptedPayments": {
+              "creditCards": [
+                "AX",
+                "UP",
+                "DC",
+                "JC",
+                "MC",
+                "VI"
+              ],
+              "methods": [
+                "TRAVEL_AGENT_ID",
+                "CORPORATE_ID",
+                "CREDIT_CARD"
+              ]
+            }
+          },
+          "paymentType": "guarantee",
+          "cancellation": {
+            "deadline": "2022-04-25T15:00:00+01:00"
+          }
+        },
+        "self": "https://test.api.amadeus.com/v2/shopping/hotel-offers/XYP7QX06HT",
+        "cancelPolicyHash": "4D0B6F834E83BA3ABB2401E31EAB71EDF50437BAF499A92C43281C6C4EA1DB2D"
+      },
+      {
+        "id": "LWAFXVIE3T",
+        "checkInDate": "2022-04-26",
+        "checkOutDate": "2022-04-27",
+        "rateCode": "RA1",
+        "commission": {
+          "percentage": "10.0"
+        },
+        "boardType": "BREAKFAST",
+        "room": {
+          "type": "C1K",
+          "typeEstimated": {
+            "category": "STANDARD_ROOM",
+            "beds": 1,
+            "bedType": "KING"
+          },
+          "description": {
+            "text": "Bed and Breakfast\nKING ROOM UP TO 24 SQM FREE 150MBPS WIFI ENTRY\nBed and Breakfast Breakfast included",
+            "lang": "EN"
+          }
+        },
+        "guests": {
+          "adults": 1
+        },
+        "price": {
+          "currency": "GBP",
+          "total": "604.00",
+          "taxes": [
+            {
+              "code": "VAT_GST_TAX",
+              "percentage": "20.00",
+              "included": true
+            }
+          ],
+          "variations": {
+            "average": {
+              "base": "604.00"
+            },
+            "changes": [
+              {
+                "startDate": "2022-04-26",
+                "endDate": "2022-04-27",
+                "base": "604.00"
+              }
+            ]
+          }
+        },
+        "policies": {
+          "guarantee": {
+            "acceptedPayments": {
+              "creditCards": [
+                "AX",
+                "UP",
+                "DC",
+                "JC",
+                "MC",
+                "VI"
+              ],
+              "methods": [
+                "TRAVEL_AGENT_ID",
+                "CORPORATE_ID",
+                "CREDIT_CARD"
+              ]
+            }
+          },
+          "paymentType": "guarantee",
+          "cancellation": {
+            "deadline": "2022-04-25T15:00:00+01:00"
+          }
+        },
+        "self": "https://test.api.amadeus.com/v2/shopping/hotel-offers/LWAFXVIE3T",
+        "cancelPolicyHash": "4D0B6F834E83BA3ABB2401E31EAB71EDF50437BAF499A92C43281C6C4EA1DB2D"
+      },
+      {
+        "id": "QC4Z49EHUK",
+        "checkInDate": "2022-04-26",
+        "checkOutDate": "2022-04-27",
+        "rateCode": "RA1",
+        "commission": {
+          "percentage": "10.0"
+        },
+        "boardType": "BREAKFAST",
+        "room": {
+          "type": "A1K",
+          "typeEstimated": {
+            "category": "DELUXE_ROOM",
+            "beds": 1,
+            "bedType": "KING"
+          },
+          "description": {
+            "text": "Bed and Breakfast\nDELUXE KING ROOM UP TO 29 SQM FREE 150MPBS WIFI\nBed and Breakfast Breakfast included",
+            "lang": "EN"
+          }
+        },
+        "guests": {
+          "adults": 1
+        },
+        "price": {
+          "currency": "GBP",
+          "total": "664.00",
+          "taxes": [
+            {
+              "code": "VAT_GST_TAX",
+              "percentage": "20.00",
+              "included": true
+            }
+          ],
+          "variations": {
+            "average": {
+              "base": "664.00"
+            },
+            "changes": [
+              {
+                "startDate": "2022-04-26",
+                "endDate": "2022-04-27",
+                "base": "664.00"
+              }
+            ]
+          }
+        },
+        "policies": {
+          "guarantee": {
+            "acceptedPayments": {
+              "creditCards": [
+                "AX",
+                "UP",
+                "DC",
+                "JC",
+                "MC",
+                "VI"
+              ],
+              "methods": [
+                "TRAVEL_AGENT_ID",
+                "CORPORATE_ID",
+                "CREDIT_CARD"
+              ]
+            }
+          },
+          "paymentType": "guarantee",
+          "cancellation": {
+            "deadline": "2022-04-25T15:00:00+01:00"
+          }
+        },
+        "self": "https://test.api.amadeus.com/v2/shopping/hotel-offers/QC4Z49EHUK",
+        "cancelPolicyHash": "4D0B6F834E83BA3ABB2401E31EAB71EDF50437BAF499A92C43281C6C4EA1DB2D"
+      },
+      {
+        "id": "5OBU7EOI62",
+        "checkInDate": "2022-04-26",
+        "checkOutDate": "2022-04-27",
+        "rateCode": "RA1",
+        "commission": {
+          "percentage": "10.0"
+        },
+        "boardType": "BREAKFAST",
+        "room": {
+          "type": "D1K",
+          "typeEstimated": {
+            "category": "DELUXE_ROOM",
+            "beds": 1,
+            "bedType": "KING"
+          },
+          "description": {
+            "text": "Bed and Breakfast\nDELUXE KING CITY VIEW UP TO 29 SQM FREE WIFI\nBed and Breakfast Breakfast included",
+            "lang": "EN"
+          }
+        },
+        "guests": {
+          "adults": 1
+        },
+        "price": {
+          "currency": "GBP",
+          "total": "708.00",
+          "taxes": [
+            {
+              "code": "VAT_GST_TAX",
+              "percentage": "20.00",
+              "included": true
+            }
+          ],
+          "variations": {
+            "average": {
+              "base": "708.00"
+            },
+            "changes": [
+              {
+                "startDate": "2022-04-26",
+                "endDate": "2022-04-27",
+                "base": "708.00"
+              }
+            ]
+          }
+        },
+        "policies": {
+          "guarantee": {
+            "acceptedPayments": {
+              "creditCards": [
+                "AX",
+                "UP",
+                "DC",
+                "JC",
+                "MC",
+                "VI"
+              ],
+              "methods": [
+                "TRAVEL_AGENT_ID",
+                "CORPORATE_ID",
+                "CREDIT_CARD"
+              ]
+            }
+          },
+          "paymentType": "guarantee",
+          "cancellation": {
+            "deadline": "2022-04-25T15:00:00+01:00"
+          }
+        },
+        "self": "https://test.api.amadeus.com/v2/shopping/hotel-offers/5OBU7EOI62",
+        "cancelPolicyHash": "4D0B6F834E83BA3ABB2401E31EAB71EDF50437BAF499A92C43281C6C4EA1DB2D"
+      },
+      {
+        "id": "X8SKXLUS6O",
+        "checkInDate": "2022-04-26",
+        "checkOutDate": "2022-04-27",
+        "rateCode": "RA1",
+        "commission": {
+          "percentage": "10.0"
+        },
+        "boardType": "BREAKFAST",
+        "room": {
+          "type": "T1K",
+          "typeEstimated": {
+            "category": "SUITE",
+            "beds": 1,
+            "bedType": "KING"
+          },
+          "description": {
+            "text": "Bed and Breakfast\nJUNIOR SUITE UP TO 40 SQM FREE WIFI STUDIO FEEL\nBed and Breakfast Breakfast included",
+            "lang": "EN"
+          }
+        },
+        "guests": {
+          "adults": 1
+        },
+        "price": {
+          "currency": "GBP",
+          "total": "1124.00",
+          "taxes": [
+            {
+              "code": "VAT_GST_TAX",
+              "percentage": "20.00",
+              "included": true
+            }
+          ],
+          "variations": {
+            "average": {
+              "base": "1124.00"
+            },
+            "changes": [
+              {
+                "startDate": "2022-04-26",
+                "endDate": "2022-04-27",
+                "base": "1124.00"
+              }
+            ]
+          }
+        },
+        "policies": {
+          "guarantee": {
+            "acceptedPayments": {
+              "creditCards": [
+                "AX",
+                "UP",
+                "DC",
+                "JC",
+                "MC",
+                "VI"
+              ],
+              "methods": [
+                "TRAVEL_AGENT_ID",
+                "CORPORATE_ID",
+                "CREDIT_CARD"
+              ]
+            }
+          },
+          "paymentType": "guarantee",
+          "cancellation": {
+            "deadline": "2022-04-25T15:00:00+01:00"
+          }
+        },
+        "self": "https://test.api.amadeus.com/v2/shopping/hotel-offers/X8SKXLUS6O",
+        "cancelPolicyHash": "4D0B6F834E83BA3ABB2401E31EAB71EDF50437BAF499A92C43281C6C4EA1DB2D"
+      },
+      {
+        "id": "Y7NZQFSZK7",
+        "checkInDate": "2022-04-26",
+        "checkOutDate": "2022-04-27",
+        "rateCode": "RA1",
+        "commission": {
+          "percentage": "10.0"
+        },
+        "boardType": "BREAKFAST",
+        "room": {
+          "type": "U1K",
+          "typeEstimated": {
+            "category": "SUITE",
+            "beds": 1,
+            "bedType": "KING"
+          },
+          "description": {
+            "text": "Bed and Breakfast\nCORNER SUITE UP TO 52 SQM VIP SERVICES GIFTS\nBed and Breakfast Breakfast included",
+            "lang": "EN"
+          }
+        },
+        "guests": {
+          "adults": 1
+        },
+        "price": {
+          "currency": "GBP",
+          "total": "2024.00",
+          "taxes": [
+            {
+              "code": "VAT_GST_TAX",
+              "percentage": "20.00",
+              "included": true
+            }
+          ],
+          "variations": {
+            "average": {
+              "base": "2024.00"
+            },
+            "changes": [
+              {
+                "startDate": "2022-04-26",
+                "endDate": "2022-04-27",
+                "base": "2024.00"
+              }
+            ]
+          }
+        },
+        "policies": {
+          "guarantee": {
+            "acceptedPayments": {
+              "creditCards": [
+                "AX",
+                "UP",
+                "DC",
+                "JC",
+                "MC",
+                "VI"
+              ],
+              "methods": [
+                "TRAVEL_AGENT_ID",
+                "CORPORATE_ID",
+                "CREDIT_CARD"
+              ]
+            }
+          },
+          "paymentType": "guarantee",
+          "cancellation": {
+            "deadline": "2022-04-25T15:00:00+01:00"
+          }
+        },
+        "self": "https://test.api.amadeus.com/v2/shopping/hotel-offers/Y7NZQFSZK7",
+        "cancelPolicyHash": "4D0B6F834E83BA3ABB2401E31EAB71EDF50437BAF499A92C43281C6C4EA1DB2D"
+      },
+      {
+        "id": "GDTCCH5V5H",
+        "checkInDate": "2022-04-26",
+        "checkOutDate": "2022-04-27",
+        "rateCode": "RA1",
+        "commission": {
+          "percentage": "10.0"
+        },
+        "boardType": "BREAKFAST",
+        "room": {
+          "type": "E1K",
+          "typeEstimated": {
+            "category": "SUITE",
+            "beds": 1,
+            "bedType": "KING"
+          },
+          "description": {
+            "text": "Bed and Breakfast\nCAPITAL SUITE UP TO 86 SQM GIFTS DRINKS TROLLEY\nBed and Breakfast Breakfast included",
+            "lang": "EN"
+          }
+        },
+        "guests": {
+          "adults": 1
+        },
+        "price": {
+          "currency": "GBP",
+          "total": "2824.00",
+          "taxes": [
+            {
+              "code": "VAT_GST_TAX",
+              "percentage": "20.00",
+              "included": true
+            }
+          ],
+          "variations": {
+            "average": {
+              "base": "2824.00"
+            },
+            "changes": [
+              {
+                "startDate": "2022-04-26",
+                "endDate": "2022-04-27",
+                "base": "2824.00"
+              }
+            ]
+          }
+        },
+        "policies": {
+          "guarantee": {
+            "acceptedPayments": {
+              "creditCards": [
+                "AX",
+                "UP",
+                "DC",
+                "JC",
+                "MC",
+                "VI"
+              ],
+              "methods": [
+                "TRAVEL_AGENT_ID",
+                "CORPORATE_ID",
+                "CREDIT_CARD"
+              ]
+            }
+          },
+          "paymentType": "guarantee",
+          "cancellation": {
+            "deadline": "2022-04-25T15:00:00+01:00"
+          }
+        },
+        "self": "https://test.api.amadeus.com/v2/shopping/hotel-offers/GDTCCH5V5H",
+        "cancelPolicyHash": "4D0B6F834E83BA3ABB2401E31EAB71EDF50437BAF499A92C43281C6C4EA1DB2D"
+      },
+      {
+        "id": "L61SR1EBLS",
+        "checkInDate": "2022-04-26",
+        "checkOutDate": "2022-04-27",
+        "rateCode": "PRO",
+        "commission": {
+          "percentage": "10.0"
+        },
+        "boardType": "BREAKFAST",
+        "room": {
+          "type": "A1Q",
+          "typeEstimated": {
+            "category": "STANDARD_ROOM",
+            "beds": 1,
+            "bedType": "QUEEN"
+          },
+          "description": {
+            "text": "The Londoner Platinum Programme\nQUEEN ROOM UP TO 24 SQM FREE 150MBPS WIFI ENTRY\n10 PCT DISCOUNT 75 GBP F B CREDIT BREAKFAST ECI",
+            "lang": "EN"
+          }
+        },
+        "guests": {
+          "adults": 1
+        },
+        "price": {
+          "currency": "GBP",
+          "total": "454.50",
+          "taxes": [
+            {
+              "code": "VAT_GST_TAX",
+              "percentage": "20.00",
+              "included": true
+            }
+          ],
+          "variations": {
+            "average": {
+              "base": "454.50"
+            },
+            "changes": [
+              {
+                "startDate": "2022-04-26",
+                "endDate": "2022-04-27",
+                "base": "454.50"
+              }
+            ]
+          }
+        },
+        "policies": {
+          "guarantee": {
+            "acceptedPayments": {
+              "creditCards": [
+                "AX",
+                "UP",
+                "DC",
+                "JC",
+                "MC",
+                "VI"
+              ],
+              "methods": [
+                "TRAVEL_AGENT_ID",
+                "CORPORATE_ID",
+                "CREDIT_CARD"
+              ]
+            }
+          },
+          "paymentType": "guarantee",
+          "cancellation": {
+            "deadline": "2022-04-25T15:00:00+01:00"
+          }
+        },
+        "self": "https://test.api.amadeus.com/v2/shopping/hotel-offers/L61SR1EBLS",
+        "cancelPolicyHash": "4D0B6F834E83BA3ABB2401E31EAB71EDF50437BAF499A92C43281C6C4EA1DB2D"
+      },
+      {
+        "id": "LWR5MQ3QW7",
+        "checkInDate": "2022-04-26",
+        "checkOutDate": "2022-04-27",
+        "rateCode": "PRO",
+        "commission": {
+          "percentage": "10.0"
+        },
+        "boardType": "BREAKFAST",
+        "room": {
+          "type": "C1K",
+          "typeEstimated": {
+            "category": "STANDARD_ROOM",
+            "beds": 1,
+            "bedType": "KING"
+          },
+          "description": {
+            "text": "The Londoner Platinum Programme\nKING ROOM UP TO 24 SQM FREE 150MBPS WIFI ENTRY\n10 PCT DISCOUNT 75 GBP F B CREDIT BREAKFAST ECI",
+            "lang": "EN"
+          }
+        },
+        "guests": {
+          "adults": 1
+        },
+        "price": {
+          "currency": "GBP",
+          "total": "517.50",
+          "taxes": [
+            {
+              "code": "VAT_GST_TAX",
+              "percentage": "20.00",
+              "included": true
+            }
+          ],
+          "variations": {
+            "average": {
+              "base": "517.50"
+            },
+            "changes": [
+              {
+                "startDate": "2022-04-26",
+                "endDate": "2022-04-27",
+                "base": "517.50"
+              }
+            ]
+          }
+        },
+        "policies": {
+          "guarantee": {
+            "acceptedPayments": {
+              "creditCards": [
+                "AX",
+                "UP",
+                "DC",
+                "JC",
+                "MC",
+                "VI"
+              ],
+              "methods": [
+                "TRAVEL_AGENT_ID",
+                "CORPORATE_ID",
+                "CREDIT_CARD"
+              ]
+            }
+          },
+          "paymentType": "guarantee",
+          "cancellation": {
+            "deadline": "2022-04-25T15:00:00+01:00"
+          }
+        },
+        "self": "https://test.api.amadeus.com/v2/shopping/hotel-offers/LWR5MQ3QW7",
+        "cancelPolicyHash": "4D0B6F834E83BA3ABB2401E31EAB71EDF50437BAF499A92C43281C6C4EA1DB2D"
+      },
+      {
+        "id": "DH7GSJ5XK5",
+        "checkInDate": "2022-04-26",
+        "checkOutDate": "2022-04-27",
+        "rateCode": "PRO",
+        "commission": {
+          "percentage": "10.0"
+        },
+        "boardType": "BREAKFAST",
+        "room": {
+          "type": "A1K",
+          "typeEstimated": {
+            "category": "DELUXE_ROOM",
+            "beds": 1,
+            "bedType": "KING"
+          },
+          "description": {
+            "text": "The Londoner Platinum Programme\nDELUXE KING ROOM UP TO 29 SQM FREE 150MPBS WIFI\n10 PCT DISCOUNT 75 GBP F B CREDIT BREAKFAST ECI",
+            "lang": "EN"
+          }
+        },
+        "guests": {
+          "adults": 1
+        },
+        "price": {
+          "currency": "GBP",
+          "total": "571.50",
+          "taxes": [
+            {
+              "code": "VAT_GST_TAX",
+              "percentage": "20.00",
+              "included": true
+            }
+          ],
+          "variations": {
+            "average": {
+              "base": "571.50"
+            },
+            "changes": [
+              {
+                "startDate": "2022-04-26",
+                "endDate": "2022-04-27",
+                "base": "571.50"
+              }
+            ]
+          }
+        },
+        "policies": {
+          "guarantee": {
+            "acceptedPayments": {
+              "creditCards": [
+                "AX",
+                "UP",
+                "DC",
+                "JC",
+                "MC",
+                "VI"
+              ],
+              "methods": [
+                "TRAVEL_AGENT_ID",
+                "CORPORATE_ID",
+                "CREDIT_CARD"
+              ]
+            }
+          },
+          "paymentType": "guarantee",
+          "cancellation": {
+            "deadline": "2022-04-25T15:00:00+01:00"
+          }
+        },
+        "self": "https://test.api.amadeus.com/v2/shopping/hotel-offers/DH7GSJ5XK5",
+        "cancelPolicyHash": "4D0B6F834E83BA3ABB2401E31EAB71EDF50437BAF499A92C43281C6C4EA1DB2D"
+      },
+      {
+        "id": "XQTPRS11C2",
+        "checkInDate": "2022-04-26",
+        "checkOutDate": "2022-04-27",
+        "rateCode": "PRO",
+        "commission": {
+          "percentage": "10.0"
+        },
+        "boardType": "BREAKFAST",
+        "room": {
+          "type": "D1K",
+          "typeEstimated": {
+            "category": "DELUXE_ROOM",
+            "beds": 1,
+            "bedType": "KING"
+          },
+          "description": {
+            "text": "The Londoner Platinum Programme\nDELUXE KING CITY VIEW UP TO 29 SQM FREE WIFI\n10 PCT DISCOUNT 75 GBP F B CREDIT BREAKFAST ECI",
+            "lang": "EN"
+          }
+        },
+        "guests": {
+          "adults": 1
+        },
+        "price": {
+          "currency": "GBP",
+          "total": "611.10",
+          "taxes": [
+            {
+              "code": "VAT_GST_TAX",
+              "percentage": "20.00",
+              "included": true
+            }
+          ],
+          "variations": {
+            "average": {
+              "base": "611.10"
+            },
+            "changes": [
+              {
+                "startDate": "2022-04-26",
+                "endDate": "2022-04-27",
+                "base": "611.10"
+              }
+            ]
+          }
+        },
+        "policies": {
+          "guarantee": {
+            "acceptedPayments": {
+              "creditCards": [
+                "AX",
+                "UP",
+                "DC",
+                "JC",
+                "MC",
+                "VI"
+              ],
+              "methods": [
+                "TRAVEL_AGENT_ID",
+                "CORPORATE_ID",
+                "CREDIT_CARD"
+              ]
+            }
+          },
+          "paymentType": "guarantee",
+          "cancellation": {
+            "deadline": "2022-04-25T15:00:00+01:00"
+          }
+        },
+        "self": "https://test.api.amadeus.com/v2/shopping/hotel-offers/XQTPRS11C2",
+        "cancelPolicyHash": "4D0B6F834E83BA3ABB2401E31EAB71EDF50437BAF499A92C43281C6C4EA1DB2D"
+      },
+      {
+        "id": "YSGU7T9E60",
+        "checkInDate": "2022-04-26",
+        "checkOutDate": "2022-04-27",
+        "rateCode": "PRO",
+        "commission": {
+          "percentage": "10.0"
+        },
+        "boardType": "BREAKFAST",
+        "room": {
+          "type": "T1K",
+          "typeEstimated": {
+            "category": "SUITE",
+            "beds": 1,
+            "bedType": "KING"
+          },
+          "description": {
+            "text": "The Londoner Platinum Programme\nJUNIOR SUITE UP TO 40 SQM FREE WIFI STUDIO FEEL\n10 PCT DISCOUNT 75 GBP F B CREDIT BREAKFAST ECI",
+            "lang": "EN"
+          }
+        },
+        "guests": {
+          "adults": 1
+        },
+        "price": {
+          "currency": "GBP",
+          "total": "985.50",
+          "taxes": [
+            {
+              "code": "VAT_GST_TAX",
+              "percentage": "20.00",
+              "included": true
+            }
+          ],
+          "variations": {
+            "average": {
+              "base": "985.50"
+            },
+            "changes": [
+              {
+                "startDate": "2022-04-26",
+                "endDate": "2022-04-27",
+                "base": "985.50"
+              }
+            ]
+          }
+        },
+        "policies": {
+          "guarantee": {
+            "acceptedPayments": {
+              "creditCards": [
+                "AX",
+                "UP",
+                "DC",
+                "JC",
+                "MC",
+                "VI"
+              ],
+              "methods": [
+                "TRAVEL_AGENT_ID",
+                "CORPORATE_ID",
+                "CREDIT_CARD"
+              ]
+            }
+          },
+          "paymentType": "guarantee",
+          "cancellation": {
+            "deadline": "2022-04-25T15:00:00+01:00"
+          }
+        },
+        "self": "https://test.api.amadeus.com/v2/shopping/hotel-offers/YSGU7T9E60",
+        "cancelPolicyHash": "4D0B6F834E83BA3ABB2401E31EAB71EDF50437BAF499A92C43281C6C4EA1DB2D"
+      },
+      {
+        "id": "02142STOAY",
+        "checkInDate": "2022-04-26",
+        "checkOutDate": "2022-04-27",
+        "rateCode": "PRO",
+        "commission": {
+          "percentage": "10.0"
+        },
+        "boardType": "BREAKFAST",
+        "room": {
+          "type": "U1K",
+          "typeEstimated": {
+            "category": "SUITE",
+            "beds": 1,
+            "bedType": "KING"
+          },
+          "description": {
+            "text": "The Londoner Platinum Programme\nCORNER SUITE UP TO 52 SQM VIP SERVICES GIFTS\n10 PCT DISCOUNT 75 GBP F B CREDIT BREAKFAST ECI",
+            "lang": "EN"
+          }
+        },
+        "guests": {
+          "adults": 1
+        },
+        "price": {
+          "currency": "GBP",
+          "total": "1795.50",
+          "taxes": [
+            {
+              "code": "VAT_GST_TAX",
+              "percentage": "20.00",
+              "included": true
+            }
+          ],
+          "variations": {
+            "average": {
+              "base": "1795.50"
+            },
+            "changes": [
+              {
+                "startDate": "2022-04-26",
+                "endDate": "2022-04-27",
+                "base": "1795.50"
+              }
+            ]
+          }
+        },
+        "policies": {
+          "guarantee": {
+            "acceptedPayments": {
+              "creditCards": [
+                "AX",
+                "UP",
+                "DC",
+                "JC",
+                "MC",
+                "VI"
+              ],
+              "methods": [
+                "TRAVEL_AGENT_ID",
+                "CORPORATE_ID",
+                "CREDIT_CARD"
+              ]
+            }
+          },
+          "paymentType": "guarantee",
+          "cancellation": {
+            "deadline": "2022-04-25T15:00:00+01:00"
+          }
+        },
+        "self": "https://test.api.amadeus.com/v2/shopping/hotel-offers/02142STOAY",
+        "cancelPolicyHash": "4D0B6F834E83BA3ABB2401E31EAB71EDF50437BAF499A92C43281C6C4EA1DB2D"
+      },
+      {
+        "id": "ZLDFSAC3GS",
+        "checkInDate": "2022-04-26",
+        "checkOutDate": "2022-04-27",
+        "rateCode": "PRO",
+        "commission": {
+          "percentage": "10.0"
+        },
+        "boardType": "BREAKFAST",
+        "room": {
+          "type": "E1K",
+          "typeEstimated": {
+            "category": "SUITE",
+            "beds": 1,
+            "bedType": "KING"
+          },
+          "description": {
+            "text": "The Londoner Platinum Programme\nCAPITAL SUITE UP TO 86 SQM GIFTS DRINKS TROLLEY\n10 PCT DISCOUNT 75 GBP F B CREDIT BREAKFAST ECI",
+            "lang": "EN"
+          }
+        },
+        "guests": {
+          "adults": 1
+        },
+        "price": {
+          "currency": "GBP",
+          "total": "2515.50",
+          "taxes": [
+            {
+              "code": "VAT_GST_TAX",
+              "percentage": "20.00",
+              "included": true
+            }
+          ],
+          "variations": {
+            "average": {
+              "base": "2515.50"
+            },
+            "changes": [
+              {
+                "startDate": "2022-04-26",
+                "endDate": "2022-04-27",
+                "base": "2515.50"
+              }
+            ]
+          }
+        },
+        "policies": {
+          "guarantee": {
+            "acceptedPayments": {
+              "creditCards": [
+                "AX",
+                "UP",
+                "DC",
+                "JC",
+                "MC",
+                "VI"
+              ],
+              "methods": [
+                "TRAVEL_AGENT_ID",
+                "CORPORATE_ID",
+                "CREDIT_CARD"
+              ]
+            }
+          },
+          "paymentType": "guarantee",
+          "cancellation": {
+            "deadline": "2022-04-25T15:00:00+01:00"
+          }
+        },
+        "self": "https://test.api.amadeus.com/v2/shopping/hotel-offers/ZLDFSAC3GS",
+        "cancelPolicyHash": "4D0B6F834E83BA3ABB2401E31EAB71EDF50437BAF499A92C43281C6C4EA1DB2D"
+      },
+      {
+        "id": "KVJH34K83X",
+        "checkInDate": "2022-04-26",
+        "checkOutDate": "2022-04-27",
+        "rateCode": "SNR",
+        "category": "SRS",
+        "commission": {
+          "percentage": "10.0"
+        },
+        "room": {
+          "type": "C1K",
+          "typeEstimated": {
+            "category": "STANDARD_ROOM",
+            "beds": 1,
+            "bedType": "KING"
+          },
+          "description": {
+            "text": "American Association Retired Persons\nKING ROOM UP TO 24 SQM FREE 150MBPS WIFI ENTRY\nAARP MEMBER ID REQUIRED UPON CHECK IN 10 PCT",
+            "lang": "EN"
+          }
+        },
+        "guests": {
+          "adults": 1
+        },
+        "price": {
+          "currency": "GBP",
+          "total": "517.29",
+          "taxes": [
+            {
+              "code": "VAT_GST_TAX",
+              "percentage": "20.00",
+              "included": false
+            }
+          ],
+          "variations": {
+            "average": {
+              "base": "431.08"
+            },
+            "changes": [
+              {
+                "startDate": "2022-04-26",
+                "endDate": "2022-04-27",
+                "base": "431.08"
+              }
+            ]
+          }
+        },
+        "policies": {
+          "guarantee": {
+            "acceptedPayments": {
+              "creditCards": [
+                "AX",
+                "UP",
+                "DC",
+                "JC",
+                "MC",
+                "VI"
+              ],
+              "methods": [
+                "TRAVEL_AGENT_ID",
+                "CORPORATE_ID",
+                "CREDIT_CARD"
+              ]
+            }
+          },
+          "paymentType": "guarantee",
+          "cancellation": {
+            "deadline": "2022-04-25T15:00:00+01:00"
+          }
+        },
+        "self": "https://test.api.amadeus.com/v2/shopping/hotel-offers/KVJH34K83X",
+        "cancelPolicyHash": "4D0B6F834E83BA3ABB2401E31EAB71EDF50437BAF499A92C43281C6C4EA1DB2D"
+      },
+      {
+        "id": "N7PCGX1EBU",
+        "checkInDate": "2022-04-26",
+        "checkOutDate": "2022-04-27",
+        "rateCode": "TVL",
+        "rateFamilyEstimated": {
+          "code": "TVL",
+          "type": "C"
+        },
+        "category": "TVL",
+        "room": {
+          "type": "C1K",
+          "typeEstimated": {
+            "category": "STANDARD_ROOM",
+            "beds": 1,
+            "bedType": "KING"
+          },
+          "description": {
+            "text": "Travel Agent Rate\nKING ROOM UP TO 24 SQM FREE 150MBPS WIFI ENTRY\nTVL AGENT ID REQUIRED UPON CHECK IN FREE WIFI",
+            "lang": "EN"
+          }
+        },
+        "guests": {
+          "adults": 1
+        },
+        "price": {
+          "currency": "GBP",
+          "total": "373.75",
+          "taxes": [
+            {
+              "code": "VAT_GST_TAX",
+              "percentage": "20.00",
+              "included": true
+            }
+          ],
+          "variations": {
+            "average": {
+              "base": "373.75"
+            },
+            "changes": [
+              {
+                "startDate": "2022-04-26",
+                "endDate": "2022-04-27",
+                "base": "373.75"
+              }
+            ]
+          }
+        },
+        "policies": {
+          "guarantee": {
+            "acceptedPayments": {
+              "creditCards": [
+                "AX",
+                "UP",
+                "DC",
+                "JC",
+                "MC",
+                "VI"
+              ],
+              "methods": [
+                "TRAVEL_AGENT_ID",
+                "CORPORATE_ID",
+                "CREDIT_CARD"
+              ]
+            }
+          },
+          "paymentType": "guarantee",
+          "cancellation": {
+            "deadline": "2022-04-25T15:00:00+01:00"
+          }
+        },
+        "self": "https://test.api.amadeus.com/v2/shopping/hotel-offers/N7PCGX1EBU",
+        "cancelPolicyHash": "4D0B6F834E83BA3ABB2401E31EAB71EDF50437BAF499A92C43281C6C4EA1DB2D"
+      },
+      {
+        "id": "FJZANWPHZR",
+        "checkInDate": "2022-04-26",
+        "checkOutDate": "2022-04-27",
+        "rateCode": "SN0",
+        "rateFamilyEstimated": {
+          "code": "SRS",
+          "type": "C"
+        },
+        "category": "SRS",
+        "commission": {
+          "percentage": "10.0"
+        },
+        "room": {
+          "type": "C1K",
+          "typeEstimated": {
+            "category": "STANDARD_ROOM",
+            "beds": 1,
+            "bedType": "KING"
+          },
+          "description": {
+            "text": "Senior Citizen\nKING ROOM UP TO 24 SQM FREE 150MBPS WIFI ENTRY",
+            "lang": "EN"
+          }
+        },
+        "guests": {
+          "adults": 1
+        },
+        "price": {
+          "currency": "GBP",
+          "total": "517.29",
+          "taxes": [
+            {
+              "code": "VAT_GST_TAX",
+              "percentage": "20.00",
+              "included": false
+            }
+          ],
+          "variations": {
+            "average": {
+              "base": "431.08"
+            },
+            "changes": [
+              {
+                "startDate": "2022-04-26",
+                "endDate": "2022-04-27",
+                "base": "431.08"
+              }
+            ]
+          }
+        },
+        "policies": {
+          "guarantee": {
+            "acceptedPayments": {
+              "creditCards": [
+                "AX",
+                "UP",
+                "DC",
+                "JC",
+                "MC",
+                "VI"
+              ],
+              "methods": [
+                "TRAVEL_AGENT_ID",
+                "CORPORATE_ID",
+                "CREDIT_CARD"
+              ]
+            }
+          },
+          "paymentType": "guarantee",
+          "cancellation": {
+            "deadline": "2022-04-25T15:00:00+01:00"
+          }
+        },
+        "self": "https://test.api.amadeus.com/v2/shopping/hotel-offers/FJZANWPHZR",
+        "cancelPolicyHash": "4D0B6F834E83BA3ABB2401E31EAB71EDF50437BAF499A92C43281C6C4EA1DB2D"
+      },
+      {
+        "id": "CYGD6Y4FBV",
+        "checkInDate": "2022-04-26",
+        "checkOutDate": "2022-04-27",
+        "rateCode": "AAA",
+        "rateFamilyEstimated": {
+          "code": "AAA",
+          "type": "C"
+        },
+        "category": "PRO",
+        "commission": {
+          "percentage": "10.0"
+        },
+        "room": {
+          "type": "C1K",
+          "typeEstimated": {
+            "category": "STANDARD_ROOM",
+            "beds": 1,
+            "bedType": "KING"
+          },
+          "description": {
+            "text": "American Automobile Association\nKING ROOM UP TO 24 SQM FREE 150MBPS WIFI ENTRY\nAAA CAA MEMBERS ID REQUIRED UPON CHECK IN 10",
+            "lang": "EN"
+          }
+        },
+        "guests": {
+          "adults": 1
+        },
+        "price": {
+          "currency": "GBP",
+          "total": "517.29",
+          "taxes": [
+            {
+              "code": "VAT_GST_TAX",
+              "percentage": "20.00",
+              "included": false
+            }
+          ],
+          "variations": {
+            "average": {
+              "base": "431.08"
+            },
+            "changes": [
+              {
+                "startDate": "2022-04-26",
+                "endDate": "2022-04-27",
+                "base": "431.08"
+              }
+            ]
+          }
+        },
+        "policies": {
+          "guarantee": {
+            "acceptedPayments": {
+              "creditCards": [
+                "AX",
+                "UP",
+                "DC",
+                "JC",
+                "MC",
+                "VI"
+              ],
+              "methods": [
+                "TRAVEL_AGENT_ID",
+                "CORPORATE_ID",
+                "CREDIT_CARD"
+              ]
+            }
+          },
+          "paymentType": "guarantee",
+          "cancellation": {
+            "deadline": "2022-04-25T15:00:00+01:00"
+          }
+        },
+        "self": "https://test.api.amadeus.com/v2/shopping/hotel-offers/CYGD6Y4FBV",
+        "cancelPolicyHash": "4D0B6F834E83BA3ABB2401E31EAB71EDF50437BAF499A92C43281C6C4EA1DB2D"
+      },
+      {
+        "id": "M9ZAZ98AMP",
+        "checkInDate": "2022-04-26",
+        "checkOutDate": "2022-04-27",
+        "rateCode": "GOV",
+        "rateFamilyEstimated": {
+          "code": "GOV",
+          "type": "C"
+        },
+        "category": "GOV",
+        "commission": {
+          "percentage": "10.0"
+        },
+        "room": {
+          "type": "C1K",
+          "typeEstimated": {
+            "category": "STANDARD_ROOM",
+            "beds": 1,
+            "bedType": "KING"
+          },
+          "description": {
+            "text": "Government Rates\nKING ROOM UP TO 24 SQM FREE 150MBPS WIFI ENTRY\nGOV RATE ID REQUIRED UPON CHECK IN 10 PCT",
+            "lang": "EN"
+          }
+        },
+        "guests": {
+          "adults": 1
+        },
+        "price": {
+          "currency": "GBP",
+          "total": "517.29",
+          "taxes": [
+            {
+              "code": "VAT_GST_TAX",
+              "percentage": "20.00",
+              "included": false
+            }
+          ],
+          "variations": {
+            "average": {
+              "base": "431.08"
+            },
+            "changes": [
+              {
+                "startDate": "2022-04-26",
+                "endDate": "2022-04-27",
+                "base": "431.08"
+              }
+            ]
+          }
+        },
+        "policies": {
+          "guarantee": {
+            "acceptedPayments": {
+              "creditCards": [
+                "AX",
+                "UP",
+                "DC",
+                "JC",
+                "MC",
+                "VI"
+              ],
+              "methods": [
+                "TRAVEL_AGENT_ID",
+                "CORPORATE_ID",
+                "CREDIT_CARD"
+              ]
+            }
+          },
+          "paymentType": "guarantee",
+          "cancellation": {
+            "deadline": "2022-04-25T15:00:00+01:00"
+          }
+        },
+        "self": "https://test.api.amadeus.com/v2/shopping/hotel-offers/M9ZAZ98AMP",
+        "cancelPolicyHash": "4D0B6F834E83BA3ABB2401E31EAB71EDF50437BAF499A92C43281C6C4EA1DB2D"
+      },
+      {
+        "id": "5NTVBHNWS6",
+        "checkInDate": "2022-04-26",
+        "checkOutDate": "2022-04-27",
+        "rateCode": "GOV",
+        "rateFamilyEstimated": {
+          "code": "GOV",
+          "type": "C"
+        },
+        "category": "GOV",
+        "commission": {
+          "percentage": "10.0"
+        },
+        "room": {
+          "type": "A1K",
+          "typeEstimated": {
+            "category": "DELUXE_ROOM",
+            "beds": 1,
+            "bedType": "KING"
+          },
+          "description": {
+            "text": "Government Rates\nDELUXE KING ROOM UP TO 29 SQM FREE 150MPBS WIFI\nGOV RATE ID REQUIRED UPON CHECK IN 10 PCT",
+            "lang": "EN"
+          }
+        },
+        "guests": {
+          "adults": 1
+        },
+        "price": {
+          "currency": "GBP",
+          "total": "571.27",
+          "taxes": [
+            {
+              "code": "VAT_GST_TAX",
+              "percentage": "20.00",
+              "included": false
+            }
+          ],
+          "variations": {
+            "average": {
+              "base": "476.06"
+            },
+            "changes": [
+              {
+                "startDate": "2022-04-26",
+                "endDate": "2022-04-27",
+                "base": "476.06"
+              }
+            ]
+          }
+        },
+        "policies": {
+          "guarantee": {
+            "acceptedPayments": {
+              "creditCards": [
+                "AX",
+                "UP",
+                "DC",
+                "JC",
+                "MC",
+                "VI"
+              ],
+              "methods": [
+                "TRAVEL_AGENT_ID",
+                "CORPORATE_ID",
+                "CREDIT_CARD"
+              ]
+            }
+          },
+          "paymentType": "guarantee",
+          "cancellation": {
+            "deadline": "2022-04-25T15:00:00+01:00"
+          }
+        },
+        "self": "https://test.api.amadeus.com/v2/shopping/hotel-offers/5NTVBHNWS6",
+        "cancelPolicyHash": "4D0B6F834E83BA3ABB2401E31EAB71EDF50437BAF499A92C43281C6C4EA1DB2D"
+      },
+      {
+        "id": "LR0A74FTNS",
+        "checkInDate": "2022-04-26",
+        "checkOutDate": "2022-04-27",
+        "rateCode": "TVL",
+        "rateFamilyEstimated": {
+          "code": "TVL",
+          "type": "C"
+        },
+        "category": "TVL",
+        "room": {
+          "type": "A1K",
+          "typeEstimated": {
+            "category": "DELUXE_ROOM",
+            "beds": 1,
+            "bedType": "KING"
+          },
+          "description": {
+            "text": "Travel Agent Rate\nDELUXE KING ROOM UP TO 29 SQM FREE 150MPBS WIFI\nTVL AGENT ID REQUIRED UPON CHECK IN FREE WIFI",
+            "lang": "EN"
+          }
+        },
+        "guests": {
+          "adults": 1
+        },
+        "price": {
+          "currency": "GBP",
+          "total": "412.75",
+          "taxes": [
+            {
+              "code": "VAT_GST_TAX",
+              "percentage": "20.00",
+              "included": true
+            }
+          ],
+          "variations": {
+            "average": {
+              "base": "412.75"
+            },
+            "changes": [
+              {
+                "startDate": "2022-04-26",
+                "endDate": "2022-04-27",
+                "base": "412.75"
+              }
+            ]
+          }
+        },
+        "policies": {
+          "guarantee": {
+            "acceptedPayments": {
+              "creditCards": [
+                "AX",
+                "UP",
+                "DC",
+                "JC",
+                "MC",
+                "VI"
+              ],
+              "methods": [
+                "TRAVEL_AGENT_ID",
+                "CORPORATE_ID",
+                "CREDIT_CARD"
+              ]
+            }
+          },
+          "paymentType": "guarantee",
+          "cancellation": {
+            "deadline": "2022-04-25T15:00:00+01:00"
+          }
+        },
+        "self": "https://test.api.amadeus.com/v2/shopping/hotel-offers/LR0A74FTNS",
+        "cancelPolicyHash": "4D0B6F834E83BA3ABB2401E31EAB71EDF50437BAF499A92C43281C6C4EA1DB2D"
+      },
+      {
+        "id": "R1WEIYZUEI",
+        "checkInDate": "2022-04-26",
+        "checkOutDate": "2022-04-27",
+        "rateCode": "SNR",
+        "category": "SRS",
+        "commission": {
+          "percentage": "10.0"
+        },
+        "room": {
+          "type": "A1K",
+          "typeEstimated": {
+            "category": "DELUXE_ROOM",
+            "beds": 1,
+            "bedType": "KING"
+          },
+          "description": {
+            "text": "American Association Retired Persons\nDELUXE KING ROOM UP TO 29 SQM FREE 150MPBS WIFI\nAARP MEMBER ID REQUIRED UPON CHECK IN 10 PCT",
+            "lang": "EN"
+          }
+        },
+        "guests": {
+          "adults": 1
+        },
+        "price": {
+          "currency": "GBP",
+          "total": "571.27",
+          "taxes": [
+            {
+              "code": "VAT_GST_TAX",
+              "percentage": "20.00",
+              "included": false
+            }
+          ],
+          "variations": {
+            "average": {
+              "base": "476.06"
+            },
+            "changes": [
+              {
+                "startDate": "2022-04-26",
+                "endDate": "2022-04-27",
+                "base": "476.06"
+              }
+            ]
+          }
+        },
+        "policies": {
+          "guarantee": {
+            "acceptedPayments": {
+              "creditCards": [
+                "AX",
+                "UP",
+                "DC",
+                "JC",
+                "MC",
+                "VI"
+              ],
+              "methods": [
+                "TRAVEL_AGENT_ID",
+                "CORPORATE_ID",
+                "CREDIT_CARD"
+              ]
+            }
+          },
+          "paymentType": "guarantee",
+          "cancellation": {
+            "deadline": "2022-04-25T15:00:00+01:00"
+          }
+        },
+        "self": "https://test.api.amadeus.com/v2/shopping/hotel-offers/R1WEIYZUEI",
+        "cancelPolicyHash": "4D0B6F834E83BA3ABB2401E31EAB71EDF50437BAF499A92C43281C6C4EA1DB2D"
+      },
+      {
+        "id": "A5RIL6FRKN",
+        "checkInDate": "2022-04-26",
+        "checkOutDate": "2022-04-27",
+        "rateCode": "AAA",
+        "rateFamilyEstimated": {
+          "code": "AAA",
+          "type": "C"
+        },
+        "category": "PRO",
+        "commission": {
+          "percentage": "10.0"
+        },
+        "room": {
+          "type": "A1K",
+          "typeEstimated": {
+            "category": "DELUXE_ROOM",
+            "beds": 1,
+            "bedType": "KING"
+          },
+          "description": {
+            "text": "American Automobile Association\nDELUXE KING ROOM UP TO 29 SQM FREE 150MPBS WIFI\nAAA CAA MEMBERS ID REQUIRED UPON CHECK IN 10",
+            "lang": "EN"
+          }
+        },
+        "guests": {
+          "adults": 1
+        },
+        "price": {
+          "currency": "GBP",
+          "total": "571.27",
+          "taxes": [
+            {
+              "code": "VAT_GST_TAX",
+              "percentage": "20.00",
+              "included": false
+            }
+          ],
+          "variations": {
+            "average": {
+              "base": "476.06"
+            },
+            "changes": [
+              {
+                "startDate": "2022-04-26",
+                "endDate": "2022-04-27",
+                "base": "476.06"
+              }
+            ]
+          }
+        },
+        "policies": {
+          "guarantee": {
+            "acceptedPayments": {
+              "creditCards": [
+                "AX",
+                "UP",
+                "DC",
+                "JC",
+                "MC",
+                "VI"
+              ],
+              "methods": [
+                "TRAVEL_AGENT_ID",
+                "CORPORATE_ID",
+                "CREDIT_CARD"
+              ]
+            }
+          },
+          "paymentType": "guarantee",
+          "cancellation": {
+            "deadline": "2022-04-25T15:00:00+01:00"
+          }
+        },
+        "self": "https://test.api.amadeus.com/v2/shopping/hotel-offers/A5RIL6FRKN",
+        "cancelPolicyHash": "4D0B6F834E83BA3ABB2401E31EAB71EDF50437BAF499A92C43281C6C4EA1DB2D"
+      },
+      {
+        "id": "DYZCWHSHPP",
+        "checkInDate": "2022-04-26",
+        "checkOutDate": "2022-04-27",
+        "rateCode": "SN0",
+        "rateFamilyEstimated": {
+          "code": "SRS",
+          "type": "C"
+        },
+        "category": "SRS",
+        "commission": {
+          "percentage": "10.0"
+        },
+        "room": {
+          "type": "A1K",
+          "typeEstimated": {
+            "category": "DELUXE_ROOM",
+            "beds": 1,
+            "bedType": "KING"
+          },
+          "description": {
+            "text": "Senior Citizen\nDELUXE KING ROOM UP TO 29 SQM FREE 150MPBS WIFI",
+            "lang": "EN"
+          }
+        },
+        "guests": {
+          "adults": 1
+        },
+        "price": {
+          "currency": "GBP",
+          "total": "571.27",
+          "taxes": [
+            {
+              "code": "VAT_GST_TAX",
+              "percentage": "20.00",
+              "included": false
+            }
+          ],
+          "variations": {
+            "average": {
+              "base": "476.06"
+            },
+            "changes": [
+              {
+                "startDate": "2022-04-26",
+                "endDate": "2022-04-27",
+                "base": "476.06"
+              }
+            ]
+          }
+        },
+        "policies": {
+          "guarantee": {
+            "acceptedPayments": {
+              "creditCards": [
+                "AX",
+                "UP",
+                "DC",
+                "JC",
+                "MC",
+                "VI"
+              ],
+              "methods": [
+                "TRAVEL_AGENT_ID",
+                "CORPORATE_ID",
+                "CREDIT_CARD"
+              ]
+            }
+          },
+          "paymentType": "guarantee",
+          "cancellation": {
+            "deadline": "2022-04-25T15:00:00+01:00"
+          }
+        },
+        "self": "https://test.api.amadeus.com/v2/shopping/hotel-offers/DYZCWHSHPP",
+        "cancelPolicyHash": "4D0B6F834E83BA3ABB2401E31EAB71EDF50437BAF499A92C43281C6C4EA1DB2D"
+      },
+      {
+        "id": "FGN7UFZN1K",
+        "checkInDate": "2022-04-26",
+        "checkOutDate": "2022-04-27",
+        "rateCode": "AAA",
+        "rateFamilyEstimated": {
+          "code": "AAA",
+          "type": "C"
+        },
+        "category": "PRO",
+        "commission": {
+          "percentage": "10.0"
+        },
+        "room": {
+          "type": "D1K",
+          "typeEstimated": {
+            "category": "DELUXE_ROOM",
+            "beds": 1,
+            "bedType": "KING"
+          },
+          "description": {
+            "text": "American Automobile Association\nDELUXE KING CITY VIEW UP TO 29 SQM FREE WIFI\nAAA CAA MEMBERS ID REQUIRED UPON CHECK IN 10",
+            "lang": "EN"
+          }
+        },
+        "guests": {
+          "adults": 1
+        },
+        "price": {
+          "currency": "GBP",
+          "total": "610.86",
+          "taxes": [
+            {
+              "code": "VAT_GST_TAX",
+              "percentage": "20.00",
+              "included": false
+            }
+          ],
+          "variations": {
+            "average": {
+              "base": "509.05"
+            },
+            "changes": [
+              {
+                "startDate": "2022-04-26",
+                "endDate": "2022-04-27",
+                "base": "509.05"
+              }
+            ]
+          }
+        },
+        "policies": {
+          "guarantee": {
+            "acceptedPayments": {
+              "creditCards": [
+                "AX",
+                "UP",
+                "DC",
+                "JC",
+                "MC",
+                "VI"
+              ],
+              "methods": [
+                "TRAVEL_AGENT_ID",
+                "CORPORATE_ID",
+                "CREDIT_CARD"
+              ]
+            }
+          },
+          "paymentType": "guarantee",
+          "cancellation": {
+            "deadline": "2022-04-25T15:00:00+01:00"
+          }
+        },
+        "self": "https://test.api.amadeus.com/v2/shopping/hotel-offers/FGN7UFZN1K",
+        "cancelPolicyHash": "4D0B6F834E83BA3ABB2401E31EAB71EDF50437BAF499A92C43281C6C4EA1DB2D"
+      },
+      {
+        "id": "BPMXNCCN9Y",
+        "checkInDate": "2022-04-26",
+        "checkOutDate": "2022-04-27",
+        "rateCode": "SN0",
+        "rateFamilyEstimated": {
+          "code": "SRS",
+          "type": "C"
+        },
+        "category": "SRS",
+        "commission": {
+          "percentage": "10.0"
+        },
+        "room": {
+          "type": "D1K",
+          "typeEstimated": {
+            "category": "DELUXE_ROOM",
+            "beds": 1,
+            "bedType": "KING"
+          },
+          "description": {
+            "text": "Senior Citizen\nDELUXE KING CITY VIEW UP TO 29 SQM FREE WIFI",
+            "lang": "EN"
+          }
+        },
+        "guests": {
+          "adults": 1
+        },
+        "price": {
+          "currency": "GBP",
+          "total": "610.86",
+          "taxes": [
+            {
+              "code": "VAT_GST_TAX",
+              "percentage": "20.00",
+              "included": false
+            }
+          ],
+          "variations": {
+            "average": {
+              "base": "509.05"
+            },
+            "changes": [
+              {
+                "startDate": "2022-04-26",
+                "endDate": "2022-04-27",
+                "base": "509.05"
+              }
+            ]
+          }
+        },
+        "policies": {
+          "guarantee": {
+            "acceptedPayments": {
+              "creditCards": [
+                "AX",
+                "UP",
+                "DC",
+                "JC",
+                "MC",
+                "VI"
+              ],
+              "methods": [
+                "TRAVEL_AGENT_ID",
+                "CORPORATE_ID",
+                "CREDIT_CARD"
+              ]
+            }
+          },
+          "paymentType": "guarantee",
+          "cancellation": {
+            "deadline": "2022-04-25T15:00:00+01:00"
+          }
+        },
+        "self": "https://test.api.amadeus.com/v2/shopping/hotel-offers/BPMXNCCN9Y",
+        "cancelPolicyHash": "4D0B6F834E83BA3ABB2401E31EAB71EDF50437BAF499A92C43281C6C4EA1DB2D"
+      },
+      {
+        "id": "SM2MCBIH7E",
+        "checkInDate": "2022-04-26",
+        "checkOutDate": "2022-04-27",
+        "rateCode": "SNR",
+        "category": "SRS",
+        "commission": {
+          "percentage": "10.0"
+        },
+        "room": {
+          "type": "D1K",
+          "typeEstimated": {
+            "category": "DELUXE_ROOM",
+            "beds": 1,
+            "bedType": "KING"
+          },
+          "description": {
+            "text": "American Association Retired Persons\nDELUXE KING CITY VIEW UP TO 29 SQM FREE WIFI\nAARP MEMBER ID REQUIRED UPON CHECK IN 10 PCT",
+            "lang": "EN"
+          }
+        },
+        "guests": {
+          "adults": 1
+        },
+        "price": {
+          "currency": "GBP",
+          "total": "610.86",
+          "taxes": [
+            {
+              "code": "VAT_GST_TAX",
+              "percentage": "20.00",
+              "included": false
+            }
+          ],
+          "variations": {
+            "average": {
+              "base": "509.05"
+            },
+            "changes": [
+              {
+                "startDate": "2022-04-26",
+                "endDate": "2022-04-27",
+                "base": "509.05"
+              }
+            ]
+          }
+        },
+        "policies": {
+          "guarantee": {
+            "acceptedPayments": {
+              "creditCards": [
+                "AX",
+                "UP",
+                "DC",
+                "JC",
+                "MC",
+                "VI"
+              ],
+              "methods": [
+                "TRAVEL_AGENT_ID",
+                "CORPORATE_ID",
+                "CREDIT_CARD"
+              ]
+            }
+          },
+          "paymentType": "guarantee",
+          "cancellation": {
+            "deadline": "2022-04-25T15:00:00+01:00"
+          }
+        },
+        "self": "https://test.api.amadeus.com/v2/shopping/hotel-offers/SM2MCBIH7E",
+        "cancelPolicyHash": "4D0B6F834E83BA3ABB2401E31EAB71EDF50437BAF499A92C43281C6C4EA1DB2D"
+      },
+      {
+        "id": "HP285HREBJ",
+        "checkInDate": "2022-04-26",
+        "checkOutDate": "2022-04-27",
+        "rateCode": "GOV",
+        "rateFamilyEstimated": {
+          "code": "GOV",
+          "type": "C"
+        },
+        "category": "GOV",
+        "commission": {
+          "percentage": "10.0"
+        },
+        "room": {
+          "type": "D1K",
+          "typeEstimated": {
+            "category": "DELUXE_ROOM",
+            "beds": 1,
+            "bedType": "KING"
+          },
+          "description": {
+            "text": "Government Rates\nDELUXE KING CITY VIEW UP TO 29 SQM FREE WIFI\nGOV RATE ID REQUIRED UPON CHECK IN 10 PCT",
+            "lang": "EN"
+          }
+        },
+        "guests": {
+          "adults": 1
+        },
+        "price": {
+          "currency": "GBP",
+          "total": "610.86",
+          "taxes": [
+            {
+              "code": "VAT_GST_TAX",
+              "percentage": "20.00",
+              "included": false
+            }
+          ],
+          "variations": {
+            "average": {
+              "base": "509.05"
+            },
+            "changes": [
+              {
+                "startDate": "2022-04-26",
+                "endDate": "2022-04-27",
+                "base": "509.05"
+              }
+            ]
+          }
+        },
+        "policies": {
+          "guarantee": {
+            "acceptedPayments": {
+              "creditCards": [
+                "AX",
+                "UP",
+                "DC",
+                "JC",
+                "MC",
+                "VI"
+              ],
+              "methods": [
+                "TRAVEL_AGENT_ID",
+                "CORPORATE_ID",
+                "CREDIT_CARD"
+              ]
+            }
+          },
+          "paymentType": "guarantee",
+          "cancellation": {
+            "deadline": "2022-04-25T15:00:00+01:00"
+          }
+        },
+        "self": "https://test.api.amadeus.com/v2/shopping/hotel-offers/HP285HREBJ",
+        "cancelPolicyHash": "4D0B6F834E83BA3ABB2401E31EAB71EDF50437BAF499A92C43281C6C4EA1DB2D"
+      },
+      {
+        "id": "AFYVAFHH8V",
+        "checkInDate": "2022-04-26",
+        "checkOutDate": "2022-04-27",
+        "rateCode": "TVL",
+        "rateFamilyEstimated": {
+          "code": "TVL",
+          "type": "C"
+        },
+        "category": "TVL",
+        "room": {
+          "type": "D1K",
+          "typeEstimated": {
+            "category": "DELUXE_ROOM",
+            "beds": 1,
+            "bedType": "KING"
+          },
+          "description": {
+            "text": "Travel Agent Rate\nDELUXE KING CITY VIEW UP TO 29 SQM FREE WIFI\nTVL AGENT ID REQUIRED UPON CHECK IN FREE WIFI",
+            "lang": "EN"
+          }
+        },
+        "guests": {
+          "adults": 1
+        },
+        "price": {
+          "currency": "GBP",
+          "total": "441.35",
+          "taxes": [
+            {
+              "code": "VAT_GST_TAX",
+              "percentage": "20.00",
+              "included": true
+            }
+          ],
+          "variations": {
+            "average": {
+              "base": "441.35"
+            },
+            "changes": [
+              {
+                "startDate": "2022-04-26",
+                "endDate": "2022-04-27",
+                "base": "441.35"
+              }
+            ]
+          }
+        },
+        "policies": {
+          "guarantee": {
+            "acceptedPayments": {
+              "creditCards": [
+                "AX",
+                "UP",
+                "DC",
+                "JC",
+                "MC",
+                "VI"
+              ],
+              "methods": [
+                "TRAVEL_AGENT_ID",
+                "CORPORATE_ID",
+                "CREDIT_CARD"
+              ]
+            }
+          },
+          "paymentType": "guarantee",
+          "cancellation": {
+            "deadline": "2022-04-25T15:00:00+01:00"
+          }
+        },
+        "self": "https://test.api.amadeus.com/v2/shopping/hotel-offers/AFYVAFHH8V",
+        "cancelPolicyHash": "4D0B6F834E83BA3ABB2401E31EAB71EDF50437BAF499A92C43281C6C4EA1DB2D"
+      },
+      {
+        "id": "JZ4VUQAFHV",
+        "checkInDate": "2022-04-26",
+        "checkOutDate": "2022-04-27",
+        "rateCode": "AAA",
+        "rateFamilyEstimated": {
+          "code": "AAA",
+          "type": "C"
+        },
+        "category": "PRO",
+        "commission": {
+          "percentage": "10.0"
+        },
+        "room": {
+          "type": "T1K",
+          "typeEstimated": {
+            "category": "SUITE",
+            "beds": 1,
+            "bedType": "KING"
+          },
+          "description": {
+            "text": "American Automobile Association\nJUNIOR SUITE UP TO 40 SQM FREE WIFI STUDIO FEEL\nAAA CAA MEMBERS ID REQUIRED UPON CHECK IN 10",
+            "lang": "EN"
+          }
+        },
+        "guests": {
+          "adults": 1
+        },
+        "price": {
+          "currency": "GBP",
+          "total": "985.11",
+          "taxes": [
+            {
+              "code": "VAT_GST_TAX",
+              "percentage": "20.00",
+              "included": false
+            }
+          ],
+          "variations": {
+            "average": {
+              "base": "820.92"
+            },
+            "changes": [
+              {
+                "startDate": "2022-04-26",
+                "endDate": "2022-04-27",
+                "base": "820.92"
+              }
+            ]
+          }
+        },
+        "policies": {
+          "guarantee": {
+            "acceptedPayments": {
+              "creditCards": [
+                "AX",
+                "UP",
+                "DC",
+                "JC",
+                "MC",
+                "VI"
+              ],
+              "methods": [
+                "TRAVEL_AGENT_ID",
+                "CORPORATE_ID",
+                "CREDIT_CARD"
+              ]
+            }
+          },
+          "paymentType": "guarantee",
+          "cancellation": {
+            "deadline": "2022-04-25T15:00:00+01:00"
+          }
+        },
+        "self": "https://test.api.amadeus.com/v2/shopping/hotel-offers/JZ4VUQAFHV",
+        "cancelPolicyHash": "4D0B6F834E83BA3ABB2401E31EAB71EDF50437BAF499A92C43281C6C4EA1DB2D"
+      },
+      {
+        "id": "KIZ6HOFMDM",
+        "checkInDate": "2022-04-26",
+        "checkOutDate": "2022-04-27",
+        "rateCode": "SN0",
+        "rateFamilyEstimated": {
+          "code": "SRS",
+          "type": "C"
+        },
+        "category": "SRS",
+        "commission": {
+          "percentage": "10.0"
+        },
+        "room": {
+          "type": "T1K",
+          "typeEstimated": {
+            "category": "SUITE",
+            "beds": 1,
+            "bedType": "KING"
+          },
+          "description": {
+            "text": "Senior Citizen\nJUNIOR SUITE UP TO 40 SQM FREE WIFI STUDIO FEEL",
+            "lang": "EN"
+          }
+        },
+        "guests": {
+          "adults": 1
+        },
+        "price": {
+          "currency": "GBP",
+          "total": "985.11",
+          "taxes": [
+            {
+              "code": "VAT_GST_TAX",
+              "percentage": "20.00",
+              "included": false
+            }
+          ],
+          "variations": {
+            "average": {
+              "base": "820.92"
+            },
+            "changes": [
+              {
+                "startDate": "2022-04-26",
+                "endDate": "2022-04-27",
+                "base": "820.92"
+              }
+            ]
+          }
+        },
+        "policies": {
+          "guarantee": {
+            "acceptedPayments": {
+              "creditCards": [
+                "AX",
+                "UP",
+                "DC",
+                "JC",
+                "MC",
+                "VI"
+              ],
+              "methods": [
+                "TRAVEL_AGENT_ID",
+                "CORPORATE_ID",
+                "CREDIT_CARD"
+              ]
+            }
+          },
+          "paymentType": "guarantee",
+          "cancellation": {
+            "deadline": "2022-04-25T15:00:00+01:00"
+          }
+        },
+        "self": "https://test.api.amadeus.com/v2/shopping/hotel-offers/KIZ6HOFMDM",
+        "cancelPolicyHash": "4D0B6F834E83BA3ABB2401E31EAB71EDF50437BAF499A92C43281C6C4EA1DB2D"
+      },
+      {
+        "id": "JZCUCBM88M",
+        "checkInDate": "2022-04-26",
+        "checkOutDate": "2022-04-27",
+        "rateCode": "GOV",
+        "rateFamilyEstimated": {
+          "code": "GOV",
+          "type": "C"
+        },
+        "category": "GOV",
+        "commission": {
+          "percentage": "10.0"
+        },
+        "room": {
+          "type": "T1K",
+          "typeEstimated": {
+            "category": "SUITE",
+            "beds": 1,
+            "bedType": "KING"
+          },
+          "description": {
+            "text": "Government Rates\nJUNIOR SUITE UP TO 40 SQM FREE WIFI STUDIO FEEL\nGOV RATE ID REQUIRED UPON CHECK IN 10 PCT",
+            "lang": "EN"
+          }
+        },
+        "guests": {
+          "adults": 1
+        },
+        "price": {
+          "currency": "GBP",
+          "total": "985.11",
+          "taxes": [
+            {
+              "code": "VAT_GST_TAX",
+              "percentage": "20.00",
+              "included": false
+            }
+          ],
+          "variations": {
+            "average": {
+              "base": "820.92"
+            },
+            "changes": [
+              {
+                "startDate": "2022-04-26",
+                "endDate": "2022-04-27",
+                "base": "820.92"
+              }
+            ]
+          }
+        },
+        "policies": {
+          "guarantee": {
+            "acceptedPayments": {
+              "creditCards": [
+                "AX",
+                "UP",
+                "DC",
+                "JC",
+                "MC",
+                "VI"
+              ],
+              "methods": [
+                "TRAVEL_AGENT_ID",
+                "CORPORATE_ID",
+                "CREDIT_CARD"
+              ]
+            }
+          },
+          "paymentType": "guarantee",
+          "cancellation": {
+            "deadline": "2022-04-25T15:00:00+01:00"
+          }
+        },
+        "self": "https://test.api.amadeus.com/v2/shopping/hotel-offers/JZCUCBM88M",
+        "cancelPolicyHash": "4D0B6F834E83BA3ABB2401E31EAB71EDF50437BAF499A92C43281C6C4EA1DB2D"
+      },
+      {
+        "id": "5RQ05E3SSK",
+        "checkInDate": "2022-04-26",
+        "checkOutDate": "2022-04-27",
+        "rateCode": "SNR",
+        "category": "SRS",
+        "commission": {
+          "percentage": "10.0"
+        },
+        "room": {
+          "type": "T1K",
+          "typeEstimated": {
+            "category": "SUITE",
+            "beds": 1,
+            "bedType": "KING"
+          },
+          "description": {
+            "text": "American Association Retired Persons\nJUNIOR SUITE UP TO 40 SQM FREE WIFI STUDIO FEEL\nAARP MEMBER ID REQUIRED UPON CHECK IN 10 PCT",
+            "lang": "EN"
+          }
+        },
+        "guests": {
+          "adults": 1
+        },
+        "price": {
+          "currency": "GBP",
+          "total": "985.11",
+          "taxes": [
+            {
+              "code": "VAT_GST_TAX",
+              "percentage": "20.00",
+              "included": false
+            }
+          ],
+          "variations": {
+            "average": {
+              "base": "820.92"
+            },
+            "changes": [
+              {
+                "startDate": "2022-04-26",
+                "endDate": "2022-04-27",
+                "base": "820.92"
+              }
+            ]
+          }
+        },
+        "policies": {
+          "guarantee": {
+            "acceptedPayments": {
+              "creditCards": [
+                "AX",
+                "UP",
+                "DC",
+                "JC",
+                "MC",
+                "VI"
+              ],
+              "methods": [
+                "TRAVEL_AGENT_ID",
+                "CORPORATE_ID",
+                "CREDIT_CARD"
+              ]
+            }
+          },
+          "paymentType": "guarantee",
+          "cancellation": {
+            "deadline": "2022-04-25T15:00:00+01:00"
+          }
+        },
+        "self": "https://test.api.amadeus.com/v2/shopping/hotel-offers/5RQ05E3SSK",
+        "cancelPolicyHash": "4D0B6F834E83BA3ABB2401E31EAB71EDF50437BAF499A92C43281C6C4EA1DB2D"
+      },
+      {
+        "id": "MT3V31FY7Z",
+        "checkInDate": "2022-04-26",
+        "checkOutDate": "2022-04-27",
+        "rateCode": "SNR",
+        "category": "SRS",
+        "commission": {
+          "percentage": "10.0"
+        },
+        "room": {
+          "type": "U1K",
+          "typeEstimated": {
+            "category": "SUITE",
+            "beds": 1,
+            "bedType": "KING"
+          },
+          "description": {
+            "text": "American Association Retired Persons\nCORNER SUITE UP TO 52 SQM VIP SERVICES GIFTS\nAARP MEMBER ID REQUIRED UPON CHECK IN 10 PCT",
+            "lang": "EN"
+          }
+        },
+        "guests": {
+          "adults": 1
+        },
+        "price": {
+          "currency": "GBP",
+          "total": "1794.78",
+          "taxes": [
+            {
+              "code": "VAT_GST_TAX",
+              "percentage": "20.00",
+              "included": false
+            }
+          ],
+          "variations": {
+            "average": {
+              "base": "1495.65"
+            },
+            "changes": [
+              {
+                "startDate": "2022-04-26",
+                "endDate": "2022-04-27",
+                "base": "1495.65"
+              }
+            ]
+          }
+        },
+        "policies": {
+          "guarantee": {
+            "acceptedPayments": {
+              "creditCards": [
+                "AX",
+                "UP",
+                "DC",
+                "JC",
+                "MC",
+                "VI"
+              ],
+              "methods": [
+                "TRAVEL_AGENT_ID",
+                "CORPORATE_ID",
+                "CREDIT_CARD"
+              ]
+            }
+          },
+          "paymentType": "guarantee",
+          "cancellation": {
+            "deadline": "2022-04-25T15:00:00+01:00"
+          }
+        },
+        "self": "https://test.api.amadeus.com/v2/shopping/hotel-offers/MT3V31FY7Z",
+        "cancelPolicyHash": "4D0B6F834E83BA3ABB2401E31EAB71EDF50437BAF499A92C43281C6C4EA1DB2D"
+      },
+      {
+        "id": "8ENQCZRFMD",
+        "checkInDate": "2022-04-26",
+        "checkOutDate": "2022-04-27",
+        "rateCode": "SN0",
+        "rateFamilyEstimated": {
+          "code": "SRS",
+          "type": "C"
+        },
+        "category": "SRS",
+        "commission": {
+          "percentage": "10.0"
+        },
+        "room": {
+          "type": "U1K",
+          "typeEstimated": {
+            "category": "SUITE",
+            "beds": 1,
+            "bedType": "KING"
+          },
+          "description": {
+            "text": "Senior Citizen\nCORNER SUITE UP TO 52 SQM VIP SERVICES GIFTS",
+            "lang": "EN"
+          }
+        },
+        "guests": {
+          "adults": 1
+        },
+        "price": {
+          "currency": "GBP",
+          "total": "1794.78",
+          "taxes": [
+            {
+              "code": "VAT_GST_TAX",
+              "percentage": "20.00",
+              "included": false
+            }
+          ],
+          "variations": {
+            "average": {
+              "base": "1495.65"
+            },
+            "changes": [
+              {
+                "startDate": "2022-04-26",
+                "endDate": "2022-04-27",
+                "base": "1495.65"
+              }
+            ]
+          }
+        },
+        "policies": {
+          "guarantee": {
+            "acceptedPayments": {
+              "creditCards": [
+                "AX",
+                "UP",
+                "DC",
+                "JC",
+                "MC",
+                "VI"
+              ],
+              "methods": [
+                "TRAVEL_AGENT_ID",
+                "CORPORATE_ID",
+                "CREDIT_CARD"
+              ]
+            }
+          },
+          "paymentType": "guarantee",
+          "cancellation": {
+            "deadline": "2022-04-25T15:00:00+01:00"
+          }
+        },
+        "self": "https://test.api.amadeus.com/v2/shopping/hotel-offers/8ENQCZRFMD",
+        "cancelPolicyHash": "4D0B6F834E83BA3ABB2401E31EAB71EDF50437BAF499A92C43281C6C4EA1DB2D"
+      },
+      {
+        "id": "E7VH0CNKJQ",
+        "checkInDate": "2022-04-26",
+        "checkOutDate": "2022-04-27",
+        "rateCode": "GOV",
+        "rateFamilyEstimated": {
+          "code": "GOV",
+          "type": "C"
+        },
+        "category": "GOV",
+        "commission": {
+          "percentage": "10.0"
+        },
+        "room": {
+          "type": "U1K",
+          "typeEstimated": {
+            "category": "SUITE",
+            "beds": 1,
+            "bedType": "KING"
+          },
+          "description": {
+            "text": "Government Rates\nCORNER SUITE UP TO 52 SQM VIP SERVICES GIFTS\nGOV RATE ID REQUIRED UPON CHECK IN 10 PCT",
+            "lang": "EN"
+          }
+        },
+        "guests": {
+          "adults": 1
+        },
+        "price": {
+          "currency": "GBP",
+          "total": "1794.78",
+          "taxes": [
+            {
+              "code": "VAT_GST_TAX",
+              "percentage": "20.00",
+              "included": false
+            }
+          ],
+          "variations": {
+            "average": {
+              "base": "1495.65"
+            },
+            "changes": [
+              {
+                "startDate": "2022-04-26",
+                "endDate": "2022-04-27",
+                "base": "1495.65"
+              }
+            ]
+          }
+        },
+        "policies": {
+          "guarantee": {
+            "acceptedPayments": {
+              "creditCards": [
+                "AX",
+                "UP",
+                "DC",
+                "JC",
+                "MC",
+                "VI"
+              ],
+              "methods": [
+                "TRAVEL_AGENT_ID",
+                "CORPORATE_ID",
+                "CREDIT_CARD"
+              ]
+            }
+          },
+          "paymentType": "guarantee",
+          "cancellation": {
+            "deadline": "2022-04-25T15:00:00+01:00"
+          }
+        },
+        "self": "https://test.api.amadeus.com/v2/shopping/hotel-offers/E7VH0CNKJQ",
+        "cancelPolicyHash": "4D0B6F834E83BA3ABB2401E31EAB71EDF50437BAF499A92C43281C6C4EA1DB2D"
+      },
+      {
+        "id": "AH74Q17Q4R",
+        "checkInDate": "2022-04-26",
+        "checkOutDate": "2022-04-27",
+        "rateCode": "AAA",
+        "rateFamilyEstimated": {
+          "code": "AAA",
+          "type": "C"
+        },
+        "category": "PRO",
+        "commission": {
+          "percentage": "10.0"
+        },
+        "room": {
+          "type": "U1K",
+          "typeEstimated": {
+            "category": "SUITE",
+            "beds": 1,
+            "bedType": "KING"
+          },
+          "description": {
+            "text": "American Automobile Association\nCORNER SUITE UP TO 52 SQM VIP SERVICES GIFTS\nAAA CAA MEMBERS ID REQUIRED UPON CHECK IN 10",
+            "lang": "EN"
+          }
+        },
+        "guests": {
+          "adults": 1
+        },
+        "price": {
+          "currency": "GBP",
+          "total": "1794.78",
+          "taxes": [
+            {
+              "code": "VAT_GST_TAX",
+              "percentage": "20.00",
+              "included": false
+            }
+          ],
+          "variations": {
+            "average": {
+              "base": "1495.65"
+            },
+            "changes": [
+              {
+                "startDate": "2022-04-26",
+                "endDate": "2022-04-27",
+                "base": "1495.65"
+              }
+            ]
+          }
+        },
+        "policies": {
+          "guarantee": {
+            "acceptedPayments": {
+              "creditCards": [
+                "AX",
+                "UP",
+                "DC",
+                "JC",
+                "MC",
+                "VI"
+              ],
+              "methods": [
+                "TRAVEL_AGENT_ID",
+                "CORPORATE_ID",
+                "CREDIT_CARD"
+              ]
+            }
+          },
+          "paymentType": "guarantee",
+          "cancellation": {
+            "deadline": "2022-04-25T15:00:00+01:00"
+          }
+        },
+        "self": "https://test.api.amadeus.com/v2/shopping/hotel-offers/AH74Q17Q4R",
+        "cancelPolicyHash": "4D0B6F834E83BA3ABB2401E31EAB71EDF50437BAF499A92C43281C6C4EA1DB2D"
+      },
+      {
+        "id": "03PWA9ORUI",
+        "checkInDate": "2022-04-26",
+        "checkOutDate": "2022-04-27",
+        "rateCode": "GOV",
+        "rateFamilyEstimated": {
+          "code": "GOV",
+          "type": "C"
+        },
+        "category": "GOV",
+        "commission": {
+          "percentage": "10.0"
+        },
+        "room": {
+          "type": "E1K",
+          "typeEstimated": {
+            "category": "SUITE",
+            "beds": 1,
+            "bedType": "KING"
+          },
+          "description": {
+            "text": "Government Rates\nCAPITAL SUITE UP TO 86 SQM GIFTS DRINKS TROLLEY\nGOV RATE ID REQUIRED UPON CHECK IN 10 PCT",
+            "lang": "EN"
+          }
+        },
+        "guests": {
+          "adults": 1
+        },
+        "price": {
+          "currency": "GBP",
+          "total": "2514.49",
+          "taxes": [
+            {
+              "code": "VAT_GST_TAX",
+              "percentage": "20.00",
+              "included": false
+            }
+          ],
+          "variations": {
+            "average": {
+              "base": "2095.41"
+            },
+            "changes": [
+              {
+                "startDate": "2022-04-26",
+                "endDate": "2022-04-27",
+                "base": "2095.41"
+              }
+            ]
+          }
+        },
+        "policies": {
+          "guarantee": {
+            "acceptedPayments": {
+              "creditCards": [
+                "AX",
+                "UP",
+                "DC",
+                "JC",
+                "MC",
+                "VI"
+              ],
+              "methods": [
+                "TRAVEL_AGENT_ID",
+                "CORPORATE_ID",
+                "CREDIT_CARD"
+              ]
+            }
+          },
+          "paymentType": "guarantee",
+          "cancellation": {
+            "deadline": "2022-04-25T15:00:00+01:00"
+          }
+        },
+        "self": "https://test.api.amadeus.com/v2/shopping/hotel-offers/03PWA9ORUI",
+        "cancelPolicyHash": "4D0B6F834E83BA3ABB2401E31EAB71EDF50437BAF499A92C43281C6C4EA1DB2D"
+      },
+      {
+        "id": "EN0FSNV5Q5",
+        "checkInDate": "2022-04-26",
+        "checkOutDate": "2022-04-27",
+        "rateCode": "AAA",
+        "rateFamilyEstimated": {
+          "code": "AAA",
+          "type": "C"
+        },
+        "category": "PRO",
+        "commission": {
+          "percentage": "10.0"
+        },
+        "room": {
+          "type": "E1K",
+          "typeEstimated": {
+            "category": "SUITE",
+            "beds": 1,
+            "bedType": "KING"
+          },
+          "description": {
+            "text": "American Automobile Association\nCAPITAL SUITE UP TO 86 SQM GIFTS DRINKS TROLLEY\nAAA CAA MEMBERS ID REQUIRED UPON CHECK IN 10",
+            "lang": "EN"
+          }
+        },
+        "guests": {
+          "adults": 1
+        },
+        "price": {
+          "currency": "GBP",
+          "total": "2514.49",
+          "taxes": [
+            {
+              "code": "VAT_GST_TAX",
+              "percentage": "20.00",
+              "included": false
+            }
+          ],
+          "variations": {
+            "average": {
+              "base": "2095.41"
+            },
+            "changes": [
+              {
+                "startDate": "2022-04-26",
+                "endDate": "2022-04-27",
+                "base": "2095.41"
+              }
+            ]
+          }
+        },
+        "policies": {
+          "guarantee": {
+            "acceptedPayments": {
+              "creditCards": [
+                "AX",
+                "UP",
+                "DC",
+                "JC",
+                "MC",
+                "VI"
+              ],
+              "methods": [
+                "TRAVEL_AGENT_ID",
+                "CORPORATE_ID",
+                "CREDIT_CARD"
+              ]
+            }
+          },
+          "paymentType": "guarantee",
+          "cancellation": {
+            "deadline": "2022-04-25T15:00:00+01:00"
+          }
+        },
+        "self": "https://test.api.amadeus.com/v2/shopping/hotel-offers/EN0FSNV5Q5",
+        "cancelPolicyHash": "4D0B6F834E83BA3ABB2401E31EAB71EDF50437BAF499A92C43281C6C4EA1DB2D"
+      },
+      {
+        "id": "A54MPEA2CC",
+        "checkInDate": "2022-04-26",
+        "checkOutDate": "2022-04-27",
+        "rateCode": "SNR",
+        "category": "SRS",
+        "commission": {
+          "percentage": "10.0"
+        },
+        "room": {
+          "type": "E1K",
+          "typeEstimated": {
+            "category": "SUITE",
+            "beds": 1,
+            "bedType": "KING"
+          },
+          "description": {
+            "text": "American Association Retired Persons\nCAPITAL SUITE UP TO 86 SQM GIFTS DRINKS TROLLEY\nAARP MEMBER ID REQUIRED UPON CHECK IN 10 PCT",
+            "lang": "EN"
+          }
+        },
+        "guests": {
+          "adults": 1
+        },
+        "price": {
+          "currency": "GBP",
+          "total": "2514.49",
+          "taxes": [
+            {
+              "code": "VAT_GST_TAX",
+              "percentage": "20.00",
+              "included": false
+            }
+          ],
+          "variations": {
+            "average": {
+              "base": "2095.41"
+            },
+            "changes": [
+              {
+                "startDate": "2022-04-26",
+                "endDate": "2022-04-27",
+                "base": "2095.41"
+              }
+            ]
+          }
+        },
+        "policies": {
+          "guarantee": {
+            "acceptedPayments": {
+              "creditCards": [
+                "AX",
+                "UP",
+                "DC",
+                "JC",
+                "MC",
+                "VI"
+              ],
+              "methods": [
+                "TRAVEL_AGENT_ID",
+                "CORPORATE_ID",
+                "CREDIT_CARD"
+              ]
+            }
+          },
+          "paymentType": "guarantee",
+          "cancellation": {
+            "deadline": "2022-04-25T15:00:00+01:00"
+          }
+        },
+        "self": "https://test.api.amadeus.com/v2/shopping/hotel-offers/A54MPEA2CC",
+        "cancelPolicyHash": "4D0B6F834E83BA3ABB2401E31EAB71EDF50437BAF499A92C43281C6C4EA1DB2D"
+      },
+      {
+        "id": "CUGEBLLIX7",
+        "checkInDate": "2022-04-26",
+        "checkOutDate": "2022-04-27",
+        "rateCode": "SN0",
+        "rateFamilyEstimated": {
+          "code": "SRS",
+          "type": "C"
+        },
+        "category": "SRS",
+        "commission": {
+          "percentage": "10.0"
+        },
+        "room": {
+          "type": "E1K",
+          "typeEstimated": {
+            "category": "SUITE",
+            "beds": 1,
+            "bedType": "KING"
+          },
+          "description": {
+            "text": "Senior Citizen\nCAPITAL SUITE UP TO 86 SQM GIFTS DRINKS TROLLEY",
+            "lang": "EN"
+          }
+        },
+        "guests": {
+          "adults": 1
+        },
+        "price": {
+          "currency": "GBP",
+          "total": "2514.49",
+          "taxes": [
+            {
+              "code": "VAT_GST_TAX",
+              "percentage": "20.00",
+              "included": false
+            }
+          ],
+          "variations": {
+            "average": {
+              "base": "2095.41"
+            },
+            "changes": [
+              {
+                "startDate": "2022-04-26",
+                "endDate": "2022-04-27",
+                "base": "2095.41"
+              }
+            ]
+          }
+        },
+        "policies": {
+          "guarantee": {
+            "acceptedPayments": {
+              "creditCards": [
+                "AX",
+                "UP",
+                "DC",
+                "JC",
+                "MC",
+                "VI"
+              ],
+              "methods": [
+                "TRAVEL_AGENT_ID",
+                "CORPORATE_ID",
+                "CREDIT_CARD"
+              ]
+            }
+          },
+          "paymentType": "guarantee",
+          "cancellation": {
+            "deadline": "2022-04-25T15:00:00+01:00"
+          }
+        },
+        "self": "https://test.api.amadeus.com/v2/shopping/hotel-offers/CUGEBLLIX7",
+        "cancelPolicyHash": "4D0B6F834E83BA3ABB2401E31EAB71EDF50437BAF499A92C43281C6C4EA1DB2D"
+      }
+    ]
+  }
+}

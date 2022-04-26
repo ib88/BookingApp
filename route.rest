@@ -1,6 +1,9 @@
-GET http://localhost:8888
 
+GET http://localhost:8888/api/city-hotels/?cityCode=LON
 
 ###
-GET http://localhost:8888/api/city-hotels/?cityCode=LON
+GET http://localhost:8888/api/hotel-offers?hotelId=EDLONDER
+
+###
+GET http://localhost:8888/api/hotel-offer?offerId=YVZZ1W8L09
 

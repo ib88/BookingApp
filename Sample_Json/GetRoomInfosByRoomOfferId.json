@@ -1,0 +1,118 @@
+HTTP/1.1 200 OK
+X-Powered-By: Express
+Content-Type: application/json; charset=utf-8
+Content-Length: 1545
+ETag: W/"609-YuAPNpa+RM2EWpmbSYJ4iH9CwQI"
+Date: Tue, 26 Apr 2022 14:07:13 GMT
+Connection: close
+
+{
+  "data": {
+    "type": "hotel-offers",
+    "hotel": {
+      "type": "hotel",
+      "hotelId": "EDLONDER",
+      "chainCode": "ED",
+      "name": "ED TEST PROPERTY1",
+      "cityCode": "LON",
+      "address": {
+        "countryCode": "GB"
+      },
+      "amenities": [
+        "CRIBS_AVAILABLE"
+      ]
+    },
+    "available": true,
+    "offers": [
+      {
+        "id": "2XPGF9VS8L",
+        "checkInDate": "2022-04-26",
+        "checkOutDate": "2022-04-27",
+        "rateCode": "RAC",
+        "rateFamilyEstimated": {
+          "code": "BAR",
+          "type": "P"
+        },
+        "description": {
+          "text": "Best Available Rate\nBest Available Rate\nRoom Only",
+          "lang": "EN"
+        },
+        "commission": {
+          "percentage": "10.0"
+        },
+        "room": {
+          "type": "A1Q",
+          "typeEstimated": {
+            "category": "STANDARD_ROOM",
+            "beds": 1,
+            "bedType": "QUEEN"
+          },
+          "description": {
+            "text": "QUEEN ROOM UP TO 24 SQM FREE 150MBPS WIFI\nENTRY TO EXCLUSIVE RESIDENCE SPA AND EVENTS",
+            "lang": "EN"
+          }
+        },
+        "guests": {
+          "adults": 1
+        },
+        "price": {
+          "currency": "GBP",
+          "base": "505.00",
+          "total": "505.00",
+          "taxes": [
+            {
+              "code": "VAT_GST_TAX",
+              "percentage": "20.00",
+              "included": true
+            }
+          ],
+          "variations": {
+            "changes": [
+              {
+                "startDate": "2022-04-26",
+                "endDate": "2022-04-27",
+                "base": "505.00"
+              }
+            ]
+          }
+        },
+        "policies": {
+          "guarantee": {
+            "description": {
+            },
+            "acceptedPayments": {
+              "creditCards": [
+                "AX",
+                "UP",
+                "DC",
+                "JC",
+                "MC",
+                "VI"
+              ],
+              "methods": [
+                "TRAVEL_AGENT_ID",
+                "CORPORATE_ID",
+                "CREDIT_CARD"
+              ]
+            }
+          },
+          "paymentType": "guarantee",
+          "checkInOut": {
+            "checkIn": "15:00:00",
+            "checkOut": "12:00:00"
+          },
+          "cancellation": {
+            "description": {
+              "text": "24H BEFORE ARRIVAL LOCAL HTL TIME 72H BEFORE AR RIVAL LOCAL HTL\nTIME FOR SUITES"
+            },
+            "deadline": "2022-04-25T15:00:00+01:00"
+          }
+        },
+        "cancelPolicyHash": "4ABA2332DFA45F4EA0FD81DB915219F29AD2B8B4471E8AC75DD681ED4999ADED"
+      }
+    ]
+  },
+  "meta": {
+    "lang": "en"
+  }
+}

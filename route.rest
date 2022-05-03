@@ -1,9 +1,18 @@
 
-GET http://localhost:8888/api/city-hotels/?cityCode=LON
+GET http://localhost:8888/api/welcome
+###
+GET http://localhost:8888/api/city-hotels/?cityCode=PAR&checkInDate=2022-05-02&checkOutDate=2022-05-03&adults=1
 
 ###
 GET http://localhost:8888/api/hotel-offers?hotelId=EDLONDER
 
 ###
-GET http://localhost:8888/api/hotel-offer?offerId=YVZZ1W8L09
+GET http://localhost:8888/api/hotel-offer?offerId=Z2M9IFU9O7
+
+###
+GET http://localhost:8888/api/search-location?keyword=sea
+
+###
+GET http://localhost:8888/test
+
 

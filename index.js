@@ -2,7 +2,8 @@
 
 // index.js
 const express = require("express");
-const router = require("./router");
+//const router = require("./router");
+const router = require("./controllers/search_controller");
 const config = require("./config");
 const path = require("path");
 var bodyParser = require("body-parser");
@@ -22,6 +23,7 @@ app.get("/test", function(req, res){
 });
 
 app.use(express.json());
+//app.use("/api", router);
 app.use("/api", router);
 
 

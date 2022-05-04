@@ -58,12 +58,33 @@ router.get(`/welcome`, async (req, res) => {
 
 router.get(`/city-hotels`, async (req, res) => {
   try {
-    const { cityCode,checkInDate,checkOutDate} = req.query;
+    const { cityCode,checkInDate,checkOutDate,adults,} = req.query;
 
     const response = await amadeus.shopping.hotelOffers.get({
       cityCode,
       checkInDate,
       checkOutDate
+    });
+
+    //var result = jp.query(JSON.parse(response.body), '$.data[*].offers[?(@.checkInDate=="2022-04-25"&&@.checkOutDate=="2022-04-26")]');
+    //var result = jp.query(JSON.parse(response.body), "$.data[*].offers[?(@.id=='XVMATWC86C')]");
+   //var result = jp.query(JSON.parse(response.body), "$.data[*].hotel");
+
+    //res.json(result); 
+
+    res.json(JSON.parse(response.body));
+  } catch (err) {
+    res.json(err);
+  }
+});
+
+//search hotels by names
+router.get(`/city-hotelsByname`, async (req, res) => {
+  try {
+    const {hotelName} = req.query;
+
+    const response = await amadeus.shopping.hotelOffers.get({
+      hotelName
     });
 
     //var result = jp.query(JSON.parse(response.body), '$.data[*].offers[?(@.checkInDate=="2022-04-25"&&@.checkOutDate=="2022-04-26")]');

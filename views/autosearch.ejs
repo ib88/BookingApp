@@ -1,4 +1,6 @@
 
+
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -17,16 +19,18 @@
         <h1> Results </h1>
        
     
-            <h4>
-            
-           
-            <% business.forEach((elt)=>{%>
-                  <li>Name: <%=elt.name%> -Distance: <%=elt.distance%>Km - Room Type: <%=elt.roomType%> - Price: <%=elt.price%>Euro</li> 
-                    <br>
-            <%});%>
-        
-            
-            </h4>
+        <form action="/action_page.php" method="get">
+            <label for="browser">Choose your browser from the list:</label>
+            <input list="browsers" name="browser" id="browser">
+            <datalist id="browsers">
+                <% business.forEach((elt)=>{%>
+                    <option id=<%= elt.name %>>
+                        <%= elt.name%>
+                    </option>
+                    <%})%>
+            </datalist>
+            <input type="submit">
+          </form>
     
     
     

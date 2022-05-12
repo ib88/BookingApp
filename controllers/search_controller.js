@@ -28,10 +28,65 @@ const amadeus = new Amadeus({
 });
 
 // Location search suggestions
+
+router.get(`/autosuggest`, async (req, res) => {
+  try {
+
+    return res.render("autoSuggest");
+
+  } catch (err) {
+    res.json(err);
+  }
+});
+
+router.get(`/getSuggestion`, async (req, res) => {
+  
+  try {
+      //const { keyword, pageLimit, pageOffset } = req.query;
+      const { keyword } = req.query;
+      const response = await amadeus.referenceData.locations.get({
+        keyword,
+        'page[limit]': 5,
+        'page[offset]': 0,
+        subType: 'CITY,AIRPORT'
+      });
+      //console.log('searching loc...');
+      
+      var result = jp.query(JSON.parse(response.body), '$.data[*]');
+      var hotelData = jp.query(JSON.parse(response.body), '$[*][*]');
+  
+      var dataCount = hotelData.length;
+      var results = []
+      for (var i = 0; i < dataCount; i++){
+  
+          // console.log("FULL DATA OBJ: ", newData)
+          if (typeof hotelData[i]!='undefined'){
+          var displayData = {
+              detailedName: hotelData[i].detailedName,
+              name: hotelData[i].name,
+              subType: hotelData[i].subType,
+              cityName: hotelData[i].cityName
+            }
+          }
+          results.push(displayData);
+  
+      }// close for loop    
+      return res.send(results);
+      //return res.render("autosearch", {business: results});  
+      //res.json(JSON.parse(response.body));
+  
+    }
+      catch (err) {
+        res.json(err);
+      }
+});
+
+
 router.get(`/autosearch`, async (req, res) => {
   
     try {
         const { keyword, pageLimit, pageOffset } = req.query;
+        //const { keyword } = req.query;
         const response = await amadeus.referenceData.locations.get({
           keyword,
           'page[limit]': pageLimit,

@@ -1,7 +1,11 @@
 
-GET http://localhost:8888/api/welcome
+GET http://localhost:8888/api/autosearch?keyword=par&pageLimit=5&pageOffset=0
 ###
-GET http://localhost:8888/api/city-hotels/?cityCode=PAR&checkInDate=2022-05-02&checkOutDate=2022-05-03&adults=1
+GET http://localhost:8888/api/city-hotels/?cityCode=LON&checkInDate=2022-05-02&checkOutDate=2022-05-03&adults=1&pageLimit=3
+###
+//search hotels by name
+GET http://localhost:8888/api/city-hotelsByname/?hotelName=AMBA
+
 
 ###
 GET http://localhost:8888/api/hotel-offers?hotelId=EDLONDER
@@ -10,7 +14,7 @@ GET http://localhost:8888/api/hotel-offers?hotelId=EDLONDER
 GET http://localhost:8888/api/hotel-offer?offerId=Z2M9IFU9O7
 
 ###
-GET http://localhost:8888/api/search-location?keyword=sea
+GET http://localhost:8888/api/search-location?keyword=par&pageLimit=5&pageOffset=0
 
 ###
 GET http://localhost:8888/test

@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" type="text/css" href="main.css">
+    <script src="node_modules/web3/dist/web3.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        <h1>Coursetro Instructor</h1>
+        <h2 id="instructor"></h2>
+        <label for="getValue" class="col-lg-2 control-label">Instructor Name</label>
+        <label for="name" class="col-lg-2 control-label">Instructor Name</label>
+        <input id="name" type="text">
+        <label for="name" class="col-lg-2 control-label">Instructor Age</label>
+        <input id="age" type="text">
+        <button id="button">Update Instructor</button>
+        <button id="buttonGet">Get Instructor</button>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+    <script>
+               if (typeof web3 !== 'undefined') {
+            web3 = new Web3(web3.currentProvider);
+        } else {
+            // set the provider you want from Web3.providers
+            web3 = new Web3(new Web3.providers.HttpProvider("http://localhost:8545"));
+        }
+
+        //web3.eth.defaultAccount = web3.eth.accounts[0];
+        var adressFrom
+        web3.eth.getAccounts().then(e => adressFrom = e[0]);
+        //var adressFrom = web3.eth.accounts[0];
+        //var adressFrom = '0x8027161d81dD104F0d838E71C1ae13ce2A3a24Df';
+        
+        var CoursetroContract = new web3.eth.Contract([
+	{
+		"constant": false,
+		"inputs": [
+			{
+				"name": "_fName",
+				"type": "string"
+			},
+			{
+				"name": "_age",
+				"type": "uint256"
+			}
+		],
+		"name": "setInstructor",
+		"outputs": [],
+		"payable": false,
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"constant": true,
+		"inputs": [],
+		"name": "getInstructor",
+		"outputs": [
+			{
+				"name": "",
+				"type": "string"
+			},
+			{
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"payable": false,
+		"stateMutability": "view",
+		"type": "function"
+	}
+], '0x5910C8c90b6AdBF85Ff926efA824259A5A8d9fD8');
+//var Coursetro = CoursetroContract.at('0x5910C8c90b6AdBF85Ff926efA824259A5A8d9fD8');
+//console.log(CoursetroContract);
+
+function getInstructor() {
+  name = $("#name").val();
+  age = $("#age").val();
+  CoursetroContract.methods.setInstructor (name,age).send( {from: web3.eth.defaultAccount}).then( function(tx) {
+    console.log("Transaction: ", tx);
+  });
+  $("#name").val('');
+  $("#age").val('');
+}
+
+$("#button").click(function() {
+    name = $("#name").val();
+  age = $("#age").val();
+  CoursetroContract.methods.setInstructor (name,age).send( {from: adressFrom}).then( function(tx) {
+    console.log("Transaction: ", tx);
+  });
+  $("#name").val('');
+  $("#age").val('');
+        });
+
+        $("#buttonGet").click(function() {
+    
+  CoursetroContract.methods.getInstructor ().send({from: adressFrom}).then( function(result) {
+        console.log(result);
+        //$('#getValue').html(result)
+  });
+        });
+    </script>
+</body>
+</html>

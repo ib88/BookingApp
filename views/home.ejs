@@ -790,20 +790,19 @@
 					<div class="deals cars">
 						<div class="row">
 							<!--deal-->
-
                             <% business.forEach((elt)=>{%>
                                 <!-- <li>Name: <%=elt.name%> -Distance: <%=elt.distance%>Km - Room Type: <%=elt.roomType%> - Price: <%=elt.price%>Euro</li>  -->
                                   
 
                                   <article class="one-fourth">
-                                    <figure><a href="#" title=""><img src="static/images/uploads/img.jpg" alt="" /></a></figure>
                                     <div class="details">
                                         <h3><%=elt.name%></h3>
                                         <span class="price">Price per day from  <em><%=elt.price%>Euro</em> </span>
                                         <span class="price">Room Type  <em><%=elt.roomType%></em> </span>
-                                        <span class="price">Distance  <em><%=elt.distance%></em> </span>
+                                        <span class="price"><%=elt.distance%> Km From City</span>
+										<span class="price">City Of  <em><%=elt.city%></em> </span>
 										<!-- <span class="price">City  <em><%=elt.city%></em> </span> -->
-                                        <a href="api/hotel-offers?hotelId=<%=elt.hotelId%>&checkInDate=2022-08-29&checkOutDate=2022-08-30&adults=2" title="View Rooms" class="gradient-button">View Rooms</a>
+                                        <a href="api/hotel-offers?hotelId=<%=elt.hotelId%>&checkInDate=<%=elt.checkInDate%>&checkOutDate=<%=elt.checkOutDate%>&adults=<%=elt.adults%>" title="View Rooms" class="gradient-button">View Rooms</a>
                                     </div>
                                 </article>
                           <%});%>

@@ -247,14 +247,17 @@ router.post(`/city-hotels`, async (req, res) => {
   var dataCount = hotelData.length;
   var results = [];
   for (var i = 0; i < dataCount; i++){
-       //console.log("FULL DATA OBJ: ", hotelData[i].hotel.name);
+       console.log("Chek In Date: ", hotelData[i].offers[0].checkInDate);
       var displayData = {
           name: hotelData[i].hotel.name,
           city: hotelData[i].hotel.address.cityName,
           hotelId: hotelData[i].hotel.hotelId,
           distance: hotelData[i].hotel.hotelDistance.distance,
           roomType: hotelData[i].offers[0].room.typeEstimated.category,
-          price: hotelData[i].offers[0].price.total
+          price: hotelData[i].offers[0].price.total,
+          checkInDate: hotelData[i].offers[0].checkInDate,
+          checkOutDate: hotelData[i].offers[0].checkOutDate,
+          adults: adults
       }
       results.push(displayData);
       //console.log("DISPLAY DATA:", displayData);

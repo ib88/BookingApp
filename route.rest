@@ -2,7 +2,7 @@
 GET http://localhost:8888/api/autosearch?keyword=par&pageLimit=5&pageOffset=0
 
 ###Search hotels by city code and booking parameters
-GET http://localhost:8888/api/city-hotels/?cityCode=SEA&checkInDate=2022-08-28&checkOutDate=2022-08-29&adults=1&priceRange=200-300&pageLimit=5
+GET http://localhost:8888/api/city-hotels/
 ###
 //search hotels by name
 GET http://localhost:8888/api/city-hotelsByname/?hotelName=AMBA

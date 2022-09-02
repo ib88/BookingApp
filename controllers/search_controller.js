@@ -8,6 +8,7 @@ var _ = require("underscore");
 //const path = require("path");
 var bodyParser = require("body-parser");
 var jp = require('jsonpath');
+const { addListener } = require("nodemon");
 
 var app = express();
 app.set("view engine", "ejs");
@@ -184,6 +185,9 @@ router.get(`/autosearch`, async (req, res) => {
 router.get(`/city-hotels`, async (req, res) => {
   
     const { cityCode,checkInDate,checkOutDate,adults,priceRange,pageLimit} = req.query;
+    if(!cityCode || !checkInDate || !checkOutDate || !adults) {
+      return res.render("home", { business: [] });
+    }
 
     amadeus.shopping.hotelOffers.get({
       cityCode,
@@ -207,34 +211,26 @@ router.get(`/city-hotels`, async (req, res) => {
             price: hotelData[i].offers[0].price.total
         }
         results.push(displayData);
-        //console.log("DISPLAY DATA:", displayData);
-        // var handlebarsData = ;
     }// close for loop
-    //console.log("DISPLAY DATA: ", results);
-     //res.json(JSON.parse(response.body));
    return res.render("home", {business: results});
 
     }).catch(function (response) {
-      res.json(err);
+      res.json(response);
     });
 });
 
 
 
 router.post(`/city-hotels`, async (req, res) => {
-  
-  //const { cityCode,checkInDate,checkOutDate,adults,priceRange,pageLimit} = req.query;
-  var cityCode = req.body.destinationCode;
-  //var cityCode = "LON";
-  //console.log("City Code: ", cityCode);
-  //console.log("City Code: ", req.body);
-  //var checkInDate = '2022-08-31';
-  var checkInDate = req.body.datepicker1;
-  //var checkOutDate = '2022-09-01';
-  var checkOutDate = req.body.datepicker2;
 
-  var adults = req.body.adults;;
-  //console.log("adults:", adults);
+  var cityCode = req.body.destinationCode;
+  var checkInDate = req.body.datepicker1;
+  var checkOutDate = req.body.datepicker2;
+  var adults = req.body.adults;
+
+  if(!cityCode || !checkInDate || !checkOutDate || !adults) {
+    return res.render("home", { business: [] });
+  }
 
 
   amadeus.shopping.hotelOffers.get({
@@ -244,35 +240,70 @@ router.post(`/city-hotels`, async (req, res) => {
     adults
   }).then(function (response) {
     var hotelData = jp.query(JSON.parse(response.body), "$.data[*]");
-  var dataCount = hotelData.length;
-  var results = [];
-  for (var i = 0; i < dataCount; i++){
-       console.log("Chek In Date: ", hotelData[i].offers[0].checkInDate);
-      var displayData = {
-          name: hotelData[i].hotel.name,
-          city: hotelData[i].hotel.address.cityName,
-          hotelId: hotelData[i].hotel.hotelId,
-          distance: hotelData[i].hotel.hotelDistance.distance,
-          roomType: hotelData[i].offers[0].room.typeEstimated.category,
-          price: hotelData[i].offers[0].price.total,
-          checkInDate: hotelData[i].offers[0].checkInDate,
-          checkOutDate: hotelData[i].offers[0].checkOutDate,
-          adults: adults
-      }
-      results.push(displayData);
-      //console.log("DISPLAY DATA:", displayData);
-      // var handlebarsData = ;
-  }// close for loop
-  //console.log("DISPLAY DATA: ", results);
-   //res.json(JSON.parse(response.body));
- return res.render("home", {business: results});
-
+    var dataCount = hotelData.length;
+    var results = [];
+    for (var i = 0; i < dataCount; i++){
+        //console.log("Chek In Date: ", hotelData[i].offers[0].checkInDate);
+        var displayData = {
+            name: hotelData[i].hotel.name,
+            city: hotelData[i].hotel.address.cityName,
+            hotelId: hotelData[i].hotel.hotelId,
+            distance: hotelData[i].hotel.hotelDistance.distance,
+            roomType: hotelData[i].offers[0].room.typeEstimated.category,
+            price: hotelData[i].offers[0].price.total,
+            checkInDate: hotelData[i].offers[0].checkInDate,
+            checkOutDate: hotelData[i].offers[0].checkOutDate,
+            adults: adults
+        }
+        results.push(displayData);
+    }// close for loop
+    return res.render("home", {business: results});
   }).catch(function (response) {
-    res.json(err);
+    // TODO: When an error occurs during booking, don't just display JSON googledigoo, 
+    // ... display page with comprehensible error to user
+    res.json(response);
   });
 });
 
+// BOOK A HOTEL
+router.get(`/Book-hotel`, async (req, res) => {
+  
+  const {offerId} = req.query;
 
+    amadeus.booking.hotelBookings.post(
+      JSON.stringify({
+        'data': {
+          'offerId': offerId,
+          'guests': [{
+            'id': 1,
+            'name': {
+              'title': 'MR',
+              'firstName': 'BOB',
+              'lastName': 'SMITH'
+            },
+            'contact': {
+              'phone': '+33679278416',
+              'email': 'bob.smith@email.com'
+            }
+          }],
+          'payments': [{
+            'id': 1,
+            'method': 'creditCard',
+            'card': {
+              'vendorCode': 'VI',
+              'cardNumber': '4151289722471370',
+              'expiryDate': '2022-09'
+            }
+          }]
+        }
+      })).then(function (response) {
+        console.log(response);
+    }).catch(function (response) {
+      console.log("MY ERROR \n"); 
+      console.log(response)
+      res.json(response);
+    });
+});
 
 
 //search hotels by names
@@ -283,13 +314,6 @@ router.get(`/city-hotelsByname`, async (req, res) => {
     const response = await amadeus.shopping.hotelOffers.get({
       hotelName
     });
-
-    //var result = jp.query(JSON.parse(response.body), '$.data[*].offers[?(@.checkInDate=="2022-04-25"&&@.checkOutDate=="2022-04-26")]');
-    //var result = jp.query(JSON.parse(response.body), "$.data[*].offers[?(@.id=='XVMATWC86C')]");
-   //var result = jp.query(JSON.parse(response.body), "$.data[*].hotel");
-
-    //res.json(result); 
-
     res.json(JSON.parse(response.body));
   } catch (err) {
     res.json(err);
@@ -316,9 +340,6 @@ router.get(`/hotel-offers`, async (req, res) => {
     //get only the offers
     var hotelOffers = jp.query(JSON.parse(response.body), "$.data.offers[*]");
     var offerCount = hotelOffers.length;
-    //console.log("DATA COUNT:", offerCount);
-    //console.log("FULL DATA OBJ: ", hotelData[0].offers[0].room.typeEstimated.category);
-    
      var results = [];
     for (var i = 0; i < offerCount; i++){
 
@@ -342,11 +363,6 @@ router.get(`/hotel-offers`, async (req, res) => {
         // var handlebarsData = ;
 
     }// close for loop
-    //res.json(JSON.parse(response.body));
-    //res.json(results); 
-
-    //result = jp.query(JSON.parse(hotelData.body), "$.[*]");
-    //res.json(results); 
     return res.render("hotelOffers", {business: results});
   } catch (err) {
     res.json(err);

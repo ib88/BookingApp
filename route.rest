@@ -30,3 +30,21 @@ GET http://localhost:8888/api/homepage
 
 GET http://localhost:8888/api/getSuggestion?keyword=par&pageLimit=5&pageOffset=0
 
+########## FLIGHT ##############
+GET http://localhost:8888/flight/flightsearch
+
+###get the cheapest date from an airport to another
+GET http://localhost:8888/flight/cheapestDates
+
+###get the cheapest flights on a day
+GET http://localhost:8888/flight/flightAvSearch
+
+########## MOQ FLIGHT ##############
+GET http://localhost:8888/Moqflight/flightsearch
+
+###get the cheapest date from an airport to another
+GET http://localhost:8888/Moqflight/cheapestDates
+
+###get the cheapest flights on a day
+GET http://localhost:8888/Moqflight/cheapestDates
+

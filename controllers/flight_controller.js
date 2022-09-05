@@ -29,20 +29,64 @@ const amadeus = new Amadeus({
 
 // Location search suggestions
 
-router.get(`/flight/flightsearch`, async (req, res) => {
-  try {
-
-    // Find the cheapest flights from SYD to BKK
-    const response = amadeus.shopping.flightOffersSearch.get({
-    originLocationCode: 'SYD',
-    destinationLocationCode: 'BKK',
-    departureDate: '2022-08-01',
-    adults: '2'
-  });
-
-  res.json(JSON.parse(response.body));
-
-  } catch (err) {
-    res.json(err);
-  }
+router.get(`/flightsearch`, async (req, res) => {
+  	// Find the cheapest flights from SYD to BKK
+    amadeus.shopping.flightOffersSearch.get({
+      originLocationCode: 'SYD',
+      destinationLocationCode: 'BKK',
+      departureDate: '2022-09-05',
+      adults: '2'
+    }).then(function (response) {
+      console.log(response);
+    }).catch(function (response) {
+      console.error(response);
+    });
 });
+
+router.get(`/cheapestDates`, async (req, res) => {
+  // Find the cheapest flights from SYD to BKK
+ 	// Find cheapest dates from Madrid to Munich
+amadeus.shopping.flightDates.get({
+      origin: 'MAD',
+      destination: 'MUC'
+      // departureDate:  '2022-09-10'
+    }).then(function (response) {
+      console.log(response);
+    }).catch(function (response) {
+      console.error(response);
+    });
+});
+
+router.get(`/flightAvSearch`, async (req, res) => {
+  // Find the cheapest flights from SYD to BKK
+ 	// Find cheapest dates from Madrid to Munich
+   body = JSON.stringify({
+    "originDestinations": [
+        {
+            "id": "1",
+            "originLocationCode": "MIA",
+            "destinationLocationCode": "ATL",
+            "departureDateTime": {
+                "date": "2022-11-12"
+            }
+        }
+    ],
+    "travelers": [
+        {
+            "id": "1",
+            "travelerType": "ADULT"
+        }
+    ],
+    "sources": [
+        "GDS"
+    ]
+  })
+  
+  amadeus.shopping.availability.flightAvailabilities.post(body).then(function (response) {
+    console.log(response);
+  }).catch(function (response) {
+    console.error(response);
+  });
+});
+
+module.exports = router;

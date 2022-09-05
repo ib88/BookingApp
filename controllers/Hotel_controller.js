@@ -12,11 +12,6 @@ const { addListener } = require("nodemon");
 
 var app = express();
 app.set("view engine", "ejs");
-
-//app.set('views', path.join(__dirname,"views"));
-//app.set("view engine", "ejs");
-//app.use(express.static("public"));
-
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: false}));
 
@@ -70,12 +65,6 @@ router.get(`/getSuggestion`, async (req, res) => {
     console.log("FULL DATA OBJ: ", hotelData);
 
     for (var i = 0; i < dataCount; i++){
-
-        // console.log("FULL DATA OBJ: ", newData)
-        // console.log("FULL DATA OBJ: ", newData)
-        //var addressVar = hotelData[i].address.stateCode;
-        //var cityCodeVar = hotelData[i].address;
-         //console.log("FULL DATA OBJ: ", addressVar)
         if (typeof hotelData[i]!='undefined'){
         var displayData = {
             detailedName: hotelData[i].detailedName,
@@ -92,49 +81,6 @@ router.get(`/getSuggestion`, async (req, res) => {
   }).catch(function (response) {
     res.json(err);
   });
-
-
-  //////////
-  
-  // try {
-    
-  //     //const { keyword, pageLimit, pageOffset } = req.query;
-  //     const { keyword } = req.query;
-  //     const response = await amadeus.referenceData.locations.get({
-  //       keyword,
-  //       'page[limit]': 5,
-  //       'page[offset]': 0,
-  //       subType: Amadeus.location.any
-  //       //subType: 'CITY,AIRPORT'
-  //     });
-  //     //console.log('searching loc...');
-      
-  //     var result = jp.query(JSON.parse(response.body), '$.data[*]');
-  //     var hotelData = jp.query(JSON.parse(response.body), '$[*][*]');
-  
-  //     var dataCount = hotelData.length;
-  //     var results = []
-  //     for (var i = 0; i < dataCount; i++){
-  
-  //         // console.log("FULL DATA OBJ: ", newData)
-  //         if (typeof hotelData[i]!='undefined'){
-  //         var displayData = {
-  //             detailedName: hotelData[i].detailedName,
-  //             name: hotelData[i].name,
-  //             subType: hotelData[i].subType,
-  //             iataCode: hotelData[i].address.cityCode,
-  //           }
-  //           //console.log('searching loc...',hotelData[i].address.cityName);
-  //         }
-  //         results.push(displayData);
-  
-  //     }// close for loop    
-  //     return res.send(results);
-  
-  //   }
-  //     catch (err) {
-  //       res.json(err);
-  //     }
 });
 
 
@@ -330,11 +276,6 @@ router.get(`/hotel-offers`, async (req, res) => {
       checkOutDate,
       adults
     });
-
-    // const response = await amadeus.referenceData.locations.hotels.byHotels.get({
-    //   hotelIds: 'EDLONDER'
-    // });
-
     //get the hotel infos such as geographical position, citycode, cityname
     var hotelInfos = jp.query(JSON.parse(response.body), "$.data.hotel");
     //get only the offers
@@ -421,26 +362,5 @@ router.get(`/search-location`, async (req, res) => {
       res.json(err);
     }
 });
-
-//////////////FLIGHT SEARCH
-router.get(`/flightsearch`, async (req, res) => {
-  try {
-
-    // Find the cheapest flights from SYD to BKK
-    const response = amadeus.shopping.flightOffersSearch.get({
-    originLocationCode: 'SYD',
-    destinationLocationCode: 'BKK',
-    departureDate: '2022-05-21',
-    adults: '1'
-  });
-
-  res.json(JSON.parse(response.body));
-
-  } catch (err) {
-    res.json(err);
-  }
-});
-
-
 
 module.exports = router;

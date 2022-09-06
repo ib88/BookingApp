@@ -98,7 +98,6 @@ router.get(`/flightsearch`, async (req, res) => {
               subType: hotelData[i].subType,
               iataCode: hotelData[i].iataCode
             }
-              console.log('searching loc...',hotelData[i].geoCode);
           }
           results.push(displayData);
   

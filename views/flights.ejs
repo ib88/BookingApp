@@ -367,14 +367,14 @@
 										<label for="sourceFlight">Leaving from</label>
 										<input type="text" placeholder="City, region, district or specific airport"
 											id="sourceFlight" name="sourceFlight"
-											onKeyUp="showResultsSource(this.id, this.value, 'sourceList', 'resultSourceFlightDiv')" />
+											onKeyUp="showResultsSource(this.id, this.value, 'sourceList', 'resultSourceFlightDiv', 'sourceFlightCode')" />
 										<input type="hidden" id="sourceFlightCode" name="sourceFlightCode" value="">
 										<div id="resultSourceFlightDiv"></div>
 									</div>
 									<div class="f-item full-width">
 										<label for="destinationFlight">Going to</label>
 										<input type="text" placeholder="City, region, district or specific airport"
-											id="destinationFlight" name="destinationFlight" />
+											id="destinationFlight" name="destinationFlight" onKeyUp="showResultsSource(this.id, this.value, 'destinationList', 'resultDestinationFlightDiv', 'destinationFlightCode')"/>
 									</div>
 									<input type="hidden" id="destinationFlightCode" name="destinationFlightCode"
 										value="">
@@ -1244,9 +1244,13 @@
 	<script type="text/javascript" src="/js/lightslider.min.js"></script>
 	<script type="text/javascript" src="/js/scripts.js"></script>
 	<script type="text/javascript">
-		function showResultsSource(eltId, val, listId ,resultDivId) {
-			res = document.getElementById("resultSourceFlightDiv");
-			res.innerHTML = '';
+		function showResultsSource(eltId, val, listId ,divId, hiddenFieldId) {
+			res = document.getElementById(`${divId}`);
+			res.innerHTML = ''; 
+			
+			let name = "Omar";
+			let s = `Here is the name: ${name}`;
+			
 			if (val == '') {
 				return;
 			}
@@ -1258,16 +1262,18 @@
 					if (typeof data[i].detailedName != 'undefined')
 						list += '<li ' + 'data-value=' + data[i].iataCode + '>' + data[i].detailedName + "-----" + data[i].subType + '</li>';
 				}
-				res.innerHTML = `<ul id=sourceFlightList>` + list + '</ul>';
-				$("ul[id*=sourceFlightList] li").click(function () {
+				//res.innerHTML = `<ul id=sourceFlightList>` + list + '</ul>';
+				res.innerHTML = `<ul id=${listId}>` + list + '</ul>';
+				// $("ul[id*=sourceFlightList] li").click(function () {
+					$(`ul[id*=${listId}] li`).click(function () {
 					// document.getElementById("sourceFlightCode").value = "";
-					document.getElementById("sourceFlightCode").value = "";
-					document.getElementById("sourceFlightCode").value = $(this).data('value');
-					//alert($(this).attr('data-value').val());
-					document.getElementById("sourceFlight").value = "";
-					document.getElementById("sourceFlight").value = $(this).text();
-					$(`#resultSourceFlightDiv`).empty();
-					return;
+						document.getElementById(`${hiddenFieldId}`).value = "";
+						document.getElementById(`${hiddenFieldId}`).value = $(this).data('value');
+						//alert($(this).attr('data-value').val());
+						document.getElementById(`${eltId}`).value = "";
+						document.getElementById(`${eltId}`).value = $(this).text();
+						$(`#${divId}`).empty();
+						return;
 				});
 				return true;
 			}).catch(function (err) {

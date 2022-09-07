@@ -1,0 +1,27 @@
+{
+    type: 'flight-offer',
+    id: '40',
+    source: 'GDS',
+    instantTicketingRequired: false,
+    nonHomogeneous: false,
+    oneWay: false,
+    lastTicketingDate: '2022-09-08',
+    numberOfBookableSeats: 9,
+    itineraries: [Array],
+    price: [Object],
+    pricingOptions: [Object],
+    validatingAirlineCodes: [Array],
+    travelerPricings: [Array]
+  }
+
+  ///flight availability
+  {
+    type: 'flight-availability',
+    id: '38',
+    originDestinationId: '1',
+    source: 'GDS',
+    instantTicketingRequired: false,
+    paymentCardRequired: false,
+    duration: 'PT6H35M',
+    segments: [Array]
+  },

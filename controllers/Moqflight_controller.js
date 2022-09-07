@@ -1,6 +1,6 @@
 
 // router.js
-const { AmadeusMockRepo } = require("../Repositories/IAmadeusMoqRepo");
+const { AmadeusMockRepo, AmadeusRepo } = require("../Repositories/IAmadeusMoqRepo");
 //import type {IAmadeusRepo, AmadeusMockRepo} from '../Repositories/IAmadeusMoqRepo';
 const { API_KEY, API_SECRET } = require("../config");
 const Amadeus = require("amadeus");

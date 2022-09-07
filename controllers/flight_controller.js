@@ -1,5 +1,5 @@
 
-// router.js
+const { AmadeusMockRepo, AmadeusRepo } = require("../Repositories/IAmadeusMoqRepo");
 const { API_KEY, API_SECRET } = require("../config");
 const Amadeus = require("amadeus");
 const express = require("express");
@@ -34,10 +34,10 @@ router.get(`/flightsearch`, async (req, res) => {
     amadeus.shopping.flightOffersSearch.get({
       originLocationCode: 'SYD',
       destinationLocationCode: 'BKK',
-      departureDate: '2022-09-05',
+      departureDate: '2022-09-08',
       adults: '2'
     }).then(function (response) {
-      console.log(response);
+      return res.json(response);
     }).catch(function (response) {
       console.error(response);
     });
@@ -51,7 +51,7 @@ amadeus.shopping.flightDates.get({
       destination: 'MUC'
       // departureDate:  '2022-09-10'
     }).then(function (response) {
-      console.log(response);
+      return res.json(response);
     }).catch(function (response) {
       console.error(response);
     });
@@ -60,33 +60,20 @@ amadeus.shopping.flightDates.get({
 router.get(`/flightAvSearch`, async (req, res) => {
   // Find the cheapest flights from SYD to BKK
  	// Find cheapest dates from Madrid to Munich
-   body = JSON.stringify({
-    "originDestinations": [
-        {
-            "id": "1",
-            "originLocationCode": "MIA",
-            "destinationLocationCode": "ATL",
-            "departureDateTime": {
-                "date": "2022-11-12"
-            }
-        }
-    ],
-    "travelers": [
-        {
-            "id": "1",
-            "travelerType": "ADULT"
-        }
-    ],
-    "sources": [
-        "GDS"
-    ]
-  })
-  
-  amadeus.shopping.availability.flightAvailabilities.post(body).then(function (response) {
-    console.log(response);
-  }).catch(function (response) {
-    console.error(response);
-  });
+  //  const { source,destination,departureDate,returnDate,adults} = req.query;
+  //  if(!source || !destination || !departureDate || !returnDate || !adults) {
+  //    return res.render("flights", { business: [] });
+  //  }
+ 
+     try {
+         //readonly moqRepo: AmadeusMockRepo;
+         const result = await new AmadeusRepo().getFlightAvailability("MAD","MUC");
+         return res.json(result);
+         //return res.render("flights", { business: result });
+         } 
+     catch (err) {
+       res.json(err);
+     }
 });
 
 module.exports = router;

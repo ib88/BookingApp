@@ -140,26 +140,26 @@ router.get(`/city-hotels`, async (req, res) => {
       checkInDate,
       checkOutDate,
       adults
-    }).then(function (response) {
-      var hotelData = jp.query(JSON.parse(response.body), "$.data[*]");
-    var dataCount = hotelData.length;
-    var results = [];
-    for (var i = 0; i < dataCount; i++){
+    }).then(function (response) 
+    {
+        var hotelData = jp.query(JSON.parse(response.body), "$.data[*]");
+        var dataCount = hotelData.length;
+        var results = [];
+        for (var i = 0; i < dataCount; i++){
 
-         //console.log("FULL DATA OBJ: ", hotelData[i].hotel.name);
-        
-        var displayData = {
-            name: hotelData[i].hotel.name,
-            city: hotelData[i].hotel.address.cityName,
-            hotelId: hotelData[i].hotel.hotelId,
-            distance: hotelData[i].hotel.hotelDistance.distance,
-            roomType: hotelData[i].offers[0].room.typeEstimated.category,
-            price: hotelData[i].offers[0].price.total
-        }
-        results.push(displayData);
-    }// close for loop
-   return res.render("home", {business: results});
-
+            //console.log("FULL DATA OBJ: ", hotelData[i].hotel.name);
+            
+            var displayData = {
+                name: hotelData[i].hotel.name,
+                city: hotelData[i].hotel.address.cityName,
+                hotelId: hotelData[i].hotel.hotelId,
+                distance: hotelData[i].hotel.hotelDistance.distance,
+                roomType: hotelData[i].offers[0].room.typeEstimated.category,
+                price: hotelData[i].offers[0].price.total
+            }
+            results.push(displayData);
+        }// close for loop
+      return res.render("home", {business: results});
     }).catch(function (response) {
       res.json(response);
     });

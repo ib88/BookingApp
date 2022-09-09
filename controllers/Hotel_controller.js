@@ -5,6 +5,7 @@ const Amadeus = require("amadeus");
 const express = require("express");
 const axios = require("axios");
 var _ = require("underscore");
+const { check, validationResult } = require('express-validator');
 //const path = require("path");
 var bodyParser = require("body-parser");
 var jp = require('jsonpath');
@@ -167,16 +168,36 @@ router.get(`/city-hotels`, async (req, res) => {
 
 
 
-router.post(`/city-hotels`, async (req, res) => {
+router.post(`/city-hotels`, [
+  check('destination1')
+      .not()
+      .isEmpty()
+      .withMessage('Chose a destination'),
+      check('datepicker1')
+      .not()
+      .isEmpty()
+      .withMessage('Chose a check in date'),
+      check('datepicker2')
+      .not()
+      .isEmpty()
+      .withMessage('Chose a check out date')
+],async (req, res) => {
 
   var cityCode = req.body.destinationCode;
   var checkInDate = req.body.datepicker1;
   var checkOutDate = req.body.datepicker2;
   var adults = req.body.adults;
 
-  if(!cityCode || !checkInDate || !checkOutDate || !adults) {
-    return res.render("home", { business: [] });
-  }
+  // if(!cityCode || !checkInDate || !checkOutDate || !adults) {
+  //   return res.render("home", { business: [] });
+  // }
+
+  const errors = validationResult(req);
+    if (!errors.isEmpty()) {
+      const alert = errors.array()
+      return res.render("home", {alert});
+      //return res.status(422).jsonp(errors.array());
+    }
 
 
   amadeus.shopping.hotelOffers.get({

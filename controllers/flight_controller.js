@@ -64,7 +64,30 @@ router.get(`/flightAvSearch`, async (req, res) => {
   //  if(!source || !destination || !departureDate || !returnDate || !adults) {
   //    return res.render("flights", { business: [] });
   //  }
- 
+     try {
+         //readonly moqRepo: AmadeusMockRepo;
+         const result = await new AmadeusRepo().getFlightAvailability("MAD","MUC");
+         return res.json(result);
+         //return res.render("flights", { business: result });
+         } 
+     catch (err) {
+       res.json(err);
+     }
+});
+
+router.post(`/flightAvSearch`, async (req, res) => {
+  // Find the cheapest flights from SYD to BKK
+ 	// Find cheapest dates from Madrid to Munich
+  //  const { source,destination,departureDate,returnDate,adults} = req.query;
+  //  if(!source || !destination || !departureDate || !returnDate || !adults) {
+  //    return res.render("flights", { business: [] });
+  //  }
+
+  var cityCode = req.body.destinationCode;
+  var checkInDate = req.body.datepicker1;
+  var checkOutDate = req.body.datepicker2;
+  var adults = req.body.adults;
+  
      try {
          //readonly moqRepo: AmadeusMockRepo;
          const result = await new AmadeusRepo().getFlightAvailability("MAD","MUC");

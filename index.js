@@ -29,9 +29,9 @@ app.use(bodyParser.urlencoded({extended: false}));
 
 const PORT = config.PORT;
 
-app.get("/test", function(req, res){
-  res.render('search');    
-});
+// app.get("/test", function(req, res){
+//   res.render('search');    
+// });
 
 app.use(express.json());
 //app.use("/api", router);

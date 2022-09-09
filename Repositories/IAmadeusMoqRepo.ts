@@ -129,7 +129,8 @@ export class AmadeusRepo implements IAmadeusRepo {
         //       id: hotelData.id
         //     }
         //   });
-
+        //throw new Error;
+        
         for (let i = 0; i < 2; i++) {
           let flight: FlightInfo =
           {

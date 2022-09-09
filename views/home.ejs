@@ -195,6 +195,18 @@
 	<!--search-->
 	<div class="main-search">
 		<div class="wrap">
+
+			<% if(typeof alert != 'undefined') { %>
+				<% alert.forEach(function(error) { %>
+					<div class="alert alert-warning alert-dismissible fade show" role="alert">
+						<%= error.msg %>
+						<button type="button" class="close" data-dismiss="alert" aria-label="Close">
+						  <span aria-hidden="true">×</span>
+						</button>
+					  </div>
+				<% }) %>
+			<% } %>
+
 			<form id="main-search" method="post" action="api/city-hotels/">
 				<div class="row">
 					<!--column-->
@@ -237,7 +249,7 @@
 								<h5><span>02</span> Where?</h5>
 								<div class="row">
 									<div class="f-item full-width">
-										<label for="destination1">my destination</label>
+										<label for="destination1"> destination</label>
 										<input type="text" placeholder="City, region, district or specific hotel" id="destination1" name="destination1" onKeyUp="showResults(this.value)"/>
 										<!-- <input type="text" placeholder="City, region, district or specific hotel" id="destination1" name="destination" onKeyUp="alert(this.value)"/> -->
 										<input type="hidden" id="destinationCode" name="destinationCode" value="">
@@ -790,21 +802,22 @@
 					<div class="deals cars">
 						<div class="row">
 							<!--deal-->
-                            <% business.forEach((elt)=>{%>
-                                <!-- <li>Name: <%=elt.name%> -Distance: <%=elt.distance%>Km - Room Type: <%=elt.roomType%> - Price: <%=elt.price%>Euro</li>  -->
-                                  <article class="one-fourth">
-                                    <div class="details">
-                                        <h3><%=elt.name%></h3>
-                                        <span class="price">Price per day from  <em><%=elt.price%> Euro</em> </span>
-                                        <span class="price">Room Type  <em><%=elt.roomType%></em> </span>
-                                        <span class="price"><%=elt.distance%> Km From City</span>
-										<span class="price">City Of  <em><%=elt.city%></em> </span>
-										<!-- <span class="price">City  <em><%=elt.city%></em> </span> -->
-                                        <a href="api/hotel-offers?hotelId=<%=elt.hotelId%>&checkInDate=<%=elt.checkInDate%>&checkOutDate=<%=elt.checkOutDate%>&adults=<%=elt.adults%>" title="View Rooms" class="gradient-button">View Rooms</a>
-                                    </div>
-                                </article>
-                          <%});%>
-						  
+							<% if(typeof business != 'undefined') { %>
+								<% business.forEach((elt)=>{%>
+									<!-- <li>Name: <%=elt.name%> -Distance: <%=elt.distance%>Km - Room Type: <%=elt.roomType%> - Price: <%=elt.price%>Euro</li>  -->
+									<article class="one-fourth">
+										<div class="details">
+											<h3><%=elt.name%></h3>
+											<span class="price">Price per day from  <em><%=elt.price%> Euro</em> </span>
+											<span class="price">Room Type  <em><%=elt.roomType%></em> </span>
+											<span class="price"><%=elt.distance%> Km From City</span>
+											<span class="price">City Of  <em><%=elt.city%></em> </span>
+											<!-- <span class="price">City  <em><%=elt.city%></em> </span> -->
+											<a href="api/hotel-offers?hotelId=<%=elt.hotelId%>&checkInDate=<%=elt.checkInDate%>&checkOutDate=<%=elt.checkOutDate%>&adults=<%=elt.adults%>" title="View Rooms" class="gradient-button">View Rooms</a>
+										</div>
+									</article>
+								<%});%>
+							<% } %>
 						</div>
 					</div>	
 				</div>

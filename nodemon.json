@@ -1,5 +1,5 @@
 {
-    "watch": ["./*"],
+    "watch": ["/controllers"],
     "ignore": ["dist/", "node_modules", ".git"],
     "ext": "js,json",
     "env": {

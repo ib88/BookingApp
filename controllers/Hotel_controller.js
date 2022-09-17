@@ -63,24 +63,26 @@ router.get(`/getSuggestion`, async (req, res) => {
 
     var dataCount = hotelData.length;
     var results = []
-    console.log("FULL DATA OBJ: ", hotelData);
+    //var testCode = hotelData[i].address.cityCode;
+    //console.log("FULL DATA OBJ: ", hotelData);
 
-    for (var i = 0; i < dataCount; i++){
+    for (var i = 2; i < dataCount; i++){
         if (typeof hotelData[i]!='undefined'){
         var displayData = {
             detailedName: hotelData[i].detailedName,
             name: hotelData[i].name,
             subType: hotelData[i].subType,
-            iataCode: hotelData[i].iataCode
+            iataCode: hotelData[i].iataCode,
+            cityCode: hotelData[i].address.cityCode
           }
-            console.log('searching loc...',hotelData[i].geoCode);
+            //console.log('searching loc...',hotelData[i].geoCode);
         }
         results.push(displayData);
 
     }// close for loop    
     return res.send(results);
   }).catch(function (response) {
-    res.json(err);
+    res.json(response);
   });
 });
 

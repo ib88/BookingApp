@@ -178,7 +178,16 @@
 		<!--//main navigation-->
 	</header>
 	<!--//header-->
-	
+	<% if(typeof alert != 'undefined') { %>
+		<% alert.forEach(function(error) { %>
+			<div class="alert alert-warning alert-dismissible fade show" role="alert" style="color: firebrick;">
+				<%= error.msg %>
+				<!-- <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+				  <span aria-hidden="true">×</span>
+				</button> -->
+			  </div>
+		<% }) %>
+	<% } %>
 	<!--slider-->
 	<div class="slider">
 		<ul id="hero-gallery" class="cS-hidden">
@@ -195,17 +204,6 @@
 	<!--search-->
 	<div class="main-search">
 		<div class="wrap">
-
-			<% if(typeof alert != 'undefined') { %>
-				<% alert.forEach(function(error) { %>
-					<div class="alert alert-warning alert-dismissible fade show" role="alert">
-						<%= error.msg %>
-						<button type="button" class="close" data-dismiss="alert" aria-label="Close">
-						  <span aria-hidden="true">×</span>
-						</button>
-					  </div>
-				<% }) %>
-			<% } %>
 
 			<form id="main-search" method="post" action="api/city-hotels/">
 				<div class="row">
@@ -284,18 +282,18 @@
 							<div class="column one-third">
 								<h5><span>04</span> Who?</h5>
 								<div class="row">
-									<div class="f-item one-third spinner">
+									<!-- <div class="f-item one-third spinner">
 										<label for="spinner1">Rooms</label>
 										<input type="text" placeholder="" id="rooms" name="rooms" />
-									</div>
+									</div> -->
 									<div class="f-item one-third spinner">
 										<label for="spinner2">Adults</label>
 										<input type="text" placeholder="" id="adults" name="adults" />
 									</div>
-									<div class="f-item one-third spinner">
+									<!-- <div class="f-item one-third spinner">
 										<label for="spinner3">Children</label>
 										<input type="text" placeholder="" id="children" name="children" />
-									</div>
+									</div> -->
 								</div>
 							</div>
 							<!--//column-->
@@ -924,7 +922,7 @@ function showResults(val) {
    }).then(function (data) {
      for (i=0; i<data.length; i++) {
          if(typeof data[i].detailedName!='undefined')
-       list += '<li ' + 'data-value=' + data[i].iataCode + '>'  + data[i].detailedName + "-----" + data[i].subType + '</li>';
+       list += '<li ' + 'data-value=' + data[i].cityCode + '>'  + data[i].detailedName + "-----" + data[i].subType + '</li>';
      }
      res.innerHTML = '<ul id=myid>' + list + '</ul>';
      $("ul[id*=myid] li").click(function () {

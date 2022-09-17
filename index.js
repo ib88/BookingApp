@@ -4,7 +4,7 @@ const express = require("express");
 //const router = require("./router");
 const hotelRouter = require("./controllers/Hotel_controller");
 const flightRouter = require("./controllers/flight_controller");
-const MoqflightRouter = require("./controllers/Moqflight_controller");
+const MoqflightRouter = require("./controllers/Mockflight_controller");
 
 const config = require("./config");
 const path = require("path");

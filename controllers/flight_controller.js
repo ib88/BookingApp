@@ -48,13 +48,20 @@ router.get(`/flightOffer`, async (req, res) => {
   for (var i = 0; i < flights.length; i++) {
 
     let results = new DatesInfo(flights[i]).getDates();
-    let flightTime = {
-      departure: results.departure,
-      arrival: results.arrival
-    };
-    flightTimes.push(flightTime);
+    flights[i].departure_.at_ = results.departure;
+    flights[i].departure_.iataCode_ = results.iataCodeDeparture;
+
+    flights[i].arrival_.at_ = results.arrival;
+    flights[i].arrival_.iataCode_ = results.iataCodeArrival;
+
+
+    // let flightTime = {
+    //   departure: results.departure,
+    //   arrival: results.arrival
+    // };
+    // flightTimes.push(flightTime);
   }
-  return res.render("flights", { business: flights, flightTimes: flightTimes });
+  return res.render("flights", { business: flights });
 
   //return res.json(flights);
 });

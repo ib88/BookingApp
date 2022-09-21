@@ -13,7 +13,10 @@ export class DatesInfo {
 
         return {
                 departure: this.flightOffer_.itineraries_[0].segments_[0].departure_.at_,
-                arrival: this.flightOffer_.itineraries_[0].segments_[count-1].arrival_.at_
+                iataCodeDeparture: this.flightOffer_.itineraries_[0].segments_[0].departure_.iataCode_,
+
+                arrival: this.flightOffer_.itineraries_[0].segments_[count-1].arrival_.at_,
+                iataCodeArrival: this.flightOffer_.itineraries_[0].segments_[0].arrival_.iataCode_
         }; 
     }
 }

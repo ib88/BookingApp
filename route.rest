@@ -34,7 +34,7 @@ GET http://localhost:8888/api/getSuggestion?keyword=par&pageLimit=5&pageOffset=0
 GET http://localhost:8888/flight/flightsearch
 
 ###get flight offer
-GET http://localhost:8888/flight/fligOffer
+GET http://localhost:8888/flight/flightOffer
 
 ###get the cheapest date from an airport to another
 GET http://localhost:8888/flight/cheapestDates

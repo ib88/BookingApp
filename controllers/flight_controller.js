@@ -1,5 +1,7 @@
 
 const { AmadeusMockRepo, AmadeusRepo } = require("../Repositories/IAmadeusMockRepo");
+const { DatesInfo } = require("../Models/DatesInfo");
+
 const { API_KEY, API_SECRET } = require("../config");
 const Amadeus = require("amadeus");
 const express = require("express");
@@ -38,12 +40,27 @@ router.get(`/flightsearch`, async (req, res) => {
   // return res.json(flights);
 });
 
-router.get(`/fligOffer`, async (req, res) => {
+router.get(`/flightOffer`, async (req, res) => {
 
   // Find the cheapest flights from SYD to BKK
   let flights = await new AmadeusRepo().getFlightOffer();
-  return res.json(flights);
+  let flightTimes = [];
+  for (var i = 0; i < flights.length; i++) {
+
+    let results = new DatesInfo(flights[i]).getDates();
+    let flightTime = {
+      departure: results.departure,
+      arrival: results.arrival
+    };
+    flightTimes.push(flightTime);
+  }
+  return res.render("flights", { business: flights, flightTimes: flightTimes });
+
+  //return res.json(flights);
 });
+
+
+
 
 router.get(`/cheapestDates`, async (req, res) => {
   // Find the cheapest flights from SYD to BKK

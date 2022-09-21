@@ -35,7 +35,7 @@ interface IAmadeusRepo {
   getCheapestFlightDates(source: string, destination: string): Promise<flightInfo[]>;
   getFlightAvailability(source: string, destination: string, departureDate: string, adults: string): Promise<flightInfo[]>;
   getAirlineName(code: string): Promise<airlineInfo>;
-  getFlightOffer(source: string, destination: string): Promise<flightInfo[]>;
+  getFlightOffer(source: string, destination: string): Promise<FlightOffer[]>;
 }
 
 interface flightInfo {
@@ -92,8 +92,8 @@ export class AmadeusMockRepo implements IAmadeusRepo {
     return flights;
   }
 
-  async getFlightOffer(source: string, destination: string): Promise<flightInfo[]> {
-    let flights: Array<flightInfo> = [
+  async getFlightOffer(source: string, destination: string): Promise<FlightOffer[]> {
+    let flights: Array<FlightOffer> = [
       // { id:'1', type:'', instantTicketingRequired:true, oneWay:true, lastTicketingDate:'', nonHomogeneous:true, source: 'MAD', destination: 'MUC', departure: '2022:11:11', returnDate: '2022:11:13', price: '133', duration: '12:21' },
       //  { id:'1', type:'', instantTicketingRequired:true, oneWay:true, lastTicketingDate:'', nonHomogeneous:true, source: 'MAD', destination: 'MUC', departure: '2022:11:11', returnDate: '2022:11:13', price: '133', duration: '12:21' },
     ];
@@ -133,7 +133,7 @@ export class AmadeusRepo implements IAmadeusRepo {
     return flights;
   }
 
-  async getFlightOffer(source: string, destination: string): Promise<flightInfo[]> {
+  async getFlightOffer(source: string, destination: string): Promise<FlightOffer[]> {
 
 return amadeus.shopping.flightOffersSearch.get({
   originLocationCode: 'SYD',
@@ -144,9 +144,11 @@ return amadeus.shopping.flightOffersSearch.get({
 }).then(function (response: any) {
 
   const objectMapper = new ObjectMapper();
+  
   const result = JSON.stringify(response.data);
-  const flightsParsed = objectMapper.parse<FlightOffer>(result)
-  return [flightsParsed];
+  //objectMapper.configure();
+  const flightsParsed = objectMapper.parse<FlightOffer>(result,{mainCreator: () => [Array, [FlightOffer]]});
+  return flightsParsed;
       }).catch(function (error: any) {
         throw error;
       });

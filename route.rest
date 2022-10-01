@@ -51,3 +51,8 @@ GET http://localhost:8888/Moqflight/cheapestDates
 ###get the cheapest flights on a day
 GET http://localhost:8888/Moqflight/cheapestDates
 
+### get the airline infos
+GET http://localhost:8888/flight/getAirline
+
+##try booking
+GET http://localhost:8888/flight/tryBooking

@@ -227,7 +227,7 @@
 
 					<div class="main-search">
 						<div class="wrap">
-							<form id="main-search" method="post" action="/flight/flightAvSearch/">
+							<form id="main-search" method="post" action="/flight/flightOffer/">
 								<div class="row">
 									<!--column-->
 									<div class="column radios one-fourth">
@@ -382,6 +382,10 @@
 												<h5><span>02</span> Where?</h5>
 												<div class="row">
 													<div class="f-item full-width">
+
+														<label for="myInput">Type something in!</label>
+														<input id="myInput" type="text">
+
 														<label for="sourceFlight">Leaving from</label>
 														<input type="text" placeholder="specific airport"
 															id="sourceFlight" name="sourceFlight"
@@ -860,12 +864,16 @@
 													<!-- <li>Name: <%=elt.name%> -Distance: <%=elt.distance%>Km - Room Type: <%=elt.roomType%> - Price: <%=elt.price%>Euro</li>  -->
 													<article class="one-fourth">
 														<div class="details">
+
 															<h3>
 																<%= elt.departure_.iataCode_ %> to
-																<%= elt.arrival_.iataCode_ %>
+																	<%= elt.arrival_.iataCode_ %>
 															</h3>
+															<span class="price">Seats Left: <em>
+																	<%= elt.numberOfBookableSeats_ %>
+																</em> </span>
 															<span class="price">Price <em>
-																	<%= elt.price_.total_  %> Euros
+																	<%= elt.price_.total_ %> Euros
 																</em> </span>
 															<span class="price">Leaves on <em>
 																	<%= elt.departure_.at_ %>
@@ -873,13 +881,40 @@
 															<span class="price">Arrives on <em>
 																	<%= elt.arrival_.at_ %>
 																</em> </span>
-															<!-- <span class="price">Room Type <em>
-													<%=elt.duration%>
-												</em> </span> -->
-															<!-- <span class="price">City  <em><%=elt.city%></em> </span> -->
-															<a href="api/hotel-offers?hotelId=<%=elt.hotelId%>&checkInDate=<%=elt.checkInDate%>&checkOutDate=<%=elt.checkOutDate%>&adults=<%=elt.adults%>"
-																title="View Rooms" class="gradient-button">View
-																Details</a>
+															<h3>
+																----------ITINERARY----------
+															</h3>
+															<% elt.itineraries_.forEach((itinerary)=>{%>
+
+																<% itinerary.segments_.forEach((segment)=>{%>
+																	<!-- <li>Name: <%=elt.name%> -Distance: <%=elt.distance%>Km - Room Type: <%=elt.roomType%> - Price: <%=elt.price%>Euro</li>  -->
+
+																	<h3>
+																		<%= segment.departure_.iataCode_ %> to
+																			<%= segment.arrival_.iataCode_ %>
+																	</h3>
+																	<span class="price">Operated By: <em>
+																			<%= segment.carrierName_ %>
+																		</em> </span>
+																	<span class="price">Duration <em>
+																			<%= segment.duration_ %>
+																		</em> </span>
+																	<span class="price">Number of Stops <em>
+																			<%= segment.numberOfStops_ %>
+																		</em> </span>
+																	<span class="price">Leaves on <em>
+																			<%= segment.departure_.at_ %>
+																		</em> </span>
+																	<span class="price">Arrives on <em>
+																			<%= segment.arrival_.at_ %>
+																		</em> </span>
+																	<%});%>
+																		<%});%>
+
+																			<a href="flight/tryBooking?flightInfo=<%=elt%>&iataCode=<%=elt.arrival_.iataCode_ %>"
+																				title="View Rooms"
+																				class="gradient-button">Book
+																			</a>
 														</div>
 													</article>
 													<%});%>
@@ -896,7 +931,7 @@
 
 					<div class="destinations">
 						<div class="row">
-							<!--column-->
+							<!column-->
 									<!-- <article class="one-fourth">
 								<figure><a href="#" title=""><img src="images/uploads/img.jpg" alt="" /></a></figure>
 								<div class="details">
@@ -919,7 +954,7 @@
 									</div>
 								</div>
 							</article>
-							<!--//column-->
+							<//column-->
 
 									<!--column-->
 									<!-- <article class="one-fourth">
@@ -1069,7 +1104,7 @@
 									</div>
 								</div>
 							</article>
-							<!--//column-->
+							//column-->
 
 									<!--column-->
 									<!-- <article class="one-fourth">
@@ -1188,6 +1223,26 @@
 					<script type="text/javascript" src="/js/lightslider.min.js"></script>
 					<script type="text/javascript" src="/js/scripts.js"></script>
 					<script type="text/javascript">
+
+						function helloWorld() {
+							console.log("Hello World!")
+						}
+
+						function debounce(callback, delay) {
+							let timeout;
+							return function () {
+								clearTimeout(timeout);
+								timeout = setTimeout(callback, delay);
+							}
+						}
+
+						const myInput = document.getElementById("myInput");
+
+						myInput.addEventListener(
+							"keyup",
+							debounce(helloWorld, 2000)
+						);
+///////////////////////////
 						function showResultsSource(eltId, val, listId, divId, hiddenFieldId) {
 							res = document.getElementById(`${divId}`);
 							res.innerHTML = '';
@@ -1226,6 +1281,7 @@
 								return false;
 							});
 						}
+
 						(function ($) {
 							$(document).ready(function () {
 								$('.form').hide();

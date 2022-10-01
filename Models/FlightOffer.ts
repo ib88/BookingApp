@@ -11,6 +11,7 @@ export class Segment {
         this.departure_ = departure;
         this.arrival_ = arrival;
         this.duration_ = duration;
+        this.carrierName_ = "";
     }
 
     @JsonProperty({value: "id"})
@@ -36,6 +37,10 @@ export class Segment {
     @JsonProperty({value: "arrival"})
     @JsonClassType({type: () => [Arrival]})
     arrival_:Arrival;
+
+    @JsonProperty()
+    @JsonClassType({type: () => [String]})
+    carrierName_:string;
 }
 
 export class Departure{

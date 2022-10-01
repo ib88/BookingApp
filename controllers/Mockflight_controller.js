@@ -104,7 +104,7 @@ router.get(`/flightsearch`, async (req, res) => {
       }// close for loop    
       return res.send(results);
     }).catch(function (response) {
-      res.json(err);
+      res.json(response);
     });
   });
   module.exports = router;

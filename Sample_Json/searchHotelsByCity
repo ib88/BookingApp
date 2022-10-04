@@ -1,0 +1,1494 @@
+HTTP/1.1 200 OK
+X-Powered-By: Express
+Content-Type: application/json; charset=utf-8
+Content-Length: 34034
+ETag: W/"84f2-7CoohlH/207wGE+uwAV3/+V7VdU"
+Date: Sat, 30 Apr 2022 17:02:57 GMT
+Connection: close
+
+[
+  {
+    "type": "hotel",
+    "hotelId": "XKPAR321",
+    "chainCode": "XK",
+    "dupeId": "501107986",
+    "name": "GRG",
+    "cityCode": "PAR",
+    "latitude": 48.85801,
+    "longitude": 2.34661,
+    "hotelDistance": {
+      "distance": 0.4,
+      "distanceUnit": "KM"
+    },
+    "address": {
+      "lines": [
+        "18 avenue Victoria"
+      ],
+      "postalCode": "75001",
+      "cityName": "Paris",
+      "countryCode": "FR"
+    },
+    "contact": {
+      "phone": "5546114",
+      "fax": "43/2739/2919",
+      "email": "Papa.Noel4@free.fr"
+    }
+  },
+  {
+    "type": "hotel",
+    "hotelId": "ZZJEG119",
+    "chainCode": "ZZ",
+    "dupeId": "502326370",
+    "name": "CONCORDE OPERA PARIS OPERA PARIS",
+    "cityCode": "JEG",
+    "latitude": 48.8569,
+    "longitude": 2.35085,
+    "hotelDistance": {
+      "distance": 0.5,
+      "distanceUnit": "KM"
+    },
+    "address": {
+      "lines": [
+        "LEFISTON STREET"
+      ],
+      "cityName": "PARIS",
+      "countryCode": "FR"
+    }
+  },
+  {
+    "type": "hotel",
+    "hotelId": "BLPAR123",
+    "chainCode": "BL",
+    "dupeId": "502326139",
+    "name": "BLPARP07",
+    "cityCode": "PAR",
+    "latitude": 48.8569,
+    "longitude": 2.35085,
+    "hotelDistance": {
+      "distance": 0.5,
+      "distanceUnit": "KM"
+    },
+    "address": {
+      "lines": [
+        "street1"
+      ],
+      "postalCode": "66000",
+      "cityName": "Paris",
+      "countryCode": "FR"
+    }
+  },
+  {
+    "type": "hotel",
+    "hotelId": "OIPAR555",
+    "chainCode": "OI",
+    "dupeId": "502310929",
+    "name": "Test property - PSD2",
+    "cityCode": "PAR",
+    "latitude": 48.8569,
+    "longitude": 2.35085,
+    "hotelDistance": {
+      "distance": 0.5,
+      "distanceUnit": "KM"
+    },
+    "address": {
+      "lines": [
+        "street1"
+      ],
+      "postalCode": "43666",
+      "cityName": "Paris",
+      "countryCode": "FR"
+    },
+    "amenities": [
+      "24_HOUR_FRONT_DESK"
+    ]
+  },
+  {
+    "type": "hotel",
+    "hotelId": "RTPARSOR",
+    "chainCode": "RT",
+    "dupeId": "700043120",
+    "name": "Hotel de Test",
+    "rating": "5",
+    "cityCode": "PAR",
+    "latitude": 48.84917,
+    "longitude": 2.34301,
+    "hotelDistance": {
+      "distance": 0.6,
+      "distanceUnit": "KM"
+    },
+    "address": {
+      "lines": [
+        "14 RUE DE LA SORBONNE"
+      ],
+      "postalCode": "75005",
+      "cityName": "PARIS",
+      "countryCode": "FR"
+    },
+    "contact": {
+      "phone": "0810515253",
+      "fax": "0810515254",
+      "email": "Papa.Noel@free.fr"
+    },
+    "description": {
+      "lang": "en",
+      "text": "Voici une description normale de notre hotel. Il est situe dans une foret, dispose d une piscine chauffee et de chambres toutes tres spacieuses et calmes"
+    },
+    "amenities": [
+      "ELEVATOR",
+      "24_HOUR_FRONT_DESK",
+      "24_HOUR_ROOM_SERVICE",
+      "CONNECTING_ROOMS",
+      "AIRLINE_DESK",
+      "ATM/CASH_MACHINE",
+      "BABY-SITTING",
+      "PHOTOCOPIER",
+      "PRINTER",
+      "AUDIO-VISUAL_EQUIPMENT",
+      "WHITE/BLACKBOARD",
+      "BUSINESS_CENTER",
+      "CELLULAR_PHONE_RENTAL",
+      "COMPUTER_RENTAL",
+      "EXECUTIVE_DESK",
+      "LCD/PROJECTOR",
+      "MEETING_ROOMS",
+      "OVERHEAD_PROJECTOR",
+      "SECRETARIAL_SERVICES",
+      "CONFERENCE_SUITE",
+      "CONVENTION_CENTRE",
+      "MEETING_FACILITIES",
+      "FIRE_SAFETY",
+      "EMERGENCY_BACKUP_GENERATOR",
+      "EMERGENCY_LIGHTING",
+      "FIRE_DETECTORS",
+      "GUARDED_PARKING",
+      "RESTRICTED_PUBLIC_ACCESS",
+      "EXTERIOR_ROOM_ENTRY",
+      "INTERIOR_ROOM_ENTRY",
+      "SMOKE_DETECTOR",
+      "ROOMS_WITH_BALCONIES",
+      "SPRINKLERS",
+      "FIRST_AID_STAF",
+      "SECURITY_GUARD",
+      "VIDEO_SURVEILANCE",
+      "EXTINGUISHERS",
+      "FEMA_FIRE_SAFETY_COMPLIANT",
+      "FIRE_SAFETY_NOT_STANDARD",
+      "WHEELCHAIR_ACCESSIBLE_WASHBASIN",
+      "DISABLED_FACILITIES",
+      "WHEELCHAIR_ACCESSIBLE_LIGHT_SWITCH",
+      "WHEELCHAIR_ACCESSIBLE_PUBLIC_AREA",
+      "SERVICE_DOGS_ALLOWED",
+      "DISABLED_ACCESSIBLE_TOILETS",
+      "HANDRAILS_BATHROOM",
+      "ADAPTED_PHONES",
+      "WHEELCHAIR_ACCESSIBLE_ELEVATORS",
+      "TV_SUBTITLES/CAPTION",
+      "ACCESSIBLE_PARKING",
+      "EMERGENCY_CORD/BUTTON_BATHROOM",
+      "EMERGENCY_PLAN_FOR_DISABLED",
+      "HEARING_INDUCTION_LOOPS",
+      "BRAILLE/LARGE_PRINT_MENU",
+      "DISABLED_TRAINED_STAFF",
+      "VIBRATING_PILLOWS_AVAILABLE",
+      "ACCESSIBLE_BATH_CONTROLS",
+      "ACCESSIBLE_BATHS",
+      "BRAILLE/LARGE_PRINT_LITERATURE",
+      "ADAPT_ROOM_DOORS",
+      "WHEELCHAIR_ACCESSIBLE_ROOM",
+      "SPECIAL_NEEDS_MENU",
+      "WIDE_ENTRANCE",
+      "WIDE_CORRIDORS",
+      "WIDE_RESTAURANT_ENTRANCE",
+      "AIR_CONDITIONING",
+      "ALARM_CLOCK",
+      "BABY_LISTENING_DEVICE",
+      "BATH",
+      "BIDET",
+      "CABLE_TELEVISION",
+      "CRIBS_AVAILABLE",
+      "BEACH",
+      "BOATING",
+      "BOWLING",
+      "FISHING",
+      "GOLF",
+      "GOLF",
+      "FITNESS_CENTER"
+    ]
+  },
+  {
+    "type": "hotel",
+    "hotelId": "RTPARNOV",
+    "chainCode": "RT",
+    "dupeId": "700010549",
+    "name": "Novotel Paris les Halles",
+    "rating": "4",
+    "cityCode": "PAR",
+    "latitude": 48.86053,
+    "longitude": 2.34653,
+    "hotelDistance": {
+      "distance": 0.7,
+      "distanceUnit": "KM"
+    },
+    "address": {
+      "lines": [
+        "8 PLACE MARGUERITE DE NAVARRE"
+      ],
+      "postalCode": "75001",
+      "cityName": "PARIS",
+      "countryCode": "FR"
+    },
+    "contact": {
+      "phone": "33/1/42213131",
+      "fax": "33/1/40260579",
+      "email": "H0785@accor.com"
+    },
+    "description": {
+      "lang": "en",
+      "text": "The 4-star Novotel Paris les Halles is located in the historical center of Paris. It is close to 5 metro lines and 3 RER lines, as well as several tourist attractions such as the Louvre, Notre Dame, the Marais district, the Eiffel Tower and Disneyland® Paris. The Novotel Paris les Halles offers air-conditioned rooms, free WIFI, restaurant, patio, bar, fitness room and 8 meeting rooms. It is ideal for vacations as a couple, family trips, or business travel."
+    },
+    "amenities": [
+      "ELEVATOR",
+      "ROOM_SERVICE",
+      "PARKING",
+      "INTERNET_SERVICES",
+      "220_AC",
+      "PETS_ALLOWED",
+      "ACCESSIBLE_BATHS",
+      "DISABLED_FACILITIES",
+      "TRANSLATION_SERVICES",
+      "WIRELESS_CONNECTIVITY",
+      "KIDS_WELCOME",
+      "EXCHANGE_FACILITIES",
+      "LOUNGE",
+      "DOCTOR_ON_CALL",
+      "CHILDRENS_PLAY_AREA",
+      "24_HOUR_FRONT_DESK",
+      "PORTER/BELLBOY",
+      "ICE_MACHINES",
+      "SMOKE_DETECTOR",
+      "FIRE_SAFETY",
+      "EMERGENCY_BACKUP_GENERATOR",
+      "FIRE_DETECTORS",
+      "EMERGENCY_LIGHTING",
+      "GARAGE_PARKING",
+      "BABY-SITTING",
+      "MULTILINGUAL_STAFF",
+      "RESTAURANT",
+      "PHOTOCOPIER",
+      "MEETING_FACILITIES",
+      "COMPUTER_RENTAL",
+      "MEETING_ROOMS",
+      "BUSINESS_CENTER",
+      "AUDIO-VISUAL_EQUIPMENT",
+      "HIGH_SPEED_INTERNET_IN_ROOM",
+      "BATH",
+      "CRIBS_AVAILABLE",
+      "ALARM_CLOCK",
+      "SHOWER",
+      "WAKEUP_SERVICE",
+      "WI-FI_IN_ROOM",
+      "DIRECT_DIAL_PHONE",
+      "HAIR_DRYER",
+      "CABLE_TELEVISION",
+      "TELEVISION",
+      "SATELLITE_TV",
+      "AIR_CONDITIONING",
+      "SAFE",
+      "NON_SMOKING_ROOMS"
+    ],
+    "media": [
+      {
+        "uri": "http://uat.multimediarepository.testing.amadeus.com/cmr/retrieve/hotel/BA4D02DA97504F1CA3AE1D7916F1CB8E",
+        "category": "EXTERIOR"
+      }
+    ]
+  },
+  {
+    "type": "hotel",
+    "hotelId": "BWPAR578",
+    "chainCode": "BW",
+    "dupeId": "700024479",
+    "name": "Best Western Plus Quartier Latin Pantheon",
+    "rating": "3",
+    "cityCode": "PAR",
+    "latitude": 48.84367,
+    "longitude": 2.35232,
+    "hotelDistance": {
+      "distance": 1.3,
+      "distanceUnit": "KM"
+    },
+    "address": {
+      "lines": [
+        "71 RUE MONGE"
+      ],
+      "postalCode": "75005",
+      "cityName": "PARIS",
+      "countryCode": "FR"
+    },
+    "contact": {
+      "phone": "+33 1 43312564",
+      "fax": "+33 1 43311146",
+      "email": "quartier-latin@my-paris-hotel.com"
+    },
+    "description": {
+      "lang": "en",
+      "text": "Ideally located in the heart of the Latin Quarter, within walking distance from the rue Mouffetard, The Pantheon, the Botanical Gardens and the National History Museum, and Notre Dame Cathedral. The 37 guest rooms entirely air conditioned in 2005 and redecorated in a modern style in 2006, are all complete with private en suite bathrooms equipped with a bathtub or a shower and hairdryers, remote control cable TV, direct dial phones, automatic alarm clocks, air conditioning and a wireless Internet connection. Access : Métro : 7 Place Monge 10 : cardinal Lemoine Bus : 47, 67, 89 Gare : Austerlitz Gare : Lyon."
+    },
+    "amenities": [
+      "MULTILINGUAL_STAFF",
+      "ROOM_SERVICE",
+      "SAFE_DEPOSIT_BOX",
+      "FRONT_DESK",
+      "ELEVATOR",
+      "VIDEO_SURVEILANCE",
+      "EMERGENCY_LIGHTING",
+      "FIRE_DETECTORS",
+      "SMOKE_DETECTOR",
+      "PRINTER",
+      "HAIR_DRYER",
+      "CABLE_TELEVISION",
+      "AIR_CONDITIONING",
+      "HIGH_SPEED_INTERNET_IN_ROOM",
+      "CRIBS_AVAILABLE",
+      "VIDEO",
+      "FAX_MACHINE",
+      "ALARM_CLOCK",
+      "TEA/COFFEE_MAKER",
+      "SIGHTSEEING"
+    ],
+    "media": [
+      {
+        "uri": "http://uat.multimediarepository.testing.amadeus.com/cmr/retrieve/hotel/30BA9B500CB948DF83378124E8EACE58",
+        "category": "ROOM"
+      }
+    ]
+  },
+  {
+    "type": "hotel",
+    "hotelId": "LMPARCRE",
+    "chainCode": "LM",
+    "dupeId": "700008857",
+    "name": "KKHOTEL CAYRE PARIS",
+    "rating": "4",
+    "cityCode": "PAR",
+    "latitude": 48.85552,
+    "longitude": 2.32554,
+    "hotelDistance": {
+      "distance": 1.4,
+      "distanceUnit": "KM"
+    },
+    "address": {
+      "lines": [
+        "4 BOULEVARD RASPAIL"
+      ],
+      "postalCode": "75007",
+      "cityName": "PARIS",
+      "countryCode": "FR"
+    },
+    "contact": {
+      "phone": "33-145-443888",
+      "fax": "33-145-449813"
+    },
+    "amenities": [
+      "BUSINESS_CENTER",
+      "MEETING_ROOMS",
+      "TELECONFERENCE",
+      "DISABLED_FACILITIES",
+      "WHEELCHAIR_ACCESSIBLE_ELEVATORS",
+      "WHEELCHAIR_ACCESSIBLE_ROOM",
+      "WHEELCHAIR_ACCESSIBLE_PUBLIC_AREA",
+      "WIDE_ENTRANCE",
+      "WIDE_CORRIDORS",
+      "BABY-SITTING",
+      "KIDS_WELCOME",
+      "ELEVATOR",
+      "EXCHANGE_FACILITIES",
+      "INTERNET_HOTSPOTS",
+      "FREE_INTERNET",
+      "WIFI",
+      "LAUNDRY_SERVICE",
+      "MASSAGE",
+      "PETS_ALLOWED",
+      "SAUNA",
+      "SIGHTSEEING",
+      "LOUNGE",
+      "AIR_CONDITIONING",
+      "HAIR_DRYER",
+      "MINIBAR",
+      "NON_SMOKING_ROOMS",
+      "DIRECT_DIAL_PHONE",
+      "ROOM_SERVICE",
+      "TELEVISION",
+      "WI-FI_IN_ROOM",
+      "FIRST_AID_STAF",
+      "INTERIOR_ROOM_ENTRY",
+      "EMERGENCY_LIGHTING",
+      "FIRE_DETECTORS",
+      "EXTINGUISHERS",
+      "FIRE_SAFETY",
+      "RESTRICTED_PUBLIC_ACCESS",
+      "SAFE_DEPOSIT_BOX",
+      "SMOKE_DETECTOR",
+      "VIDEO_SURVEILANCE",
+      "FITNESS_CENTER"
+    ],
+    "media": [
+      {
+        "uri": "http://uat.multimediarepository.testing.amadeus.com/cmr/retrieve/hotel/04ABAD1FCD7247D3A6AC43068C205AD4",
+        "category": "EXTERIOR"
+      }
+    ]
+  },
+  {
+    "type": "hotel",
+    "hotelId": "FGPARVOI",
+    "chainCode": "FG",
+    "dupeId": "700092030",
+    "name": "HOTEL BEAUVOIR",
+    "rating": "2",
+    "cityCode": "PAR",
+    "latitude": 48.83989,
+    "longitude": 2.33738,
+    "hotelDistance": {
+      "distance": 1.7,
+      "distanceUnit": "KM"
+    },
+    "address": {
+      "lines": [
+        "43 AVENUE GEORGES BERNANOS"
+      ],
+      "postalCode": "75005",
+      "cityName": "PARIS",
+      "countryCode": "FR"
+    },
+    "contact": {
+      "phone": "33 1 43255710",
+      "fax": "33 1 43543187"
+    },
+    "description": {
+      "lang": "en",
+      "text": "The Hotel Beauvoir, fully renovated in a contemporary, cosy style, is located in the triangle formed by the Latin Quarter, Saint germain des Prés and Montparnasse, at the foot of the Jardins du Luxembourg, and facing the famous restaurant La Closerie des Lilas. Visitors will be won over by the charm, refinement and comfort that characterise the hotel, which in its time has welcomed such illustrious figures as Ernest Hemingway, Jean Cramer, Darcy Ribeiro..."
+    },
+    "amenities": [
+      "MEETING_ROOMS",
+      "BAR",
+      "ELEVATOR",
+      "PHARMACY"
+    ],
+    "media": [
+      {
+        "uri": "https://d1moe8jtgovopm.cloudfront.net/0603635FC8A3444687010BB390E141C4/0603635FC8A3444687010BB390E141C4.JPEG",
+        "category": "EXTERIOR"
+      }
+    ]
+  },
+  {
+    "type": "hotel",
+    "hotelId": "BWPAR160",
+    "chainCode": "BW",
+    "dupeId": "700057260",
+    "name": "Best Western Gaillon Opera",
+    "rating": "3",
+    "cityCode": "PAR",
+    "latitude": 48.8682,
+    "longitude": 2.33395,
+    "hotelDistance": {
+      "distance": 1.7,
+      "distanceUnit": "KM"
+    },
+    "address": {
+      "lines": [
+        "9 RUE GAILLON"
+      ],
+      "postalCode": "75002",
+      "cityName": "PARIS",
+      "countryCode": "FR"
+    },
+    "contact": {
+      "phone": "+33 1 47424774",
+      "fax": "+33 1 47420123"
+    },
+    "description": {
+      "lang": "en",
+      "text": "The Best Western Gaillon Opera is located right at the Opera area (Opera theater-three minute walk) near the Louvre (five minute walk), less than one kilometer from the left bank area, the Latin Quarter and two kilometers from Notre Dame Cathedral. Discover this charming hotel with its cozy welcoming atmosphere, antique furniture, exposed beams and flower filled patio. Children under the age of 2 stay free when accompanied by an adult in twin bedded rooms. All rooms have individually controlled air-conditioning and heat, cable television, safe, mini-bar, wireless access in all room and lobby, room service is available and free parking from 7:00 P.M. to 9:00 A.M near by the hotel six days and free parking all day Sunday. Enjoy your stay!"
+    },
+    "amenities": [
+      "24_HOUR_FRONT_DESK",
+      "BABY-SITTING",
+      "PETS_ALLOWED",
+      "SAFE_DEPOSIT_BOX",
+      "ELEVATOR",
+      "HIGH_SPEED_INTERNET",
+      "ICE_MACHINES",
+      "FRONT_DESK",
+      "COFFEE_SHOP",
+      "CONCIERGE",
+      "SMOKE_DETECTOR",
+      "EMERGENCY_LIGHTING",
+      "FIRE_DETECTORS",
+      "FIRST_AID_STAF",
+      "VIDEO_SURVEILANCE",
+      "MEETING_FACILITIES",
+      "MINIBAR",
+      "HAIR_DRYER",
+      "AIR_CONDITIONING",
+      "SAFE",
+      "TEA/COFFEE_MAKER",
+      "CABLE_TELEVISION",
+      "SIGHTSEEING"
+    ],
+    "media": [
+      {
+        "uri": "http://uat.multimediarepository.testing.amadeus.com/cmr/retrieve/hotel/38C342F26C7540CB8856109354CAD2DB",
+        "category": "LOBBY"
+      }
+    ]
+  },
+  {
+    "type": "hotel",
+    "hotelId": "RTPARSTE",
+    "chainCode": "RT",
+    "dupeId": "700027007",
+    "name": "Hotel Stendhal Place Vendôme Paris - MGallery Collection",
+    "rating": "4",
+    "cityCode": "PAR",
+    "latitude": 48.86806,
+    "longitude": 2.33129,
+    "hotelDistance": {
+      "distance": 1.8,
+      "distanceUnit": "KM"
+    },
+    "address": {
+      "lines": [
+        "22 RUE DANIELLE CASANOVA"
+      ],
+      "postalCode": "75002",
+      "cityName": "PARIS",
+      "countryCode": "FR"
+    },
+    "contact": {
+      "phone": "33/1/44585252",
+      "fax": "33/1/44585200",
+      "email": "H1610@accor.com"
+    },
+    "description": {
+      "lang": "en",
+      "text": "The Stendhal Hotel was fully renovated in 2013 and is located in one of the most prestigious districts in the heart of Paris. It is situated close to Place Vendôme, the Louvre, Opéra and the Tuileries Garden and has retained its authenticity and personality, blending contemporary comfort with sophistication. Unwind in the bar which boasts a cozy environment and fireplace and enjoy a drink, leaf through a book about Paris or one of Stendhal's works or just relax."
+    },
+    "amenities": [
+      "ELEVATOR",
+      "SAFE_DEPOSIT_BOX",
+      "ROOM_SERVICE",
+      "INTERNET_SERVICES",
+      "220_AC",
+      "PARKING",
+      "PETS_ALLOWED",
+      "CONCIERGE",
+      "WIRELESS_CONNECTIVITY",
+      "KIDS_WELCOME",
+      "LOUNGE",
+      "24_HOUR_FRONT_DESK",
+      "PORTER/BELLBOY",
+      "SMOKE_DETECTOR",
+      "FIRE_SAFETY",
+      "FIRE_DETECTORS",
+      "EMERGENCY_LIGHTING",
+      "GARAGE_PARKING",
+      "BABY-SITTING",
+      "BATH",
+      "ALARM_CLOCK",
+      "WAKEUP_SERVICE",
+      "WI-FI_IN_ROOM",
+      "HAIR_DRYER",
+      "CABLE_TELEVISION",
+      "TELEVISION",
+      "SATELLITE_TV",
+      "AIR_CONDITIONING",
+      "FREE_NEWSPAPER",
+      "SAFE"
+    ],
+    "media": [
+      {
+        "uri": "http://uat.multimediarepository.testing.amadeus.com/cmr/retrieve/hotel/AF35288D34C34FF58A4EDC4E0F4F580A",
+        "category": "EXTERIOR"
+      }
+    ]
+  },
+  {
+    "type": "hotel",
+    "hotelId": "RTPARCUS",
+    "chainCode": "RT",
+    "dupeId": "700006432",
+    "name": "Hôtel Mercure Paris Opéra Cusset",
+    "rating": "3",
+    "cityCode": "PAR",
+    "latitude": 48.87114,
+    "longitude": 2.33951,
+    "hotelDistance": {
+      "distance": 1.9,
+      "distanceUnit": "KM"
+    },
+    "address": {
+      "lines": [
+        "95 RUE DE RICHELIEU"
+      ],
+      "postalCode": "75002",
+      "cityName": "PARIS",
+      "countryCode": "FR"
+    },
+    "contact": {
+      "phone": "33/8/25803939",
+      "fax": "33/1/42614820",
+      "email": "H1614@accor.com"
+    },
+    "description": {
+      "lang": "en",
+      "text": "Close to the Grands Boulevards and major department stores, the Mercure Paris Opéra Le Louvre hotel has elegant designer rooms. Treat yourself to authentic Parisian charm when on a business or leisure trip. In our eighteenth century rooms, enjoy a tasty breakfast before exploring the heart of Paris. Need quality services in order to work? We have a meeting room with modern equipment at your disposal."
+    },
+    "amenities": [
+      "ELEVATOR",
+      "24_HOUR_FRONT_DESK",
+      "SAFE_DEPOSIT_BOX",
+      "ROOM_SERVICE",
+      "PARKING",
+      "220_AC",
+      "PETS_ALLOWED",
+      "TOUR_DESK",
+      "WIRELESS_CONNECTIVITY",
+      "SMOKE_DETECTOR",
+      "FIRE_SAFETY",
+      "EMERGENCY_BACKUP_GENERATOR",
+      "FIRE_DETECTORS",
+      "EMERGENCY_LIGHTING",
+      "BABY-SITTING",
+      "KIDS_WELCOME",
+      "SECRETARIAL_SERVICES",
+      "PHOTOCOPIER",
+      "MEETING_FACILITIES",
+      "AUDIO-VISUAL_EQUIPMENT",
+      "BATH",
+      "CRIBS_AVAILABLE",
+      "WAKEUP_SERVICE",
+      "WI-FI_IN_ROOM",
+      "HAIR_DRYER",
+      "CABLE_TELEVISION",
+      "TELEVISION",
+      "SATELLITE_TV",
+      "FREE_NEWSPAPER",
+      "SAFE",
+      "NON_SMOKING_ROOMS",
+      "BOATING",
+      "WATER_SPORTS",
+      "BOWLING"
+    ],
+    "media": [
+      {
+        "uri": "http://uat.multimediarepository.testing.amadeus.com/cmr/retrieve/hotel/5DBB3E98A92E446B9E47BCA4C6EB581A",
+        "category": "EXTERIOR"
+      }
+    ]
+  },
+  {
+    "type": "hotel",
+    "hotelId": "WVPAR887",
+    "chainCode": "WV",
+    "dupeId": "700092010",
+    "name": "HOTEL CAMBON",
+    "rating": "4",
+    "cityCode": "PAR",
+    "latitude": 48.86601,
+    "longitude": 2.32505,
+    "hotelDistance": {
+      "distance": 2,
+      "distanceUnit": "KM"
+    },
+    "address": {
+      "lines": [
+        "3, RUE CAMBON"
+      ],
+      "postalCode": "75001",
+      "cityName": "PARIS",
+      "countryCode": "FR"
+    },
+    "contact": {
+      "phone": "33-144-589393",
+      "fax": "33-1-42603059"
+    },
+    "description": {
+      "lang": "en",
+      "text": "Parisian ART DE VIVRE!\rResolutely chic and cosy. A prominent 4-star hotel whose reputation has been passed on by guests who stayed here. Ideally located near place de la Concorde and the Tuileries Gardens in the illustrious rue Cambon (historical headquarters of Coco Chanel) and also near the chic luxury fashion and high-end jewellery district. 40 quiet and cosy rooms and junior suites, some with private terrace or balcony overlooking the Tuileries Gardens.\r\rEach of the Hotel Cambon 40 rooms is personalized and unique: art objects, collection of Gallo-Roman vases, trompe-l'oeil paintings and artworks by contemporary artists. The harmony of colors and rich materials embelish this place and gives the atmosphere of a private home. \r\r- Internet access WiFi available (extra charged)\r- JSTV (Japanese Satellite TV) available\r- LCD TV - satellite - Pay TV\r- Minibar - safe - hairdryer\r- Charming suites with private terrace or balcony\r- All the rooms are non-smoking"
+    },
+    "amenities": [
+      "BUSINESS_CENTER",
+      "BABY-SITTING",
+      "CAR_RENTAL",
+      "KIDS_WELCOME",
+      "ELEVATOR",
+      "EXCHANGE_FACILITIES",
+      "INTERNET_HOTSPOTS",
+      "FREE_INTERNET",
+      "WIFI",
+      "LAUNDRY_SERVICE",
+      "LOUNGE",
+      "AIR_CONDITIONING",
+      "HAIR_DRYER",
+      "MINIBAR",
+      "MOVIE_CHANNELS",
+      "NON_SMOKING_ROOMS",
+      "DIRECT_DIAL_PHONE",
+      "ROOM_SERVICE",
+      "TELEVISION",
+      "WI-FI_IN_ROOM",
+      "INTERIOR_ROOM_ENTRY",
+      "EMERGENCY_LIGHTING",
+      "FIRE_DETECTORS",
+      "EXTINGUISHERS",
+      "FIRE_SAFETY",
+      "RESTRICTED_PUBLIC_ACCESS",
+      "SAFE_DEPOSIT_BOX",
+      "SMOKE_DETECTOR",
+      "SPRINKLERS"
+    ],
+    "media": [
+      {
+        "uri": "https://d1moe8jtgovopm.cloudfront.net/4B52EA88050E4FD58AAB54321A438E3A/4B52EA88050E4FD58AAB54321A438E3A.JPEG",
+        "category": "EXTERIOR"
+      }
+    ]
+  },
+  {
+    "type": "hotel",
+    "hotelId": "SMPARMAD",
+    "chainCode": "SM",
+    "dupeId": "700029536",
+    "name": "MELIA VENDOME",
+    "rating": "4",
+    "cityCode": "PAR",
+    "latitude": 48.86671,
+    "longitude": 2.32557,
+    "hotelDistance": {
+      "distance": 2,
+      "distanceUnit": "KM"
+    },
+    "address": {
+      "lines": [
+        "8, RUE CAMBON"
+      ],
+      "postalCode": "75001",
+      "cityName": "PARIS",
+      "countryCode": "FR"
+    },
+    "contact": {
+      "phone": "33-1-44775400",
+      "fax": "33-1-44775401"
+    },
+    "description": {
+      "lang": "en",
+      "text": "The Melia Vendome Hotel is located in the pretigious quarter of the Opera and the Place de la Vendome, very near the Louvre museum and the Champs Elysees. It is a true oasis of comfort and style, with marble floors and antique tapestries, an elegant bar,"
+    },
+    "amenities": [
+      "AUDIO-VISUAL_EQUIPMENT",
+      "BUSINESS_CENTER",
+      "MEETING_ROOMS",
+      "TELECONFERENCE",
+      "ELEVATOR",
+      "INTERNET_HOTSPOTS",
+      "WIFI",
+      "LAUNDRY_SERVICE",
+      "NO_PORN_FILMS",
+      "LOUNGE",
+      "AIR_CONDITIONING",
+      "HAIR_DRYER",
+      "MINIBAR",
+      "MOVIE_CHANNELS",
+      "PC_HOOKUP_IN_ROOM",
+      "DIRECT_DIAL_PHONE",
+      "ROOM_SERVICE",
+      "TELEVISION",
+      "FIRST_AID_STAF",
+      "INTERIOR_ROOM_ENTRY",
+      "EMERGENCY_LIGHTING",
+      "FIRE_DETECTORS",
+      "EXTINGUISHERS",
+      "FIRE_SAFETY",
+      "SAFE_DEPOSIT_BOX",
+      "SMOKE_DETECTOR",
+      "SPRINKLERS"
+    ],
+    "media": [
+      {
+        "uri": "http://uat.multimediarepository.testing.amadeus.com/cmr/retrieve/hotel/C8E9B3CB2B4E4F04973C4F5739EF588F",
+        "category": "EXTERIOR"
+      }
+    ]
+  },
+  {
+    "type": "hotel",
+    "hotelId": "BWPAR729",
+    "chainCode": "BW",
+    "dupeId": "700027673",
+    "name": "Best Western Hotel Le Montparnasse",
+    "rating": "3",
+    "cityCode": "PAR",
+    "latitude": 48.84476,
+    "longitude": 2.32107,
+    "hotelDistance": {
+      "distance": 2,
+      "distanceUnit": "KM"
+    },
+    "address": {
+      "lines": [
+        "37 BOULEVARD DU MONTPARNASSE"
+      ],
+      "postalCode": "75006",
+      "cityName": "PARIS",
+      "countryCode": "FR"
+    },
+    "contact": {
+      "phone": "+33 1 45448537",
+      "fax": "+33 1 42226940"
+    },
+    "description": {
+      "lang": "en",
+      "text": "The Best Western Hotel Le Montparnasse is a 5-minute walk from the Paris-Montparnasse TGV (high-speed train) station and the Air France terminal, with direct links to the Roissy Charles de Gaulle and Orly airports. Nearby is the Tour Eiffel, the Jardin du Luxembourg, the Rue de Rennes and many restaurants and shops where you can stroll at your leisure. Not far from St Germain des prés and Eiffel Tower area. The Best Western Hotel Le Montparnasse was fully refurbished in 2010 so you can enjoy the new design and high-end services: individual air-conditioning, free Wi-Fi access throughout the hotel, soft quilts for a refreshing night's sleep. You will also enjoy the \"extras\": Espresso machines, iPod dock and 32-inch LED TV. The bathrooms feature: relaxing \"rain\" showers, handy hairdryers and anti-steam mirrors to save time. You will be welcomed by a dedicated team attentive to your needs, so you can taste Parisian life and fully enjoy your stay on the Left Bank, in a district with a multitude of great restaurants and shops. The Best Western Hotel Le Montparnasse is at your service for business trips or tourism breaks to the French capital. Nearby: the Montparnasse Tower, the Rue de Rennes, Saint Germain des Prés, Les Invalides, the Eiffel Tower, etc."
+    },
+    "amenities": [
+      "24_HOUR_FRONT_DESK",
+      "PETS_ALLOWED",
+      "MULTILINGUAL_STAFF",
+      "EXPRESS_CHECK_OUT",
+      "HIGH_SPEED_INTERNET",
+      "HIGH_SPEED_WIRELESS",
+      "ELEVATOR",
+      "CONCIERGE",
+      "FRONT_DESK",
+      "WIRELESS_CONNECTIVITY",
+      "EXPRESS_CHECK_IN",
+      "SMOKE_DETECTOR",
+      "EMERGENCY_LIGHTING",
+      "FIRE_DETECTORS",
+      "HAIR_DRYER",
+      "AIR_CONDITIONING",
+      "MINIBAR",
+      "FAX_MACHINE",
+      "TEA/COFFEE_MAKER",
+      "REFRIGERATOR",
+      "ALARM_CLOCK",
+      "SAFE",
+      "WAKEUP_SERVICE",
+      "DIRECT_DIAL_PHONE",
+      "HIGH_SPEED_INTERNET_IN_ROOM"
+    ],
+    "media": [
+      {
+        "uri": "https://d1moe8jtgovopm.cloudfront.net/648639A6705E4664A0464F93592867B4/648639A6705E4664A0464F93592867B4.JPEG",
+        "category": "ROOM"
+      }
+    ]
+  },
+  {
+    "type": "hotel",
+    "hotelId": "RTPARLYN",
+    "chainCode": "RT",
+    "dupeId": "700047104",
+    "name": "ibis Paris Gare de Lyon Ledru Rollin 12ème",
+    "rating": "3",
+    "cityCode": "PAR",
+    "latitude": 48.84769,
+    "longitude": 2.37086,
+    "hotelDistance": {
+      "distance": 2,
+      "distanceUnit": "KM"
+    },
+    "address": {
+      "lines": [
+        "41-43 AVENUE LEDRU ROLLIN"
+      ],
+      "postalCode": "75012",
+      "cityName": "PARIS",
+      "countryCode": "FR"
+    },
+    "contact": {
+      "phone": "33/1/53023030",
+      "fax": "33/1/53023031",
+      "email": "H1937@accor.com"
+    },
+    "description": {
+      "lang": "en",
+      "text": "The ibis Paris Gare de Lyon Ledru Rollin hotel is located in the center of Paris. The Gare de Lyon is 328 yds (300 m) away and Orly airport 9.3 miles (15 km). The hotel has 119 air-conditioned, rooms with free WIFI. For your seminars and business meetings, reserve our meeting room at the hotel. A bar, 24-hour snacks, a terrace, and a paying undercover private car park are available."
+    },
+    "amenities": [
+      "ELEVATOR",
+      "24_HOUR_FRONT_DESK",
+      "SAFE_DEPOSIT_BOX",
+      "PARKING",
+      "PETS_ALLOWED",
+      "WHEELCHAIR_ACCESSIBLE_PUBLIC_AREA",
+      "DISABLED_FACILITIES",
+      "WIRELESS_CONNECTIVITY",
+      "SMOKE_DETECTOR",
+      "FIRE_SAFETY",
+      "FIRE_DETECTORS",
+      "EMERGENCY_LIGHTING",
+      "GARAGE_PARKING",
+      "OVERHEAD_PROJECTOR",
+      "MEETING_FACILITIES",
+      "MEETING_ROOMS",
+      "BUSINESS_CENTER",
+      "HIGH_SPEED_INTERNET_IN_ROOM",
+      "BATH",
+      "SHOWER",
+      "WAKEUP_SERVICE",
+      "DIRECT_DIAL_PHONE",
+      "WI-FI_IN_ROOM",
+      "CABLE_TELEVISION",
+      "TELEVISION",
+      "SATELLITE_TV",
+      "CRIBS_AVAILABLE",
+      "AIR_CONDITIONING",
+      "FREE_NEWSPAPER",
+      "SAFE",
+      "NON_SMOKING_ROOMS"
+    ],
+    "media": [
+      {
+        "uri": "http://uat.multimediarepository.testing.amadeus.com/cmr/retrieve/hotel/AA138BE13D5048ED9095DA271AD7C04C",
+        "category": "EXTERIOR"
+      }
+    ]
+  },
+  {
+    "type": "hotel",
+    "hotelId": "RTPARPLO",
+    "chainCode": "RT",
+    "dupeId": "700092077",
+    "name": "ibis Styles Paris Lafayette Opéra",
+    "rating": "3",
+    "cityCode": "PAR",
+    "latitude": 48.87265,
+    "longitude": 2.34495,
+    "hotelDistance": {
+      "distance": 2,
+      "distanceUnit": "KM"
+    },
+    "address": {
+      "lines": [
+        "3/5 RUE DE TREVISE"
+      ],
+      "postalCode": "75009",
+      "cityName": "PARIS",
+      "countryCode": "FR"
+    },
+    "contact": {
+      "phone": "33/1/42461206",
+      "fax": "33/1/48010982",
+      "email": "h6950@accor.com"
+    },
+    "description": {
+      "lang": "en",
+      "text": "Breakfast + unlimited Wi-Fi are included in all the prices at the ibis Styles Paris Lafayette Opéra. A hotel with 42 fully renovated rooms, located in the heart of Paris, a short walk from the business district, the department stores and the Opéra Garnier. Decorated in a modern and warm style, the hotel offers a quality service to all its guests."
+    },
+    "amenities": [
+      "ELEVATOR",
+      "SAFE_DEPOSIT_BOX",
+      "PARKING",
+      "INTERNET_SERVICES",
+      "GIFT_SHOP",
+      "PETS_ALLOWED",
+      "ACCESSIBLE_BATHS",
+      "WHEELCHAIR_ACCESSIBLE_PUBLIC_AREA",
+      "DISABLED_FACILITIES",
+      "TOUR_DESK",
+      "DISCO",
+      "CONCIERGE",
+      "WIRELESS_CONNECTIVITY",
+      "FLORIST",
+      "DOCTOR_ON_CALL",
+      "24_HOUR_FRONT_DESK",
+      "BEAUTY_PARLOUR",
+      "SMOKE_DETECTOR",
+      "FIRE_SAFETY",
+      "EMERGENCY_BACKUP_GENERATOR",
+      "FIRE_DETECTORS",
+      "EMERGENCY_LIGHTING",
+      "NIGHT_CLUB",
+      "COMPUTER_RENTAL",
+      "BUSINESS_CENTER",
+      "HIGH_SPEED_INTERNET_IN_ROOM",
+      "BATH",
+      "ALARM_CLOCK",
+      "WAKEUP_SERVICE",
+      "WI-FI_IN_ROOM",
+      "HAIR_DRYER",
+      "CABLE_TELEVISION",
+      "TELEVISION",
+      "SATELLITE_TV",
+      "CRIBS_AVAILABLE",
+      "SAFE",
+      "NON_SMOKING_ROOMS"
+    ],
+    "media": [
+      {
+        "uri": "http://uat.multimediarepository.testing.amadeus.com/cmr/retrieve/hotel/CCDAF794D1F847058D8FFE77CCBDB75B",
+        "category": "EXTERIOR"
+      }
+    ]
+  },
+  {
+    "type": "hotel",
+    "hotelId": "RTPARFAY",
+    "chainCode": "RT",
+    "dupeId": "700060224",
+    "name": "Hôtel Mercure Paris Lafayette",
+    "rating": "4",
+    "cityCode": "PAR",
+    "latitude": 48.87281,
+    "longitude": 2.34493,
+    "hotelDistance": {
+      "distance": 2.1,
+      "distanceUnit": "KM"
+    },
+    "address": {
+      "lines": [
+        "7 RUE DE TREVISE"
+      ],
+      "postalCode": "75009",
+      "cityName": "PARIS",
+      "countryCode": "FR"
+    },
+    "contact": {
+      "phone": "33/1/47702675",
+      "fax": "33/1/45232764",
+      "email": "H1914@accor.com"
+    },
+    "description": {
+      "lang": "en",
+      "text": "Located in business Paris, directly linked to the La Défense district and the exhibition grounds such as Versailles and Villepinte, the Mercure Paris Lafayette is ideally suited for your business trips. On a leisure visit you will love how close the big stores and the majestic Opera are. With warm, contemporary decor, this hotel has modern rooms right in the centre of historic Paris."
+    },
+    "amenities": [
+      "ELEVATOR",
+      "24_HOUR_FRONT_DESK",
+      "SAFE_DEPOSIT_BOX",
+      "ROOM_SERVICE",
+      "PARKING",
+      "220_AC",
+      "PETS_ALLOWED",
+      "CONNECTING_ROOMS",
+      "WIRELESS_CONNECTIVITY",
+      "SMOKE_DETECTOR",
+      "FIRE_SAFETY",
+      "FIRE_DETECTORS",
+      "EMERGENCY_LIGHTING",
+      "LOUNGE",
+      "MEETING_FACILITIES",
+      "HIGH_SPEED_INTERNET_IN_ROOM",
+      "BATH",
+      "SHOWER",
+      "ALARM_CLOCK",
+      "WAKEUP_SERVICE",
+      "WI-FI_IN_ROOM",
+      "DIRECT_DIAL_PHONE",
+      "HAIR_DRYER",
+      "CABLE_TELEVISION",
+      "TELEVISION",
+      "SATELLITE_TV",
+      "CRIBS_AVAILABLE",
+      "AIR_CONDITIONING",
+      "SAFE",
+      "NON_SMOKING_ROOMS"
+    ],
+    "media": [
+      {
+        "uri": "http://uat.multimediarepository.testing.amadeus.com/cmr/retrieve/hotel/11A109BE49544C288B6A84CDA275E55D",
+        "category": "EXTERIOR"
+      }
+    ]
+  },
+  {
+    "type": "hotel",
+    "hotelId": "RTPARMON",
+    "chainCode": "RT",
+    "dupeId": "700060225",
+    "name": "Hôtel Mercure Paris Monty Opéra",
+    "cityCode": "PAR",
+    "latitude": 48.87306,
+    "longitude": 2.34461,
+    "hotelDistance": {
+      "distance": 2.1,
+      "distanceUnit": "KM"
+    },
+    "address": {
+      "lines": [
+        "5 RUE DE MONTYON"
+      ]
+    },
+    "description": {
+      "lang": "en",
+      "text": "In the theater district, opposite the Folies Bergère, near the Grands Boulevards/Cadet metro stations, 3 min. from the Grand Rex, 10 min. from the Paris Garnier opera house and department stores, the 4-star Mercure Paris Monty Opera hotel welcomes you tominimalistic contemporary rooms. Combine work and pleasure while enjoying the bar and its Art Deco glass work, the dedicated work space, the business corner, free WIFI and round-the-clock service. Train stations and public paying car park are close by."
+    },
+    "media": [
+      {
+        "uri": "http://uat.multimediarepository.testing.amadeus.com/cmr/retrieve/hotel/5120D5222A794232914D92C69AA053DC",
+        "category": "EXTERIOR"
+      }
+    ]
+  },
+  {
+    "type": "hotel",
+    "hotelId": "BWPAR546",
+    "chainCode": "BW",
+    "dupeId": "700043001",
+    "name": "Best Western Aurore",
+    "rating": "3",
+    "cityCode": "PAR",
+    "latitude": 48.84573,
+    "longitude": 2.37067,
+    "hotelDistance": {
+      "distance": 2.1,
+      "distanceUnit": "KM"
+    },
+    "address": {
+      "lines": [
+        "13 RUE TRAVERSIERE",
+        "ILE DE FRANCE"
+      ],
+      "postalCode": "75012",
+      "cityName": "PARIS",
+      "countryCode": "FR"
+    },
+    "contact": {
+      "phone": "+33 1 43435412",
+      "fax": "+33 1 43435320"
+    },
+    "description": {
+      "lang": "en",
+      "text": "The Best Western Aurore was completely renovated in the summer of 2002 and offers each guest a smiling and dynamic welcome. We are ideally located on the 12th District on the right bank opposite to Gare De Lyon. The Best Western Aurore is the last station before reaching the French Riviera after visiting the lovely city of Paris. Historical center (Notre Dame, Le Marais) are within walking distance from the property. Other tourist areas in Paris that are easily accessible by Rer, bus or metro are Champs Elysees, Montmartre and Tour Eiffel. All 28 rooms are totally air-conditioned and soundproofed. All rooms include dataports, radio, hairdryer, alarm clock and cable television. Come and enjoy our friendly hospitality at the Best Western Aurore. Enjoy your stay!"
+    },
+    "amenities": [
+      "MULTILINGUAL_STAFF",
+      "SAFE_DEPOSIT_BOX",
+      "ROOM_SERVICE",
+      "ELEVATOR",
+      "EXCHANGE_FACILITIES",
+      "CONCIERGE",
+      "ONSITE_LAUNDRY",
+      "SPRINKLERS",
+      "FEMA_FIRE_SAFETY_COMPLIANT",
+      "SAFE",
+      "ALARM_CLOCK",
+      "CABLE_TELEVISION",
+      "HAIR_DRYER"
+    ],
+    "media": [
+      {
+        "uri": "http://uat.multimediarepository.testing.amadeus.com/cmr/retrieve/hotel/F4E07BF7DAD14C3BAF8CF5FB32674256",
+        "category": "RESTAURANT"
+      }
+    ]
+  },
+  {
+    "type": "hotel",
+    "hotelId": "ACPARROY",
+    "chainCode": "AC",
+    "dupeId": "700072175",
+    "name": "ROYAL BERGERE",
+    "rating": "3",
+    "cityCode": "PAR",
+    "latitude": 48.87348,
+    "longitude": 2.34389,
+    "hotelDistance": {
+      "distance": 2.1,
+      "distanceUnit": "KM"
+    },
+    "address": {
+      "lines": [
+        "8 RUE GEOFFROY MARIE"
+      ],
+      "postalCode": "75009",
+      "cityName": "PARIS",
+      "countryCode": "FR"
+    },
+    "contact": {
+      "fax": "-33 (0)1 47 70 47 36",
+      "phone": "-33 (0)1 47 70 47 35"
+    },
+    "description": {
+      "lang": "en",
+      "text": "In the heart of Paris, 5 mn away from the Opera and the main department stores, in a day and night lively area, you will enjoy the warmth of a family-run hotel, recently renovated for your best satisfaction.\r\rThe hotel Royal Bergère features 29 soundproofed rooms, all equipped with a private bathroom (bath tub-shower, hair dryer and private toilets), LCD screen television with some satellite channels and access to WIFI internet (fee)."
+    },
+    "amenities": [
+      "ELEVATOR",
+      "SIGHTSEEING",
+      "LOUNGE",
+      "DIRECT_DIAL_PHONE",
+      "ROOM_SERVICE",
+      "TELEVISION",
+      "SAFE_DEPOSIT_BOX",
+      "INTERNET_HOTSPOTS",
+      "WIFI",
+      "FIRE_SAFETY",
+      "SMOKE_DETECTOR",
+      "WI-FI_IN_ROOM"
+    ],
+    "media": [
+      {
+        "uri": "https://d1moe8jtgovopm.cloudfront.net/4A5EF5FA358B4A27B15A30F793D8670F/4A5EF5FA358B4A27B15A30F793D8670F.JPEG",
+        "category": "EXTERIOR"
+      }
+    ]
+  },
+  {
+    "type": "hotel",
+    "hotelId": "RTPARMAI",
+    "chainCode": "RT",
+    "dupeId": "700092120",
+    "name": "ibis Paris Tour Montparnasse 15ème",
+    "rating": "3",
+    "cityCode": "PAR",
+    "latitude": 48.84333,
+    "longitude": 2.32019,
+    "hotelDistance": {
+      "distance": 2.2,
+      "distanceUnit": "KM"
+    },
+    "address": {
+      "lines": [
+        "22 AVENUE DU MAINE"
+      ],
+      "postalCode": "75015",
+      "cityName": "PARIS",
+      "countryCode": "FR"
+    },
+    "contact": {
+      "phone": "33/1/45489552",
+      "fax": "33/1/42842229",
+      "email": "H5302@accor.com"
+    },
+    "description": {
+      "lang": "en",
+      "text": "The ibis Paris Tour Montparnasse hotel is located on Avenue du Maine, a stone's throw from Montparnasse train station and the Montparnasse tower. Whether visiting for business or pleasure, you can easily reach the Latin Quarter, Saint-Germain-des-Près, the Eiffel Tower, the Trocadéro and the exhibition center at Porte de Versailles from the hotel. There are 45 air-conditioned rooms, free WIFI, a bar and a 24-hour snack service. A public car park and several restaurants can be found nearby."
+    },
+    "amenities": [
+      "ELEVATOR",
+      "24_HOUR_FRONT_DESK",
+      "SAFE_DEPOSIT_BOX",
+      "PARKING",
+      "220_AC",
+      "PETS_ALLOWED",
+      "WIRELESS_CONNECTIVITY",
+      "DISCO",
+      "GARAGE_PARKING",
+      "NIGHT_CLUB",
+      "EXCHANGE_FACILITIES",
+      "BUSINESS_CENTER",
+      "BATH",
+      "SHOWER",
+      "WAKEUP_SERVICE",
+      "DIRECT_DIAL_PHONE",
+      "WI-FI_IN_ROOM",
+      "CABLE_TELEVISION",
+      "TELEVISION",
+      "SATELLITE_TV",
+      "AIR_CONDITIONING",
+      "FREE_NEWSPAPER",
+      "NON_SMOKING_ROOMS",
+      "BOATING",
+      "WATER_SPORTS"
+    ],
+    "media": [
+      {
+        "uri": "http://uat.multimediarepository.testing.amadeus.com/cmr/retrieve/hotel/7BE4340868714F5D81638CDF2F79948B",
+        "category": "EXTERIOR"
+      }
+    ]
+  },
+  {
+    "type": "hotel",
+    "hotelId": "RTPAROPE",
+    "chainCode": "RT",
+    "dupeId": "700055802",
+    "name": "Aparthotel Adagio Paris Opéra",
+    "rating": "4",
+    "cityCode": "PAR",
+    "latitude": 48.87287,
+    "longitude": 2.32826,
+    "hotelDistance": {
+      "distance": 2.4,
+      "distanceUnit": "KM"
+    },
+    "address": {
+      "lines": [
+        "43 RUE CAUMARTIN"
+      ],
+      "postalCode": "75009",
+      "cityName": "PARIS",
+      "countryCode": "FR"
+    },
+    "contact": {
+      "phone": "33/1/58180820",
+      "fax": "33/1/42664986",
+      "email": "h6988@adagio-city.com"
+    },
+    "description": {
+      "lang": "en",
+      "text": "The Adagio Paris Opéra is located in a very prestigious district, just a stone's throw away from the Opéra Garnier and the department stores on Boulevard Haussmann. The 4-star holiday residence offers 99 apartments, ranging from 2-person studios to 2-roomapartments for 4 people, all of which are air-conditioned and fully equipped with a kitchen, bathroom, TV with international channels and WIFI. The location is ideal for seeing Paris' sights and is also a vibrant business district."
+    },
+    "amenities": [
+      "ELEVATOR",
+      "24_HOUR_FRONT_DESK",
+      "ROOM_SERVICE",
+      "220_AC",
+      "INTERNET_SERVICES",
+      "PETS_ALLOWED",
+      "ACCESSIBLE_BATHS",
+      "WHEELCHAIR_ACCESSIBLE_PUBLIC_AREA",
+      "DISABLED_FACILITIES",
+      "CONNECTING_ROOMS",
+      "WIRELESS_CONNECTIVITY",
+      "SMOKE_DETECTOR",
+      "FIRE_SAFETY",
+      "EMERGENCY_BACKUP_GENERATOR",
+      "FIRE_DETECTORS",
+      "EMERGENCY_LIGHTING",
+      "DOCTOR_ON_CALL",
+      "HIGH_SPEED_INTERNET_IN_ROOM",
+      "BATH",
+      "CRIBS_AVAILABLE",
+      "WAKEUP_SERVICE",
+      "DIRECT_DIAL_PHONE",
+      "HAIR_DRYER",
+      "CABLE_TELEVISION",
+      "TELEVISION",
+      "SATELLITE_TV",
+      "AIR_CONDITIONING",
+      "SAFE",
+      "NON_SMOKING_ROOMS"
+    ],
+    "media": [
+      {
+        "uri": "http://uat.multimediarepository.testing.amadeus.com/cmr/retrieve/hotel/8A40B0657B6D4DB6AC91C9D482E294AD",
+        "category": "EXTERIOR"
+      }
+    ]
+  },
+  {
+    "type": "hotel",
+    "hotelId": "RTPARBTL",
+    "chainCode": "RT",
+    "dupeId": "700045085",
+    "name": "ibis Paris Bastille Faubourg Saint Antoine 11ème",
+    "rating": "3",
+    "cityCode": "PAR",
+    "latitude": 48.85169,
+    "longitude": 2.37881,
+    "hotelDistance": {
+      "distance": 2.5,
+      "distanceUnit": "KM"
+    },
+    "address": {
+      "lines": [
+        "13 RUE TROUSSEAU"
+      ],
+      "postalCode": "75011",
+      "cityName": "PARIS",
+      "countryCode": "FR"
+    },
+    "contact": {
+      "phone": "33/1/48055555",
+      "fax": "33/1/48058397",
+      "email": "H3577@accor.com"
+    },
+    "description": {
+      "lang": "en",
+      "text": "The Ibis Paris Bastille Saint Antoine hotel is located in the centre of Paris, close to the Bastille Opera House, the Place de la Bastille and the Marais district. The Gare de Lyon is 800 m from the hotel. The hotel has 71 air-conditioned rooms with WifiInternet access, including 3 adapted for disabled persons. A bar, snacks 24/24, a terrace and private covered pay parking (booking only) are at your disposal. There are many restaurants close to the hotel."
+    },
+    "amenities": [
+      "ELEVATOR",
+      "24_HOUR_FRONT_DESK",
+      "SAFE_DEPOSIT_BOX",
+      "PARKING",
+      "220_AC",
+      "PETS_ALLOWED",
+      "ACCESSIBLE_BATHS",
+      "WHEELCHAIR_ACCESSIBLE_PUBLIC_AREA",
+      "DISABLED_FACILITIES",
+      "WIRELESS_CONNECTIVITY",
+      "SMOKE_DETECTOR",
+      "FIRE_SAFETY",
+      "FIRE_DETECTORS",
+      "EMERGENCY_LIGHTING",
+      "GARAGE_PARKING",
+      "MEETING_FACILITIES",
+      "BUSINESS_CENTER",
+      "BATH",
+      "WAKEUP_SERVICE",
+      "DIRECT_DIAL_PHONE",
+      "WI-FI_IN_ROOM",
+      "CABLE_TELEVISION",
+      "TELEVISION",
+      "SATELLITE_TV",
+      "CRIBS_AVAILABLE",
+      "AIR_CONDITIONING",
+      "FREE_NEWSPAPER",
+      "SAFE",
+      "NON_SMOKING_ROOMS"
+    ],
+    "media": [
+      {
+        "uri": "http://uat.multimediarepository.testing.amadeus.com/cmr/retrieve/hotel/020AF2C0C8A74831834B8C9DD6E0567B",
+        "category": "EXTERIOR"
+      }
+    ]
+  },
+  {
+    "type": "hotel",
+    "hotelId": "ONPARBED",
+    "chainCode": "ON",
+    "dupeId": "700005122",
+    "name": "HOTEL BEDFORD",
+    "rating": "4",
+    "cityCode": "PAR",
+    "latitude": 48.87214,
+    "longitude": 2.3238,
+    "hotelDistance": {
+      "distance": 2.5,
+      "distanceUnit": "KM"
+    },
+    "address": {
+      "lines": [
+        "RUE DE L ARCADE 17"
+      ],
+      "postalCode": "75008",
+      "cityName": "PARIS",
+      "countryCode": "FR"
+    },
+    "contact": {
+      "phone": "33 1 44947777",
+      "fax": "33 1 44947797"
+    },
+    "description": {
+      "lang": "en",
+      "text": "A quiet haven in the heart of the capitol, just steps away from the Madeleine, minutes from the Paris Opera and the Champs Elysées. The subtle elegance of the rooms invite you to relaxe. All rooms feature the confort of a 4 star hotel."
+    },
+    "amenities": [
+      "BUSINESS_CENTER",
+      "MEETING_ROOMS",
+      "RESTAURANT",
+      "ELEVATOR",
+      "WIFI",
+      "PARKING",
+      "LOUNGE",
+      "AIR_CONDITIONING",
+      "NON_SMOKING_ROOMS",
+      "ROOM_SERVICE",
+      "WI-FI_IN_ROOM",
+      "SAFE_DEPOSIT_BOX"
+    ],
+    "media": [
+      {
+        "uri": "http://uat.multimediarepository.testing.amadeus.com/cmr/retrieve/hotel/8702C891CAD743D5822985EE1229D24B",
+        "category": "EXTERIOR"
+      }
+    ]
+  }
+]

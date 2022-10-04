@@ -1,0 +1,170 @@
+HTTP/1.1 200 OK
+X-Powered-By: Express
+Content-Type: application/json; charset=utf-8
+Content-Length: 2530
+ETag: W/"9e2-UhlM6CI6xYfI3dV98jrWL/13SOg"
+Date: Fri, 06 May 2022 13:05:23 GMT
+Connection: close
+
+[
+  {
+    "type": "location",
+    "subType": "CITY",
+    "name": "STATE COLLEGE",
+    "detailedName": "STATE COLLEGE/PA/US:UNIVERSITY",
+    "id": "CSCE",
+    "self": {
+      "href": "https://test.api.amadeus.com/v1/reference-data/locations/CSCE",
+      "methods": [
+        "GET"
+      ]
+    },
+    "timeZoneOffset": "-04:00",
+    "iataCode": "SCE",
+    "geoCode": {
+      "latitude": 40.84867,
+      "longitude": -77.84917
+    },
+    "address": {
+      "cityName": "STATE COLLEGE",
+      "cityCode": "SCE",
+      "countryName": "UNITED STATES OF AMERICA",
+      "countryCode": "US",
+      "stateCode": "PA",
+      "regionCode": "NAMER"
+    },
+    "analytics": {
+      "travelers": {
+        "score": 1
+      }
+    }
+  },
+  {
+    "type": "location",
+    "subType": "AIRPORT",
+    "name": "UNIVERSITY PARK",
+    "detailedName": "STATE COLLEGE/PA/US:UNIVERSITY",
+    "id": "ASCE",
+    "self": {
+      "href": "https://test.api.amadeus.com/v1/reference-data/locations/ASCE",
+      "methods": [
+        "GET"
+      ]
+    },
+    "timeZoneOffset": "-04:00",
+    "iataCode": "SCE",
+    "geoCode": {
+      "latitude": 40.84867,
+      "longitude": -77.84917
+    },
+    "address": {
+      "cityName": "STATE COLLEGE",
+      "cityCode": "SCE",
+      "countryName": "UNITED STATES OF AMERICA",
+      "countryCode": "US",
+      "stateCode": "PA",
+      "regionCode": "NAMER"
+    },
+    "analytics": {
+      "travelers": {
+        "score": 1
+      }
+    }
+  },
+  {
+    "type": "location",
+    "subType": "CITY",
+    "name": "KALISPELL",
+    "detailedName": "KALISPELL/MT/US:GLACIER PARK I",
+    "id": "CFCA",
+    "self": {
+      "href": "https://test.api.amadeus.com/v1/reference-data/locations/CFCA",
+      "methods": [
+        "GET"
+      ]
+    },
+    "timeZoneOffset": "-06:00",
+    "iataCode": "FCA",
+    "geoCode": {
+      "latitude": 48.31056,
+      "longitude": -114.2561
+    },
+    "address": {
+      "cityName": "KALISPELL",
+      "cityCode": "FCA",
+      "countryName": "UNITED STATES OF AMERICA",
+      "countryCode": "US",
+      "stateCode": "MT",
+      "regionCode": "NAMER"
+    },
+    "analytics": {
+      "travelers": {
+        "score": 1
+      }
+    }
+  },
+  {
+    "type": "location",
+    "subType": "AIRPORT",
+    "name": "GLACIER PARK INTL",
+    "detailedName": "KALISPELL/MT/US:GLACIER PARK I",
+    "id": "AFCA",
+    "self": {
+      "href": "https://test.api.amadeus.com/v1/reference-data/locations/AFCA",
+      "methods": [
+        "GET"
+      ]
+    },
+    "timeZoneOffset": "-06:00",
+    "iataCode": "FCA",
+    "geoCode": {
+      "latitude": 48.31056,
+      "longitude": -114.2561
+    },
+    "address": {
+      "cityName": "KALISPELL",
+      "cityCode": "FCA",
+      "countryName": "UNITED STATES OF AMERICA",
+      "countryCode": "US",
+      "stateCode": "MT",
+      "regionCode": "NAMER"
+    },
+    "analytics": {
+      "travelers": {
+        "score": 1
+      }
+    }
+  },
+  {
+    "type": "location",
+    "subType": "CITY",
+    "name": "PARKERSBURG",
+    "detailedName": "PARKERSBURG/WV/US:MID-OHIO VAL",
+    "id": "CPKB",
+    "self": {
+      "href": "https://test.api.amadeus.com/v1/reference-data/locations/CPKB",
+      "methods": [
+        "GET"
+      ]
+    },
+    "timeZoneOffset": "-04:00",
+    "iataCode": "PKB",
+    "geoCode": {
+      "latitude": 39.345,
+      "longitude": -81.43917
+    },
+    "address": {
+      "cityName": "PARKERSBURG",
+      "cityCode": "PKB",
+      "countryName": "UNITED STATES OF AMERICA",
+      "countryCode": "US",
+      "stateCode": "WV",
+      "regionCode": "NAMER"
+    },
+    "analytics": {
+      "travelers": {
+        "score": 0
+      }
+    }
+  }
+]

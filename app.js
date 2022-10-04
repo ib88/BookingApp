@@ -99,58 +99,6 @@ amadeus.shopping.hotelOffers.get({
   });
 }).then(function (hotelRoomPricingOffers) {
   console.log('----------------------');
-  console.log(hotelRoomPricingOffers);
+  //console.log(hotelRoomPricingOffers);
   //return amadeus.shopping.hotelOffer(hotelRoomPricingOffers.data.offers[0].id).get(); book the hotel
 });
-
-// request({
-//   url: 'https://api.someapi.com/blah/something',
-//   auth: {
-//     'bearer': accessToken
-//   }
-// }, function(err, res) {
-//   console.log(res.body);
-// });
-
-
-
-
-
-
-
- 
-/*request({
-  url: 'https://test.api.amadeus.com/v3/security/oauth2/token',
-  method: 'POST',
-  auth: {
-    client_id: 'al1mecQyGOFkltW6goBABPBeTzIOyM7n',
-    client_secret: 'aGqumP44UGDiOcTZ'
-  },
-  form: {
-    'grant_type': 'client_credentials'
-  }
-}, function(err, res) {
-  var json = JSON.parse(res.body);
-  console.log("Access Token:", json.access_token);
-});*/
-
-// router.post(`/${API}/booking`, async (req, res) => {
-//   const { offerId } = req.query;
-//   const { body } = req;
-//   const response = await amadeus.booking.hotelBookings.post(
-//     JSON.stringify({
-//       data: {
-//         offerId,
-//         guests: body.guests,
-//         payments: body.payments,
-//       },
-//     })
-//   );
-//   try {
-//     await res.json(JSON.parse(response.body));
-//   } catch (err) {
-//     await res.json(err);
-//   }
-// });
-
-

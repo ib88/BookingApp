@@ -2,13 +2,13 @@
 GET http://localhost:8888/api/autosearch?keyword=par&pageLimit=5&pageOffset=0
 
 ###Search hotels by city code and booking parameters
-GET http://localhost:8888/api/city-hotels/?cityCode=LON&checkInDate=2022-05-29&checkOutDate=2022-05-30&adults=1&priceRange=200-300&pageLimit=3
+GET http://localhost:8888/api/city-hotels/
 ###
 //search hotels by name
 GET http://localhost:8888/api/city-hotelsByname/?hotelName=AMBA
 
 ### Search hotels by ID
-GET http://localhost:8888/api/hotel-offers?hotelId=EDLONDER&checkInDate=2022-05-29&checkOutDate=2022-05-30&adults=2
+GET http://localhost:8888/api/hotel-offers?hotelId=EDLONDER&checkInDate=2022-08-29&checkOutDate=2022-08-30&adults=2
 
 ###
 GET http://localhost:8888/api/hotel-offer?offerId=RHWD73YKQV
@@ -23,3 +23,36 @@ GET http://localhost:8888/api/autosuggest
 
 GET http://localhost:8888/api/flightsearch
 
+### Home Page
+GET http://localhost:8888/api/homepage
+
+### et suggested cities based on keywords
+
+GET http://localhost:8888/api/getSuggestion?keyword=par&pageLimit=5&pageOffset=0
+
+########## FLIGHT ##############
+GET http://localhost:8888/flight/flightsearch
+
+###get flight offer
+GET http://localhost:8888/flight/flightOffer
+
+###get the cheapest date from an airport to another
+GET http://localhost:8888/flight/cheapestDates
+
+###get the cheapest flights on a day
+GET http://localhost:8888/flight/flightAvSearch
+
+########## MOCK FLIGHT ##############
+GET http://localhost:8888/Moqflight/flightsearch
+
+###get the cheapest date from an airport to another
+GET http://localhost:8888/Moqflight/cheapestDates
+
+###get the cheapest flights on a day
+GET http://localhost:8888/Moqflight/cheapestDates
+
+### get the airline infos
+GET http://localhost:8888/flight/getAirline
+
+##try booking
+GET http://localhost:8888/flight/tryBooking

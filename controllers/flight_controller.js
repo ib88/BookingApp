@@ -40,17 +40,17 @@ router.get(`/flightsearch`, async (req, res) => {
   // return res.json(flights);
 });
 
-router.get(`/tryBooking`, async (req, res) => {
+router.get(`/bookFlight`, async (req, res) => {
 
-  const { flightInfo,iataCode} = req.query;
-  console.log(flightInfo);
+  const { flight, iataCode } = req.query;
+  console.log("booking ,",flight);
 });
 
 
 router.get(`/flightOffer`, async (req, res) => {
 
-  const { source,destination,flightDate,adults} = req.query;
-  if(!source || !destination || !flightDate || !adults) {
+  const { source, destination, flightDate, adults } = req.query;
+  if (!source || !destination || !flightDate || !adults) {
     return res.render("flights", { business: [] });
   }
 
@@ -103,30 +103,32 @@ router.post(`/flightOffer`, [
   //    return res.render("flights", { business: [] });
   //  }
 
-  const errors = validationResult(req);
-  if (!errors.isEmpty()) {
-    const alert = errors.array()
-    return res.render("flights", { alert });
-    //return res.status(422).jsonp(errors.array());
-  }
+  // const errors = validationResult(req);
+  // if (!errors.isEmpty()) {
+  //   const alert = errors.array()
+  //   return res.render("flights", { alert });
+  // }
 
-  var sourceCode = req.body.sourceFlightCode;
-  var destinationCode = req.body.destinationFlightCode;
-  var dateSourceFlight = req.body.datepickerSourceFlight;
-  var adults = req.body.adultsFlight;
+  var sourceCode = "SEA";
+  var destinationCode = "MIA";
+  //var sourceCode = req.body.sourceFlightCode;
+  //var destinationCode = req.body.destinationFlightCode;
+  //var dateSourceFlight = req.body.datepickerSourceFlight;
+  var dateSourceFlight = '2022-10-07';
+  //var adults = req.body.adultsFlight;
+  var adults = '1';
   var maxFlights = '5';
 
   try {
     let amadeusRepo = new AmadeusRepo();
     let flights = await amadeusRepo.getFlightOffer(sourceCode, destinationCode, dateSourceFlight, adults, maxFlights);
-    if (!flights)
-    {
-      return res.render("flights", { business: 'undefined' }); 
+    if (!flights) {
+      return res.render("flights", { business: 'undefined' });
     }
     let flightTimes = [];
     let carrierResult = undefined;
     let airlineCode = undefined;
-  
+
     for (var i = 0; i < flights.length; i++) {
 
       let results = new DatesInfo(flights[i]).getDates();
@@ -136,13 +138,53 @@ router.post(`/flightOffer`, [
       flights[i].arrival_.at_ = results.arrival;
       flights[i].arrival_.iataCode_ = results.iataCodeArrival;
       ///compute the operating Airline Name
-      for (var j=0; j< flights[i].itineraries_[0].segments_.length; j++)
-      {
+      for (var j = 0; j < flights[i].itineraries_[0].segments_.length; j++) {
         airlineCode = flights[i].itineraries_[0].segments_[j].carrierCode_;
-          carrierResult = await amadeusRepo.getAirline(airlineCode);
-          flights[i].itineraries_[0].segments_[j].carrierName_ = carrierResult.businessName;
+        carrierResult = await amadeusRepo.getAirline(airlineCode);
+        flights[i].itineraries_[0].segments_[j].carrierName_ = carrierResult.businessName;
       }
     }
+    ////confirm a flight
+    //const flight = flights[0];
+    // Confirm availability and price
+    let pricingOfferStr = flights[3].original;
+    let pricingOffer = JSON.parse(pricingOfferStr);
+    let bookingOffer=undefined;
+
+    //pricingOffer.price.grandTotal = "20";
+    //pricingOffer.price.total = "20";
+
+
+    let pricingResponse = await amadeusRepo.confirmFlight(pricingOffer);
+    console.log("Flight confirmation response:", pricingResponse.result);
+
+
+    let bookingResult = await amadeusRepo.bookFlight(pricingResponse);
+    console.log("Flight Booking response:", bookingResult);
+
+
+    // amadeus.shopping.flightOffers.pricing.post(
+    //   JSON.stringify({
+    //     'data': {
+    //       'type': 'flight-offers-pricing',
+    //       'flightOffers': [pricingOffer],
+    //     }
+    //   })
+    // ).then(function (response) {
+    //   console.log("Flight confirmation response:", response.result);
+    //   //bookingOffer=response;
+    //   let bookingResult =  amadeusRepo.bookFlight(response);
+    //   console.log("Flight Booking response:", bookingResult);
+
+    //   // res.send(response.result);
+    // }).catch(function (response) {
+    //   //res.send(response)
+    //   console.log(response);
+    // });
+
+    // let bookingResult = await amadeusRepo.bookFlight(bookingOffer);
+    // console.log("Flight Booking response:", bookingResult.result);
+    //////////////////////////////
     return res.render("flights", { business: flights });
   }
   catch (err) {

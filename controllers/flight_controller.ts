@@ -1,10 +1,12 @@
 
 const { AmadeusMockRepo, AmadeusRepo, airlineInfo } = require("../Repositories/IAmadeusMockRepo");
 const { DatesInfo } = require("../Models/DatesInfo");
-
+import { ObjectMapper } from "jackson-js";
+import { FlightOffer } from "../Models/FlightOffer";
 const { API_KEY, API_SECRET } = require("../config");
 const Amadeus = require("amadeus");
 const express = require("express");
+
 const axios = require("axios");
 var _ = require("underscore");
 const { check, validationResult } = require('express-validator');
@@ -18,8 +20,8 @@ app.set("view engine", "ejs");
 //app.set("view engine", "ejs");
 //app.use(express.static("public"));
 
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: false }));
+//app.use(bodyParser.json());
+//app.use(bodyParser.urlencoded({ extended: false }));
 
 // Create router
 const router = express.Router();
@@ -27,55 +29,125 @@ const router = express.Router();
 const amadeus = new Amadeus({
   clientId: API_KEY,
   clientSecret: API_SECRET,
+  hostname: 'production'
 });
+
+const objectMapper = new ObjectMapper();
+const amadeusRepo = new AmadeusRepo();
+
+
+
+// Initialization
+
+//var sess; // global session, NOT recommended
 
 // Location search suggestions
 
-router.get(`/flightsearch`, async (req, res) => {
+// router.get(`/flightsearch`, async (req, res) => {
 
-  // ackson-js
+//   // ackson-js
 
-  // Find the cheapest flights from SYD to BKK
-  // let flights = await new AmadeusMockRepo().getFlights();
-  // return res.json(flights);
-});
+//   // Find the cheapest flights from SYD to BKK
+//   // let flights = await new AmadeusMockRepo().getFlights();
+//   // return res.json(flights);
+// });
 
-router.get(`/bookFlight`, async (req, res) => {
+router.get(`/bookFlight`, async (req:any, res:any) => {
 
   const { flight, iataCode } = req.query;
-  console.log("booking ,",flight);
+  req.session.flightJson = flight;
+  //req.session.flight = flight;
+  req.session.save();
+
+  let flightParsed = objectMapper.parse <FlightOffer>(flight, { mainCreator: () => [FlightOffer] });
+
+  //compute the departure and arrival time of the whole flight by summing up the times for individual flight segments
+  let carrierResult = undefined;
+  let airlineCode = undefined;
+
+  let results = new DatesInfo(flightParsed).getDates();
+  flightParsed.departure_.at_ = results.departure;
+  flightParsed.departure_.iataCode_ = results.iataCodeDeparture;
+
+  flightParsed.arrival_.at_ = results.arrival;
+  flightParsed.arrival_.iataCode_ = results.iataCodeArrival;
+
+  ///compute the operating Airline Names of the flight
+  for (var j = 0; j < flightParsed.itineraries_[0].segments_.length; j++) {
+    airlineCode = flightParsed.itineraries_[0].segments_[j].carrierCode_;
+    carrierResult = await amadeusRepo.getAirline(airlineCode);
+    flightParsed.itineraries_[0].segments_[j].carrierName_ = carrierResult.businessName;
+  }
+  //////
+  req.session.flightJson = flight;
+  req.session.flightParsed = flightParsed;
+
+  return res.render("booking_step1.ejs", { flight: flightParsed });
+
+
+  //console.log("Flight total :",flight.numberOfBookableSeats_);
+
+  //console.log("iata Code :",iataCode);
+});
+
+router.post(`/bookFlight`, [
+  check('first_name')
+    .not()
+    .isEmpty()
+    .withMessage('Enter a first name'),
+  check('last_name')
+    .not()
+    .isEmpty()
+    .withMessage('Enter a last name'),
+  check('email')
+    .not()
+    .isEmpty()
+    .withMessage('Enter an email'),
+  check('birth')
+    .not()
+    .isEmpty()
+    .withMessage('Chose a birth date')
+], async (req:any, res:any) => {
+
+  //const { flight, iataCode } = req.query;
+  let flightParsed = undefined;
+  if (req.session.flightParsed)
+    flightParsed = req.session.flightParsed;
+  //let flightParsed = objectMapper.parse < FlightOffer > (flight, { mainCreator: () => [FlightOffer] });
+
+  const errors = validationResult(req);
+  if (!errors.isEmpty()) {
+    const alert = errors.array()
+    return res.render("booking_step1.ejs", { alert: alert, flight: flightParsed });
+  }
+  //var sourceCode = req.body.sourceFlightCode;
+  //var destinationCode = req.body.destinationFlightCode;
+  //var dateSourceFlight = req.body.datepickerSourceFlight;
+
+  //let pricingOfferStr = flights[1].original;
+  let pricingOffer = undefined;
+  if (req.session.flightJson)
+    pricingOffer = JSON.parse(req.session.flightJson);
+
+  let pricingResponse = await amadeusRepo.confirmFlight(pricingOffer);
+  console.log("Flight confirmation response:", pricingResponse.result);
+
+
+  let bookingResult = await amadeusRepo.bookFlight(pricingResponse);
+  console.log("Flight Booking response:", bookingResult);
+  return res.render("booking_step3.ejs", { result: bookingResult });
+
 });
 
 
-router.get(`/flightOffer`, async (req, res) => {
+router.get(`/flightOffer`, async (req:any, res:any) => {
 
   const { source, destination, flightDate, adults } = req.query;
   if (!source || !destination || !flightDate || !adults) {
     return res.render("flights", { business: [] });
   }
-
-  // Find the cheapest flights from SYD to BKK
-  // let flights = await new AmadeusRepo().getFlightOffer();
-  // let flightTimes = [];
-  // for (var i = 0; i < flights.length; i++) {
-
-  //   let results = new DatesInfo(flights[i]).getDates();
-  //   flights[i].departure_.at_ = results.departure;
-  //   flights[i].departure_.iataCode_ = results.iataCodeDeparture;
-
-  //   flights[i].arrival_.at_ = results.arrival;
-  //   flights[i].arrival_.iataCode_ = results.iataCodeArrival;
-
-
-  //   // let flightTime = {
-  //   //   departure: results.departure,
-  //   //   arrival: results.arrival
-  //   // };
-  //   // flightTimes.push(flightTime);
-  // }
   return res.render("flights", { business: [] });
 
-  //return res.json(flights);
 });
 
 router.post(`/flightOffer`, [
@@ -95,7 +167,7 @@ router.post(`/flightOffer`, [
     .not()
     .isEmpty()
     .withMessage('Chose the number of adults')
-], async (req, res) => {
+], async (req:any, res:any) => {
   // Find the cheapest flights from SYD to BKK
   // Find cheapest dates from Madrid to Munich
   //  const { source,destination,departureDate,returnDate,adults} = req.query;
@@ -114,21 +186,21 @@ router.post(`/flightOffer`, [
   //var sourceCode = req.body.sourceFlightCode;
   //var destinationCode = req.body.destinationFlightCode;
   //var dateSourceFlight = req.body.datepickerSourceFlight;
-  var dateSourceFlight = '2022-10-07';
+  var dateSourceFlight = '2022-11-07';
   //var adults = req.body.adultsFlight;
   var adults = '1';
   var maxFlights = '5';
 
   try {
-    let amadeusRepo = new AmadeusRepo();
     let flights = await amadeusRepo.getFlightOffer(sourceCode, destinationCode, dateSourceFlight, adults, maxFlights);
     if (!flights) {
       return res.render("flights", { business: 'undefined' });
     }
-    let flightTimes = [];
+    //let flightTimes = [];
     let carrierResult = undefined;
     let airlineCode = undefined;
 
+    //compute the departure and arrival time of the whole flight by summing up the times for individual flight segments
     for (var i = 0; i < flights.length; i++) {
 
       let results = new DatesInfo(flights[i]).getDates();
@@ -137,7 +209,8 @@ router.post(`/flightOffer`, [
 
       flights[i].arrival_.at_ = results.arrival;
       flights[i].arrival_.iataCode_ = results.iataCodeArrival;
-      ///compute the operating Airline Name
+
+      ///compute the operating Airline Names of the flight
       for (var j = 0; j < flights[i].itineraries_[0].segments_.length; j++) {
         airlineCode = flights[i].itineraries_[0].segments_[j].carrierCode_;
         carrierResult = await amadeusRepo.getAirline(airlineCode);
@@ -147,20 +220,20 @@ router.post(`/flightOffer`, [
     ////confirm a flight
     //const flight = flights[0];
     // Confirm availability and price
-    let pricingOfferStr = flights[3].original;
+    let pricingOfferStr = flights[1].original;
     let pricingOffer = JSON.parse(pricingOfferStr);
-    let bookingOffer=undefined;
+    let bookingOffer = undefined;
 
     //pricingOffer.price.grandTotal = "20";
     //pricingOffer.price.total = "20";
 
 
-    let pricingResponse = await amadeusRepo.confirmFlight(pricingOffer);
-    console.log("Flight confirmation response:", pricingResponse.result);
+    //let pricingResponse = await amadeusRepo.confirmFlight(pricingOffer);
+    //console.log("Flight confirmation response:", pricingResponse.result);
 
 
-    let bookingResult = await amadeusRepo.bookFlight(pricingResponse);
-    console.log("Flight Booking response:", bookingResult);
+    //let bookingResult = await amadeusRepo.bookFlight(pricingResponse);
+    //console.log("Flight Booking response:", bookingResult);
 
 
     // amadeus.shopping.flightOffers.pricing.post(
@@ -194,43 +267,43 @@ router.post(`/flightOffer`, [
 
 
 
-router.get(`/cheapestDates`, async (req, res) => {
+router.get(`/cheapestDates`, async (req:any, res:any) => {
   // Find the cheapest flights from SYD to BKK
   // Find cheapest dates from Madrid to Munich
   amadeus.shopping.flightDates.get({
     origin: 'LON',
     destination: 'MUC'
     // departureDate:  '2022-09-10'
-  }).then(function (response) {
+  }).then(function (response: any) {
     return res.json(response);
-  }).catch(function (response) {
+  }).catch(function (response: any) {
     console.error(response);
   });
 });
 
-router.get(`/getAirline`, async (req, res) => {
+router.get(`/getAirline`, async (req: any, res: any) => {
   // Find the cheapest flights from SYD to BKK
   // Find cheapest dates from Madrid to Munich
   amadeus.referenceData.airlines.get({
     airlineCodes: 'TR'
-  }).then(function (response) {
+  }).then(function (response: any) {
     console.log(response);
-  }).catch(function (response) {
+  }).catch(function (response: any) {
     console.error(response);
   });
 });
 
-router.get(`/flightAvSearch`, async (req, res) => {
+router.get(`/flightAvSearch`, async (req: { query: { source: any; destination: any; departureDate: any; returnDate:any; adults: any; }; body: { sourceFlightCode: any; destinationFlightCode: any; datepickerSourceFlight: any; adults: any; }; }, res: { render: (arg0: string, arg1: { business: never[]; }) => any; json: (arg0: unknown) => void; }) => {
   // Find the cheapest flights from SYD to BKK
   // Find cheapest dates from Madrid to Munich
-  const { source, destination, departureDate, adults } = req.query;
+  const { source, destination, departureDate, adults,returnDate } = req.query;
   if (!source || !destination || !departureDate || !returnDate || !adults) {
     return res.render("flights", { business: [] });
   }
-  var sourceCode = req.body.sourceFlightCode;
-  var destinationCode = req.body.destinationFlightCode;
-  var dateSourceFlight = req.body.datepickerSourceFlight;
-  adults = req.body.adults;
+  // var sourceCode = req.body.sourceFlightCode;
+  // var destinationCode = req.body.destinationFlightCode;
+  // var dateSourceFlight = req.body.datepickerSourceFlight;
+  // var adults = req.body.adults;
   try {
     //readonly moqRepo: AmadeusMockRepo;
     const result = await new AmadeusRepo().getFlightAvailability("MAD", "MUC");
@@ -259,7 +332,7 @@ router.post(`/flightAvSearch`, [
     .not()
     .isEmpty()
     .withMessage('Chose the number of adults')
-], async (req, res) => {
+], async (req: { body: { sourceFlightCode: any; destinationFlightCode: any; datepickerSourceFlight: any; adultsFlight: any; }; }, res: { render: (arg0: string, arg1: { alert?: any; business?: any; }) => any; json: (arg0: unknown) => void; }) => {
   // Find the cheapest flights from SYD to BKK
   // Find cheapest dates from Madrid to Munich
   //  const { source,destination,departureDate,returnDate,adults} = req.query;

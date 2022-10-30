@@ -26,9 +26,15 @@ app.use(bodyParser.urlencoded({ extended: false }));
 // Create router
 const router = express.Router();
 // Create Amadeus API client
+// const amadeus = new Amadeus({
+//   clientId: API_KEY,
+//   clientSecret: API_SECRET,
+//   hostname: 'production'
+// });
+
 const amadeus = new Amadeus({
   clientId: API_KEY,
-  clientSecret: API_SECRET,
+  clientSecret: API_SECRET
 });
 
 interface IAmadeusRepo {
@@ -224,7 +230,8 @@ export class AmadeusRepo implements IAmadeusRepo {
       //flightsParsed = new Array<FlightOffer>();
       flightsParsed = objectMapper.parse<FlightOffer[]>(result, { mainCreator: () => [Array, [FlightOffer]] });
       //const JsonFlights = objectMapper.parse<FlightOffer>(result);
-
+      
+      //keep the json version of the object in the original property
       for (var i = 0; i < flightsParsed.length; i++) {
         flightsParsed[i].original = JSON.stringify(response.data[i]); //JSON.stringify([JsonFlights][i]);
       }

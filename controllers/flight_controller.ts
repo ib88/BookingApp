@@ -52,14 +52,14 @@ const amadeusRepo = new AmadeusRepo();
 //   // return res.json(flights);
 // });
 
-router.get(`/bookFlight`, async (req:any, res:any) => {
+router.get(`/bookFlight`, async (req: any, res: any) => {
 
   const { flight, iataCode } = req.query;
   req.session.flightJson = flight;
   //req.session.flight = flight;
   req.session.save();
 
-  let flightParsed = objectMapper.parse <FlightOffer>(flight, { mainCreator: () => [FlightOffer] });
+  let flightParsed = objectMapper.parse<FlightOffer>(flight, { mainCreator: () => [FlightOffer] });
 
   //compute the departure and arrival time of the whole flight by summing up the times for individual flight segments
   let carrierResult = undefined;
@@ -91,11 +91,11 @@ router.get(`/bookFlight`, async (req:any, res:any) => {
 });
 
 router.post(`/bookFlight`, [
-  check('first_name')
+  check('firstName')
     .not()
     .isEmpty()
     .withMessage('Enter a first name'),
-  check('last_name')
+  check('lastName')
     .not()
     .isEmpty()
     .withMessage('Enter a last name'),
@@ -103,26 +103,36 @@ router.post(`/bookFlight`, [
     .not()
     .isEmpty()
     .withMessage('Enter an email'),
-  check('birth')
+  check('birthDate')
     .not()
     .isEmpty()
     .withMessage('Chose a birth date')
-], async (req:any, res:any) => {
+], async (req: any, res: any) => {
 
   //const { flight, iataCode } = req.query;
   let flightParsed = undefined;
+  let alert = undefined;
+
   if (req.session.flightParsed)
     flightParsed = req.session.flightParsed;
   //let flightParsed = objectMapper.parse < FlightOffer > (flight, { mainCreator: () => [FlightOffer] });
 
   const errors = validationResult(req);
   if (!errors.isEmpty()) {
-    const alert = errors.array()
-    return res.render("booking_step1.ejs", { alert: alert, flight: flightParsed });
+    alert = errors.array()
+    return res.render("booking_step1.ejs", { alert, flight: flightParsed });
   }
-  //var sourceCode = req.body.sourceFlightCode;
-  //var destinationCode = req.body.destinationFlightCode;
-  //var dateSourceFlight = req.body.datepickerSourceFlight;
+  let firstName = req.body.firstName;
+  let lastName = req.body.lastName;
+  let birthDate = req.body.birthDate;
+  let gender = "MALE";
+  let email = req.body.email;
+
+  let traveler = {
+      first_name:firstName,
+      last_name:lastName,
+      email_:email
+  };
 
   //let pricingOfferStr = flights[1].original;
   let pricingOffer = undefined;
@@ -130,17 +140,17 @@ router.post(`/bookFlight`, [
     pricingOffer = JSON.parse(req.session.flightJson);
 
   let pricingResponse = await amadeusRepo.confirmFlight(pricingOffer);
-  console.log("Flight confirmation response:", pricingResponse.result);
+  //console.log("Flight confirmation response:", pricingResponse.result);
 
-
-  let bookingResult = await amadeusRepo.bookFlight(pricingResponse);
-  console.log("Flight Booking response:", bookingResult);
-  return res.render("booking_step3.ejs", { result: bookingResult });
+  // bookFlight(pricingResponse: any, firstName:string, lastName:string, birthDate:string, gender:string, email:string): Promise<any>
+  let bookingResult = await amadeusRepo.bookFlight(pricingResponse, firstName, lastName, birthDate, gender, email);
+  //console.log("Flight Booking response:", bookingResult);
+  return res.render("booking_step3.ejs", { alert:alert, result: bookingResult, flight: flightParsed, travelerInfos: traveler });
 
 });
 
 
-router.get(`/flightOffer`, async (req:any, res:any) => {
+router.get(`/flightOffer`, async (req: any, res: any) => {
 
   const { source, destination, flightDate, adults } = req.query;
   if (!source || !destination || !flightDate || !adults) {
@@ -167,7 +177,7 @@ router.post(`/flightOffer`, [
     .not()
     .isEmpty()
     .withMessage('Chose the number of adults')
-], async (req:any, res:any) => {
+], async (req: any, res: any) => {
   // Find the cheapest flights from SYD to BKK
   // Find cheapest dates from Madrid to Munich
   //  const { source,destination,departureDate,returnDate,adults} = req.query;
@@ -181,8 +191,8 @@ router.post(`/flightOffer`, [
   //   return res.render("flights", { alert });
   // }
 
-  var sourceCode = "SEA";
-  var destinationCode = "MIA";
+  var sourceCode = "LAX";
+  var destinationCode = "SEA";
   //var sourceCode = req.body.sourceFlightCode;
   //var destinationCode = req.body.destinationFlightCode;
   //var dateSourceFlight = req.body.datepickerSourceFlight;
@@ -267,7 +277,7 @@ router.post(`/flightOffer`, [
 
 
 
-router.get(`/cheapestDates`, async (req:any, res:any) => {
+router.get(`/cheapestDates`, async (req: any, res: any) => {
   // Find the cheapest flights from SYD to BKK
   // Find cheapest dates from Madrid to Munich
   amadeus.shopping.flightDates.get({
@@ -293,10 +303,10 @@ router.get(`/getAirline`, async (req: any, res: any) => {
   });
 });
 
-router.get(`/flightAvSearch`, async (req: { query: { source: any; destination: any; departureDate: any; returnDate:any; adults: any; }; body: { sourceFlightCode: any; destinationFlightCode: any; datepickerSourceFlight: any; adults: any; }; }, res: { render: (arg0: string, arg1: { business: never[]; }) => any; json: (arg0: unknown) => void; }) => {
+router.get(`/flightAvSearch`, async (req: { query: { source: any; destination: any; departureDate: any; returnDate: any; adults: any; }; body: { sourceFlightCode: any; destinationFlightCode: any; datepickerSourceFlight: any; adults: any; }; }, res: { render: (arg0: string, arg1: { business: never[]; }) => any; json: (arg0: unknown) => void; }) => {
   // Find the cheapest flights from SYD to BKK
   // Find cheapest dates from Madrid to Munich
-  const { source, destination, departureDate, adults,returnDate } = req.query;
+  const { source, destination, departureDate, adults, returnDate } = req.query;
   if (!source || !destination || !departureDate || !returnDate || !adults) {
     return res.render("flights", { business: [] });
   }

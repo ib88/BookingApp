@@ -9,12 +9,12 @@
 	
 	<title>Book Your Travel - Booking</title>
 	
-	<link rel="stylesheet" href="css/style.css" />
-	<link rel="stylesheet" href="css/theme-turqoise.css" id="template-color" />
+	<link rel="stylesheet" href="/css/style.css" />
+	<link rel="stylesheet" href="/css/theme-turqoise.css" id="template-color" />
 	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,600,700,800|Roboto+Slab:400,700&subset=latin,latin-ext,greek-ext,greek,cyrillic,vietnamese,cyrillic-ext">
 	<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
 	<script src="https://use.fontawesome.com/e808bf9397.js"></script>
-	<link rel="shortcut icon" href="images/favicon.ico" />
+	<link rel="shortcut icon" href="/images/favicon.ico" />
 	
 	
 	 <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
@@ -36,7 +36,7 @@
 	<header class="header">
 		<div class="wrap">
 			<!--logo-->
-			<div class="logo"><a href="index.html" title="Book Your Travel"><img src="images/txt/logo.png" alt="Book Your Travel" /></a></div>
+			<div class="logo"><a href="/index.html" title="Book Your Travel"><img src="/images/txt/logo.png" alt="Book Your Travel" /></a></div>
 			<!--//logo-->
 			
 			<!--ribbon-->
@@ -214,26 +214,22 @@
 							</div>
 							
 							<h3>Traveller info</h3>
+							<% if(typeof result !='undefined' && typeof travelerInfos !='undefined') { %>
 							<div class="text-wrap">
 								<div class="output">
 									<p>Booking number:</p>
-									<p>904054553</p>
+									<p> <%= result.data.id %> </p>
 									<p>Fist name: </p>
-									<p>John</p>
+									<p> <%= travelerInfos.first_name %> </p>
 									<p>Last name: </p>
-									<p>Livingston</p>
+									<p> <%= travelerInfos.last_name %>  </p>
 									<p>E-mail address: </p>
-									<p>mail@google.com</p>
-									<p>Street Address and number:</p>
-									<p>Some street name 55</p>
-									<p>Town / City: </p>
-									<p>Sunnytown</p>
-									<p>ZIP code: </p>
-									<p>9500 - 100</p>
+									<p> <%= travelerInfos.email_ %>  </p>
 									<p>Country:</p>
-									<p>Neverland</p>
+									<p>Cameroon</p>
 								</div>
 							</div>
+							<% } %>
 						
 							<h3>Special requirements</h3>
 							<div class="text-wrap">
@@ -262,7 +258,7 @@
 				<aside class="one-fourth right-sidebar">
 					<!--Booking details-->
 					<article class="hotel-details booking-details">
-						<h1>Best ipsum hotel 
+						<h1>Flight Summary 
 							<span class="stars">
 								<i class="material-icons">&#xE838;</i>
 								<i class="material-icons">&#xE838;</i>
@@ -271,22 +267,22 @@
 						</h1>
 						<span class="address">Marylebone, London</span>
 						<span class="rating"> 8 /10</span>
-						<dl class="booking-info">
-							<dt>Rooms</dt>
-							<dd>Standard twin room</dd>
-							<dt>Room Description</dt>
-							<dd>Room only</dd>
-							<dt>Check-in Date</dt>
-							<dd>14-11-12</dd>
-							<dt>Check-out Date</dt>
-							<dd>15-11-12</dd>
-							<dt>Room(s)</dt>
-							<dd>1 night, 1 room, max. 2 people. </dd>
-						</dl>
-						<div class="price">
-							<p class="total">Total Price:  $ 55,00</p>
-							<p>VAT (20%) included</p>
-						</div>
+						<% if(typeof flight !='undefined' ) { %>
+							<dl class="booking-info">
+								<dt>From</dt>
+								<dd><%= flight.departure_.iataCode_ %> </dd>
+								<dt>To</dt>
+								<dd><%= flight.arrival_.iataCode_ %> </dd>
+								<dt>Departure Time</dt>
+								<dd> <%= flight.departure_.at_ %> </dd>
+								<dt>Arrival Time</dt>
+								<dd> <%= flight.arrival_.at_ %> </dd>
+							</dl>
+							<div class="price">
+								<p class="total">Total Price:  <%= flight.price_.total_ %> Euros</p>
+								<p>VAT (20%) included</p>
+							</div>
+							<% } %>
 					</article>
 					<!--//Booking details-->
 					
@@ -380,9 +376,9 @@
 
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
 	<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
-	<script type="text/javascript" src="js/jquery.uniform.min.js"></script>
-	<script type="text/javascript" src="js/jquery.slimmenu.min.js"></script>
-	<script type="text/javascript" src="js/scripts.js"></script>
+	<script type="text/javascript" src="/js/jquery.uniform.min.js"></script>
+	<script type="text/javascript" src="/js/jquery.slimmenu.min.js"></script>
+	<script type="text/javascript" src="/js/scripts.js"></script>
 	<script type="text/javascript">
 		function printpage()
 			{window.print()}

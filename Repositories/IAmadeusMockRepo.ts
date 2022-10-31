@@ -42,7 +42,7 @@ interface IAmadeusRepo {
   getFlightAvailability(source: string, destination: string, departureDate: string, adults: string): Promise<flightInfo[]>;
   getFlightOffer(source: string, destination: string, departureDate: string, adults: string, maxFlights: string): Promise<FlightOffer[]>;
   getAirline(source: string): Promise<airlineInfo>;
-  bookFlight(pricingResponse: any): Promise<any>;
+  bookFlight(pricingResponse: any, firstName:string, lastName:string, birthDate:string, gender:string, email:string): Promise<any>;
   confirmFlight(searchResponse: any): Promise<any>;
 
 }
@@ -111,7 +111,7 @@ export class AmadeusMockRepo implements IAmadeusRepo {
     return airline;
   }
 
-  async bookFlight(pricingResponse: any): Promise<any> {
+  async bookFlight(pricingResponse: any, firstName:string, lastName:string, birthDate:string, gender:string, email:string): Promise<any> {
     let response: any;
     response = "";
     //x { id:'1', type:'', instantTicketingRequired:true, oneWay:true, lastTicketingDate:'', nonHomogeneous:true, source: 'MAD', destination: 'MUC', departure: '2022:11:11', returnDate: '2022:11:13', price: '133', duration: '12:21' },
@@ -131,7 +131,7 @@ export class AmadeusMockRepo implements IAmadeusRepo {
 export class AmadeusRepo implements IAmadeusRepo {
 
 
-  async bookFlight(pricingResponse: any): Promise<any> {
+  async bookFlight(pricingResponse: any, firstName:string, lastName:string, birthDate:string, gender:string, email:string): Promise<any> {
 
     return amadeus.booking.flightOrders.post(
       JSON.stringify({
@@ -140,14 +140,14 @@ export class AmadeusRepo implements IAmadeusRepo {
           'flightOffers': [pricingResponse.data.flightOffers[0]],
           'travelers': [{
             "id": "1",
-            "dateOfBirth": "1982-01-16",
+            "dateOfBirth": birthDate,//"1982-01-16",
             "name": {
-              "firstName": "JORGE",
-              "lastName": "GONZALES"
+              "firstName": firstName,//"JORGE",
+              "lastName": lastName,//"GONZALES"
             },
-            "gender": "MALE",
+            "gender": gender,//"MALE",
             "contact": {
-              "emailAddress": "jorge.gonzales833@telefonica.es",
+              "emailAddress": email,//"jorge.gonzales833@telefonica.es",
               "phones": [{
                 "deviceType": "MOBILE",
                 "countryCallingCode": "34",
@@ -230,7 +230,7 @@ export class AmadeusRepo implements IAmadeusRepo {
       //flightsParsed = new Array<FlightOffer>();
       flightsParsed = objectMapper.parse<FlightOffer[]>(result, { mainCreator: () => [Array, [FlightOffer]] });
       //const JsonFlights = objectMapper.parse<FlightOffer>(result);
-      
+
       //keep the json version of the object in the original property
       for (var i = 0; i < flightsParsed.length; i++) {
         flightsParsed[i].original = JSON.stringify(response.data[i]); //JSON.stringify([JsonFlights][i]);

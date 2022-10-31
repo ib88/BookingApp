@@ -11,6 +11,7 @@
 	
 	<link rel="stylesheet" href="/css/style.css" />
 	<link rel="stylesheet" href="/css/theme-turqoise.css" id="template-color" />
+	<link rel="stylesheet" href="/css/lightslider.min.css" />
 	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,600,700,800|Roboto+Slab:400,700&subset=latin,latin-ext,greek-ext,greek,cyrillic,vietnamese,cyrillic-ext">
 	<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
 	<script src="https://use.fontawesome.com/e808bf9397.js"></script>
@@ -199,7 +200,7 @@
 					<li><a href="#" title="Hotels">Hotels</a></li>
 					<li><a href="#" title="United Kingdom">United Kingdom</a></li>
 					<li><a href="#" title="London">London</a></li>  
-					<li>Best ipsum hotel</li>                                       
+					<li>Flight Summary</li>                                       
 				</ul>
 				<!--//crumbs-->
 				
@@ -220,12 +221,12 @@
 							<h2><span>01 </span>Traveller info</h2>
 							<div class="row">
 								<div class="f-item one-half">
-									<label for="first_name">First name</label>
-									<input type="text" id="first_name" name="first_name" />
+									<label for="firstName">First name</label>
+									<input type="text" id="firstName" name="firstName" />
 								</div>
 								<div class="f-item one-half">
-									<label for="last_name">Last name</label>
-									<input type="text" id="last_name" name="last_name" />
+									<label for="lastName">Last name</label>
+									<input type="text" id="lastName" name="lastName" />
 								</div>
 							</div>
 							
@@ -235,14 +236,15 @@
 									<input type="email" id="email" name="email" />
 								</div>
 								<div class="f-item one-half">
-									<label for="datepicker1">Date of birth</label>
-									<div class="datepicker-wrap"><input type="text" placeholder=""
-											id="birth" name="birth" /></div>
+									<label for="birthDate">Date of birth</label>
+									<div class="datepicker-wrap"><input type="text"
+										placeholder="" id="birthDate"
+										name="birthDate" /></div>
 								</div>
 								<span class="info">You’ll receive a confirmation email</span>
 							</div>
 							
-							<div class="row">
+							<!-- <div class="row">
 								<div class="f-item one-half">
 									<label for="address">Street Address an Number</label>
 									<input type="text" id="address" name="address" />
@@ -270,7 +272,7 @@
 									<textarea rows="10" cols="10"></textarea>
 								</div>
 								<span class="info">Please write your requests in English.</span>
-							</div>
+							</div> -->
 							
 							<div class="row">
 								<div class="f-item full-width">
@@ -286,14 +288,14 @@
 				<aside class="one-fourth right-sidebar">
 					<!--Booking details-->
 					<article class="hotel-details booking-details">
-						<h1>Best ipsum hotel 
+						<h1>Flight Summary
 							<span class="stars">
 								<i class="material-icons">&#xE838;</i>
 								<i class="material-icons">&#xE838;</i>
 								<i class="material-icons">&#xE838;</i>
 							</span>
 						</h1>
-						<span class="address">Marylebone, London</span>
+						<span class="address"></span>
 						<span class="rating"> 8 /10</span>
 						<% if(typeof flight !='undefined' ) { %>
 						<dl class="booking-info">
@@ -406,6 +408,32 @@
 	<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
 	<script type="text/javascript" src="/js/jquery.uniform.min.js"></script>
 	<script type="text/javascript" src="/js/jquery.slimmenu.min.js"></script>
-	<script type="text/javascript" src="/s/scripts.js"></script>
+	<script type="text/javascript" src="/s/scripts.js">
+
+(function ($) {
+							$(document).ready(function () {
+								$('.form').hide();
+								$('#form3').show();
+								$('.f-item:nth-child(3)').addClass('active');
+								$('.f-item:nth-child(3) span').addClass('checked');
+
+								$('#hero-gallery').lightSlider({
+									gallery: true,
+									item: 1,
+									pager: false,
+									gallery: false,
+									slideMargin: 0,
+									speed: 2000,
+									pause: 6000,
+									mode: 'fade',
+									auto: true,
+									loop: true,
+									onSliderLoad: function () {
+										$('#hero-gallery').removeClass('cS-hidden');
+									}
+								});
+							});
+						})(jQuery);
+	</script>
 </body>
 </html>

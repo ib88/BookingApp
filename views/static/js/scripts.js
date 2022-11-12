@@ -61,7 +61,7 @@
 			
 			$('.datepicker-wrap input').datepicker({
 				showOn: 'button',
-				buttonImage: 'images/ico/calendar.png',
+				buttonImage: '/images/ico/calendar.png',
 				buttonImageOnly: true,
 				dateFormat: "yy-mm-dd"
 			});

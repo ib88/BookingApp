@@ -6,5 +6,6 @@ dotenv.config();
 module.exports = {
   API_KEY: process.env.API_KEY,
   API_SECRET: process.env.API_SECRET,
-  PORT: process.env.PORT,
+  SENDGRID_API_KEY: process.env.SENDGRID_API_KEY,
+  PORT: process.env.PORT
 };

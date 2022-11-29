@@ -53,7 +53,7 @@ const amadeusRepo = new AmadeusRepo();
 // });
 
 router.get(`/bookFlight`, async (req: any, res: any) => {
-
+  
   const { flight, iataCode } = req.query;
   req.session.flightJson = flight;
   //req.session.flight = flight;
@@ -141,6 +141,8 @@ router.post(`/bookFlight`, [
   // bookFlight(pricingResponse: any, firstName:string, lastName:string, birthDate:string, gender:string, email:string): Promise<any>
   let bookingResult = await amadeusRepo.bookFlight(pricingResponse, firstName, lastName, birthDate, gender, email);
   //console.log("Flight Booking response:", bookingResult);
+  let emailResult = await amadeusRepo.sendEmail("imefire@gmail.com", "imefire@gmail.com", "Booking confirmation", bookingResult.data.id,"<b>"+ bookingResult.data.id + "</b>");
+
   return res.render("booking_step3.ejs", { alert:alert, result: bookingResult, flight: flightParsed, travelerInfos: traveler });
 
 });

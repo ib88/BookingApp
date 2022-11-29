@@ -5,7 +5,7 @@ import { ObjectMapper } from "jackson-js";
 import { FlightOffer } from "../Models/FlightOffer";
 
 // router.js
-const { API_KEY, API_SECRET } = require("../config");
+const { API_KEY, API_SECRET, SENDGRID_API_KEY } = require("../config");
 const Amadeus = require("amadeus");
 const express = require("express");
 var _ = require("underscore");
@@ -37,13 +37,18 @@ const amadeus = new Amadeus({
   clientSecret: API_SECRET
 });
 
+const sgMail = require('@sendgrid/mail');
+sgMail.setApiKey(SENDGRID_API_KEY);
+
+
 interface IAmadeusRepo {
   getCheapestFlightDates(source: string, destination: string): Promise<flightInfo[]>;
   getFlightAvailability(source: string, destination: string, departureDate: string, adults: string): Promise<flightInfo[]>;
   getFlightOffer(source: string, destination: string, departureDate: string, adults: string, maxFlights: string): Promise<FlightOffer[]>;
   getAirline(source: string): Promise<airlineInfo>;
-  bookFlight(pricingResponse: any, firstName:string, lastName:string, birthDate:string, gender:string, email:string): Promise<any>;
+  bookFlight(pricingResponse: any, firstName: string, lastName: string, birthDate: string, gender: string, email: string): Promise<any>;
   confirmFlight(searchResponse: any): Promise<any>;
+  sendEmail(to: string, from: string, subject: string, text: string, html: string): Promise<any>;
 
 }
 
@@ -73,6 +78,16 @@ export interface airlineInfo {
 }
 
 export class AmadeusMockRepo implements IAmadeusRepo {
+
+  async sendEmail(to: string, from: string, subject: string, text: string, html: string): Promise<any> {
+
+    let response: any;
+    response = "";
+    //x { id:'1', type:'', instantTicketingRequired:true, oneWay:true, lastTicketingDate:'', nonHomogeneous:true, source: 'MAD', destination: 'MUC', departure: '2022:11:11', returnDate: '2022:11:13', price: '133', duration: '12:21' },
+    //{ id:'1', type:'', instantTicketingRequired:true, oneWay:true, lastTicketingDate:'', nonHomogeneous:true, source: 'MAD', destination: 'MUC', departure: '2022:11:11', returnDate: '2022:11:13', price: '133', duration: '12:21' },
+    return response;
+
+  }
 
   async getCheapestFlightDates(source: string, destination: string): Promise<flightInfo[]> {
     let flights: Array<flightInfo> = [
@@ -111,7 +126,7 @@ export class AmadeusMockRepo implements IAmadeusRepo {
     return airline;
   }
 
-  async bookFlight(pricingResponse: any, firstName:string, lastName:string, birthDate:string, gender:string, email:string): Promise<any> {
+  async bookFlight(pricingResponse: any, firstName: string, lastName: string, birthDate: string, gender: string, email: string): Promise<any> {
     let response: any;
     response = "";
     //x { id:'1', type:'', instantTicketingRequired:true, oneWay:true, lastTicketingDate:'', nonHomogeneous:true, source: 'MAD', destination: 'MUC', departure: '2022:11:11', returnDate: '2022:11:13', price: '133', duration: '12:21' },
@@ -125,13 +140,33 @@ export class AmadeusMockRepo implements IAmadeusRepo {
     //{ id:'1', type:'', instantTicketingRequired:true, oneWay:true, lastTicketingDate:'', nonHomogeneous:true, source: 'MAD', destination: 'MUC', departure: '2022:11:11', returnDate: '2022:11:13', price: '133', duration: '12:21' },
     return response;
   }
-  
+
 }
 
 export class AmadeusRepo implements IAmadeusRepo {
 
 
-  async bookFlight(pricingResponse: any, firstName:string, lastName:string, birthDate:string, gender:string, email:string): Promise<any> {
+  async sendEmail(to: string, from: string, subject: string, text: string, html: string): Promise<any> {
+
+    let msg = {
+      to: to, // Change to your recipient
+      from: from, // Change to your verified sender
+      subject: subject,
+      text: text,
+      html: html
+    };
+
+    return sgMail
+      .send(msg)
+      .then(() => {
+        console.log('Email sent')
+      })
+      .catch((error: any) => {
+        console.error(error)
+      });
+  }
+
+  async bookFlight(pricingResponse: any, firstName: string, lastName: string, birthDate: string, gender: string, email: string): Promise<any> {
 
     return amadeus.booking.flightOrders.post(
       JSON.stringify({
@@ -189,7 +224,7 @@ export class AmadeusRepo implements IAmadeusRepo {
           'flightOffers': [searchResponse],
         }
       })
-    ).then(function (response:any) {
+    ).then(function (response: any) {
       //console.log("Flight confirmation response:", response.result);
       return response;
       //bookingOffer=response;
@@ -197,7 +232,7 @@ export class AmadeusRepo implements IAmadeusRepo {
       // console.log("Flight Booking response:", bookingResult);
 
       // res.send(response.result);
-    }).catch(function (response:any) {
+    }).catch(function (response: any) {
       //res.send(response)
       console.log(response);
     });

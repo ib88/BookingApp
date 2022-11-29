@@ -192,7 +192,7 @@ router.post(`/flightOffer`, [
   //var sourceCode = req.body.sourceFlightCode;
   //var destinationCode = req.body.destinationFlightCode;
   //var dateSourceFlight = req.body.datepickerSourceFlight;
-  var dateSourceFlight = '2022-11-20';
+  var dateSourceFlight = '2022-12-20';
   //var adults = req.body.adultsFlight;
   var adults = '1';
   var maxFlights = '5';

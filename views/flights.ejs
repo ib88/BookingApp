@@ -383,9 +383,6 @@
 												<div class="row">
 													<div class="f-item full-width">
 
-														<label for="myInput">Type something in!</label>
-														<input id="myInput" type="text">
-
 														<label for="sourceFlight">Leaving from</label>
 														<input type="text" placeholder="specific airport"
 															id="sourceFlight" name="sourceFlight"
@@ -420,35 +417,8 @@
 																		name="datepickerSourceFlight" />
 																</div>
 															</div>
-															<!-- <div class="f-item one-half">
-												<select>
-													<option>Select time</option>
-													<option>Lowest fare</option>
-													<option>Morning</option>
-													<option>Midday</option>
-													<option>Afternoon</option>
-													<option>Evening</option>
-												</select>
-											</div> -->
-														</div>
-													</div>
-													<div class="f-item full-width datepicker">
-														<!-- <label for="datepickerDestFlight">Arriving on</label>
-										<div class="row">
-											<div class="f-item one-half">
-												<div class="datepicker-wrap"><input type="text" placeholder=""
-														id="datepickerDestFlight" name="datepickerDestFlight" /></div>
-											</div> -->
-														<!-- <div class="f-item one-half">
-												<select>
-													<option>Select time</option>
-													<option>Lowest fare</option>
-													<option>Morning</option>
-													<option>Midday</option>
-													<option>Afternoon</option>
-													<option>Evening</option>
-												</select>
-											</div> -->
+															
+				
 													</div>
 												</div>
 											</div>
@@ -911,8 +881,8 @@
 																	<%});%>
 																		<%});%>
 
-																			<a href="flight/tryBooking?flightInfo=<%=elt%>&iataCode=<%=elt.arrival_.iataCode_ %>"
-																				title="View Rooms"
+																			<a href="/flight/bookFlight?flight=<%=elt.original %>&iataCode=<%=elt.arrival_.iataCode_ %>"
+																				title="Book Flight"
 																				class="gradient-button">Book
 																			</a>
 														</div>
@@ -1242,7 +1212,7 @@
 							"keyup",
 							debounce(helloWorld, 2000)
 						);
-///////////////////////////
+						///////////////////////////
 						function showResultsSource(eltId, val, listId, divId, hiddenFieldId) {
 							res = document.getElementById(`${divId}`);
 							res.innerHTML = '';

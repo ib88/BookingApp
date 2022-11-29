@@ -1,6 +1,8 @@
 
 // index.js
 const express = require("express");
+const cookieParser = require("cookie-parser");
+const session = require('express-session');
 //const router = require("./router");
 const hotelRouter = require("./controllers/Hotel_controller");
 const flightRouter = require("./controllers/flight_controller");
@@ -26,6 +28,13 @@ app.use(express.static('views/static'));
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: false}));
+
+app.use(cookieParser());
+app.use(session({
+    secret: "amar",
+    saveUninitialized: true,
+    resave: true
+}));
 
 const PORT = config.PORT;
 

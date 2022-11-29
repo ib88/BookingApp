@@ -122,15 +122,94 @@ export class Itineraries{
     segments_: Segment[];
 }
 
+export class TravelerPricings{
+    public constructor(travelerId: string, fareOption:string, travelerType:string, price:Price, fareDetailsBySegment:FareDetailsBySegment[]) {
+        this.travelerId = travelerId;
+        this.fareOption = fareOption;
+        this.travelerType = travelerType;
+        this.price = price;
+        this.fareDetailsBySegment = fareDetailsBySegment;
+    }
+    @JsonProperty({value: "travelerId"})
+    @JsonClassType({type: () => [String]})
+    travelerId: string;
+
+    @JsonProperty({value: "fareOption"})
+    @JsonClassType({type: () => [String]})
+    fareOption: string;
+
+    @JsonProperty({value: "travelerType"})
+    @JsonClassType({type: () => [String]})
+    travelerType: string;
+
+    @JsonProperty({value: "price"})
+    @JsonClassType({type: () => [Price]})
+    price: Price;
+
+    @JsonProperty({value: "fareDetailsBySegment"})
+    @JsonClassType({type: () => [Array, [FareDetailsBySegment]]})
+    fareDetailsBySegment: FareDetailsBySegment[];
+}
+
+export class FareDetailsBySegment{
+    public constructor(segmentId: string, cabin:string, fareBasis:string, includedCheckedBags:IncludedCheckedBags) {
+        this.segmentId = segmentId;
+        this.cabin = cabin;
+        this.fareBasis = fareBasis;
+        //this.class = class;
+        this.class_ = "";
+        this.includedCheckedBags = includedCheckedBags;
+    }
+    @JsonProperty({value: "segmentId"})
+    @JsonClassType({type: () => [String]})
+    segmentId: string;
+
+    @JsonProperty({value: "cabin"})
+    @JsonClassType({type: () => [String]})
+    cabin: string;
+
+    @JsonProperty({value: "fareBasis"})
+    @JsonClassType({type: () => [String]})
+    fareBasis: string;
+
+    @JsonProperty({value: "class"})
+    @JsonClassType({type: () => [String]})
+    class_: string;
+
+    @JsonProperty({value: "includedCheckedBags"})
+    @JsonClassType({type: () => [IncludedCheckedBags]})
+    includedCheckedBags: IncludedCheckedBags;
+
+}
+
+export class IncludedCheckedBags{
+    public constructor(weight: string, weightUnit:string) {
+        this.weight = weight;
+        this.weightUnit = weightUnit;
+    }
+
+    @JsonProperty({value: "weight"})
+    @JsonClassType({type: () => [String]})
+    weight: string;
+
+    @JsonProperty({value: "weightUnit"})
+    @JsonClassType({type: () => [String]})
+    weightUnit: string;
+
+}
+
+
 @JsonIgnoreProperties({
-    value: ['pricingOptions', 'source','validatingAirlineCodes', 'travelerPricings']
+    value: ['pricingOptions', 'validatingAirlineCodes', 'travelerPricings']
   })
 export class FlightOffer {
 
-    public constructor(type:string, id:string, source:string, lastTicketingDate:string, instantTicketingRequired: boolean, nonHomogeneous: boolean, oneWay:boolean, numberOfBookableSeats: string, itineraries:Itineraries[], price: Price) {
+    public constructor(type:string, id:string, source:string, lastTicketingDate:string, instantTicketingRequired: boolean, nonHomogeneous: boolean, oneWay:boolean, numberOfBookableSeats: string, itineraries:Itineraries[], price: Price, travelerPricings:TravelerPricings[]) {
         this.type_ = type;
         this.id_ = id;
+        //this.id = id;
         this.source_ = source;
+        //this.source = source;
         this.lastTicketingDate_ = lastTicketingDate;
         this.instantTicketingRequired_ = instantTicketingRequired;
         this.nonHomogeneous_ = nonHomogeneous;
@@ -140,6 +219,8 @@ export class FlightOffer {
         this.price_ = price;
         this.arrival_ = {iataCode_:'', terminal_:'', at_:''};
         this.departure_ = {iataCode_:'', terminal_:'', at_:''};
+        this.travelerPricings = travelerPricings;
+        this.original = "";
     }
 
     @JsonProperty() 
@@ -150,9 +231,17 @@ export class FlightOffer {
     @JsonClassType({type: () => [String]})
     id_:string;
 
+    // @JsonProperty() 
+    // @JsonClassType({type: () => [String]})
+    // id:string;
+
     @JsonProperty() 
     @JsonClassType({type: () => [String]})
     source_:string;
+
+    // @JsonProperty() 
+    // @JsonClassType({type: () => [String]})
+    // source:string;
 
     @JsonProperty() 
     @JsonClassType({type: () => [String]})
@@ -174,6 +263,10 @@ export class FlightOffer {
     @JsonClassType({type: () => [String]})
     numberOfBookableSeats_:string;
 
+    @JsonProperty({value:"travelerPricings"}) 
+    @JsonClassType({type: () => [Array, [TravelerPricings]]})
+    travelerPricings:TravelerPricings[];
+    
     @JsonProperty({value:"itineraries"}) 
     @JsonClassType({type: () => [Array, [Itineraries]]})
     itineraries_:Itineraries[];
@@ -189,4 +282,8 @@ export class FlightOffer {
     @JsonProperty() 
     @JsonClassType({type: () => [Arrival]})
     arrival_: Arrival;
+
+    @JsonProperty() 
+    @JsonClassType({type: () => [String]})
+    original: string;
 }

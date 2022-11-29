@@ -26,9 +26,15 @@ app.use(bodyParser.urlencoded({ extended: false }));
 // Create router
 const router = express.Router();
 // Create Amadeus API client
+// const amadeus = new Amadeus({
+//   clientId: API_KEY,
+//   clientSecret: API_SECRET,
+//   hostname: 'production'
+// });
+
 const amadeus = new Amadeus({
   clientId: API_KEY,
-  clientSecret: API_SECRET,
+  clientSecret: API_SECRET
 });
 
 interface IAmadeusRepo {
@@ -36,6 +42,9 @@ interface IAmadeusRepo {
   getFlightAvailability(source: string, destination: string, departureDate: string, adults: string): Promise<flightInfo[]>;
   getFlightOffer(source: string, destination: string, departureDate: string, adults: string, maxFlights: string): Promise<FlightOffer[]>;
   getAirline(source: string): Promise<airlineInfo>;
+  bookFlight(pricingResponse: any, firstName:string, lastName:string, birthDate:string, gender:string, email:string): Promise<any>;
+  confirmFlight(searchResponse: any): Promise<any>;
+
 }
 
 interface flightInfo {
@@ -64,25 +73,6 @@ export interface airlineInfo {
 }
 
 export class AmadeusMockRepo implements IAmadeusRepo {
-  // async getFlights(): Promise<Flight[]> {
-  //   let jsonStr = `[{
-  //     "type": "flight-offer",
-  //     "price": {
-  //                 "price": "40"
-  //              },
-  //     "source": "GDS",
-  //     "asdf": "asdf"
-  //   },
-  //   {
-  //     "type": "flight-offer",
-  //     "price": "190",
-  //     "source": "GDS"
-  //   }]`;
-
-  //   const objectMapper = new ObjectMapper();
-  //   const flightsParsed = objectMapper.parse<Flight>(jsonStr)
-  //   return [flightsParsed];
-  // }
 
   async getCheapestFlightDates(source: string, destination: string): Promise<flightInfo[]> {
     let flights: Array<flightInfo> = [
@@ -92,8 +82,7 @@ export class AmadeusMockRepo implements IAmadeusRepo {
     return flights;
   }
 
-  async getFlightOffer(source: string, destination: string, departureDate: string, adults: string, maxFlights: string): Promise<FlightOffer[]>
-  {
+  async getFlightOffer(source: string, destination: string, departureDate: string, adults: string, maxFlights: string): Promise<FlightOffer[]> {
     let flights: Array<FlightOffer> = [
       // { id:'1', type:'', instantTicketingRequired:true, oneWay:true, lastTicketingDate:'', nonHomogeneous:true, source: 'MAD', destination: 'MUC', departure: '2022:11:11', returnDate: '2022:11:13', price: '133', duration: '12:21' },
       //  { id:'1', type:'', instantTicketingRequired:true, oneWay:true, lastTicketingDate:'', nonHomogeneous:true, source: 'MAD', destination: 'MUC', departure: '2022:11:11', returnDate: '2022:11:13', price: '133', duration: '12:21' },
@@ -121,9 +110,98 @@ export class AmadeusMockRepo implements IAmadeusRepo {
     //{ id:'1', type:'', instantTicketingRequired:true, oneWay:true, lastTicketingDate:'', nonHomogeneous:true, source: 'MAD', destination: 'MUC', departure: '2022:11:11', returnDate: '2022:11:13', price: '133', duration: '12:21' },
     return airline;
   }
+
+  async bookFlight(pricingResponse: any, firstName:string, lastName:string, birthDate:string, gender:string, email:string): Promise<any> {
+    let response: any;
+    response = "";
+    //x { id:'1', type:'', instantTicketingRequired:true, oneWay:true, lastTicketingDate:'', nonHomogeneous:true, source: 'MAD', destination: 'MUC', departure: '2022:11:11', returnDate: '2022:11:13', price: '133', duration: '12:21' },
+    //{ id:'1', type:'', instantTicketingRequired:true, oneWay:true, lastTicketingDate:'', nonHomogeneous:true, source: 'MAD', destination: 'MUC', departure: '2022:11:11', returnDate: '2022:11:13', price: '133', duration: '12:21' },
+    return response;
+  }
+  async confirmFlight(searchResponse: any): Promise<any> {
+    let response: any;
+    response = "";
+    //x { id:'1', type:'', instantTicketingRequired:true, oneWay:true, lastTicketingDate:'', nonHomogeneous:true, source: 'MAD', destination: 'MUC', departure: '2022:11:11', returnDate: '2022:11:13', price: '133', duration: '12:21' },
+    //{ id:'1', type:'', instantTicketingRequired:true, oneWay:true, lastTicketingDate:'', nonHomogeneous:true, source: 'MAD', destination: 'MUC', departure: '2022:11:11', returnDate: '2022:11:13', price: '133', duration: '12:21' },
+    return response;
+  }
+  
 }
 
 export class AmadeusRepo implements IAmadeusRepo {
+
+
+  async bookFlight(pricingResponse: any, firstName:string, lastName:string, birthDate:string, gender:string, email:string): Promise<any> {
+
+    return amadeus.booking.flightOrders.post(
+      JSON.stringify({
+        'data': {
+          'type': 'flight-order',
+          'flightOffers': [pricingResponse.data.flightOffers[0]],
+          'travelers': [{
+            "id": "1",
+            "dateOfBirth": birthDate,//"1982-01-16",
+            "name": {
+              "firstName": firstName,//"JORGE",
+              "lastName": lastName,//"GONZALES"
+            },
+            "gender": gender,//"MALE",
+            "contact": {
+              "emailAddress": email,//"jorge.gonzales833@telefonica.es",
+              "phones": [{
+                "deviceType": "MOBILE",
+                "countryCallingCode": "34",
+                "number": "480080076"
+              }]
+            },
+            "documents": [{
+              "documentType": "PASSPORT",
+              "birthPlace": "Madrid",
+              "issuanceLocation": "Madrid",
+              "issuanceDate": "2015-04-14",
+              "number": "00000000",
+              "expiryDate": "2025-04-14",
+              "issuanceCountry": "ES",
+              "validityCountry": "ES",
+              "nationality": "ES",
+              "holder": true
+            }]
+          }]
+        }
+      })
+    )
+      .then(function (response: any) {
+        return response;
+      }
+      )
+      .catch(function (error: any) {
+        throw error;
+      });
+
+  }
+
+  async confirmFlight(searchResponse: any): Promise<any> {
+
+    return amadeus.shopping.flightOffers.pricing.post(
+      JSON.stringify({
+        'data': {
+          'type': 'flight-offers-pricing',
+          'flightOffers': [searchResponse],
+        }
+      })
+    ).then(function (response:any) {
+      //console.log("Flight confirmation response:", response.result);
+      return response;
+      //bookingOffer=response;
+      // let bookingResult =  amadeusRepo.bookFlight(response);
+      // console.log("Flight Booking response:", bookingResult);
+
+      // res.send(response.result);
+    }).catch(function (response:any) {
+      //res.send(response)
+      console.log(response);
+    });
+  }
 
   async getCheapestFlightDates(source: string, destination: string): Promise<flightInfo[]> {
     let flights: Array<flightInfo> = [
@@ -144,11 +222,20 @@ export class AmadeusRepo implements IAmadeusRepo {
     }).then(function (response: any) {
 
       const objectMapper = new ObjectMapper();
-      if(!response)
+      if (!response)
         return null;
       const result = JSON.stringify(response.data);
       //objectMapper.configure();
-      const flightsParsed = objectMapper.parse<FlightOffer>(result, { mainCreator: () => [Array, [FlightOffer]] });
+      let flightsParsed: FlightOffer[];
+      //flightsParsed = new Array<FlightOffer>();
+      flightsParsed = objectMapper.parse<FlightOffer[]>(result, { mainCreator: () => [Array, [FlightOffer]] });
+      //const JsonFlights = objectMapper.parse<FlightOffer>(result);
+
+      //keep the json version of the object in the original property
+      for (var i = 0; i < flightsParsed.length; i++) {
+        flightsParsed[i].original = JSON.stringify(response.data[i]); //JSON.stringify([JsonFlights][i]);
+      }
+
       return flightsParsed;
     }).catch(function (error: any) {
       throw error;

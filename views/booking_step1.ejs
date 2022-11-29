@@ -9,12 +9,13 @@
 	
 	<title>Book Your Travel - Booking</title>
 	
-	<link rel="stylesheet" href="css/style.css" />
-	<link rel="stylesheet" href="css/theme-turqoise.css" id="template-color" />
+	<link rel="stylesheet" href="/css/style.css" />
+	<link rel="stylesheet" href="/css/theme-turqoise.css" id="template-color" />
+	<link rel="stylesheet" href="/css/lightslider.min.css" />
 	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,600,700,800|Roboto+Slab:400,700&subset=latin,latin-ext,greek-ext,greek,cyrillic,vietnamese,cyrillic-ext">
 	<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
 	<script src="https://use.fontawesome.com/e808bf9397.js"></script>
-	<link rel="shortcut icon" href="images/favicon.ico" />
+	<link rel="shortcut icon" href="/images/favicon.ico" />
 	
 	
 	 <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
@@ -26,17 +27,17 @@
 </head>
 <body>
 	<!--- loading animation -->
-	<div class="loading">
+	<!-- <div class="loading">
 		<div class="ball"></div>
 		<div class="ball1"></div>
-	</div>
+	</div> -->
 	<!--- //loading animation -->
 	
 	<!--header-->
 	<header class="header">
 		<div class="wrap">
 			<!--logo-->
-			<div class="logo"><a href="index.html" title="Book Your Travel"><img src="images/txt/logo.png" alt="Book Your Travel" /></a></div>
+			<div class="logo"><a href="/index.html" title="Book Your Travel"><img src="/images/txt/logo.png" alt="Book Your Travel" /></a></div>
 			<!--//logo-->
 			
 			<!--ribbon-->
@@ -44,8 +45,8 @@
 				<nav>
 					<ul class="profile-nav">
 						<li class="active"><a href="#" title="My Account">My Account</a></li>
-						<li><a href="login.html" title="Login">Login</a></li>
-						<li><a href="my_account.html" title="Settings">Settings</a></li>
+						<li><a href="/login.html" title="Login">Login</a></li>
+						<li><a href="/my_account.html" title="Settings">Settings</a></li>
 					</ul>
 					<ul class="lang-nav">
 						<li class="active"><a href="#" title="English (US)">English (US)</a></li>
@@ -118,10 +119,10 @@
 									<div class="one-fifth">
 										<p>COMMON PAGES</p>
 										<ul>
-											<li><a href="page_left_sidebar.html" title="Page with left sidebar">Page with left sidebar</a></li>
-											<li><a href="page_right_sidebar.html" title="Page with right sidebar">Page with right sidebar</a></li>
-											<li><a href="page_both_sidebars.html" title="Page with both sidebars">Page with both sidebars</a></li>
-											<li><a href="page_no_sidebars.html" title="Page with no sidebars">Page with no sidebars</a></li>
+											<li><a href="/page_left_sidebar.html" title="Page with left sidebar">Page with left sidebar</a></li>
+											<li><a href="/page_right_sidebar.html" title="Page with right sidebar">Page with right sidebar</a></li>
+											<li><a href="/page_both_sidebars.html" title="Page with both sidebars">Page with both sidebars</a></li>
+											<li><a href="/page_no_sidebars.html" title="Page with no sidebars">Page with no sidebars</a></li>
 										</ul>
 									</div>
 									<div class="one-fifth">
@@ -179,6 +180,16 @@
 	<!--//header-->
 	
 	<!--main-->
+	<% if(typeof alert !='undefined' ) { %>
+		<% alert.forEach(function(error) { %>
+			<div class="alert alert-warning alert-dismissible fade show" role="alert" style="color: firebrick;">
+				<%= error.msg %>
+					<!-- <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+				  <span aria-hidden="true">×</span>
+				</button> -->
+			</div>
+			<% }) %>
+				<% } %>
 	<main class="main">		
 		<div class="wrap">
 			<!--breadcrumbs-->
@@ -189,7 +200,7 @@
 					<li><a href="#" title="Hotels">Hotels</a></li>
 					<li><a href="#" title="United Kingdom">United Kingdom</a></li>
 					<li><a href="#" title="London">London</a></li>  
-					<li>Best ipsum hotel</li>                                       
+					<li>Flight Summary</li>                                       
 				</ul>
 				<!--//crumbs-->
 				
@@ -205,17 +216,17 @@
 			<div class="row">
 				<!--three-fourth content-->
 				<div class="three-fourth">
-					<form id="booking" method="post" action="booking-step2.html" class="static-content booking">
+					<form id="booking" method="post" action="/flight/bookFlight" class="static-content booking">
 						<fieldset>
 							<h2><span>01 </span>Traveller info</h2>
 							<div class="row">
 								<div class="f-item one-half">
-									<label for="first_name">First name</label>
-									<input type="text" id="first_name" name="first_name" />
+									<label for="firstName">First name</label>
+									<input type="text" id="firstName" name="firstName" />
 								</div>
 								<div class="f-item one-half">
-									<label for="last_name">Last name</label>
-									<input type="text" id="last_name" name="last_name" />
+									<label for="lastName">Last name</label>
+									<input type="text" id="lastName" name="lastName" />
 								</div>
 							</div>
 							
@@ -225,13 +236,15 @@
 									<input type="email" id="email" name="email" />
 								</div>
 								<div class="f-item one-half">
-									<label for="confirm_email">Confirm email address</label>
-									<input type="text" id="confirm_email" name="confirm_email" />
+									<label for="birthDate">Date of birth</label>
+									<div class="datepicker-wrap"><input type="text"
+										placeholder="" id="birthDate"
+										name="birthDate" /></div>
 								</div>
 								<span class="info">You’ll receive a confirmation email</span>
 							</div>
 							
-							<div class="row">
+							<!-- <div class="row">
 								<div class="f-item one-half">
 									<label for="address">Street Address an Number</label>
 									<input type="text" id="address" name="address" />
@@ -259,7 +272,7 @@
 									<textarea rows="10" cols="10"></textarea>
 								</div>
 								<span class="info">Please write your requests in English.</span>
-							</div>
+							</div> -->
 							
 							<div class="row">
 								<div class="f-item full-width">
@@ -275,31 +288,31 @@
 				<aside class="one-fourth right-sidebar">
 					<!--Booking details-->
 					<article class="hotel-details booking-details">
-						<h1>Best ipsum hotel 
+						<h1>Flight Summary
 							<span class="stars">
 								<i class="material-icons">&#xE838;</i>
 								<i class="material-icons">&#xE838;</i>
 								<i class="material-icons">&#xE838;</i>
 							</span>
 						</h1>
-						<span class="address">Marylebone, London</span>
+						<span class="address"></span>
 						<span class="rating"> 8 /10</span>
+						<% if(typeof flight !='undefined' ) { %>
 						<dl class="booking-info">
-							<dt>Rooms</dt>
-							<dd>Standard twin room</dd>
-							<dt>Room Description</dt>
-							<dd>Room only</dd>
-							<dt>Check-in Date</dt>
-							<dd>14-11-12</dd>
-							<dt>Check-out Date</dt>
-							<dd>15-11-12</dd>
-							<dt>Room(s)</dt>
-							<dd>1 night, 1 room, max. 2 people. </dd>
+							<dt>From</dt>
+							<dd><%= flight.departure_.iataCode_ %> </dd>
+							<dt>To</dt>
+							<dd><%= flight.arrival_.iataCode_ %> </dd>
+							<dt>Departure Time</dt>
+							<dd> <%= flight.departure_.at_ %> </dd>
+							<dt>Arrival Time</dt>
+							<dd> <%= flight.arrival_.at_ %> </dd>
 						</dl>
 						<div class="price">
-							<p class="total">Total Price:  $ 55,00</p>
+							<p class="total">Total Price:  <%= flight.price_.total_ %> Euros</p>
 							<p>VAT (20%) included</p>
 						</div>
+						<% } %>
 					</article>
 					<!--//Booking details-->
 					
@@ -393,8 +406,34 @@
 	
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
 	<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
-	<script type="text/javascript" src="js/jquery.uniform.min.js"></script>
-	<script type="text/javascript" src="js/jquery.slimmenu.min.js"></script>
-	<script type="text/javascript" src="js/scripts.js"></script>
+	<script type="text/javascript" src="/js/jquery.uniform.min.js"></script>
+	<script type="text/javascript" src="/js/jquery.slimmenu.min.js"></script>
+	<script type="text/javascript" src="/s/scripts.js">
+
+(function ($) {
+							$(document).ready(function () {
+								$('.form').hide();
+								$('#form3').show();
+								$('.f-item:nth-child(3)').addClass('active');
+								$('.f-item:nth-child(3) span').addClass('checked');
+
+								$('#hero-gallery').lightSlider({
+									gallery: true,
+									item: 1,
+									pager: false,
+									gallery: false,
+									slideMargin: 0,
+									speed: 2000,
+									pause: 6000,
+									mode: 'fade',
+									auto: true,
+									loop: true,
+									onSliderLoad: function () {
+										$('#hero-gallery').removeClass('cS-hidden');
+									}
+								});
+							});
+						})(jQuery);
+	</script>
 </body>
 </html>

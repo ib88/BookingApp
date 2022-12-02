@@ -47,6 +47,8 @@ app.use(express.json());
 app.use("/api", hotelRouter);
 app.use("/flight", flightRouter);
 app.use("/Moqflight", MoqflightRouter);
+app.use("/", flightRouter);
+
 
 
 app.listen(PORT, () => {

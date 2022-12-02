@@ -16,6 +16,7 @@ var jp = require('jsonpath');
 var app = express();
 app.set("view engine", "ejs");
 
+
 //app.set('views', path.join(__dirname,"views"));
 //app.set("view engine", "ejs");
 //app.use(express.static("public"));
@@ -148,7 +149,7 @@ router.post(`/bookFlight`, [
 });
 
 
-router.get(`/flightOffer`, async (req: any, res: any) => {
+router.get(`/`, async (req: any, res: any) => {
 
   const { source, destination, flightDate, adults } = req.query;
   if (!source || !destination || !flightDate || !adults) {

@@ -1,3 +1,4 @@
+"use strict";
 /*console.log('hello');
    
 var Amadeus = require("amadeus");
@@ -15,40 +16,23 @@ amadeus.shopping.hotelOffers.get({
   console.error(response);
 });*/
 //var express = require('express');
-
-//const { API_KEY, API_SECRET } = require("./config");
-import { API_KEY, API_SECRET } from "./config";
-
-import express from "express";
-
-//var request = require('request');
-import request from "request";
-
-//var bodyParser = require('body-parser');
-import bodyParser from "body-parser";
-
-import fetch from "node-fetch";
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+const express_1 = __importDefault(require("express"));
 //let fetch = await import('node-fetch');
-const app = express();
-const port = process.env.port || 3000;
-app.listen(port, () => {
-    console.log("Sever console log.")
-});
-
-import Amadeus from "amadeus";
-
+const app = (0, express_1.default)();
+const amadeus_1 = __importDefault(require("amadeus"));
 const base = "https://test.api.amadeus.com";
-
 // let headers= {  
 //   'Content-Type': 'application/x-www-form-urlencoded',
 // };
-
 // let body = {
 //  "grant_type": "client_credentials",
 //  "client_id": "al1mecQyGOFkltW6goBABPBeTzIOyM7n",
 //  "client_secret": "aGqumP44UGDiOcTZ",
 // }
-
 // fetch("/v3/security/oauth2/token", { method: 'POST', 
 // headers: headers, 
 // body: 'grant_type=client_credentials&client_id=' + body.client_id + '&client_secret=' + body.client_secret
@@ -57,17 +41,13 @@ const base = "https://test.api.amadeus.com";
 // }).then(function(body) {
 //  console.log(body);
 // });
-
 /////version 2
-
 /*app.get("/test", async (req, res) => {
   const data = await generateAccessTokenFetch();
   console.log(data);
   res.json(data);
 });*/
-
 // const data = await generateAccessTokenFetch();
-
 // async function generateAccessTokenFetch() {
 //   const response = await fetch(base + "/security/oauth2/token", {
 //     method: "post",
@@ -83,26 +63,24 @@ const base = "https://test.api.amadeus.com";
 //   console.log(data);
 //   return data;
 // }
-
-
-var amadeus = new Amadeus({
-  clientId: 'al1mecQyGOFkltW6goBABPBeTzIOyM7n',
-  clientSecret: 'aGqumP44UGDiOcTZ'
+var amadeus = new amadeus_1.default({
+    clientId: 'al1mecQyGOFkltW6goBABPBeTzIOyM7n',
+    clientSecret: 'aGqumP44UGDiOcTZ'
 });
-
 // Get list of offers for a specific hotel
 amadeus.shopping.hotelOffers.get({
-  cityCode: 'PAR'
+    cityCode: 'PAR'
 }).then(function (hotels) {
-  console.log('----------------------');
-  console.log(hotels);
-  return amadeus.shopping.hotelOffersByHotel.get({
-    'hotelId': hotels.data[0].hotel.hotelId,
-    'checkInDate': '2022-05-10',
-    'checkOutDate': '2022-05-12'
-  });
+    console.log('----------------------');
+    console.log(hotels);
+    return amadeus.shopping.hotelOffersByHotel.get({
+        'hotelId': hotels.data[0].hotel.hotelId,
+        'checkInDate': '2022-05-10',
+        'checkOutDate': '2022-05-12'
+    });
 }).then(function (hotelRoomPricingOffers) {
-  console.log('----------------------');
-  //console.log(hotelRoomPricingOffers);
-  //return amadeus.shopping.hotelOffer(hotelRoomPricingOffers.data.offers[0].id).get(); book the hotel
+    console.log('----------------------');
+    //console.log(hotelRoomPricingOffers);
+    //return amadeus.shopping.hotelOffer(hotelRoomPricingOffers.data.offers[0].id).get(); book the hotel
 });
+//# sourceMappingURL=app.js.map

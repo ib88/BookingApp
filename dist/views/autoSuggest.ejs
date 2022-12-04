@@ -1,0 +1,70 @@
+
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <link rel="stylesheet" type="text/css" href="jquery-ui.structure.min.css">
+    <link rel="stylesheet" type="text/css" href="jquery-ui.theme.min.css">
+    <title>Hello, world!</title>
+  </head>
+  <body>
+
+
+   
+    <div class="row" style="padding:20px;">
+
+        <h1> Results </h1>
+       
+    
+        <form autocomplete="off">
+            <input type="text" name="q" id="q" onKeyUp="showResults(this.value)" />
+            <div id="result"></div>
+            </form>
+    
+    
+    
+    
+        <!-- {{/each}} -->
+    
+    
+    </div><!-- close row -->
+  
+
+    <script>
+  function showResults(val) {
+  res = document.getElementById("result");
+  res.innerHTML = '';
+  if (val == '') {
+    return;
+  }
+  let list = '';
+  fetch('http://localhost:8888/api/getSuggestion?keyword=' + val).then(
+   function (response) {
+     return response.json();
+   }).then(function (data) {
+     for (i=0; i<data.length; i++) {
+         if(typeof data[i].detailedName!='undefined')
+       list += '<li>' + data[i].detailedName + "-----" + data[i].subType + '</li>';
+     }
+     res.innerHTML = '<ul>' + list + '</ul>';
+     return true;
+   }).catch(function (err) {
+     console.warn('Something went wrong.', err);
+     return false;
+   });
+}
+      </script>
+   </body>
+</html>
+
+
+
+
+
+
+

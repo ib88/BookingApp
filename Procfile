@@ -1,1 +1,1 @@
-web: npm run clean && npm run dist && npm run copy-files && npm run dev
+web: npm install nodemon && npm run start

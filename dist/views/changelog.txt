@@ -1,0 +1,98 @@
+25 August 26
+
+	Rewritten, optimized and improved all HTML, JS and CSS code
+	Updated all plugins
+	Removed existing fonts
+	Added google fonts
+	Removed all imagery and replaced it with CSS for better performance and easier editing
+	Removed Sequence slider and replaced it wih lightSlider
+	Removed gallery on single pages and replaced it with lightSlider
+	Removed prettyPhoto and replaced it with lightGallery
+	Removed SelectNav and replaced it with SlimMenu
+	Added RTL support
+	Added room galleries
+
+---------------------------------------------------------------------------------------------------------------------------
+
+26 June 15
+
+	Security update for the prettyPhoto plugin
+	jQuery and all plugins were updated
+
+---------------------------------------------------------------------------------------------------------------------------
+	
+25 August 14
+
+	Fixed Contact form
+	Fixed Main menu issue in Safari
+	
+---------------------------------------------------------------------------------------------------------------------------
+
+15 March 14
+
+	Updated jQuery
+	Updated all plugins
+	Removed css3-mediaquerries.js
+	Fixed css3 loading animation
+	Fixed primary navigation
+	Fixed google maps css issue
+	Fixed print css
+	
+---------------------------------------------------------------------------------------------------------------------------	
+
+15 December 13
+
+	Blog list added
+	Blog post added
+	More drop down menu levels added to main navigation
+	OpenSans font updated
+	
+---------------------------------------------------------------------------------------------------------------------------
+
+25 August 13
+
+	Gallery on single hotel page (hotel.html) updated
+
+---------------------------------------------------------------------------------------------------------------------------	
+12 July 13
+
+	-webkit-keyframes removed (chrome v28 css3 bugfix)
+---------------------------------------------------------------------------------------------------------------------------
+
+29 April 13
+
+	Slider css3 animations fixed
+	Responsive css updates
+	NEW: 4 pages added: login, register, my account & loading
+	
+---------------------------------------------------------------------------------------------------------------------------
+
+1 April 13
+
+	Image ratios corrected in the main slider
+	
+---------------------------------------------------------------------------------------------------------------------------
+
+17 March 13
+
+	Minor css and html updates
+	
+---------------------------------------------------------------------------------------------------------------------------
+
+15 March 13
+
+	NEW: Responsive layout
+	NEW: 7 color themes added
+	NEW: Flight search results page added
+	
+---------------------------------------------------------------------------------------------------------------------------
+
+17 January 13
+
+	Some small css changes and bug fixes
+---------------------------------------------------------------------------------------------------------------------------
+
+16 January 13
+
+	Initial release
+

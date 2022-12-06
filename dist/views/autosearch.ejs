@@ -1,0 +1,47 @@
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <link rel="stylesheet" type="text/css" href="jquery-ui.structure.min.css">
+    <link rel="stylesheet" type="text/css" href="jquery-ui.theme.min.css">
+    <title>Hello, world!</title>
+  </head>
+  <body>
+
+
+   
+    <div class="row" style="padding:20px;">
+
+        <h1> Results </h1>
+       
+    
+        <form action="/action_page.php" method="get">
+            <label for="browser">Choose your browser from the list:</label>
+            <input list="browsers" name="browser" id="browser">
+            <datalist id="browsers">
+                <% business.forEach((elt)=>{%>
+                    <option id=<%= elt.name %>>
+                        <%= elt.name%>
+                    </option>
+                    <%})%>
+            </datalist>
+            <input type="submit">
+          </form>
+    
+    
+    
+    
+        <!-- {{/each}} -->
+    
+    
+    </div><!-- close row -->
+  
+   </body>
+</html>
+
+
+

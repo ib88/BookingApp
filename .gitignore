@@ -1,5 +1,4 @@
-node_modules
-dist
+/node_modules
 .DS-Store
 # Elastic Beanstalk Files
 .elasticbeanstalk/*

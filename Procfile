@@ -1,1 +1,1 @@
-web: npm run start
+web: npm run clean && npm run dist && npm run copy-files && npm run dev

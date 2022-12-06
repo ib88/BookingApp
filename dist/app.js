@@ -23,6 +23,10 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const express_1 = __importDefault(require("express"));
 //let fetch = await import('node-fetch');
 const app = (0, express_1.default)();
+const port = process.env.port || 3000;
+app.listen(port, () => {
+    console.log("Sever console log.");
+});
 const amadeus_1 = __importDefault(require("amadeus"));
 const base = "https://test.api.amadeus.com";
 // let headers= {  

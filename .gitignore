@@ -1,8 +1,5 @@
-<<<<<<< HEAD
-node_modules
-=======
 /node_modules
->>>>>>> master
+.env
 .DS-Store
 # Elastic Beanstalk Files
 .elasticbeanstalk/*

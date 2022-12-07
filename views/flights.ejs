@@ -1018,15 +1018,33 @@
 								});
 
 								//$('#sourceFlight').on('keyup', _.debounce(showResultsSource(this.id, this.value, 'sourceList', 'resultSourceFlightDiv', 'sourceFlightCode'), 2000, false));
-								$('#sourceFlight').on('keyup', _.debounce(showResultsSource(this.id, this.value, "sourceList", "resultSourceFlightDiv", "sourceFlightCode"), 2000, false));
+								//$('#sourceFlight').on('keyup', (evt) => _.debounce(showResultsSource(this.id, this.value, "sourceList", "resultSourceFlightDiv", "sourceFlightCode"), 5000));
+								//$('#sourceFlight').on('keyup', )
+								/*$('#sourceFlight').keyup((evt) => debounce(() => {
+									alert('we are debouncing')
+								}, 5000))*/
 
+								let myTimer;
+								$('#sourceFlight').on('keyup', (evt) => {
+									clearTimeout(myTimer);
+									myTimer = setTimeout(() => {
+										alert('we are debouncing ' + evt.target.value + ' '+ evt.target.id);
+									}, 5000);
+								})
 
-								// $('#dbtest').on('keyup', _.debounce(debounceIt, 5000, false));
+								//$('#dbtest').on('keyup', _.debounce(debounceIt, 5000, false));
 
 							});
 
 						})(jQuery);
 
+						function debounce(func, wait) {
+							let timer;
+							return () => {
+								clearTimeout(timer);
+								timer = setTimeout(() => func(), wait);
+							}
+						}
 						function debounceIt() {
 							$('#output').append('debounced');
 						}

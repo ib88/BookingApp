@@ -187,14 +187,16 @@ router.post(`/flightOffer`, [
   //   return res.render("flights", { alert });
   // }
 
-  var sourceCode = "LAX";
-  var destinationCode = "SEA";
-  //var sourceCode = req.body.sourceFlightCode;
-  //var destinationCode = req.body.destinationFlightCode;
-  //var dateSourceFlight = req.body.datepickerSourceFlight;
-  var dateSourceFlight = '2022-12-20';
-  //var adults = req.body.adultsFlight;
-  var adults = '1';
+  //var sourceCode = "LAX";
+  //var destinationCode = "SEA";
+  //var dateSourceFlight = '2022-12-20';
+    //var adults = '1';
+
+
+  var sourceCode = req.body.sourceFlightCode;
+  var destinationCode = req.body.destinationFlightCode;
+  var dateSourceFlight = req.body.datepickerSourceFlight;
+  var adults = req.body.adultsFlight;
   var maxFlights = '5';
 
   try {

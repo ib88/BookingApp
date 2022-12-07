@@ -385,7 +385,7 @@
 														<label for="destinationFlight">Going to</label>
 														<input type="text" placeholder="specific airport"
 															id="destinationFlight" name="destinationFlight"
-															onKeyUp="showResultsSource(this.id, this.value, 'destinationList', 'resultDestinationFlightDiv', 'destinationFlightCode')" />
+														 />
 													</div>
 													<input type="hidden" id="destinationFlightCode"
 														name="destinationFlightCode" value="">
@@ -1018,45 +1018,49 @@
 									alert('we are debouncing')
 								}, 5000))*/
 
-								let myTimer;
+								//let myTimer;
+								processSourceFlight = debounce(showResultsSource, 4000);
 								$('#sourceFlight').on('keyup', (evt) => {
-									clearTimeout(myTimer);
+									processSourceFlight(evt.target.id, evt.target.value, 'sourceList', 'resultSourceFlightDiv', 'sourceFlightCode');
+									/*clearTimeout(myTimer);
 									myTimer = setTimeout(() => {
 										showResultsSource(evt.target.id, evt.target.value, 'sourceList', 'resultSourceFlightDiv', 'sourceFlightCode')
 										//alert('we are debouncing ' + evt.target.value + ' '+ evt.target.id);
-									}, 4000);
+									}, 4000);*/
 								})
 
-								let mytimer1;
+								//let mytimer1;
+								processDestinationFlight = debounce(showResultsSource, 4000);
 								$('#destinationFlight').on('keyup', (evt) => {
-									clearTimeout(myTimer1);
-									myTimer1 = setTimeout(() => {
-										showResultsSource(evt.target.id, evt.target.value, 'destinationList', 'resultDestinationFlightDiv', 'destinationFlightCode')
-									}, 4000);
+									processDestinationFlight(evt.target.id, evt.target.value, 'destinationList', 'resultDestinationFlightDiv', 'destinationFlightCode');
+									/*clearTimeout(myTimer);
+									myTimer = setTimeout(() => {
+										showResultsSource(evt.target.id, evt.target.value, 'sourceList', 'resultSourceFlightDiv', 'sourceFlightCode')
+										//alert('we are debouncing ' + evt.target.value + ' '+ evt.target.id);
+									}, 4000);*/
 								})
-
-								//$('#dbtest').on('keyup', _.debounce(debounceIt, 5000, false));
-
 							});
 
 						})(jQuery);
 
-						function debounce(func, wait, ...args) {
+						function debounce(func, wait) {
 							let timer;
-							return () => {
+							return (...args) => {
 								clearTimeout(timer);
-								timer = setTimeout(() => func.apply(null, args), wait);
+								timer = setTimeout(() => func.apply(this, args), wait);
 							}
 						}
-						function debounceIt() {
-							$('#output').append('debounced');
-						}
+
 						// 
 						// function showResultsSource(eltId, val, listId, divId, hiddenFieldId) {
 						// 	alert('debounced');
 						// }
 
 						function showResultsSource(eltId, val, listId, divId, hiddenFieldId) {
+							///////////////////////////
+							// alert('show result debounce');
+							// return;
+							////////////////////
 							res = document.getElementById(`${divId}`);
 							res.innerHTML = '';
 

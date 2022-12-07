@@ -368,13 +368,7 @@
 												<h5><span>02</span> Where?</h5>
 												<div class="row">
 													<div class="f-item full-width">
-														<label for="dbtest">debounce test</label>
-														<input type="text" id="dbtest" name="dbtest" />
-														<div id='output'>
-
-														</div>
-
-
+										
 														<label for="sourceFlight">Leaving from</label>
 
 														<!-- <input type="text" placeholder="specific airport"
@@ -1028,8 +1022,17 @@
 								$('#sourceFlight').on('keyup', (evt) => {
 									clearTimeout(myTimer);
 									myTimer = setTimeout(() => {
-										alert('we are debouncing ' + evt.target.value + ' '+ evt.target.id);
-									}, 5000);
+										showResultsSource(evt.target.id, evt.target.value, 'sourceList', 'resultSourceFlightDiv', 'sourceFlightCode')
+										//alert('we are debouncing ' + evt.target.value + ' '+ evt.target.id);
+									}, 4000);
+								})
+
+								let mytimer1;
+								$('#destinationFlight').on('keyup', (evt) => {
+									clearTimeout(myTimer1);
+									myTimer1 = setTimeout(() => {
+										showResultsSource(evt.target.id, evt.target.value, 'destinationList', 'resultDestinationFlightDiv', 'destinationFlightCode')
+									}, 4000);
 								})
 
 								//$('#dbtest').on('keyup', _.debounce(debounceIt, 5000, false));
@@ -1038,19 +1041,55 @@
 
 						})(jQuery);
 
-						function debounce(func, wait) {
+						function debounce(func, wait, ...args) {
 							let timer;
 							return () => {
 								clearTimeout(timer);
-								timer = setTimeout(() => func(), wait);
+								timer = setTimeout(() => func.apply(null, args), wait);
 							}
 						}
 						function debounceIt() {
 							$('#output').append('debounced');
 						}
 						// 
+						// function showResultsSource(eltId, val, listId, divId, hiddenFieldId) {
+						// 	alert('debounced');
+						// }
+
 						function showResultsSource(eltId, val, listId, divId, hiddenFieldId) {
-							alert('debounced');
+							res = document.getElementById(`${divId}`);
+							res.innerHTML = '';
+
+							if (val == '') {
+								return;
+							}
+							let list = '';
+							fetch('http://localhost:8888/Moqflight/getAirportSuggestion?keyword=' + val).then(function (response) {
+								return response.json();
+							}).then(function (data) {
+								for (i = 0; i < data.length; i++) {
+									if (typeof data[i].detailedName != 'undefined')
+										list += '<li ' + 'data-value=' + data[i].iataCode + '>' + data[i].detailedName + "-----" + data[i].subType + '</li>';
+								}
+								//res.innerHTML = `<ul id=sourceFlightList>` + list + '</ul>';
+								res.innerHTML = `<ul id=${listId}>` + list + '</ul>';
+								// $("ul[id*=sourceFlightList] li").click(function () {
+								$(`ul[id*=${listId}] li`).click(function () {
+									// document.getElementById("sourceFlightCode").value = "";
+									document.getElementById(`${hiddenFieldId}`).value = "";
+									document.getElementById(`${hiddenFieldId}`).value = $(this).data('value');
+									//alert($(this).attr('data-value').val());
+									document.getElementById(`${eltId}`).value = "";
+									document.getElementById(`${eltId}`).value = $(this).text();
+									$(`#${divId}`).empty();
+									return;
+								});
+								return true;
+							}).catch(function (err) {
+								console.warn('Something went wrong.', err);
+								alert('Something went wrong.', err);
+								return false;
+							});
 						}
 					</script>
 </body>

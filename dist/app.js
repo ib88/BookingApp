@@ -23,6 +23,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const express_1 = __importDefault(require("express"));
 //let fetch = await import('node-fetch');
 const app = (0, express_1.default)();
+app.use(express_1.default.static(path.join(__dirname, "node_modules/bootstrap/dist/")));
 const port = process.env.port || 3000;
 app.listen(port, () => {
     console.log("Sever console log.");

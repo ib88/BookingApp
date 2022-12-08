@@ -11,10 +11,10 @@
 	<title>Book Your Travel - Flights</title>
 
 	<link rel="stylesheet" href="/css/style.css" />
-	<link rel="stylesheet" href="/css/theme-turqoise.css" id="template-color" />
+	<link rel="stylesheet" href="/css/theme-blue.css" id="template-color" />
 	<link rel="stylesheet" href="/css/lightslider.min.css" />
-	<link rel="stylesheet"
-		href="https://fonts.googleapis.com/css?family=Open+Sans:400,600,700,800|Roboto+Slab:400,700&subset=latin,latin-ext,greek-ext,greek,cyrillic,vietnamese,cyrillic-ext">
+	<link rel="stylesheet" href="./css/bootstrap.min.css">
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,600,700,800|Roboto+Slab:400,700&subset=latin,latin-ext,greek-ext,greek,cyrillic,vietnamese,cyrillic-ext">
 	<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
 	<script src="https://use.fontawesome.com/e808bf9397.js"></script>
 	<link rel="shortcut icon" href="/images/favicon.ico" />
@@ -45,7 +45,7 @@
 			<!--//logo-->
 
 			<!--ribbon-->
-			<div class="ribbon">
+			<!-- <div class="ribbon">
 				<nav>
 					<ul class="profile-nav">
 						<li class="active"><a href="#" title="My Account">My Account</a></li>
@@ -65,7 +65,7 @@
 						<li><a href="#" title="£ Pound">£ Pound</a></li>
 					</ul>
 				</nav>
-			</div>
+			</div> -->
 			<!--//ribbon-->
 
 			<!--search-->
@@ -89,7 +89,7 @@
 		<nav class="main-nav">
 			<div class="wrap">
 				<ul class="slimmenu" id="nav">
-					<li><a href="hotels.html" title="Hotels">Hotels</a>
+					<!-- <li><a href="hotels.html" title="Hotels">Hotels</a>
 						<ul>
 							<li><a href="#">Secondary navigation</a></li>
 							<li><a href="#">Example links</a>
@@ -104,9 +104,9 @@
 								</ul>
 							</li>
 						</ul>
-					</li>
-					<li class="current"><a href="flights.html" title="Flights">Flights</a></li>
-					<li><a href="flight_and_hotels.html" title="Flight + Hotel">Flight + Hotel</a></li>
+					</li> -->
+					<!-- <li class="current"><a href="flights.html" title="Flights">Flights</a></li> -->
+					<!-- <li><a href="flight_and_hotels.html" title="Flight + Hotel">Flight + Hotel</a></li>
 					<li><a href="self_caterings.html" title="Self catering">Self catering</a></li>
 					<li><a href="cruises.html" title="Cruises">Cruises</a></li>
 					<li><a href="car_rentals.html" title="Car rental">Car rental</a></li>
@@ -189,7 +189,7 @@
 						</ul>
 					</li>
 					<li><a href="http://themeforest.net/item/book-your-travel-online-booking-html-template/3813953?ref=themeenergy"
-							title="Purchase">Purchase</a></li>
+							title="Purchase">Purchase</a></li> -->
 				</ul>
 			</div>
 		</nav>
@@ -208,9 +208,9 @@
 				<% } %>
 					<!--slider-->
 					<div class="slider">
-						<ul id="hero-gallery" class="cS-hidden">
+						<ul id="hero-gallery" class="">
 							<li data-thumb="/static/images/uploads/slider.jpg">
-								<img src="/static/images/uploads/slider.jpg" alt="" />
+								<img src="/assets/images/hamburg-3846525_1280.jpeg" alt="" />
 							</li>
 							<li data-thumb="/static/images/uploads/slider.jpg">
 								<img src="/static/images/uploads/slider.jpg" alt="" />
@@ -223,8 +223,6 @@
 					<!--//slider-->
 
 					<!--search-->
-
-
 					<div class="main-search">
 						<div class="wrap">
 							<form id="main-search" method="post" action="/flight/flightOffer/">
@@ -816,6 +814,18 @@
 					</div>
 					<!--//search-->
 
+					<div class="jumbotron">
+						<div class="container"><h1>Hello, the world!</h1></div>
+					  </div>
+
+					  <ol class="breadcrumb">
+						<li><a href="#">Home</a></li>
+						<li><a href="#">Library</a></li>
+						<li class="active">Data</li>
+					  </ol>
+
+
+
 					<!--main-->
 					<main class="main">
 						<div class="wrap">
@@ -1113,16 +1123,15 @@
 					<footer class="footer">
 						<div class="wrap">
 							<div class="row">
-								<!--column-->
+
 								<article class="one-fourth">
 									<h6>Book Your Travel</h6>
 									<p>1400 PennsylSUVia Ave. Washington, DC</p>
 									<p><em>P:</em> 24/7 customer support: 1-555-555-5555</p>
 									<p><em>E:</em> <a href="#" title="booking@mail.com">booking@mail.com</a></p>
 								</article>
-								<!--//column-->
 
-								<!--column-->
+
 								<article class="one-fourth">
 									<h6>Customer support</h6>
 									<ul>
@@ -1133,9 +1142,7 @@
 										<li><a href="#" title="Booking tips">Booking tips</a></li>
 									</ul>
 								</article>
-								<!--//column-->
 
-								<!--column-->
 								<article class="one-fourth">
 									<h6>Follow us</h6>
 									<ul class="social">
@@ -1150,9 +1157,7 @@
 										<li><a href="#" title="vimeo"><i class="fa fa-fw fa-vimeo"></i></a></li>
 									</ul>
 								</article>
-								<!--//column-->
 
-								<!--column-->
 								<article class="one-fourth">
 									<h6>Don’t miss our exclusive offers</h6>
 									<form id="newsletter" action="newsletter.php" method="post">
@@ -1164,7 +1169,6 @@
 										</fieldset>
 									</form>
 								</article>
-								<!--//column-->
 
 								<div class="bottom full-width">
 									<p class="copy">Copyright 2016 Book your travel ltd. All rights reserved</p>
@@ -1185,6 +1189,10 @@
 						</div>
 					</footer>
 					<!---footer-->
+
+	<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
 
 					<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
 					<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>

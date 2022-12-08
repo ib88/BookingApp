@@ -1260,23 +1260,7 @@ width: 100%;
 .btn-green{
 	background-color: #43a047;
 }
-.btn {
-    border-radius: 5px;
-    margin: 21px 0 0 0;
-    font-weight:700;
-}
-
-.btn.btn-white {
-    background: #fff;
-    color: #666;
-    border-bottom: 4px solid #ddd;
-}
-
-@media (max-width: 768px) {
-    .m-text-center {text-align:center;}
-    .call-to-action h1{font-size:20px;}
-}
-@media (max-width: 1024px) {
-    .m-text-center {text-align:center;}
-    .call-to-action h1{font-size:25px;}
-}
+/* .feature-box{
+	margin-left: 50px;
+	margin-right: 50px;
+} */

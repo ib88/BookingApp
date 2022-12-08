@@ -11,9 +11,12 @@
 	<title>Book Your Travel - Flights</title>
 
 	<link rel="stylesheet" href="/css/style.css" />
-	<link rel="stylesheet" href="/css/theme-blue.css" id="template-color" />
+	<link rel="stylesheet" href="/css/theme-black.css" id="template-color" />
 	<link rel="stylesheet" href="/css/lightslider.min.css" />
-	<link rel="stylesheet" href="./css/bootstrap.min.css">
+	<link rel="stylesheet" href="../node_modules/bootstrap/scss/bootstrap.scss" />
+	<link rel="stylesheet" href="../node_modules/bootstrap/js/dist/carousel.js">
+	<link rel="stylesheet" href="../node_modules/bootstrap/dist/js/bootstrap.js">
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,600,700,800|Roboto+Slab:400,700&subset=latin,latin-ext,greek-ext,greek,cyrillic,vietnamese,cyrillic-ext">
 	<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
 	<script src="https://use.fontawesome.com/e808bf9397.js"></script>
@@ -221,6 +224,45 @@
 						</ul>
 					</div>
 					<!--//slider-->
+
+					<div class="btn-group" role="group" aria-label="...">
+						<button type="button" class="btn btn-default">Left</button>
+						<button type="button" class="btn btn-default">Middle</button>
+						<button type="button" class="btn btn-default">Right</button>
+					  </div>
+
+					  <div class="jumbotron">
+						<h1>Hello, world!</h1>
+						<p>Je teste</p>
+						<p><a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a></p>
+					  </div>
+
+					  <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+						<ol class="carousel-indicators">
+						  <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+						  <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+						  <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+						</ol>
+						<div class="carousel-inner">
+						  <div class="carousel-item active">
+							<img class="d-block w-100" src="..." alt="First slide">
+						  </div>
+						  <div class="carousel-item">
+							<img class="d-block w-100" src="..." alt="Second slide">
+						  </div>
+						  <div class="carousel-item">
+							<img class="d-block w-100" src="..." alt="Third slide">
+						  </div>
+						</div>
+						<a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+						  <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+						  <span class="sr-only">Previous</span>
+						</a>
+						<a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+						  <span class="carousel-control-next-icon" aria-hidden="true"></span>
+						  <span class="sr-only">Next</span>
+						</a>
+					  </div>
 
 					<!--search-->
 					<div class="main-search">

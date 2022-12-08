@@ -4,4 +4,8 @@
 .elasticbeanstalk/*
 !.elasticbeanstalk/*.cfg.yml
 !.elasticbeanstalk/*.global.yml
+<<<<<<< HEAD
 node_modules
+=======
+.env
+>>>>>>> master

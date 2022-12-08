@@ -149,11 +149,11 @@ router.post(`/flightOffer`, [
     //  if(!source || !destination || !departureDate || !returnDate || !adults) {
     //    return res.render("flights", { business: [] });
     //  }
-    // const errors = validationResult(req);
-    // if (!errors.isEmpty()) {
-    //   const alert = errors.array()
-    //   return res.render("flights", { alert });
-    // }
+    const errors = validationResult(req);
+    if (!errors.isEmpty()) {
+        const alert = errors.array();
+        return res.render("flights", { alert });
+    }
     //var sourceCode = "LAX";
     //var destinationCode = "SEA";
     //var dateSourceFlight = '2022-12-20';

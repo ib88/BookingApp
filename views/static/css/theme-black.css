@@ -59,3 +59,18 @@ ul > li:before,.booking h2 span
 .s-title h2,.boxes		{border-top-color:rgba(255, 255, 255, 0.2);}
 .breadcrumbs			{-webkit-box-shadow:0 1px 0 rgba(255, 255, 255, 0.2);-moz-box-shadow:0 1px 0 rgba(255, 255, 255, 0.2);box-shadow:0 1px 0 rgba(255, 255, 255, 0.2);}
 .breadcrumbs li a 	{-webkit-box-shadow:1px 0 0 rgba(255, 255, 255, 0.2);-moz-box-shadow:1px 0 0 rgba(255, 255, 255, 0.2);box-shadow:1px 0 0 rgba(255, 255, 255, 0.2);}
+.my-nav{
+	position: absolute;
+	z-index: 10;
+	width: 100%;
+	}
+	
+.carousel-item {
+	  height: 70vh;
+	  background: no-repeat center center scroll;
+	  -webkit-background-size: cover;
+	  -moz-background-size: cover;
+	  -o-background-size: cover;
+	  background-size: cover;
+}
+	

@@ -341,7 +341,7 @@ aside .widget h5			{font:700 14px 'Open Sans', Helvetica, Arial, sans-serif;padd
 .header .search input     						{padding:8px 15px;}
 .header .search input[type="submit"] 	{z-index:10;width:37px;height:37px;background:transparent;font-size:0;text-align:left;cursor:pointer;position:absolute;top:0;left:0;-webkit-box-shadow:none;-moz-box-shadow:none;box-shadow:none;}
 
-.contact   					{float:left;display:block;position:relative;margin:20px 22px 0;padding:0 40px 0 0;}
+.contact   					{float:left;display:block;position:relative;}
 .contact span  			{display:block;font-size:12px;color:#858585;}
 .contact .number		{font-weight:700;}
 .contact:before			{font-family: 'Material Icons';content:"\e0cd";font-size:22px;position:absolute;top:3px;right:0;width:33px;height:33px;text-align:center;line-height:33px;color:#fff;float:right;-webkit-border-radius:17px;-moz-border-radius:17px;border-radius:17px;}

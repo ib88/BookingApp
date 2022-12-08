@@ -33,6 +33,7 @@
     "express": "^4.18.2",
     "express-session": "^1.17.3",
     "express-validator": "^6.14.2",
+    "font-awesome": "^4.7.0",
     "jackson-js": "^1.1.0",
     "jquery": "^3.6.1",
     "jsonpath": "^1.1.1",

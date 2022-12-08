@@ -111,13 +111,12 @@ router.post(`/bookFlight`, [
         pricingResponse = yield amadeusRepo.confirmFlight(pricingOffer);
     }
     catch (e) {
-        return res.render("error.ejs", { alert: "An error occured, please try later", flight: undefined });
+        return res.render("error.ejs");
     }
-    //console.log("Flight confirmation response:", pricingResponse.result);
-    // bookFlight(pricingResponse: any, firstName:string, lastName:string, birthDate:string, gender:string, email:string): Promise<any>
     let bookingResult = yield amadeusRepo.bookFlight(pricingResponse, firstName, lastName, birthDate, gender, email);
     //console.log("Flight Booking response:", bookingResult);
-    return res.render("error.ejs");
+    let emailResult = yield amadeusRepo.sendEmail("imefire@gmail.com", "imefire@gmail.com", "Booking confirmation", bookingResult.data.id, "<b>" + bookingResult.data.id + "</b>");
+    return res.render("booking_step3.ejs", { alert: alert, result: bookingResult, flight: flightParsed, travelerInfos: traveler });
 }));
 router.get(`/flightOffer`, (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     const { source, destination, flightDate, adults } = req.query;

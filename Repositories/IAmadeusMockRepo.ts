@@ -162,7 +162,7 @@ export class AmadeusRepo implements IAmadeusRepo {
         console.log('Email sent')
       })
       .catch((error: any) => {
-        console.error(error)
+        throw error;
       });
   }
 
@@ -232,9 +232,9 @@ export class AmadeusRepo implements IAmadeusRepo {
       // console.log("Flight Booking response:", bookingResult);
 
       // res.send(response.result);
-    }).catch(function (response: any) {
+    }).catch(function (error: any) {
       //res.send(response)
-      console.log(response);
+      throw error;
     });
   }
 

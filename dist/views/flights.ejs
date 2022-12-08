@@ -89,21 +89,7 @@
 		<nav class="main-nav">
 			<div class="wrap">
 				<ul class="slimmenu" id="nav">
-					<li><a href="hotels.html" title="Hotels">Hotels</a>
-						<ul>
-							<li><a href="#">Secondary navigation</a></li>
-							<li><a href="#">Example links</a>
-								<ul>
-									<li><a href="#">Third level navigation</a></li>
-									<li><a href="#">Example links</a>
-										<ul>
-											<li><a href="#">Fourth level navigation</a></li>
-											<li><a href="#">Example links</a></li>
-										</ul>
-									</li>
-								</ul>
-							</li>
-						</ul>
+					<li><a href="#" title="Hotels">Hotels</a>
 					</li>
 					<li class="current"><a href="flights.html" title="Flights">Flights</a></li>
 					<li><a href="flight_and_hotels.html" title="Flight + Hotel">Flight + Hotel</a></li>
@@ -382,20 +368,24 @@
 												<h5><span>02</span> Where?</h5>
 												<div class="row">
 													<div class="f-item full-width">
-
+										
 														<label for="sourceFlight">Leaving from</label>
-														<input type="text" placeholder="specific airport"
+
+														<!-- <input type="text" placeholder="specific airport"
 															id="sourceFlight" name="sourceFlight"
-															onKeyUp="showResultsSource(this.id, this.value, 'sourceList', 'resultSourceFlightDiv', 'sourceFlightCode')" />
+															onKeyUp="showResultsSource(this.id, this.value, 'sourceList', 'resultSourceFlightDiv', 'sourceFlightCode')" /> -->
+
+														<input type="text" placeholder="specific airport"
+															id="sourceFlight" name="sourceFlight" />
 														<input type="hidden" id="sourceFlightCode"
-															name="sourceFlightCode" value="">
+															name="sourceFlightCode" value="" />
 														<div id="resultSourceFlightDiv"></div>
 													</div>
 													<div class="f-item full-width">
 														<label for="destinationFlight">Going to</label>
 														<input type="text" placeholder="specific airport"
 															id="destinationFlight" name="destinationFlight"
-															onKeyUp="showResultsSource(this.id, this.value, 'destinationList', 'resultDestinationFlightDiv', 'destinationFlightCode')" />
+														 />
 													</div>
 													<input type="hidden" id="destinationFlightCode"
 														name="destinationFlightCode" value="">
@@ -417,24 +407,24 @@
 																		name="datepickerSourceFlight" />
 																</div>
 															</div>
-															
-				
+
+
+														</div>
 													</div>
 												</div>
 											</div>
-										</div>
-										<!--//column-->
+											<!--//column-->
 
-										<!--column-->
-										<div class="column one-third">
-											<h5><span>04</span> Who?</h5>
-											<div class="row">
-												<div class="f-item one-third spinner">
-													<label for="adultsFlight">Adults</label>
-													<input type="text" placeholder="" id="adultsFlight"
-														name="adultsFlight" />
-												</div>
-												<!-- <div class="f-item one-third spinner">
+											<!--column-->
+											<div class="column one-third">
+												<h5><span>04</span> Who?</h5>
+												<div class="row">
+													<div class="f-item one-third spinner">
+														<label for="adultsFlight">Adults</label>
+														<input type="text" placeholder="" id="adultsFlight"
+															name="adultsFlight" />
+													</div>
+													<!-- <div class="f-item one-third spinner">
 										<label for="spinner7">Children</label>
 										<input type="text" placeholder="" id="spinner7" name="spinner7" />
 									</div>
@@ -442,377 +432,382 @@
 										<label for="spinner8">Infants</label>
 										<input type="text" placeholder="" id="spinner8" name="spinner8" />
 									</div> -->
-											</div>
-										</div>
-										<!--//column-->
-									</div>
-									<!--//form flight-->
-
-									<!--form cruise-->
-									<div class="form row" id="form4">
-										<!--column-->
-										<div class="column  one-third">
-											<h5><span>02</span> Where?</h5>
-											<div class="row">
-												<div class="f-item full-width">
-													<label>Your destination</label>
-													<select>
-														<option>I Don't Mind</option>
-														<option>Africa</option>
-														<option>Alaska</option>
-														<option>Alaska - Gulf Northbound</option>
-														<option>Alaska - Gulf Southbound</option>
-														<option>Antarctica</option>
-														<option>Arctic</option>
-														<option>Australia</option>
-														<option>Bahamas</option>
-														<option>Bermuda</option>
-														<option>Brazil</option>
-														<option>Canada/New England</option>
-														<option>Canada</option>
-														<option>Caribbean</option>
-														<option>Caribbean - Eastern</option>
-														<option>Caribbean - Southern</option>
-														<option>Caribbean - Western</option>
-														<option>Coastal</option>
-														<option>Costa Rica</option>
-														<option>Cruise To Nowhere</option>
-														<option>Europe</option>
-														<option>Northern Europe</option>
-														<option>Europe - Western</option>
-														<option>Europe (Greenland)</option>
-														<option>Europe (Norway)</option>
-														<option>Far East</option>
-														<option>Greece</option>
-														<option>Hawaii</option>
-														<option>India</option>
-														<option>Mediterranean</option>
-														<option>Mediterranean - Eastern</option>
-														<option>Mexico</option>
-														<option>Middle East</option>
-														<option>New England</option>
-														<option>New Zealand</option>
-														<option>Pacific Coastal</option>
-														<option>Pacific Northwest</option>
-														<option>Panama Canal</option>
-														<option>Russia</option>
-														<option>South America</option>
-														<option>South Pacific</option>
-														<option>Southeast Asia</option>
-														<option>Tahiti</option>
-														<option>Transatlantic</option>
-														<option>Transcanal</option>
-														<option>Transpacific</option>
-														<option>World Cruise</option>
-													</select>
 												</div>
 											</div>
+											<!--//column-->
 										</div>
-										<!--//column-->
+										<!--//form flight-->
 
-										<!--column-->
-										<div class="column one-third">
-											<h5><span>03</span> When?</h5>
-											<div class="row">
-												<div class="f-item one-half datepicker">
-													<label for="datepicker8">Departure date</label>
-													<div class="datepicker-wrap"><input type="text" placeholder=""
-															id="datepicker8" name="datepicker8" /></div>
-												</div>
-												<div class="f-item one-half">
-													<label>Cruise length</label>
-													<select>
-														<option>I Don't Mind</option>
-														<option>1-2 Nights</option>
-														<option>3-6 Nights</option>
-														<option>7-9 Nights</option>
-														<option>10-14 Nights</option>
-														<option>Over 14 Nights</option>
-													</select>
-												</div>
-											</div>
-										</div>
-										<!--//column-->
-
-										<!--column-->
-										<div class="column one-third">
-											<h5><span>04</span> Who?</h5>
-											<div class="row">
-												<div class="f-item one-half">
-													<label>Cruise Line</label>
-													<select>
-														<option>I Don't Mind</option>
-														<option>Azamara Club Cruises</option>
-														<option>Carnival Cruise Lines</option>
-														<option>Celebrity Cruises</option>
-														<option>Costa Cruise Lines</option>
-														<option>Cruise &amp; Maritime Voyages</option>
-														<option>Crystal Cruises</option>
-														<option>Cunard Line Ltd.</option>
-														<option>Disney Cruise Line</option>
-														<option>Holland America Line</option>
-														<option>Hurtigruten Cruise Line</option>
-														<option>MSC Cruises</option>
-														<option>Norwegian Cruise Line</option>
-														<option>Oceania Cruises</option>
-														<option>Orion Expedition Cruises</option>
-														<option>P&amp;O Cruises</option>
-														<option>Paul Gauguin Cruises</option>
-														<option>Peter Deilmann Cruises</option>
-														<option>Princess Cruises</option>
-														<option>Regent Seven Seas Cruises</option>
-														<option>Royal Caribbean International</option>
-														<option>Seabourn Cruise Line</option>
-														<option>Silversea Cruises</option>
-														<option>Star Clippers</option>
-														<option>Swan Hellenic Cruises</option>
-														<option>Thomson Cruises</option>
-														<option>Viking River Cruises</option>
-														<option>Windstar Cruises</option>
-													</select>
-												</div>
-
-												<div class="f-item one-half spinner">
-													<label for="spinner9">Cabins</label>
-													<input type="text" placeholder="" id="spinner9" name="spinner9" />
-												</div>
-											</div>
-										</div>
-										<!--//column-->
-									</div>
-									<!--//form cruise-->
-
-									<!--form flight+hotel-->
-									<div class="form row" id="form5">
-										<!--column-->
-										<div class="column one-third">
-											<h5><span>02</span> Where?</h5>
-											<div class="row">
-												<div class="f-item full-width">
-													<label for="destination5">Leaving from</label>
-													<input type="text"
-														placeholder="City, region, district or specific airport"
-														id="destination5" name="destination" />
-												</div>
-												<div class="f-item full-width">
-													<label for="destination6">Going to</label>
-													<input type="text"
-														placeholder="City, region, district or specific airport"
-														id="destination6" name="destination" />
-												</div>
-											</div>
-										</div>
-										<!--//column-->
-
-										<!--column-->
-										<div class="column one-third">
-											<h5><span>03</span> When?</h5>
-											<div class="row">
-												<div class="f-item full-width datepicker">
-													<label for="datepicker9">Departing on</label>
-													<div class="row">
-														<div class="f-item one-half">
-															<div class="datepicker-wrap"><input type="text"
-																	placeholder="" id="datepicker9"
-																	name="datepicker9" /></div>
-														</div>
-														<div class="f-item one-half">
-															<select>
-																<option>Select time</option>
-																<option>Lowest fare</option>
-																<option>Morning</option>
-																<option>Midday</option>
-																<option>Afternoon</option>
-																<option>Evening</option>
-															</select>
-														</div>
-													</div>
-												</div>
-												<div class="f-item full-width datepicker">
-													<label for="datepicker10">Arriving on</label>
-													<div class="row">
-														<div class="f-item one-half">
-															<div class="datepicker-wrap"><input type="text"
-																	placeholder="" id="datepicker10"
-																	name="datepicker10" /></div>
-														</div>
-														<div class="f-item one-half">
-															<select>
-																<option>Select time</option>
-																<option>Lowest fare</option>
-																<option>Morning</option>
-																<option>Midday</option>
-																<option>Afternoon</option>
-																<option>Evening</option>
-															</select>
-														</div>
+										<!--form cruise-->
+										<div class="form row" id="form4">
+											<!--column-->
+											<div class="column  one-third">
+												<h5><span>02</span> Where?</h5>
+												<div class="row">
+													<div class="f-item full-width">
+														<label>Your destination</label>
+														<select>
+															<option>I Don't Mind</option>
+															<option>Africa</option>
+															<option>Alaska</option>
+															<option>Alaska - Gulf Northbound</option>
+															<option>Alaska - Gulf Southbound</option>
+															<option>Antarctica</option>
+															<option>Arctic</option>
+															<option>Australia</option>
+															<option>Bahamas</option>
+															<option>Bermuda</option>
+															<option>Brazil</option>
+															<option>Canada/New England</option>
+															<option>Canada</option>
+															<option>Caribbean</option>
+															<option>Caribbean - Eastern</option>
+															<option>Caribbean - Southern</option>
+															<option>Caribbean - Western</option>
+															<option>Coastal</option>
+															<option>Costa Rica</option>
+															<option>Cruise To Nowhere</option>
+															<option>Europe</option>
+															<option>Northern Europe</option>
+															<option>Europe - Western</option>
+															<option>Europe (Greenland)</option>
+															<option>Europe (Norway)</option>
+															<option>Far East</option>
+															<option>Greece</option>
+															<option>Hawaii</option>
+															<option>India</option>
+															<option>Mediterranean</option>
+															<option>Mediterranean - Eastern</option>
+															<option>Mexico</option>
+															<option>Middle East</option>
+															<option>New England</option>
+															<option>New Zealand</option>
+															<option>Pacific Coastal</option>
+															<option>Pacific Northwest</option>
+															<option>Panama Canal</option>
+															<option>Russia</option>
+															<option>South America</option>
+															<option>South Pacific</option>
+															<option>Southeast Asia</option>
+															<option>Tahiti</option>
+															<option>Transatlantic</option>
+															<option>Transcanal</option>
+															<option>Transpacific</option>
+															<option>World Cruise</option>
+														</select>
 													</div>
 												</div>
 											</div>
-										</div>
-										<!--//column-->
+											<!--//column-->
 
-										<!--column-->
-										<div class="column one-third">
-											<h5><span>04</span> Who?</h5>
-											<div class="row">
-												<div class="f-item one-third spinner">
-													<label for="spinner10">Adults</label>
-													<input type="text" placeholder="" id="spinner10" name="spinner10" />
-												</div>
-												<div class="f-item one-third spinner">
-													<label for="spinner11">Children</label>
-													<input type="text" placeholder="" id="spinner11" name="spinner11" />
-												</div>
-												<div class="f-item one-third spinner">
-													<label for="spinner12">Rooms</label>
-													<input type="text" placeholder="" id="spinner12" name="spinner12" />
-												</div>
-											</div>
-										</div>
-										<!--//column-->
-									</div>
-									<!--//form flight+hotel-->
-
-									<!--form rent a car-->
-									<div class="form row" id="form6">
-										<!--column-->
-										<div class="column one-third">
-											<h5><span>02</span> Where?</h5>
-											<div class="row">
-												<div class="f-item full-width">
-													<label for="destination7">Pick Up</label>
-													<input type="text" placeholder="I want to pick up car in"
-														id="destination7" name="destination" />
-												</div>
-												<div class="f-item full-width">
-													<label for="destination8">Drop Off</label>
-													<input type="text" placeholder="I want to pick drop off car in"
-														id="destination8" name="destination" />
-												</div>
-											</div>
-										</div>
-										<!--//column-->
-
-										<!--column-->
-										<div class="column one-third">
-											<h5><span>03</span> When?</h5>
-											<div class="row">
-												<div class="f-item full-width datepicker">
-													<label for="datepicker11">Pick up time</label>
-													<div class="row">
-														<div class="f-item one-half">
-															<div class="datepicker-wrap"><input type="text"
-																	placeholder="" id="datepicker11"
-																	name="datepicker11" /></div>
-														</div>
-														<div class="f-item one-half">
-															<select>
-																<option>00:00</option>
-																<option>01:00</option>
-																<option>02:00</option>
-																<option>03:00</option>
-																<option>04:00</option>
-																<option>05:00</option>
-																<option>06:00</option>
-																<option>07:00</option>
-																<option>08:00</option>
-																<option>09:00</option>
-																<option selected>10:00</option>
-																<option>11:00</option>
-																<option>12:00</option>
-																<option>13:00</option>
-																<option>14:00</option>
-																<option>15:00</option>
-																<option>16:00</option>
-																<option>17:00</option>
-																<option>18:00</option>
-																<option>19:00</option>
-																<option>20:00</option>
-																<option>21:00</option>
-																<option>22:00</option>
-																<option>23:00</option>
-															</select>
-														</div>
+											<!--column-->
+											<div class="column one-third">
+												<h5><span>03</span> When?</h5>
+												<div class="row">
+													<div class="f-item one-half datepicker">
+														<label for="datepicker8">Departure date</label>
+														<div class="datepicker-wrap"><input type="text" placeholder=""
+																id="datepicker8" name="datepicker8" /></div>
+													</div>
+													<div class="f-item one-half">
+														<label>Cruise length</label>
+														<select>
+															<option>I Don't Mind</option>
+															<option>1-2 Nights</option>
+															<option>3-6 Nights</option>
+															<option>7-9 Nights</option>
+															<option>10-14 Nights</option>
+															<option>Over 14 Nights</option>
+														</select>
 													</div>
 												</div>
-												<div class="f-item full-width datepicker">
-													<label for="datepicker12">Drop of time</label>
-													<div class="row">
-														<div class="f-item one-half">
-															<div class="datepicker-wrap"><input type="text"
-																	placeholder="" id="datepicker12"
-																	name="datepicker12" /></div>
+											</div>
+											<!--//column-->
+
+											<!--column-->
+											<div class="column one-third">
+												<h5><span>04</span> Who?</h5>
+												<div class="row">
+													<div class="f-item one-half">
+														<label>Cruise Line</label>
+														<select>
+															<option>I Don't Mind</option>
+															<option>Azamara Club Cruises</option>
+															<option>Carnival Cruise Lines</option>
+															<option>Celebrity Cruises</option>
+															<option>Costa Cruise Lines</option>
+															<option>Cruise &amp; Maritime Voyages</option>
+															<option>Crystal Cruises</option>
+															<option>Cunard Line Ltd.</option>
+															<option>Disney Cruise Line</option>
+															<option>Holland America Line</option>
+															<option>Hurtigruten Cruise Line</option>
+															<option>MSC Cruises</option>
+															<option>Norwegian Cruise Line</option>
+															<option>Oceania Cruises</option>
+															<option>Orion Expedition Cruises</option>
+															<option>P&amp;O Cruises</option>
+															<option>Paul Gauguin Cruises</option>
+															<option>Peter Deilmann Cruises</option>
+															<option>Princess Cruises</option>
+															<option>Regent Seven Seas Cruises</option>
+															<option>Royal Caribbean International</option>
+															<option>Seabourn Cruise Line</option>
+															<option>Silversea Cruises</option>
+															<option>Star Clippers</option>
+															<option>Swan Hellenic Cruises</option>
+															<option>Thomson Cruises</option>
+															<option>Viking River Cruises</option>
+															<option>Windstar Cruises</option>
+														</select>
+													</div>
+
+													<div class="f-item one-half spinner">
+														<label for="spinner9">Cabins</label>
+														<input type="text" placeholder="" id="spinner9"
+															name="spinner9" />
+													</div>
+												</div>
+											</div>
+											<!--//column-->
+										</div>
+										<!--//form cruise-->
+
+										<!--form flight+hotel-->
+										<div class="form row" id="form5">
+											<!--column-->
+											<div class="column one-third">
+												<h5><span>02</span> Where?</h5>
+												<div class="row">
+													<div class="f-item full-width">
+														<label for="destination5">Leaving from</label>
+														<input type="text"
+															placeholder="City, region, district or specific airport"
+															id="destination5" name="destination" />
+													</div>
+													<div class="f-item full-width">
+														<label for="destination6">Going to</label>
+														<input type="text"
+															placeholder="City, region, district or specific airport"
+															id="destination6" name="destination" />
+													</div>
+												</div>
+											</div>
+											<!--//column-->
+
+											<!--column-->
+											<div class="column one-third">
+												<h5><span>03</span> When?</h5>
+												<div class="row">
+													<div class="f-item full-width datepicker">
+														<label for="datepicker9">Departing on</label>
+														<div class="row">
+															<div class="f-item one-half">
+																<div class="datepicker-wrap"><input type="text"
+																		placeholder="" id="datepicker9"
+																		name="datepicker9" /></div>
+															</div>
+															<div class="f-item one-half">
+																<select>
+																	<option>Select time</option>
+																	<option>Lowest fare</option>
+																	<option>Morning</option>
+																	<option>Midday</option>
+																	<option>Afternoon</option>
+																	<option>Evening</option>
+																</select>
+															</div>
 														</div>
-														<div class="f-item one-half">
-															<select>
-																<option>00:00</option>
-																<option>01:00</option>
-																<option>02:00</option>
-																<option>03:00</option>
-																<option>04:00</option>
-																<option>05:00</option>
-																<option>06:00</option>
-																<option>07:00</option>
-																<option>08:00</option>
-																<option>09:00</option>
-																<option selected>10:00</option>
-																<option>11:00</option>
-																<option>12:00</option>
-																<option>13:00</option>
-																<option>14:00</option>
-																<option>15:00</option>
-																<option>16:00</option>
-																<option>17:00</option>
-																<option>18:00</option>
-																<option>19:00</option>
-																<option>20:00</option>
-																<option>21:00</option>
-																<option>22:00</option>
-																<option>23:00</option>
-															</select>
+													</div>
+													<div class="f-item full-width datepicker">
+														<label for="datepicker10">Arriving on</label>
+														<div class="row">
+															<div class="f-item one-half">
+																<div class="datepicker-wrap"><input type="text"
+																		placeholder="" id="datepicker10"
+																		name="datepicker10" /></div>
+															</div>
+															<div class="f-item one-half">
+																<select>
+																	<option>Select time</option>
+																	<option>Lowest fare</option>
+																	<option>Morning</option>
+																	<option>Midday</option>
+																	<option>Afternoon</option>
+																	<option>Evening</option>
+																</select>
+															</div>
 														</div>
 													</div>
 												</div>
 											</div>
-										</div>
-										<!--//column-->
+											<!--//column-->
 
-										<!--column-->
-										<div class="column one-third">
-											<h5><span>04</span> Who?</h5>
-											<div class="row">
-												<div class="f-item one-half spinner small">
-													<label for="spinner13">Driver Age</label>
-													<input type="text" placeholder="" id="spinner13" name="spinner13" />
-												</div>
-												<div class="f-item one-half">
-													<label for="spinner2">Car type:</label>
-													<select>
-														<option>No Preference</option>
-														<option>Economy</option>
-														<option>Compact</option>
-														<option>Midsize</option>
-														<option>Standard</option>
-														<option>Full Size</option>
-														<option>Premium</option>
-														<option>Luxury</option>
-														<option>Convertible</option>
-														<option>MiniSUV</option>
-														<option>Sports Car</option>
-													</select>
+											<!--column-->
+											<div class="column one-third">
+												<h5><span>04</span> Who?</h5>
+												<div class="row">
+													<div class="f-item one-third spinner">
+														<label for="spinner10">Adults</label>
+														<input type="text" placeholder="" id="spinner10"
+															name="spinner10" />
+													</div>
+													<div class="f-item one-third spinner">
+														<label for="spinner11">Children</label>
+														<input type="text" placeholder="" id="spinner11"
+															name="spinner11" />
+													</div>
+													<div class="f-item one-third spinner">
+														<label for="spinner12">Rooms</label>
+														<input type="text" placeholder="" id="spinner12"
+															name="spinner12" />
+													</div>
 												</div>
 											</div>
+											<!--//column-->
 										</div>
-										<!--//column-->
+										<!--//form flight+hotel-->
+
+										<!--form rent a car-->
+										<div class="form row" id="form6">
+											<!--column-->
+											<div class="column one-third">
+												<h5><span>02</span> Where?</h5>
+												<div class="row">
+													<div class="f-item full-width">
+														<label for="destination7">Pick Up</label>
+														<input type="text" placeholder="I want to pick up car in"
+															id="destination7" name="destination" />
+													</div>
+													<div class="f-item full-width">
+														<label for="destination8">Drop Off</label>
+														<input type="text" placeholder="I want to pick drop off car in"
+															id="destination8" name="destination" />
+													</div>
+												</div>
+											</div>
+											<!--//column-->
+
+											<!--column-->
+											<div class="column one-third">
+												<h5><span>03</span> When?</h5>
+												<div class="row">
+													<div class="f-item full-width datepicker">
+														<label for="datepicker11">Pick up time</label>
+														<div class="row">
+															<div class="f-item one-half">
+																<div class="datepicker-wrap"><input type="text"
+																		placeholder="" id="datepicker11"
+																		name="datepicker11" /></div>
+															</div>
+															<div class="f-item one-half">
+																<select>
+																	<option>00:00</option>
+																	<option>01:00</option>
+																	<option>02:00</option>
+																	<option>03:00</option>
+																	<option>04:00</option>
+																	<option>05:00</option>
+																	<option>06:00</option>
+																	<option>07:00</option>
+																	<option>08:00</option>
+																	<option>09:00</option>
+																	<option selected>10:00</option>
+																	<option>11:00</option>
+																	<option>12:00</option>
+																	<option>13:00</option>
+																	<option>14:00</option>
+																	<option>15:00</option>
+																	<option>16:00</option>
+																	<option>17:00</option>
+																	<option>18:00</option>
+																	<option>19:00</option>
+																	<option>20:00</option>
+																	<option>21:00</option>
+																	<option>22:00</option>
+																	<option>23:00</option>
+																</select>
+															</div>
+														</div>
+													</div>
+													<div class="f-item full-width datepicker">
+														<label for="datepicker12">Drop of time</label>
+														<div class="row">
+															<div class="f-item one-half">
+																<div class="datepicker-wrap"><input type="text"
+																		placeholder="" id="datepicker12"
+																		name="datepicker12" /></div>
+															</div>
+															<div class="f-item one-half">
+																<select>
+																	<option>00:00</option>
+																	<option>01:00</option>
+																	<option>02:00</option>
+																	<option>03:00</option>
+																	<option>04:00</option>
+																	<option>05:00</option>
+																	<option>06:00</option>
+																	<option>07:00</option>
+																	<option>08:00</option>
+																	<option>09:00</option>
+																	<option selected>10:00</option>
+																	<option>11:00</option>
+																	<option>12:00</option>
+																	<option>13:00</option>
+																	<option>14:00</option>
+																	<option>15:00</option>
+																	<option>16:00</option>
+																	<option>17:00</option>
+																	<option>18:00</option>
+																	<option>19:00</option>
+																	<option>20:00</option>
+																	<option>21:00</option>
+																	<option>22:00</option>
+																	<option>23:00</option>
+																</select>
+															</div>
+														</div>
+													</div>
+												</div>
+											</div>
+											<!--//column-->
+
+											<!--column-->
+											<div class="column one-third">
+												<h5><span>04</span> Who?</h5>
+												<div class="row">
+													<div class="f-item one-half spinner small">
+														<label for="spinner13">Driver Age</label>
+														<input type="text" placeholder="" id="spinner13"
+															name="spinner13" />
+													</div>
+													<div class="f-item one-half">
+														<label for="spinner2">Car type:</label>
+														<select>
+															<option>No Preference</option>
+															<option>Economy</option>
+															<option>Compact</option>
+															<option>Midsize</option>
+															<option>Standard</option>
+															<option>Full Size</option>
+															<option>Premium</option>
+															<option>Luxury</option>
+															<option>Convertible</option>
+															<option>MiniSUV</option>
+															<option>Sports Car</option>
+														</select>
+													</div>
+												</div>
+											</div>
+											<!--//column-->
+										</div>
+										<!--//form rent a car-->
 									</div>
-									<!--//form rent a car-->
+									<input type="submit" value="Proceed to results"
+										class="gradient-button search-submit" id="search-submit" />
 								</div>
-								<input type="submit" value="Proceed to results" class="gradient-button search-submit"
-									id="search-submit" />
+							</form>
 						</div>
-						</form>
-					</div>
 					</div>
 					<!--//search-->
 
@@ -892,216 +887,9 @@
 															<!--//deal-->
 										</div>
 									</div>
-									<!--//deals-->
 
-									<!--top destinations-->
-									<!-- <header class="s-title">
-						<h2>Top destinations around the world</h2>
-					</header>
-
-					<div class="destinations">
-						<div class="row">
-							<!column-->
-									<!-- <article class="one-fourth">
-								<figure><a href="#" title=""><img src="images/uploads/img.jpg" alt="" /></a></figure>
-								<div class="details">
-									<a href="#" title="View all" class="gradient-button">View all</a>
-									<h4>Paris</h4>
-									<span class="count">55 Airlines</span>
-									<div class="ribbon">
-										<div class="half flight">
-											<a href="flights.html" title="View all">
-												<span class="small">from</span>
-												<span class="price">&#36; 150</span>
-											</a>
-										</div>
-										<div class="half hotel">
-											<a href="hotels.html" title="View all">
-												<span class="small">from</span>
-												<span class="price">&#36; 70</span>
-											</a>
-										</div>
-									</div>
 								</div>
-							</article>
-							<//column-->
-
-									<!--column-->
-									<!-- <article class="one-fourth">
-								<figure><a href="#" title=""><img src="images/uploads/img.jpg" alt="" /></a></figure>
-								<div class="details">
-									<a href="#" title="View all" class="gradient-button">View all</a>
-									<h4>Amsterdam</h4>
-									<span class="count">29 Airlines</span>
-									<div class="ribbon">
-										<div class="half flight">
-											<a href="flights.html" title="View all">
-												<span class="small">from</span>
-												<span class="price">&#36; 150</span>
-											</a>
-										</div>
-										<div class="half hotel">
-											<a href="hotels.html" title="View all">
-												<span class="small">from</span>
-												<span class="price">&#36; 70</span>
-											</a>
-										</div>
-									</div>
-								</div>
-							</article> -->
-									<!--//column-->
-
-									<!--column-->
-									<!-- <article class="one-fourth">
-								<figure><a href="#" title=""><img src="images/uploads/img.jpg" alt="" /></a></figure>
-								<div class="details">
-									<a href="#" title="View all" class="gradient-button">View all</a>
-									<h4>St Petersburg</h4>
-									<span class="count">58 Airlines</span>
-									<div class="ribbon">
-										<div class="half flight">
-											<a href="flights.html" title="View all">
-												<span class="small">from</span>
-												<span class="price">&#36; 150</span>
-											</a>
-										</div>
-										<div class="half hotel">
-											<a href="hotels.html" title="View all">
-												<span class="small">from</span>
-												<span class="price">&#36; 70</span>
-											</a>
-										</div>
-									</div>
-								</div>
-							</article> -->
-									<!--//column-->
-
-									<!--column-->
-									<!-- <article class="one-fourth">
-								<figure><a href="#" title=""><img src="images/uploads/img.jpg" alt="" /></a></figure>
-								<div class="details">
-									<a href="#" title="View all" class="gradient-button">View all</a>
-									<h4>Prague</h4>
-									<span class="count">29 Airlines</span>
-									<div class="ribbon">
-										<div class="half flight">
-											<a href="flights.html" title="View all">
-												<span class="small">from</span>
-												<span class="price">&#36; 150</span>
-											</a>
-										</div>
-										<div class="half hotel">
-											<a href="hotels.html" title="View all">
-												<span class="small">from</span>
-												<span class="price">&#36; 70</span>
-											</a>
-										</div>
-									</div>
-								</div>
-							</article> -->
-									<!--//column-->
-									<!--column-->
-									<!-- <article class="one-fourth">
-								<figure><a href="#" title=""><img src="images/uploads/img.jpg" alt="" /></a></figure>
-								<div class="details">
-									<a href="#" title="View all" class="gradient-button">View all</a>
-									<h4>Prague</h4>
-									<span class="count">29 Airlines</span>
-									<div class="ribbon">
-										<div class="half flight">
-											<a href="flights.html" title="View all">
-												<span class="small">from</span>
-												<span class="price">&#36; 150</span>
-											</a>
-										</div>
-										<div class="half hotel">
-											<a href="hotels.html" title="View all">
-												<span class="small">from</span>
-												<span class="price">&#36; 70</span>
-											</a>
-										</div>
-									</div>
-								</div>
-							</article> -->
-									<!--//column-->
-
-									<!--column-->
-									<!-- <article class="one-fourth promo">
-								<div class="ribbon-small">- 20%</div>
-								<figure><a href="#" title=""><img src="images/uploads/img.jpg" alt="" /></a></figure>
-								<div class="details">
-									<a href="#" title="View all" class="gradient-button">View all</a>
-									<h4>Paris</h4>
-									<span class="count">52 Airlines</span>
-									<div class="ribbon">
-										<div class="half flight">
-											<a href="flights.html" title="View all">
-												<span class="small">from</span>
-												<span class="price">&#36; 150</span>
-											</a>
-										</div>
-										<div class="half hotel">
-											<a href="hotels.html" title="View all">
-												<span class="small">from</span>
-												<span class="price">&#36; 70</span>
-											</a>
-										</div>
-									</div>
-								</div>
-							</article> -->
-									<!--//column-->
-
-									<!--column-->
-									<!-- <article class="one-fourth">
-								<figure><a href="#" title=""><img src="images/uploads/img.jpg" alt="" /></a></figure>
-								<div class="details">
-									<a href="#" title="View all" class="gradient-button">View all</a>
-									<h4>Amsterdam</h4>
-									<span class="count">29 Airlines</span>
-									<div class="ribbon">
-										<div class="half flight">
-											<a href="flights.html" title="View all">
-												<span class="small">from</span>
-												<span class="price">&#36; 150</span>
-											</a>
-										</div>
-										<div class="half hotel">
-											<a href="hotels.html" title="View all">
-												<span class="small">from</span>
-												<span class="price">&#36; 70</span>
-											</a>
-										</div>
-									</div>
-								</div>
-							</article>
-							//column-->
-
-									<!--column-->
-									<!-- <article class="one-fourth">
-								<figure><a href="#" title=""><img src="images/uploads/img.jpg" alt="" /></a></figure>
-								<div class="details">
-									<a href="#" title="View all" class="gradient-button">View all</a>
-									<h4>St Petersburg</h4>
-									<span class="count">58 Airlines</span>
-									<div class="ribbon">
-										<div class="half flight">
-											<a href="flights.html" title="View all">
-												<span class="small">from</span>
-												<span class="price">&#36; 150</span>
-											</a>
-										</div>
-										<div class="half hotel">
-											<a href="hotels.html" title="View all">
-												<span class="small">from</span>
-												<span class="price">&#36; 70</span>
-											</a>
-										</div>
-									</div>
-								</div>
-							</article> --> 
-									<!--//column-->
-								</div>
-							</div> 
+							</div>
 							<!--//top destinations-->
 						</div>
 						</div>
@@ -1192,33 +980,89 @@
 					<script type="text/javascript" src="/js/jquery.slimmenu.min.js"></script>
 					<script type="text/javascript" src="/js/lightslider.min.js"></script>
 					<script type="text/javascript" src="/js/scripts.js"></script>
+					<script type="text/javascript"
+						src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/2.4.1/lodash.compat.min.js"></script>
+
 					<script type="text/javascript">
 
-						function helloWorld() {
-							console.log("Hello World!")
-						}
+						///////////////////////////
 
-						function debounce(callback, delay) {
-							let timeout;
-							return function () {
-								clearTimeout(timeout);
-								timeout = setTimeout(callback, delay);
+
+						(function ($) {
+							$(document).ready(function () {
+								$('.form').hide();
+								$('#form3').show();
+								$('.f-item:nth-child(3)').addClass('active');
+								$('.f-item:nth-child(3) span').addClass('checked');
+
+								$('#hero-gallery').lightSlider({
+									gallery: true,
+									item: 1,
+									pager: false,
+									gallery: false,
+									slideMargin: 0,
+									speed: 2000,
+									pause: 6000,
+									mode: 'fade',
+									auto: true,
+									loop: true,
+									onSliderLoad: function () {
+										$('#hero-gallery').removeClass('cS-hidden');
+									}
+								});
+
+								//$('#sourceFlight').on('keyup', _.debounce(showResultsSource(this.id, this.value, 'sourceList', 'resultSourceFlightDiv', 'sourceFlightCode'), 2000, false));
+								//$('#sourceFlight').on('keyup', (evt) => _.debounce(showResultsSource(this.id, this.value, "sourceList", "resultSourceFlightDiv", "sourceFlightCode"), 5000));
+								//$('#sourceFlight').on('keyup', )
+								/*$('#sourceFlight').keyup((evt) => debounce(() => {
+									alert('we are debouncing')
+								}, 5000))*/
+
+								//let myTimer;
+								processSourceFlight = debounce(showResultsSource, 3000);
+								$('#sourceFlight').on('keyup', (evt) => {
+									processSourceFlight(evt.target.id, evt.target.value, 'sourceList', 'resultSourceFlightDiv', 'sourceFlightCode');
+									/*clearTimeout(myTimer);
+									myTimer = setTimeout(() => {
+										showResultsSource(evt.target.id, evt.target.value, 'sourceList', 'resultSourceFlightDiv', 'sourceFlightCode')
+										//alert('we are debouncing ' + evt.target.value + ' '+ evt.target.id);
+									}, 4000);*/
+								})
+
+								//let mytimer1;
+								processDestinationFlight = debounce(showResultsSource, 3000);
+								$('#destinationFlight').on('keyup', (evt) => {
+									processDestinationFlight(evt.target.id, evt.target.value, 'destinationList', 'resultDestinationFlightDiv', 'destinationFlightCode');
+									/*clearTimeout(myTimer);
+									myTimer = setTimeout(() => {
+										showResultsSource(evt.target.id, evt.target.value, 'sourceList', 'resultSourceFlightDiv', 'sourceFlightCode')
+										//alert('we are debouncing ' + evt.target.value + ' '+ evt.target.id);
+									}, 4000);*/
+								})
+							});
+
+						})(jQuery);
+
+						function debounce(func, wait) {
+							let timer;
+							return (...args) => {
+								clearTimeout(timer);
+								timer = setTimeout(() => func.apply(this, args), wait);
 							}
 						}
 
-						const myInput = document.getElementById("myInput");
+						// 
+						// function showResultsSource(eltId, val, listId, divId, hiddenFieldId) {
+						// 	alert('debounced');
+						// }
 
-						myInput.addEventListener(
-							"keyup",
-							debounce(helloWorld, 2000)
-						);
-						///////////////////////////
 						function showResultsSource(eltId, val, listId, divId, hiddenFieldId) {
+							///////////////////////////
+							// alert('show result debounce');
+							// return;
+							////////////////////
 							res = document.getElementById(`${divId}`);
 							res.innerHTML = '';
-
-							let name = "Omar";
-							let s = `Here is the name: ${name}`;
 
 							if (val == '') {
 								return;
@@ -1251,31 +1095,6 @@
 								return false;
 							});
 						}
-
-						(function ($) {
-							$(document).ready(function () {
-								$('.form').hide();
-								$('#form3').show();
-								$('.f-item:nth-child(3)').addClass('active');
-								$('.f-item:nth-child(3) span').addClass('checked');
-
-								$('#hero-gallery').lightSlider({
-									gallery: true,
-									item: 1,
-									pager: false,
-									gallery: false,
-									slideMargin: 0,
-									speed: 2000,
-									pause: 6000,
-									mode: 'fade',
-									auto: true,
-									loop: true,
-									onSliderLoad: function () {
-										$('#hero-gallery').removeClass('cS-hidden');
-									}
-								});
-							});
-						})(jQuery);
 					</script>
 </body>
 

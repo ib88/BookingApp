@@ -1019,7 +1019,7 @@
 								}, 5000))*/
 
 								//let myTimer;
-								processSourceFlight = debounce(showResultsSource, 4000);
+								processSourceFlight = debounce(showResultsSource, 3000);
 								$('#sourceFlight').on('keyup', (evt) => {
 									processSourceFlight(evt.target.id, evt.target.value, 'sourceList', 'resultSourceFlightDiv', 'sourceFlightCode');
 									/*clearTimeout(myTimer);
@@ -1030,7 +1030,7 @@
 								})
 
 								//let mytimer1;
-								processDestinationFlight = debounce(showResultsSource, 4000);
+								processDestinationFlight = debounce(showResultsSource, 3000);
 								$('#destinationFlight').on('keyup', (evt) => {
 									processDestinationFlight(evt.target.id, evt.target.value, 'destinationList', 'resultDestinationFlightDiv', 'destinationFlightCode');
 									/*clearTimeout(myTimer);

@@ -38,15 +38,6 @@ const amadeus = new Amadeus({
 });
 const objectMapper = new jackson_js_1.ObjectMapper();
 const amadeusRepo = new AmadeusRepo();
-// Initialization
-//var sess; // global session, NOT recommended
-// Location search suggestions
-// router.get(`/flightsearch`, async (req, res) => {
-//   // ackson-js
-//   // Find the cheapest flights from SYD to BKK
-//   // let flights = await new AmadeusMockRepo().getFlights();
-//   // return res.json(flights);
-// });
 router.get(`/bookFlight`, (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     const { flight, iataCode } = req.query;
     req.session.flightJson = flight;
@@ -115,15 +106,19 @@ router.post(`/bookFlight`, [
     let pricingOffer = undefined;
     if (req.session.flightJson)
         pricingOffer = JSON.parse(req.session.flightJson);
-    let pricingResponse = yield amadeusRepo.confirmFlight(pricingOffer);
-    //console.log("Flight confirmation response:", pricingResponse.result);
-    // bookFlight(pricingResponse: any, firstName:string, lastName:string, birthDate:string, gender:string, email:string): Promise<any>
+    let pricingResponse;
+    try {
+        pricingResponse = yield amadeusRepo.confirmFlight(pricingOffer);
+    }
+    catch (e) {
+        return res.render("error.ejs");
+    }
     let bookingResult = yield amadeusRepo.bookFlight(pricingResponse, firstName, lastName, birthDate, gender, email);
     //console.log("Flight Booking response:", bookingResult);
     let emailResult = yield amadeusRepo.sendEmail("imefire@gmail.com", "imefire@gmail.com", "Booking confirmation", bookingResult.data.id, "<b>" + bookingResult.data.id + "</b>");
     return res.render("booking_step3.ejs", { alert: alert, result: bookingResult, flight: flightParsed, travelerInfos: traveler });
 }));
-router.get(`/`, (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+router.get(`/flightOffer`, (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     const { source, destination, flightDate, adults } = req.query;
     if (!source || !destination || !flightDate || !adults) {
         return res.render("flights", { business: [] });
@@ -161,12 +156,12 @@ router.post(`/flightOffer`, [
     // }
     var sourceCode = "LAX";
     var destinationCode = "SEA";
-    //var sourceCode = req.body.sourceFlightCode;
-    //var destinationCode = req.body.destinationFlightCode;
-    //var dateSourceFlight = req.body.datepickerSourceFlight;
     var dateSourceFlight = '2022-12-20';
-    //var adults = req.body.adultsFlight;
     var adults = '1';
+    // var sourceCode = req.body.sourceFlightCode;
+    // var destinationCode = req.body.destinationFlightCode;
+    // var dateSourceFlight = req.body.datepickerSourceFlight;
+    // var adults = req.body.adultsFlight;
     var maxFlights = '5';
     try {
         let flights = yield amadeusRepo.getFlightOffer(sourceCode, destinationCode, dateSourceFlight, adults, maxFlights);

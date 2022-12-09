@@ -130,7 +130,7 @@ class AmadeusRepo {
                 console.log('Email sent');
             })
                 .catch((error) => {
-                console.error(error);
+                throw error;
             });
         });
     }
@@ -193,9 +193,9 @@ class AmadeusRepo {
                 // let bookingResult =  amadeusRepo.bookFlight(response);
                 // console.log("Flight Booking response:", bookingResult);
                 // res.send(response.result);
-            }).catch(function (response) {
+            }).catch(function (error) {
                 //res.send(response)
-                console.log(response);
+                throw error;
             });
         });
     }

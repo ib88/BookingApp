@@ -4,4 +4,6 @@
 .elasticbeanstalk/*
 !.elasticbeanstalk/*.cfg.yml
 !.elasticbeanstalk/*.global.yml
-node_modules
+conf.env
+/node_module
+process.env

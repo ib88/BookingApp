@@ -36,25 +36,8 @@ const amadeus = new Amadeus({
 const objectMapper = new ObjectMapper();
 const amadeusRepo = new AmadeusRepo();
 
-
-
-// Initialization
-
-//var sess; // global session, NOT recommended
-
-// Location search suggestions
-
-// router.get(`/flightsearch`, async (req, res) => {
-
-//   // ackson-js
-
-//   // Find the cheapest flights from SYD to BKK
-//   // let flights = await new AmadeusMockRepo().getFlights();
-//   // return res.json(flights);
-// });
-
 router.get(`/bookFlight`, async (req: any, res: any) => {
-  
+
   const { flight, iataCode } = req.query;
   req.session.flightJson = flight;
   //req.session.flight = flight;
@@ -126,9 +109,9 @@ router.post(`/bookFlight`, [
   let email = req.body.email;
 
   let traveler = {
-      first_name:firstName,
-      last_name:lastName,
-      email_:email
+    first_name: firstName,
+    last_name: lastName,
+    email_: email
   };
 
   //let pricingOfferStr = flights[1].original;
@@ -136,10 +119,13 @@ router.post(`/bookFlight`, [
   if (req.session.flightJson)
     pricingOffer = JSON.parse(req.session.flightJson);
 
-  let pricingResponse = await amadeusRepo.confirmFlight(pricingOffer);
-  //console.log("Flight confirmation response:", pricingResponse.result);
+  let pricingResponse
+  try {
+    pricingResponse = await amadeusRepo.confirmFlight(pricingOffer);
 
-  // bookFlight(pricingResponse: any, firstName:string, lastName:string, birthDate:string, gender:string, email:string): Promise<any>
+  } catch (e: any) {
+    return res.render("error.ejs");
+  }
   let bookingResult = await amadeusRepo.bookFlight(pricingResponse, firstName, lastName, birthDate, gender, email);
   //console.log("Flight Booking response:", bookingResult);
   let emailResult = await amadeusRepo.sendEmail("imefire@gmail.com", "imefire@gmail.com", "Booking confirmation", bookingResult.data.id,"<b>"+ bookingResult.data.id + "</b>");
@@ -149,7 +135,7 @@ router.post(`/bookFlight`, [
 });
 
 
-router.get(`/`, async (req: any, res: any) => {
+router.get(`/flightOffer`, async (req: any, res: any) => {
 
   const { source, destination, flightDate, adults } = req.query;
   if (!source || !destination || !flightDate || !adults) {
@@ -192,12 +178,14 @@ router.post(`/flightOffer`, [
 
   var sourceCode = "LAX";
   var destinationCode = "SEA";
-  //var sourceCode = req.body.sourceFlightCode;
-  //var destinationCode = req.body.destinationFlightCode;
-  //var dateSourceFlight = req.body.datepickerSourceFlight;
   var dateSourceFlight = '2022-12-20';
-  //var adults = req.body.adultsFlight;
   var adults = '1';
+
+
+  // var sourceCode = req.body.sourceFlightCode;
+  // var destinationCode = req.body.destinationFlightCode;
+  // var dateSourceFlight = req.body.datepickerSourceFlight;
+  // var adults = req.body.adultsFlight;
   var maxFlights = '5';
 
   try {

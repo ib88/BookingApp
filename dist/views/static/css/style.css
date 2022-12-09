@@ -307,7 +307,6 @@ aside .widget h5			{font:700 14px 'Open Sans', Helvetica, Arial, sans-serif;padd
 /* Search widget */
 .main-search .wrap > form{
 	position:relative; 
-	margin-top: 30px; 
 	left:0;
 	width:100%;
 	display:inline-block;

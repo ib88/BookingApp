@@ -44,6 +44,7 @@ const PORT = config.PORT;
 
 app.use(express.json());
 //app.use("/api", router);
+
 app.use("/api", hotelRouter);
 app.use("/flight", flightRouter);
 app.use("/Moqflight", MoqflightRouter);

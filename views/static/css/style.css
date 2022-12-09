@@ -307,6 +307,7 @@ aside .widget h5			{font:700 14px 'Open Sans', Helvetica, Arial, sans-serif;padd
 /* Search widget */
 .main-search .wrap > form{
 	position:relative; 
+	margin-top: 30px;
 	left:0;
 	width:100%;
 	display:inline-block;
@@ -354,7 +355,16 @@ aside .widget h5			{font:700 14px 'Open Sans', Helvetica, Arial, sans-serif;padd
 .main-search div.checker input 									{width:20px;height:20px;}
 .main-search div.checker span.checked:before		{left:0;top:-1px;}
 
-.main-search .gradient-button				{position:absolute;left:41.5%;bottom:-1px;width:17%;height:34px;border:none;-webkit-border-radius:17px 17px 0 0;-moz-border-radius:17px 17px 0 0;border-radius:17px 17px 0 0;}
+.main-search .gradient-button				{position:absolute;
+	left:41.5%;
+	bottom:-1px;
+	width:17%;
+	height:34px;
+	border:none;
+	-webkit-border-radius:17px 17px 0 0;
+	-moz-border-radius:17px 17px 0 0;
+	border-radius:17px 17px 0 0;
+}
 
 /* 06 Header */
 .header 	{float:left;background:#fff;margin:0 0 20px;width:100%;height:120px;position:relative;z-index:999;}

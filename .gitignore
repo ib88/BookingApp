@@ -7,3 +7,4 @@
 conf.env
 /node_module
 process.env
+node_modules

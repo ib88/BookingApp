@@ -154,14 +154,14 @@ router.post(`/flightOffer`, [
     //   const alert = errors.array()
     //   return res.render("flights", { alert });
     // }
-    var sourceCode = "LAX";
-    var destinationCode = "SEA";
-    var dateSourceFlight = '2022-12-20';
-    var adults = '1';
-    // var sourceCode = req.body.sourceFlightCode;
-    // var destinationCode = req.body.destinationFlightCode;
-    // var dateSourceFlight = req.body.datepickerSourceFlight;
-    // var adults = req.body.adultsFlight;
+    // var sourceCode = "LAX";
+    // var destinationCode = "SEA";
+    // var dateSourceFlight = '2022-12-20';
+    // var adults = '1';
+    var sourceCode = req.body.sourceFlightCode;
+    var destinationCode = req.body.destinationFlightCode;
+    var dateSourceFlight = req.body.datepickerSourceFlight;
+    var adults = req.body.adultsFlight;
     var maxFlights = '5';
     try {
         let flights = yield amadeusRepo.getFlightOffer(sourceCode, destinationCode, dateSourceFlight, adults, maxFlights);

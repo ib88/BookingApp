@@ -1,5 +1,6 @@
 .env
 .DS-Store
+dist
 # Elastic Beanstalk Files
 .elasticbeanstalk/*
 !.elasticbeanstalk/*.cfg.yml

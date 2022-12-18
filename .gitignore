@@ -1,11 +1,10 @@
-.env
+/node_modules
 .DS-Store
-dist
 # Elastic Beanstalk Files
 .elasticbeanstalk/*
 !.elasticbeanstalk/*.cfg.yml
 !.elasticbeanstalk/*.global.yml
+.env
 conf.env
-/node_module
 process.env
-node_modules
+/dist

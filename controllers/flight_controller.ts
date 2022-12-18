@@ -16,6 +16,7 @@ var jp = require('jsonpath');
 var app = express();
 app.set("view engine", "ejs");
 
+
 //app.set('views', path.join(__dirname,"views"));
 //app.set("view engine", "ejs");
 //app.use(express.static("public"));
@@ -175,10 +176,10 @@ router.post(`/flightOffer`, [
     return res.render("flights", { alert });
   }
 
-  //var sourceCode = "LAX";
-  //var destinationCode = "SEA";
-  //var dateSourceFlight = '2022-12-20';
-  //var adults = '1';
+  // var sourceCode = "LAX";
+  // var destinationCode = "SEA";
+  // var dateSourceFlight = '2022-12-20';
+  // var adults = '1';
 
 
   var sourceCode = req.body.sourceFlightCode;

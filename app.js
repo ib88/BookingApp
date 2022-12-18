@@ -31,6 +31,13 @@ import fetch from "node-fetch";
 //let fetch = await import('node-fetch');
 const app = express();
 
+app.use(express.static(path.join(__dirname, "node_modules/bootstrap/dist/")));
+
+const port = process.env.port || 3000;
+app.listen(port, () => {
+    console.log("Sever console log.")
+});
+
 import Amadeus from "amadeus";
 
 const base = "https://test.api.amadeus.com";

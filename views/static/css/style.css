@@ -1276,7 +1276,7 @@ div.containers {
 	max-width: 1350px;
 	margin: 0 auto;
 	overflow: hidden;
-	background: #999;
+	/* background: #999; */
   }
   .containers .item {
 	width: 98%;
@@ -1299,7 +1299,7 @@ div.containers {
   }
   .containers .item-right .up-border, .containers .item-right .down-border {
 	  padding: 14px 15px;
-	  background-color: #999;
+	  background-color: #e0dcdc;
 	  border-radius: 50%;
 	  position: absolute
   }

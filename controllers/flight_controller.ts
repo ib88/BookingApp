@@ -3,9 +3,11 @@ const { AmadeusMockRepo, AmadeusRepo, airlineInfo } = require("../Repositories/I
 const { DatesInfo } = require("../Models/DatesInfo");
 import { ObjectMapper } from "jackson-js";
 import { FlightOffer } from "../Models/FlightOffer";
-const { API_KEY, API_SECRET } = require("../config");
+const { API_KEY, API_SECRET, PUBLISHABLE_KEY, SECRET_KEY } = require("../config");
 const Amadeus = require("amadeus");
 const express = require("express");
+
+const stripe = require('stripe')(SECRET_KEY);
 
 const axios = require("axios");
 var _ = require("underscore");
@@ -27,11 +29,11 @@ app.set("view engine", "ejs");
 // Create router
 const router = express.Router();
 // Create Amadeus API client
-const amadeus = new Amadeus({
-  clientId: API_KEY,
-  clientSecret: API_SECRET,
-  hostname: 'production'
-});
+// const amadeus = new Amadeus({
+//   clientId: API_KEY,
+//   clientSecret: API_SECRET,
+//   hostname: 'production'
+// });
 
 const objectMapper = new ObjectMapper();
 const amadeusRepo = new AmadeusRepo();
@@ -131,6 +133,45 @@ router.post(`/bookFlight`, [
   //let emailResult = await amadeusRepo.sendEmail("imefire@gmail.com", "imefire@gmail.com", "Booking confirmation", bookingResult.data.id,"<b>"+ bookingResult.data.id + "</b>");
 
   return res.render("booking_step3.ejs", { alert:alert, result: bookingResult, flight: flightParsed, travelerInfos: traveler });
+  //return res.render("stripe_payment.ejs", { alert:alert, result: bookingResult, flight: flightParsed, travelerInfos: traveler });
+
+
+});
+
+router.get(`/stripePayment`, async (req: any, res: any) => {
+  return res.render("stripe_payment", { key: PUBLISHABLE_KEY});
+});
+
+router.post(`/stripePayment`, async (req: any, res: any) => {
+
+  stripe.customers.create({
+    email: req.body.stripeEmail,
+    source: req.body.stripeToken,
+    name: 'Gourav Hammad',
+    address: {
+        line1: 'TC 9/4 Old MES colony',
+        postal_code: '452331',
+        city: 'Indore',
+        state: 'Madhya Pradesh',
+        country: 'India',
+    }
+})
+.then((customer: any) => {
+
+    return stripe.charges.create({
+        amount: 25000,     // Charging Rs 25
+        description: 'Web Development Product',
+        currency: 'INR',
+        customer: customer.id
+    });
+})
+.then((charge: any) => {
+    //res.send("Success")  // If no error occurs
+    return res.render("success_payment.ejs");
+})
+.catch((err: any) => {
+  return res.render("error.ejs");
+});
 
 });
 
@@ -264,31 +305,31 @@ router.post(`/flightOffer`, [
 
 
 
-router.get(`/cheapestDates`, async (req: any, res: any) => {
-  // Find the cheapest flights from SYD to BKK
-  // Find cheapest dates from Madrid to Munich
-  amadeus.shopping.flightDates.get({
-    origin: 'LON',
-    destination: 'MUC'
-    // departureDate:  '2022-09-10'
-  }).then(function (response: any) {
-    return res.json(response);
-  }).catch(function (response: any) {
-    console.error(response);
-  });
-});
+// router.get(`/cheapestDates`, async (req: any, res: any) => {
+//   // Find the cheapest flights from SYD to BKK
+//   // Find cheapest dates from Madrid to Munich
+//   amadeus.shopping.flightDates.get({
+//     origin: 'LON',
+//     destination: 'MUC'
+//     // departureDate:  '2022-09-10'
+//   }).then(function (response: any) {
+//     return res.json(response);
+//   }).catch(function (response: any) {
+//     console.error(response);
+//   });
+// });
 
-router.get(`/getAirline`, async (req: any, res: any) => {
-  // Find the cheapest flights from SYD to BKK
-  // Find cheapest dates from Madrid to Munich
-  amadeus.referenceData.airlines.get({
-    airlineCodes: 'TR'
-  }).then(function (response: any) {
-    console.log(response);
-  }).catch(function (response: any) {
-    console.error(response);
-  });
-});
+// router.get(`/getAirline`, async (req: any, res: any) => {
+//   // Find the cheapest flights from SYD to BKK
+//   // Find cheapest dates from Madrid to Munich
+//   amadeus.referenceData.airlines.get({
+//     airlineCodes: 'TR'
+//   }).then(function (response: any) {
+//     console.log(response);
+//   }).catch(function (response: any) {
+//     console.error(response);
+//   });
+// });
 
 router.get(`/flightAvSearch`, async (req: { query: { source: any; destination: any; departureDate: any; returnDate: any; adults: any; }; body: { sourceFlightCode: any; destinationFlightCode: any; datepickerSourceFlight: any; adults: any; }; }, res: { render: (arg0: string, arg1: { business: never[]; }) => any; json: (arg0: unknown) => void; }) => {
   // Find the cheapest flights from SYD to BKK

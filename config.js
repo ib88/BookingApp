@@ -7,5 +7,8 @@ module.exports = {
   API_KEY: process.env.API_KEY,
   API_SECRET: process.env.API_SECRET,
   SENDGRID_API_KEY: process.env.SENDGRID_API_KEY,
-  PORT: process.env.PORT
+  PORT: process.env.PORT,
+  PUBLISHABLE_KEY: process.env.PUBLISHABLE_KEY,
+  SECRET_KEY: process.env.SECRET_KEY
+
 };

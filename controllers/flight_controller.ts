@@ -129,11 +129,16 @@ router.post(`/bookFlight`, [
     return res.render("error.ejs");
   }
   let bookingResult = await amadeusRepo.bookFlight(pricingResponse, firstName, lastName, birthDate, gender, email);
+  req.session.bookingResult = bookingResult;
+  req.session.traveler = traveler;
+
+
   //console.log("Flight Booking response:", bookingResult);
   //let emailResult = await amadeusRepo.sendEmail("imefire@gmail.com", "imefire@gmail.com", "Booking confirmation", bookingResult.data.id,"<b>"+ bookingResult.data.id + "</b>");
 
-  return res.render("booking_step3.ejs", { alert:alert, result: bookingResult, flight: flightParsed, travelerInfos: traveler });
-  //return res.render("stripe_payment.ejs", { alert:alert, result: bookingResult, flight: flightParsed, travelerInfos: traveler });
+  //return res.render("booking_step3.ejs", { alert:alert, result: bookingResult, flight: flightParsed, travelerInfos: traveler });
+  return res.render("stripe_payment", { key: PUBLISHABLE_KEY, flight:flightParsed});
+
 
 
 });
@@ -167,7 +172,10 @@ router.post(`/stripePayment`, async (req: any, res: any) => {
 })
 .then((charge: any) => {
     //res.send("Success")  // If no error occurs
-    return res.render("success_payment.ejs");
+    //return res.render("success_payment.ejs");
+    if (req.session.bookingResult && req.session.flightParsed && req.session.bookingResult.traveler)
+    return res.render("booking_step3.ejs", { alert:alert, result: req.session.bookingResult, flight: req.session.flightParsed, travelerInfos: req.session.bookingResult.traveler });
+
 })
 .catch((err: any) => {
   return res.render("error.ejs");

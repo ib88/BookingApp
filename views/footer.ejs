@@ -81,9 +81,6 @@
 					<script src="/vendor/datepicker/moment.min.js"></script>
 					<script src="/vendor/datepicker/daterangepicker.js"></script>
 
-					<!-- Main JS-->
-					<script src="js/global.js"></script>
-
 					<!-- <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
 						integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
 						crossorigin="anonymous">
@@ -195,13 +192,13 @@
 							}).then(function (data) {
 								for (i = 0; i < data.length; i++) {
 									if (typeof data[i].detailedName != 'undefined')
-										list += '<li ' + 'data-value=' + data[i].iataCode + '>' + data[i].detailedName + "-----" +
-											data[i].subType + '</li>';
+										list += '<tr> <td style="cursor: pointer; color: #3D71E9; font-weight: 600px; background-color: #f7f7f; border-width: 2px;"' + 'data-value=' + data[i].iataCode + '>' + data[i].detailedName + "--" +
+											data[i].subType + '</td> </tr>';
 								}
 								//res.innerHTML = `<ul id=sourceFlightList>` + list + '</ul>';
-								res.innerHTML = `<ul id=${listId}>` + list + '</ul>';
+								res.innerHTML = `<table class="table table-hover" style="width:100%; border-width: 3px;" id=${listId} >` + list + '</table>';
 								// $("ul[id*=sourceFlightList] li").click(function () {
-								$(`ul[id*=${listId}] li`).click(function () {
+								$(`table[id*=${listId}] tr td`).click(function () {
 									// document.getElementById("sourceFlightCode").value = "";
 									document.getElementById(`${hiddenFieldId}`).value = "";
 									document.getElementById(`${hiddenFieldId}`).value = $(this).data('value');

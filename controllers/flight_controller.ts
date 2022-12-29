@@ -3,9 +3,11 @@ const { AmadeusMockRepo, AmadeusRepo, airlineInfo } = require("../Repositories/I
 const { DatesInfo } = require("../Models/DatesInfo");
 import { ObjectMapper } from "jackson-js";
 import { FlightOffer } from "../Models/FlightOffer";
-const { API_KEY, API_SECRET } = require("../config");
+const { API_KEY, API_SECRET, PUBLISHABLE_KEY, SECRET_KEY } = require("../config");
 const Amadeus = require("amadeus");
 const express = require("express");
+
+const stripe = require('stripe')(SECRET_KEY);
 
 const axios = require("axios");
 var _ = require("underscore");
@@ -27,11 +29,11 @@ app.set("view engine", "ejs");
 // Create router
 const router = express.Router();
 // Create Amadeus API client
-const amadeus = new Amadeus({
-  clientId: API_KEY,
-  clientSecret: API_SECRET,
-  hostname: 'production'
-});
+// const amadeus = new Amadeus({
+//   clientId: API_KEY,
+//   clientSecret: API_SECRET,
+//   hostname: 'production'
+// });
 
 const objectMapper = new ObjectMapper();
 const amadeusRepo = new AmadeusRepo();
@@ -124,13 +126,91 @@ router.post(`/bookFlight`, [
     pricingResponse = await amadeusRepo.confirmFlight(pricingOffer);
 
   } catch (e: any) {
-    return res.render("error.ejs");
+    return res.render("error.ejs", { alert: "the flihgt might have been booked already!" });
   }
   let bookingResult = await amadeusRepo.bookFlight(pricingResponse, firstName, lastName, birthDate, gender, email);
+  req.session.bookingResult = bookingResult;
+  req.session.traveler = traveler;
+
+
   //console.log("Flight Booking response:", bookingResult);
   //let emailResult = await amadeusRepo.sendEmail("imefire@gmail.com", "imefire@gmail.com", "Booking confirmation", bookingResult.data.id,"<b>"+ bookingResult.data.id + "</b>");
 
-  return res.render("booking_step3.ejs", { alert:alert, result: bookingResult, flight: flightParsed, travelerInfos: traveler });
+  //return res.render("booking_step3.ejs", { alert:alert, result: bookingResult, flight: flightParsed, travelerInfos: traveler });
+  return res.render("stripe_payment", { key: PUBLISHABLE_KEY, flight: flightParsed });
+
+
+
+});
+
+router.get(`/stripePayment`, async (req: any, res: any) => {
+  return res.render("stripe_payment", { key: PUBLISHABLE_KEY });
+});
+
+router.post(`/stripePayment`, async (req: any, res: any) => {
+
+  stripe.customers.create({
+    email: req.body.stripeEmail,
+    source: req.body.stripeToken,
+    name: 'Gourav Hammad',
+    address: {
+      line1: 'TC 9/4 Old MES colony',
+      postal_code: '452331',
+      city: 'Indore',
+      state: 'Madhya Pradesh',
+      country: 'India',
+    }
+  })
+    .then((customer: any) => {
+
+      return stripe.charges.create({
+        amount: (req.session.flightParsed.price_.total_ * 100),     // Charging Rs 25
+        description: 'Web Development Product',
+        currency: 'EUR',
+        customer: customer.id
+      });
+    })
+    .then((charge: any) => {
+      //res.send("Success")  // If no error occurs
+      //return res.render("success_payment.ejs");
+      if (req.session.bookingResult && req.session.flightParsed && req.session.traveler)
+        return res.render("booking_step3.ejs", { result: req.session.bookingResult, flight: req.session.flightParsed, travelerInfos: req.session.traveler });
+
+    })
+    .catch((err: any) => {
+
+      let alert=undefined;
+      switch (err.type) {
+        case 'StripeCardError':
+          // A declined card error
+          alert = "Your card's expiration year is invalid.";
+          break;
+        case 'StripeRateLimitError':
+          // Too many requests made to the API too quickly
+          alert = "Too many requests made to the API too quickly.";
+          break;
+        case 'StripeInvalidRequestError':
+          // Invalid parameters were supplied to Stripe's API
+          alert = "Invalid parameters were supplied to Stripe's API";
+          break;
+        case 'StripeAPIError':
+          // An error occurred internally with Stripe's API
+          alert = "An error occurred internally with Stripe's API";
+          break;
+        case 'StripeConnectionError':
+          alert = "Some kind of error occurred during the HTTPS communication";
+          // Some kind of error occurred during the HTTPS communication
+          break;
+        case 'StripeAuthenticationError':
+          // You probably used an incorrect API key
+          alert = "You probably used an incorrect API key";
+          break;
+        default:
+          alert = err.message;
+          break;
+      }
+      return res.render("error.ejs",{alert:alert});
+    });
 
 });
 
@@ -221,40 +301,6 @@ router.post(`/flightOffer`, [
     let pricingOffer = JSON.parse(pricingOfferStr);
     let bookingOffer = undefined;
 
-    //pricingOffer.price.grandTotal = "20";
-    //pricingOffer.price.total = "20";
-
-
-    //let pricingResponse = await amadeusRepo.confirmFlight(pricingOffer);
-    //console.log("Flight confirmation response:", pricingResponse.result);
-
-
-    //let bookingResult = await amadeusRepo.bookFlight(pricingResponse);
-    //console.log("Flight Booking response:", bookingResult);
-
-
-    // amadeus.shopping.flightOffers.pricing.post(
-    //   JSON.stringify({
-    //     'data': {
-    //       'type': 'flight-offers-pricing',
-    //       'flightOffers': [pricingOffer],
-    //     }
-    //   })
-    // ).then(function (response) {
-    //   console.log("Flight confirmation response:", response.result);
-    //   //bookingOffer=response;
-    //   let bookingResult =  amadeusRepo.bookFlight(response);
-    //   console.log("Flight Booking response:", bookingResult);
-
-    //   // res.send(response.result);
-    // }).catch(function (response) {
-    //   //res.send(response)
-    //   console.log(response);
-    // });
-
-    // let bookingResult = await amadeusRepo.bookFlight(bookingOffer);
-    // console.log("Flight Booking response:", bookingResult.result);
-    //////////////////////////////
     return res.render("flights", { business: flights });
   }
   catch (err) {
@@ -264,31 +310,31 @@ router.post(`/flightOffer`, [
 
 
 
-router.get(`/cheapestDates`, async (req: any, res: any) => {
-  // Find the cheapest flights from SYD to BKK
-  // Find cheapest dates from Madrid to Munich
-  amadeus.shopping.flightDates.get({
-    origin: 'LON',
-    destination: 'MUC'
-    // departureDate:  '2022-09-10'
-  }).then(function (response: any) {
-    return res.json(response);
-  }).catch(function (response: any) {
-    console.error(response);
-  });
-});
+// router.get(`/cheapestDates`, async (req: any, res: any) => {
+//   // Find the cheapest flights from SYD to BKK
+//   // Find cheapest dates from Madrid to Munich
+//   amadeus.shopping.flightDates.get({
+//     origin: 'LON',
+//     destination: 'MUC'
+//     // departureDate:  '2022-09-10'
+//   }).then(function (response: any) {
+//     return res.json(response);
+//   }).catch(function (response: any) {
+//     console.error(response);
+//   });
+// });
 
-router.get(`/getAirline`, async (req: any, res: any) => {
-  // Find the cheapest flights from SYD to BKK
-  // Find cheapest dates from Madrid to Munich
-  amadeus.referenceData.airlines.get({
-    airlineCodes: 'TR'
-  }).then(function (response: any) {
-    console.log(response);
-  }).catch(function (response: any) {
-    console.error(response);
-  });
-});
+// router.get(`/getAirline`, async (req: any, res: any) => {
+//   // Find the cheapest flights from SYD to BKK
+//   // Find cheapest dates from Madrid to Munich
+//   amadeus.referenceData.airlines.get({
+//     airlineCodes: 'TR'
+//   }).then(function (response: any) {
+//     console.log(response);
+//   }).catch(function (response: any) {
+//     console.error(response);
+//   });
+// });
 
 router.get(`/flightAvSearch`, async (req: { query: { source: any; destination: any; departureDate: any; returnDate: any; adults: any; }; body: { sourceFlightCode: any; destinationFlightCode: any; datepickerSourceFlight: any; adults: any; }; }, res: { render: (arg0: string, arg1: { business: never[]; }) => any; json: (arg0: unknown) => void; }) => {
   // Find the cheapest flights from SYD to BKK

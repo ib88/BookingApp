@@ -187,7 +187,7 @@
 								return;
 							}
 							let list = '';
-							fetch('http://localhost:8888/Moqflight/getAirportSuggestion?keyword=' + val).then(function (response) {
+							fetch('/Moqflight/getAirportSuggestion?keyword=' + val).then(function (response) {
 								return response.json();
 							}).then(function (data) {
 								for (i = 0; i < data.length; i++) {

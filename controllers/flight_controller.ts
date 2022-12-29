@@ -126,7 +126,7 @@ router.post(`/bookFlight`, [
     pricingResponse = await amadeusRepo.confirmFlight(pricingOffer);
 
   } catch (e: any) {
-    return res.render("error.ejs");
+    return res.render("error.ejs", { alert: "the flihgt might have been booked already!" });
   }
   let bookingResult = await amadeusRepo.bookFlight(pricingResponse, firstName, lastName, birthDate, gender, email);
   req.session.bookingResult = bookingResult;
@@ -137,14 +137,14 @@ router.post(`/bookFlight`, [
   //let emailResult = await amadeusRepo.sendEmail("imefire@gmail.com", "imefire@gmail.com", "Booking confirmation", bookingResult.data.id,"<b>"+ bookingResult.data.id + "</b>");
 
   //return res.render("booking_step3.ejs", { alert:alert, result: bookingResult, flight: flightParsed, travelerInfos: traveler });
-  return res.render("stripe_payment", { key: PUBLISHABLE_KEY, flight:flightParsed});
+  return res.render("stripe_payment", { key: PUBLISHABLE_KEY, flight: flightParsed });
 
 
 
 });
 
 router.get(`/stripePayment`, async (req: any, res: any) => {
-  return res.render("stripe_payment", { key: PUBLISHABLE_KEY});
+  return res.render("stripe_payment", { key: PUBLISHABLE_KEY });
 });
 
 router.post(`/stripePayment`, async (req: any, res: any) => {
@@ -154,32 +154,63 @@ router.post(`/stripePayment`, async (req: any, res: any) => {
     source: req.body.stripeToken,
     name: 'Gourav Hammad',
     address: {
-        line1: 'TC 9/4 Old MES colony',
-        postal_code: '452331',
-        city: 'Indore',
-        state: 'Madhya Pradesh',
-        country: 'India',
+      line1: 'TC 9/4 Old MES colony',
+      postal_code: '452331',
+      city: 'Indore',
+      state: 'Madhya Pradesh',
+      country: 'India',
     }
-})
-.then((customer: any) => {
+  })
+    .then((customer: any) => {
 
-    return stripe.charges.create({
-        amount: 25000,     // Charging Rs 25
+      return stripe.charges.create({
+        amount: (req.session.flightParsed.price_.total_ * 100),     // Charging Rs 25
         description: 'Web Development Product',
-        currency: 'INR',
+        currency: 'EUR',
         customer: customer.id
-    });
-})
-.then((charge: any) => {
-    //res.send("Success")  // If no error occurs
-    //return res.render("success_payment.ejs");
-    if (req.session.bookingResult && req.session.flightParsed && req.session.bookingResult.traveler)
-    return res.render("booking_step3.ejs", { alert:alert, result: req.session.bookingResult, flight: req.session.flightParsed, travelerInfos: req.session.bookingResult.traveler });
+      });
+    })
+    .then((charge: any) => {
+      //res.send("Success")  // If no error occurs
+      //return res.render("success_payment.ejs");
+      if (req.session.bookingResult && req.session.flightParsed && req.session.traveler)
+        return res.render("booking_step3.ejs", { result: req.session.bookingResult, flight: req.session.flightParsed, travelerInfos: req.session.traveler });
 
-})
-.catch((err: any) => {
-  return res.render("error.ejs");
-});
+    })
+    .catch((err: any) => {
+
+      let alert=undefined;
+      switch (err.type) {
+        case 'StripeCardError':
+          // A declined card error
+          alert = "Your card's expiration year is invalid.";
+          break;
+        case 'StripeRateLimitError':
+          // Too many requests made to the API too quickly
+          alert = "Too many requests made to the API too quickly.";
+          break;
+        case 'StripeInvalidRequestError':
+          // Invalid parameters were supplied to Stripe's API
+          alert = "Invalid parameters were supplied to Stripe's API";
+          break;
+        case 'StripeAPIError':
+          // An error occurred internally with Stripe's API
+          alert = "An error occurred internally with Stripe's API";
+          break;
+        case 'StripeConnectionError':
+          alert = "Some kind of error occurred during the HTTPS communication";
+          // Some kind of error occurred during the HTTPS communication
+          break;
+        case 'StripeAuthenticationError':
+          // You probably used an incorrect API key
+          alert = "You probably used an incorrect API key";
+          break;
+        default:
+          alert = err.message;
+          break;
+      }
+      return res.render("error.ejs",{alert:alert});
+    });
 
 });
 
@@ -270,40 +301,6 @@ router.post(`/flightOffer`, [
     let pricingOffer = JSON.parse(pricingOfferStr);
     let bookingOffer = undefined;
 
-    //pricingOffer.price.grandTotal = "20";
-    //pricingOffer.price.total = "20";
-
-
-    //let pricingResponse = await amadeusRepo.confirmFlight(pricingOffer);
-    //console.log("Flight confirmation response:", pricingResponse.result);
-
-
-    //let bookingResult = await amadeusRepo.bookFlight(pricingResponse);
-    //console.log("Flight Booking response:", bookingResult);
-
-
-    // amadeus.shopping.flightOffers.pricing.post(
-    //   JSON.stringify({
-    //     'data': {
-    //       'type': 'flight-offers-pricing',
-    //       'flightOffers': [pricingOffer],
-    //     }
-    //   })
-    // ).then(function (response) {
-    //   console.log("Flight confirmation response:", response.result);
-    //   //bookingOffer=response;
-    //   let bookingResult =  amadeusRepo.bookFlight(response);
-    //   console.log("Flight Booking response:", bookingResult);
-
-    //   // res.send(response.result);
-    // }).catch(function (response) {
-    //   //res.send(response)
-    //   console.log(response);
-    // });
-
-    // let bookingResult = await amadeusRepo.bookFlight(bookingOffer);
-    // console.log("Flight Booking response:", bookingResult.result);
-    //////////////////////////////
     return res.render("flights", { business: flights });
   }
   catch (err) {

@@ -192,15 +192,17 @@
 					<!--//Error type-->
 					
 					<!--Error content-->
+					<% if(typeof alert !='undefined' || alert!=null) { %>
 					<div class="error-content">
-						<h2>Whoops, An error occured.</h2>
+						<h2> <%= alert %> </h2>
 						<h3>Don’t worry. Reload the site and try again.</h3>
-						<ul>
+						<!-- <ul>
 							<li>If you typed in the address, check your spelling. Could just be a typo.</li>
 							<li>If you followed a link, it’s probably broken. Please <a href="#">contact us</a> and we’ll fix it.</li>
 							<li>If you’re not sure what you’re looking for, go back to <a href="#">homepage</a>.</li>
-						</ul>
+						</ul> -->
 					</div>
+					<% }) %>
 					<!--//Error content-->
 				</section>
 			</div>

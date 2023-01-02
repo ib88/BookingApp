@@ -3,11 +3,11 @@ const { AmadeusMockRepo, AmadeusRepo, airlineInfo } = require("../Repositories/I
 const { DatesInfo } = require("../Models/DatesInfo");
 import { ObjectMapper } from "jackson-js";
 import { FlightOffer } from "../Models/FlightOffer";
-const { API_KEY, API_SECRET, PUBLISHABLE_KEY, SECRET_KEY } = require("../config");
+const { API_KEY, API_SECRET, STRIPE_PUBLISHABLE_KEY, STRIPE_SECRET_KEY } = require("../config");
 const Amadeus = require("amadeus");
 const express = require("express");
 
-const stripe = require('stripe')(SECRET_KEY);
+const stripe = require('stripe')(STRIPE_SECRET_KEY);
 
 const axios = require("axios");
 var _ = require("underscore");
@@ -144,14 +144,14 @@ router.post(`/bookFlight`, [
   //let emailResult = await amadeusRepo.sendEmail("imefire@gmail.com", "imefire@gmail.com", "Booking confirmation", bookingResult.data.id,"<b>"+ bookingResult.data.id + "</b>");
 
   //return res.render("booking_step3.ejs", { alert:alert, result: bookingResult, flight: flightParsed, travelerInfos: traveler });
-  return res.render("stripe_payment", { key: PUBLISHABLE_KEY, flight: flightParsed });
+  return res.render("stripe_payment", { key: STRIPE_PUBLISHABLE_KEY, flight: flightParsed });
 
 
 
 });
 
 router.get(`/stripePayment`, async (req: any, res: any) => {
-  return res.render("stripe_payment", { key: PUBLISHABLE_KEY });
+  return res.render("stripe_payment", { key: STRIPE_PUBLISHABLE_KEY });
 });
 
 router.post(`/stripePayment`, async (req: any, res: any) => {

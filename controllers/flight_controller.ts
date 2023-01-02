@@ -3,11 +3,11 @@ const { AmadeusMockRepo, AmadeusRepo, airlineInfo } = require("../Repositories/I
 const { DatesInfo } = require("../Models/DatesInfo");
 import { ObjectMapper } from "jackson-js";
 import { FlightOffer } from "../Models/FlightOffer";
-const { API_KEY, API_SECRET, PUBLISHABLE_KEY, SECRET_KEY } = require("../config");
+const { API_KEY, API_SECRET, STRIPE_PUBLISHABLE_KEY, STRIPE_SECRET_KEY } = require("../config");
 const Amadeus = require("amadeus");
 const express = require("express");
 
-const stripe = require('stripe')(SECRET_KEY);
+const stripe = require('stripe')(STRIPE_SECRET_KEY);
 
 const axios = require("axios");
 var _ = require("underscore");
@@ -121,14 +121,21 @@ router.post(`/bookFlight`, [
   if (req.session.flightJson)
     pricingOffer = JSON.parse(req.session.flightJson);
 
-  let pricingResponse
+  let pricingResponse;
+  let bookingResult;
   try {
     pricingResponse = await amadeusRepo.confirmFlight(pricingOffer);
 
   } catch (e: any) {
-    return res.render("error.ejs", { alert: "the flihgt might have been booked already!" });
+    return res.render("error.ejs", { alert: "the flihgt might have been booked already!" +"Detail: " + e.response.body });
   }
-  let bookingResult = await amadeusRepo.bookFlight(pricingResponse, firstName, lastName, birthDate, gender, email);
+
+  try {
+     bookingResult = await amadeusRepo.bookFlight(pricingResponse, firstName, lastName, birthDate, gender, email);
+
+  } catch (e: any) {
+    return res.render("error.ejs", { alert: "the flihgt might have been booked already!" +"Detail: " + e.response.body });
+  }
   req.session.bookingResult = bookingResult;
   req.session.traveler = traveler;
 
@@ -137,14 +144,14 @@ router.post(`/bookFlight`, [
   //let emailResult = await amadeusRepo.sendEmail("imefire@gmail.com", "imefire@gmail.com", "Booking confirmation", bookingResult.data.id,"<b>"+ bookingResult.data.id + "</b>");
 
   //return res.render("booking_step3.ejs", { alert:alert, result: bookingResult, flight: flightParsed, travelerInfos: traveler });
-  return res.render("stripe_payment", { key: PUBLISHABLE_KEY, flight: flightParsed });
+  return res.render("stripe_payment", { key: STRIPE_PUBLISHABLE_KEY, flight: flightParsed });
 
 
 
 });
 
 router.get(`/stripePayment`, async (req: any, res: any) => {
-  return res.render("stripe_payment", { key: PUBLISHABLE_KEY });
+  return res.render("stripe_payment", { key: STRIPE_PUBLISHABLE_KEY });
 });
 
 router.post(`/stripePayment`, async (req: any, res: any) => {

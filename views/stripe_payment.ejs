@@ -1,23 +1,11 @@
-
-<!DOCTYPE html>
-<html>
-<title>Stripe Payment Demo</title>
-<body>
+<%- include('header'); -%>
     <h3>Welcome to Payment Gateway</h3>
     <% if(typeof flight !='undefined' ) { %>
-    <form action="/flight/stripePayment/" method="POST">
-       <script
-          src="//checkout.stripe.com/v2/checkout.js"
-          class="stripe-button"
-          data-key="<%= key %>"
-          data-amount="<%= (flight.price_.total_ * 100)%>"
-          data-amount="50,2"
-          data-currency="eur"
-          data-name="Crafty Gourav"
-          data-description="Flight ticket reservation"
-          data-locale="auto" >
-        </script>
-    </form>
-    <% } %>
-</body>
-</html>
+        <form action="/flight/stripePayment/" method="POST">
+            <script src="//checkout.stripe.com/v2/checkout.js" class="stripe-button" data-key="<%= key %>"
+                data-amount="<%= (flight.price_.total_ * 100)%>" data-amount="50,2" data-currency="eur"
+                data-name="Crafty Gourav" data-description="Flight ticket reservation" data-locale="auto">
+                </script>
+        </form>
+        <% } %>
+<%- include('footer'); -%>

@@ -219,7 +219,27 @@ h6	{font-size:18px;font-weight:1000;padding:0 0 20px;}
 .full-width > h1 	{font-size:26px;padding:20px 10px 44px;text-shadow:0 1px 0 rgba(238, 238, 238, 1);display: inline-block;width: 100%;}
 
 /* 04  Layout */
-.wrap				{margin:0 auto;text-align:left;width:1170px;max-width:94%;position:relative;}
+.wrap{
+	margin:0 auto;
+	text-align:left;
+	/* background-color: #fff; */
+	width:1170px;
+	max-width:94%;
+	position:relative;
+}
+
+@media only screen and (max-width: 768px){
+	.wrap{
+		margin:0 auto;
+		/* margin-bottom: 300px; */
+		top: 400px;
+		text-align:left;
+		width:1170px;
+		max-width:94%;
+		position:relative;
+	}
+	
+}
 .row 				{margin:0 -10px;} 
 .full-width 		{width:100%;float:left;display:block;padding:0 10px;margin:0 0 20px;}
 .three-fourth 	{width:75%;float:left;display:block;padding:0 10px;margin:0 0 20px;}
@@ -792,7 +812,27 @@ section.error  .one-third 	{text-align:center;}
 .error-content a  					{color:#3F3F3F;}
 
 /* 14 Footer */
-.footer {float:left;width:100%;background:#fff;-webkit-box-shadow:0 0 2px rgba(0,0,0,0.2);-moz-box-shadow:0 0 2px rgba(0,0,0,0.2);box-shadow:0 0 2px rgba(0,0,0,0.2);}
+.footer {
+	float:left;
+	width:100%;
+	margin-top: 300px;
+	background:#fff;
+	-webkit-box-shadow:0 0 2px rgba(0,0,0,0.2);
+	-moz-box-shadow:0 0 2px rgba(0,0,0,0.2);
+	box-shadow:0 0 2px rgba(0,0,0,0.2);
+}
+@media only screen and (max-width: 768px){
+	.footer {
+		float:left;
+		width:100%;
+		margin-top: 300px;
+		background-color: transparent;
+		-webkit-box-shadow:0 0 2px rgba(0,0,0,0.2);
+		-moz-box-shadow:0 0 2px rgba(0,0,0,0.2);
+		box-shadow:0 0 2px rgba(0,0,0,0.2);
+	}
+	
+}
 .footer h6 		{font-size:18px;color:#999;padding:23px 0 18px;}
 .footer p 			{padding:0 0 2px;}
 .footer p em 			{font-style:normal;font-weight:700;color:#3facaa;}
@@ -1416,27 +1456,4 @@ div.containers {
 	z-index: 10;
 	background-color: #f7f7f7;
 	border: #000 3px;
-}
-
-.div-results-input ul {
-	list-style-type: none;
-	border-top: #000;
-	border-width: 3px;
-	border-bottom: #000;
-}
-
-.list-results{
-	border-top: #000;
-	border-width: 3px;
-	border-bottom: #000;
-}
-
-#destinationList{
-	border-top: #000;
-	border-width: 3px;
-	border-bottom: #000;
-}
-
-tr:nth-child(even) {
-	background-color: #f2f2f2;
 }

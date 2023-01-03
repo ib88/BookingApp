@@ -14,7 +14,7 @@
     "start": "node ./dist/index.js",
     "dist": "tsc -p .",
     "dev": "nodemon ./dist/index.js",
-    "copy-files": "copyfiles -u 1 ./views/**/*.* dist/views",
+    "copy-files": "copyfiles --verbose -u 1 ./views/**/*.* dist/views",
     "clean": "rm -rf ./dist",
     "type": "module"
   },
@@ -44,6 +44,7 @@
     "path": "^0.12.7",
     "request": "^2.88.2",
     "run": "^1.4.0",
+    "stripe": "^11.5.0",
     "underscore": "^1.13.3",
     "util": "^0.12.4",
     "web3": "^1.7.0"

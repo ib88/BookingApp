@@ -316,7 +316,7 @@ aside .widget h5			{font:700 14px 'Open Sans', Helvetica, Arial, sans-serif;padd
 	box-shadow: 1px 1px 1px 3px #000;
 	/* -moz-box-shadow:0 0 3px rgba(0,0,0,0.2);
 	-webkit-box-shadow:0 0 3px rgba(0,0,0,0.2); */
-	background-color: #5cccc4;
+	background-color: #3D71E9;
 	/* background: -moz-linear-gradient(top, rgba(255,255,255,1) 0%, rgba(242,242,242,1) 100%);
 	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(255,255,255,1)), color-stop(100%,rgba(242,242,242,1)));
 	background: -webkit-linear-gradient(top, rgba(255,255,255,1) 0%,rgba(242,242,242,1) 100%);
@@ -418,8 +418,21 @@ aside .widget h5			{font:700 14px 'Open Sans', Helvetica, Arial, sans-serif;padd
 
 
 /* 07.2 Offers, Deals lists */
-.s-title		{display: inline-block;width: 100%;}
-.s-title h2	{font-size:26px;margin:40px 0 0;padding:35px 0 40px;display: inline-block;width: 100%;border-top:1px solid rgba(255, 255, 255, 0.7);-webkit-box-shadow:0 -1px 0 rgba(0, 0, 0, 0.15);-moz-box-shadow:0 -1px 0 rgba(0, 0, 0, 0.15);box-shadow:0 -1px 0 rgba(0, 0, 0, 0.15);}
+.s-title {
+	display: inline-block;
+	width: 100%;
+}
+.s-title h2	{
+	font-size: 26px;
+	margin: 40px 0 0;
+	padding: 35px 0 40px;
+	display: inline-block;
+	width: 100%;
+	border-top:1px solid rgba(255, 255, 255, 0.7);
+	-webkit-box-shadow:0 -1px 0 rgba(0, 0, 0, 0.15);
+	-moz-box-shadow:0 -1px 0 rgba(0, 0, 0, 0.15);
+	box-shadow:0 -1px 0 rgba(0, 0, 0, 0.15);
+}
 .s-title:first-of-type h2 {border-top:none;margin:0;padding-top:17px;-webkit-box-shadow:none;-moz-box-shadow:none;box-shadow:none;}
 
 .offers article,.deals article,.destinations article,.boxes article {position:relative;}
@@ -1032,7 +1045,7 @@ ul.slimmenu li a 	{padding:10px 10px 10px 2.7%;}
 .boxes .one-fourth	{width:50%;}
 
 .slider {height:auto;float:left;width:100%;}
-.main-search .wrap > form					{position:static;}
+/* .main-search .wrap > form					{position:static;}
 .main-search										{padding-bottom:20px;}
 .main-search .column,
 .main-search .three-fourth					{width:100% !important;padding:0 15px;}
@@ -1043,7 +1056,7 @@ ul.slimmenu li a 	{padding:10px 10px 10px 2.7%;}
 .main-search .radios .f-item 								{width:33% !important;}
 .main-search .f-item.one-half								{width:50% !important;}
 .main-search .f-item.one-third							{width:33.33% !important;}
-.main-search .gradient-button							{width:auto;bottom:3px;min-width:17%;}
+.main-search .gradient-button							{width:auto;bottom:3px;min-width:17%;} */
 
 .lb-wrap {width:46%;left:27%;}
 
@@ -1269,7 +1282,161 @@ width: 100%;
 .btn-green{
 	background-color: #43a047;
 }
-/* .feature-box{
-	margin-left: 50px;
-	margin-right: 50px;
-} */
+
+/* Flight results box */
+
+div.containers {
+	max-width: 1350px;
+	margin: 0 auto;
+	overflow: hidden;
+	/* background: #999; */
+  }
+  .containers .item {
+	width: 98%;
+	float: left;
+	padding: 0 20px;
+	background: #fff;
+	overflow: hidden;
+	margin: 10px
+  }
+  .containers .item-right, .containers .item-left {
+	float: left;
+	padding: 20px 
+  }
+  .containers .item-right {
+	/* padding: 79px 50px; */
+	margin-right: 20px;
+	width: 25%;
+	position: relative;
+	height: 100px
+  }
+  .containers .item-right .up-border, .containers .item-right .down-border {
+	  padding: 14px 15px;
+	  background-color: #e0dcdc;
+	  border-radius: 50%;
+	  position: absolute
+  }
+  .containers .item-right .up-border {
+	top: -12px;
+	right: -35px;
+  }
+  .containers .item-right .down-border {
+	bottom: -235px;
+	right: -35px;
+  }
+  .containers .item-right .num {
+	font-size: 60px;
+	font-weight: bold;
+	text-align: center;
+	color: #111
+  }
+  .containers .item-right .day, .containers .item-left .event {
+	color: #555;
+	font-weight: bold;
+	font-size: 20px;
+	margin-bottom: 0px;
+  }
+  .containers .item-right .day {
+	text-align: center;
+	font-size: 25px;
+  }
+  .containers .item-left {
+	width: 71%;
+	padding: 34px 0px 19px 46px;
+	border-left: 3px dotted #000;
+  } 
+  .containers .item-left .title {
+	color: #3D71E9;
+	text-align: left;
+	font-weight: bold;
+	font-size: 34px;
+	margin-bottom: 12px
+  }
+  .containers .item-left .sce {
+	margin-top: 5px;
+	display: block;
+	border-right: 10px solid #ccc;
+  }
+  .containers .item-left .sce .icon, .containers .item-left .sce p,
+  .containers .item-left .loc .icon, .containers .item-left .loc p{
+	  float: left;
+	  word-spacing: 5px;
+	  letter-spacing: 1px;
+	  color: #888;
+	  margin-bottom: 10px;
+  }
+  .containers .item-left .sce .icon, .containers .item-left .loc .icon {
+	margin-right: 10px;
+	font-size: 20px;
+	color: #666
+  }
+  .containers .item-left .loc {
+	display: block;
+  }
+  .fix {clear: both}
+  .containers .item .tickets, .booked, .cancel{
+	  color: #fff;
+	  padding: 6px 14px;
+	  float: right;
+	  margin-top: 10px;
+	  box-shadow: 5px 3px 3px black;
+	  font-size: 18px;
+	  border: none;
+	  cursor: pointer
+  }
+  .containers .item .tickets {
+	background: #777;
+}
+  .containers .item .booked {
+	background: #f9900e;
+}
+  .containers .item .cancel {background: #DF5454}
+  .linethrough {text-decoration: line-through}
+  @media only screen and (max-width: 1150px) {
+	.containers .item {
+	  width: 100%;
+	  margin-right: 20px
+	}
+	div.containers {
+	  margin: 0 20px auto
+	}
+  }
+  
+  .containers img{
+	display: block;
+	margin: auto;
+  }
+  
+  big{
+	color: #555;
+  }
+
+.div-results-input{
+	position: absolute;
+	z-index: 10;
+	background-color: #f7f7f7;
+	border: #000 3px;
+}
+
+.div-results-input ul {
+	list-style-type: none;
+	border-top: #000;
+	border-width: 3px;
+	border-bottom: #000;
+}
+
+.list-results{
+	border-top: #000;
+	border-width: 3px;
+	border-bottom: #000;
+}
+
+#destinationList{
+	border-top: #000;
+	border-width: 3px;
+	border-bottom: #000;
+}
+
+tr:nth-child(even) {
+	background-color: #f2f2f2;
+}

@@ -1,0 +1,111 @@
+<div class="main-search">
+    <div class="wrap">
+        <form id="main-search" method="post" action="/flight/flightOffer/">
+            <div class="row">
+                <!--column-->
+                <div class="column radios one-fourth">
+                    <h5><span>01</span> What?</h5>
+                    <div class="row">
+                        <div class="f-item one-half">
+                            <input type="radio" name="radio" id="hotel" value="form1" />
+                            <label for="hotel">Hotel</label>
+                        </div>
+                        <!-- <div class="f-item one-half">
+                            <input type="radio" name="radio" id="self_catering" value="form2" />
+                            <label for="self_catering">Self Catering</label>
+                        </div> -->
+                        <div class="f-item one-half">
+                            <input type="radio" name="radio" id="flight" value="form3"
+                                checked />
+                            <label for="flight">Flight</label>
+                        </div>
+                    </div>
+                </div>
+                <!--//column-->
+
+                <div class="three-fourth">
+                    <!--form flight-->
+                    <div class="form row" id="form3">
+                        <!--column-->
+                        <div class="column one-third">
+                            <h5><span>02</span> Where?</h5>
+                            <div class="row">
+                                <div class="f-item full-width">
+
+                                    <label for="sourceFlight">Leaving from</label>
+
+                                    <!-- <input type="text" placeholder="specific airport"
+                                        id="sourceFlight" name="sourceFlight"
+                                        onKeyUp="showResultsSource(this.id, this.value, 'sourceList', 'resultSourceFlightDiv', 'sourceFlightCode')" /> -->
+
+                                    <input type="text" placeholder="specific airport"
+                                        id="sourceFlight" name="sourceFlight" required="true" />
+                                    <input type="hidden" id="sourceFlightCode"
+                                        name="sourceFlightCode" value="" />
+                                    <div id="resultSourceFlightDiv"></div>
+                                </div>
+                                <div class="f-item full-width">
+                                    <label for="destinationFlight">Going to</label>
+                                    <input type="text" placeholder="specific airport"
+                                        id="destinationFlight" name="destinationFlight"
+                                        required="true" />
+                                </div>
+                                <input type="hidden" id="destinationFlightCode"
+                                    name="destinationFlightCode" value="">
+                                <div id="resultDestinationFlightDiv"></div>
+                            </div>
+                        </div>
+                        <!--//column-->
+
+                        <!--column-->
+                        <div class="column one-third">
+                            <h5><span>03</span> When?</h5>
+                            <div class="row">
+                                <div class="f-item full-width datepicker">
+                                    <label for="datepickerSourceFlight">Departing on</label>
+                                    <div class="row">
+                                        <div class="f-item one-half">
+                                            <div class="datepicker-wrap"><input type="text"
+                                                    placeholder="" id="datepickerSourceFlight"
+                                                    name="datepickerSourceFlight"
+                                                    required="true" />
+                                            </div>
+                                        </div>
+
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!--//column-->
+
+                        <!--column-->
+                        <div class="column one-third">
+                            <h5><span>04</span> Who?</h5>
+                            <div class="row">
+                                <div class="f-item one-third spinner">
+                                    <label for="adultsFlight">Adults</label>
+                                    <input type="text" placeholder="" id="adultsFlight"
+                                        name="adultsFlight" required="true" />
+                                </div>
+                                <!-- <div class="f-item one-third spinner">
+                    <label for="spinner7">Children</label>
+                    <input type="text" placeholder="" id="spinner7" name="spinner7" />
+                </div>
+                <div class="f-item one-third spinner">
+                    <label for="spinner8">Infants</label>
+                    <input type="text" placeholder="" id="spinner8" name="spinner8" />
+                </div> -->
+                            </div>
+                        </div>
+                        <!--//column-->
+                    </div>
+                    <!--//form flight-->
+                </div>
+                <input type="submit" value="Proceed to results"
+                    class="gradient-button search-submit" id="search-submit" />
+            </div>
+        </form>
+    </div>
+</div>
+<!--//search-->

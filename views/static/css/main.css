@@ -282,7 +282,7 @@ body{margin-top:20px;
 	.invoice header {
 		padding: 10px 0;
 		margin-bottom: 20px;
-		border-bottom: 1px solid #0d6efd
+		border-bottom: 1px solid #3D71E9
 	}
 	
 	.invoice .company-details {
@@ -313,7 +313,8 @@ body{margin-top:20px;
 	
 	.invoice .invoice-details .invoice-id {
 		margin-top: 0;
-		color: #0d6efd
+		/* text-align: center; */
+		color: #3D71E9
 	}
 	
 	.invoice main {
@@ -328,7 +329,7 @@ body{margin-top:20px;
 	
 	.invoice main .notices {
 		padding-left: 6px;
-		border-left: 6px solid #0d6efd;
+		border-left: 6px solid #3D71E9;
 		background: #e7f2ff;
 		padding: 10px;
 	}
@@ -360,7 +361,7 @@ body{margin-top:20px;
 	.invoice table td h3 {
 		margin: 0;
 		font-weight: 400;
-		color: #0d6efd;
+		color: #3D71E9;
 		font-size: 1.2em
 	}
 	
@@ -374,7 +375,7 @@ body{margin-top:20px;
 	.invoice table .no {
 		color: #fff;
 		font-size: 1.6em;
-		background: #0d6efd
+		background: #3D71E9
 	}
 	
 	.invoice table .unit {
@@ -382,7 +383,7 @@ body{margin-top:20px;
 	}
 	
 	.invoice table .total {
-		background: #0d6efd;
+		background: #3D71E9;
 		color: #fff
 	}
 	
@@ -418,9 +419,9 @@ body{margin-top:20px;
 	}
 	
 	.invoice table tfoot tr:last-child td {
-		color: #0d6efd;
+		color: #3D71E9;
 		font-size: 1.4em;
-		border-top: 1px solid #0d6efd
+		border-top: 1px solid #3D71E9
 	}
 	
 	.invoice table tfoot tr td:first-child {
@@ -452,7 +453,7 @@ body{margin-top:20px;
 	
 	.invoice main .notices {
 		padding-left: 6px;
-		border-left: 6px solid #0d6efd;
+		border-left: 6px solid #3D71E9;
 		background: #e7f2ff;
 		padding: 10px;
 	}

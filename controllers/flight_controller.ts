@@ -110,7 +110,7 @@ router.post(`/bookFlight`, [
   let gender = "MALE";
   let email = req.body.email;
   let traveler = undefined;
-   traveler = {
+  traveler = {
     first_name: firstName,
     last_name: lastName,
     email_: email
@@ -127,14 +127,14 @@ router.post(`/bookFlight`, [
     pricingResponse = await amadeusRepo.confirmFlight(pricingOffer);
 
   } catch (e: any) {
-    return res.render("error.ejs", { alert: "the flihgt might have been booked already!"});
+    return res.render("error.ejs", { alert: "the flihgt might have been booked already!" });
   }
 
   try {
-     bookingResult = await amadeusRepo.bookFlight(pricingResponse, firstName, lastName, birthDate, gender, email);
+    bookingResult = await amadeusRepo.bookFlight(pricingResponse, firstName, lastName, birthDate, gender, email);
 
   } catch (e: any) {
-    return res.render("error.ejs", { alert: "the flihgt might have been booked already!"});
+    return res.render("error.ejs", { alert: "the flihgt might have been booked already!" });
   }
   req.session.bookingResult = bookingResult;
   req.session.traveler = traveler;
@@ -186,7 +186,7 @@ router.post(`/stripePayment`, async (req: any, res: any) => {
     })
     .catch((err: any) => {
 
-      let alert=undefined;
+      let alert = undefined;
       switch (err.type) {
         case 'StripeCardError':
           // A declined card error
@@ -216,7 +216,7 @@ router.post(`/stripePayment`, async (req: any, res: any) => {
           alert = err.message;
           break;
       }
-      return res.render("error.ejs",{alert:alert});
+      return res.render("error.ejs", { alert: alert });
     });
 
 });

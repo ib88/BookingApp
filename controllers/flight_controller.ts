@@ -128,7 +128,7 @@ router.post(`/bookFlight`, [
     pricingResponse = await amadeusRepo.confirmFlight(pricingOffer);
 
   } catch (e: any) {
-    return res.render("error.ejs", { alert: "the flihgt might have been booked already!"});
+    return res.render("error.ejs", { alert: "the flihgt might have been booked already!" });
   }
 
   try {
@@ -279,7 +279,7 @@ router.post(`/flightOffer`, [
   try {
     let flights = await amadeusRepo.getFlightOffer(sourceCode, destinationCode, dateSourceFlight, adults, maxFlights);
     //let flights = await amadeusMockRepo.getFlightOfferReturnsNull(sourceCode, destinationCode, dateSourceFlight, adults, maxFlights);
-    if (!flights || flights == undefined || flights==null) {
+    if (!flights || flights == undefined || flights == null) {
       //return res.render("error.ejs", { alert: "the flihgt might have been booked already!" });
       return res.render("flights", { business: undefined });
     }

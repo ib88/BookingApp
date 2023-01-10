@@ -52,10 +52,9 @@ app.get("/", flightRouter);
 // app.get('/', function (req, res) {
 //   res.send('hello world')
 // });
-app.get('/booking', function (req, res) {
-  res.send('booking-step2.html');
+app.get("/", (req, res) => {
+  res.sendFile(__dirname + "/views/index.html");
 });
-
 
 
 app.listen(PORT, () => {

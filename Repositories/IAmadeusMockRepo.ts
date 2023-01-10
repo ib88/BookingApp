@@ -25,7 +25,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 
 // Create router
 const router = express.Router();
-// Create Amadeus API client
+//Create Amadeus API client
 // const amadeus = new Amadeus({
 //   clientId: API_KEY,
 //   clientSecret: API_SECRET,
@@ -103,6 +103,20 @@ export class AmadeusMockRepo implements IAmadeusRepo {
       //  { id:'1', type:'', instantTicketingRequired:true, oneWay:true, lastTicketingDate:'', nonHomogeneous:true, source: 'MAD', destination: 'MUC', departure: '2022:11:11', returnDate: '2022:11:13', price: '133', duration: '12:21' },
     ];
     return flights;
+  }
+  async getFlightOfferReturnsUndefined(source: string, destination: string, departureDate: string, adults: string, maxFlights: string): Promise<any> {
+    let flights: Array<FlightOffer> = [
+      // { id:'1', type:'', instantTicketingRequired:true, oneWay:true, lastTicketingDate:'', nonHomogeneous:true, source: 'MAD', destination: 'MUC', departure: '2022:11:11', returnDate: '2022:11:13', price: '133', duration: '12:21' },
+      //  { id:'1', type:'', instantTicketingRequired:true, oneWay:true, lastTicketingDate:'', nonHomogeneous:true, source: 'MAD', destination: 'MUC', departure: '2022:11:11', returnDate: '2022:11:13', price: '133', duration: '12:21' },
+    ];
+    return undefined;
+  }
+  async getFlightOfferReturnsNull(source: string, destination: string, departureDate: string, adults: string, maxFlights: string): Promise<any> {
+    let flights: Array<FlightOffer> = [
+      // { id:'1', type:'', instantTicketingRequired:true, oneWay:true, lastTicketingDate:'', nonHomogeneous:true, source: 'MAD', destination: 'MUC', departure: '2022:11:11', returnDate: '2022:11:13', price: '133', duration: '12:21' },
+      //  { id:'1', type:'', instantTicketingRequired:true, oneWay:true, lastTicketingDate:'', nonHomogeneous:true, source: 'MAD', destination: 'MUC', departure: '2022:11:11', returnDate: '2022:11:13', price: '133', duration: '12:21' },
+    ];
+    return undefined;
   }
 
   async getFlightAvailability(source: string, destination: string, departureDate: string, adults: string): Promise<flightInfo[]> {
@@ -184,21 +198,21 @@ export class AmadeusRepo implements IAmadeusRepo {
             "contact": {
               "emailAddress": email,//"jorge.gonzales833@telefonica.es",
               "phones": [{
-                "deviceType": "MOBILE",
-                "countryCallingCode": "34",
-                "number": "480080076"
+                "deviceType": "",//"MOBILE",
+                "countryCallingCode": "",//"34",
+                "number": ""//"480080076"
               }]
             },
             "documents": [{
-              "documentType": "PASSPORT",
-              "birthPlace": "Madrid",
-              "issuanceLocation": "Madrid",
-              "issuanceDate": "2015-04-14",
-              "number": "00000000",
-              "expiryDate": "2025-04-14",
-              "issuanceCountry": "ES",
-              "validityCountry": "ES",
-              "nationality": "ES",
+              "documentType": "",//"PASSPORT",
+              "birthPlace": "",//"Madrid",
+              "issuanceLocation": "",//"Madrid",
+              "issuanceDate": "",//"2015-04-14",
+              "number": "",//"00000000",
+              "expiryDate": "",//"2025-04-14",
+              "issuanceCountry": "",//"ES",
+              "validityCountry": "",//"ES",
+              "nationality": "",//"ES",
               "holder": true
             }]
           }]

@@ -109,8 +109,8 @@ router.post(`/bookFlight`, [
   let birthDate = req.body.birthDate;
   let gender = "MALE";
   let email = req.body.email;
-
-  let traveler = {
+  let traveler = undefined;
+   traveler = {
     first_name: firstName,
     last_name: lastName,
     email_: email
@@ -144,7 +144,7 @@ router.post(`/bookFlight`, [
   //let emailResult = await amadeusRepo.sendEmail("imefire@gmail.com", "imefire@gmail.com", "Booking confirmation", bookingResult.data.id,"<b>"+ bookingResult.data.id + "</b>");
 
   //return res.render("booking_step3.ejs", { alert:alert, result: bookingResult, flight: flightParsed, travelerInfos: traveler });
-  return res.render("stripe_payment", { key: STRIPE_PUBLISHABLE_KEY, flight: flightParsed });
+  return res.render("stripe_payment", { key: STRIPE_PUBLISHABLE_KEY, flight: flightParsed, travelerInfos: traveler });
 
 
 

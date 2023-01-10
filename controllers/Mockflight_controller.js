@@ -19,11 +19,17 @@ app.use(bodyParser.urlencoded({extended: false}));
 
 // Create router
 const router = express.Router();
-// Create Amadeus API client
+//Create Amadeus API client
+
 const amadeus = new Amadeus({
   clientId: API_KEY,
-  clientSecret: API_SECRET,
+  clientSecret: API_SECRET
 });
+// const amadeus = new Amadeus({
+//   clientId: API_KEY,
+//   clientSecret: API_SECRET,
+//   hostname: 'production'
+// });
 
 router.get(`/flightsearch`, async (req, res) => {
   const { source,destination,departureDate,returnDate,adults} = req.query;

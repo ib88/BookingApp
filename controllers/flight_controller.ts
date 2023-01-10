@@ -37,6 +37,7 @@ const router = express.Router();
 
 const objectMapper = new ObjectMapper();
 const amadeusRepo = new AmadeusRepo();
+const amadeusMockRepo = new AmadeusMockRepo();
 
 router.get(`/bookFlight`, async (req: any, res: any) => {
 
@@ -228,7 +229,7 @@ router.get(`/flightOffer`, async (req: any, res: any) => {
   if (!source || !destination || !flightDate || !adults) {
     return res.render("flights", { business: [] });
   }
-  return res.render("flights", { business: [] });
+  return res.render("flights", { business: null });
 
 });
 
@@ -274,11 +275,16 @@ router.post(`/flightOffer`, [
   var dateSourceFlight = req.body.datepickerSourceFlight;
   var adults = req.body.adultsFlight;
   var maxFlights = '5';
-
+  let errorMsg = undefined;
   try {
     let flights = await amadeusRepo.getFlightOffer(sourceCode, destinationCode, dateSourceFlight, adults, maxFlights);
-    if (!flights) {
-      return res.render("flights", { business: 'undefined' });
+    //let flights = await amadeusMockRepo.getFlightOfferReturnsNull(sourceCode, destinationCode, dateSourceFlight, adults, maxFlights);
+    if (!flights || flights == undefined || flights == null) {
+      //return res.render("error.ejs", { alert: "the flihgt might have been booked already!" });
+      return res.render("flights", { business: undefined });
+    }
+    if (flights.length == 0) {
+      return res.render("flights", { business: undefined });
     }
     //let flightTimes = [];
     let carrierResult = undefined;
@@ -310,8 +316,8 @@ router.post(`/flightOffer`, [
 
     return res.render("flights", { business: flights });
   }
-  catch (err) {
-    res.json(err);
+  catch (err: any) {
+    return res.render("error.ejs", { alert: "An error occured while loading the flihgts! Or you might have reached the max limit of requests!" });
   }
 });
 

@@ -127,14 +127,14 @@ router.post(`/bookFlight`, [
     pricingResponse = await amadeusRepo.confirmFlight(pricingOffer);
 
   } catch (e: any) {
-    return res.render("error.ejs", { alert: "The flihgt might have been booked already!" +"Detail: " + e.response.body });
+    return res.render("error.ejs", { alert: "the flihgt might have been booked already!"});
   }
 
   try {
      bookingResult = await amadeusRepo.bookFlight(pricingResponse, firstName, lastName, birthDate, gender, email);
 
   } catch (e: any) {
-    return res.render("error.ejs", { alert: "the flihgt might have been booked already!" +"Detail: " + e.response.body });
+    return res.render("error.ejs", { alert: "the flihgt might have been booked already!"});
   }
   req.session.bookingResult = bookingResult;
   req.session.traveler = traveler;

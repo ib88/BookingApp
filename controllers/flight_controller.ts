@@ -127,7 +127,7 @@ router.post(`/bookFlight`, [
     pricingResponse = await amadeusRepo.confirmFlight(pricingOffer);
 
   } catch (e: any) {
-    return res.render("error.ejs", { alert: "the flihgt might have been booked already!" +"Detail: " + e.response.body });
+    return res.render("error.ejs", { alert: "The flihgt might have been booked already!" +"Detail: " + e.response.body });
   }
 
   try {

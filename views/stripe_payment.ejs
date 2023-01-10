@@ -1,11 +1,52 @@
 <%- include('header'); -%>
-    <h3>Welcome to Payment Gateway</h3>
-    <% if(typeof flight !='undefined' ) { %>
-        <form action="/flight/stripePayment/" method="POST">
-            <script src="//checkout.stripe.com/v2/checkout.js" class="stripe-button" data-key="<%= key %>"
-                data-amount="<%= (flight.price_.total_ * 100)%>" data-amount="50,2" data-currency="eur"
-                data-name="Crafty Gourav" data-description="Flight ticket reservation" data-locale="auto">
-                </script>
-        </form>
-        <% } %>
+    <div class="container mt-3 mb-3">
+        <div class="d-flex justify-content-between align-items-center mb-5">
+            <div class="d-flex flex-row align-items-center">
+            </div> 
+            <a href="/flight/flightOffer" class="cancel">Cancel and return to search</a>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                <h5 class="mb-0 text-success"><%= flight.price_.total_ %>$</h5>
+                <h5 class="mb-3">Booking Informations</h5>
+                <div class="about">
+                    <hr>
+                    <div class="d-flex justify-content-between align-items-center">
+                        <div class="d-flex flex-row mt-1">
+                            <h6>Booking Number</h6>
+                            <h6 class="text-success font-weight-bold ml-1">XM765JGGF</h6>
+                        </div>
+                    </div>
+                    <p>Cheick your informations before booking for make sure all is okay. </p>
+                    <div class="d-flex justify-content-between mt-2"> <span class="fw-500"> <b>Leaving</b>  </span> <span> <i> <%= flight.departure_.terminal_ %></i> </span> </div>
+                    <div class="d-flex justify-content-between mt-2"> <span class="fw-500"> <b> Going to</b></span> <span> <i> <%= flight.arrival_.terminal_ %></i> </span> </div>
+                    <div class="d-flex justify-content-between mt-2"> <span class="fw-500"> <b>Departure time</b>  </span> <span> <i><%= flight.departure_.at_ %></i>  </span> </div>
+                    <hr>
+                    <div class="d-flex flex-column"> <label class="radio"> <input type="radio" name="gender" value="MALE" checked>
+                            <div class="d-flex justify-content-between"> <span>VISA</span> <span>************</span> </div>
+                        </label> <label class="radio"> <input type="radio" name="gender" value="FEMALE">
+                            <div class="d-flex justify-content-between"> <span>MASTER CARD</span> <span>************</span> </div>
+                        </label> </div>
+                    <% if(typeof flight !='undefined' ) { %>
+                        <form action="/flight/stripePayment/" method="POST">
+                                <script src="//checkout.stripe.com/v2/checkout.js" class="btn stripe-button btn-block" data-key="<%= key %>"
+                                    data-amount="<%= (flight.price_.total_ * 100)%>" data-amount="50,2" data-currency="eur"
+                                    data-name="Crafty Gourav" data-description="Flight ticket reservation" data-locale="auto">
+                                    </script>
+                        </form>
+                     <% } %>
+                </div>
+            </div>
+            <div class="col-md-1"> </div>
+            <div class="col-md-4">
+                <div class="bg-pay p-3"> <span class="font-weight-bold">Order Recap</span>
+                    <div class="d-flex justify-content-between mt-2"> <span class="fw-500">Contracted Price</span> <span><%= flight.price_.total_ %>$</span> </div>
+                    <div class="d-flex justify-content-between mt-2"> <span class="fw-500">Ticket Number</span> <span>1.0</span> </div>
+                    <div class="d-flex justify-content-between mt-2"> <span class="fw-500">Amount Deductible</span> <span>$0.0</span> </div>
+                    <hr>
+                    <div class="d-flex justify-content-between mt-2"> <span class="fw-500">Total </span> <span class="text-success"><%= flight.price_.total_ %>$</span> </div>
+                </div>
+            </div>
+        </div>
+    </div>
 <%- include('footer'); -%>

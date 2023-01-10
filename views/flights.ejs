@@ -101,25 +101,25 @@
 													<div class="col-md-6">
 														<div class="form-group">
 															<span class="form-label">Leaving from</span>
-															<input class="form-control" type="text" placeholder="Specify airport" id="sourceFlight" name="sourceFlight" autocomplete="off" required>
-															<input type="hidden" id="sourceFlightCode" name="sourceFlightCode" value="" />
-															<!-- <div class = "centered">
-																<div class = "blob-1"></div>
-																<div class = "blob-2"></div>
-															</div>															 -->
-                                    						<div class="div-results-input" id="resultSourceFlightDiv"></div>
+															<input class="form-control" type="text"
+																placeholder="Specify airport" id="sourceFlight"
+																name="sourceFlight" autocomplete="off" required>
+															<input type="hidden" id="sourceFlightCode"
+																name="sourceFlightCode" value="" />
+															<div class="div-results-input" id="resultSourceFlightDiv">
+															</div>
 														</div>
 													</div>
 													<div class="col-md-6">
 														<div class="form-group">
 															<span class="form-label">Going to</span>
-															<input class="form-control" type="text" placeholder="Specify airport" id="destinationFlight" name="destinationFlight" autocomplete="off" required>
-															<input type="hidden" id="destinationFlightCode" name="destinationFlightCode" value="">
-															<!-- <div class = "centered">
-																<div class = "blob-1"></div>
-																<div class = "blob-2"></div>
-															</div>															 -->
-                                							<div class="div-results-input" id="resultDestinationFlightDiv"></div>
+															<input class="form-control" type="text"
+																placeholder="Specify airport" id="destinationFlight"
+																name="destinationFlight" autocomplete="off" required>
+															<input type="hidden" id="destinationFlightCode"
+																name="destinationFlightCode" value="">
+															<div class="div-results-input"
+																id="resultDestinationFlightDiv"></div>
 														</div>
 													</div>
 												</div>
@@ -127,13 +127,16 @@
 													<div class="col-md-6">
 														<div class="form-group">
 															<span class="form-label">Departing on</span>
-															<input class="form-control" type="date" id="datepickerSourceFlight" name="datepickerSourceFlight" required>
+															<input class="form-control" type="date"
+																id="datepickerSourceFlight"
+																name="datepickerSourceFlight" required>
 														</div>
 													</div>
 													<div class="col-md-6">
 														<div class="form-group">
 															<span class="form-label">Adults</span>
-															<input class="form-control" type="number" id="adultsFlight" name="adultsFlight" required>
+															<input class="form-control" type="number" id="adultsFlight"
+																name="adultsFlight" required>
 														</div>
 													</div>
 
@@ -147,7 +150,7 @@
 								</div>
 							</div>
 						</div>
-					
+
 						<!--//search-->
 
 
@@ -219,7 +222,8 @@
 																				class="fa fa-dollar"></i> Book</button>
 																	</form> -->
 																	<a href="/flight/bookFlight?flight=<%=elt.original %>&iataCode=<%=elt.arrival_.iataCode_ %>"
-																		title="Book Flight" class="booked"> <i class="fa fa-dollar"></i> Book
+																		title="Book Flight" class="booked"> <i
+																			class="fa fa-dollar"></i> Book
 																	</a>
 
 																</div> <!-- end item-right -->

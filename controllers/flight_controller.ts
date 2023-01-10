@@ -229,7 +229,7 @@ router.get(`/flightOffer`, async (req: any, res: any) => {
   if (!source || !destination || !flightDate || !adults) {
     return res.render("flights", { business: [] });
   }
-  return res.render("flights", { business: [] });
+  return res.render("flights", { business: null });
 
 });
 

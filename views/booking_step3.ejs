@@ -2,163 +2,146 @@
 	<!--main-->
 	<main class="main">		
 
-        <div class="container">
-            <div class="card">
-                <div class="card-body">
-                    <div id="invoice">
-                        <div class="toolbar hidden-print">
-                            <div class="text-end">
-                                <button type="button" class="btn btn-dark"><i class="fa fa-print"></i> Print</button>
-                                <button type="button" class="btn btn-danger"><i class="fa fa-file-pdf-o"></i> Export as
-                                    PDF</button>
-                            </div>
-                            <hr>
-                        </div>
-                        <div class="invoice overflow-auto">
-                            <div style="min-width: 600px">
-                                <header>
-                                    <div class="row">
-                                        <div class="col">
-                                            <a href="javascript:;">
-                                                <img src="https://elasticbeanstalk-us-east-1-991586319498.s3.amazonaws.com/images/logo.png" width="200" alt="Booking Logo">
-                                            </a>
-                                        </div>
-                                    </div>
-                                </header>
-                                <main>
-									<% if(typeof result !='undefined' && typeof travelerInfos !='undefined') { %>
-                                    <div class="row contacts">
-                                        <div class="col invoice-to">
-                                            <div class="text-gray-light">
-                                                <h2 class="name">
-                                                    <a target="_blank" href="javascript:;"> <%= travelerInfos.first_name %> <%= travelerInfos.last_name %> </a>
-                                                </h2>
-                                            </div>
-
-                                            <h3 class="invoice-id text-left">Booking number : <b><big><%= result.data.id %></big></b>  </h3>
-												<% } %>
-												<% if(typeof flight !='undefined' ) { %>
-													<div class="date"> <b>Date of departure :</b>  <i> <%= flight.departure_.at_ %> </i></div>
-													<div class="date"> <b>Date of arrival :</b>  <i> <%= flight.arrival_.at_ %> </i></div>
-													<div class="date"> <b>Leaving from :</b>  <i><%= flight.departure_.iataCode_ %></i> </div>
-													<div class="date"> <b> Going to :</b> <i><%= flight.arrival_.iataCode_ %></i> </div>
-													<div class="date"> <b>Adults :</b>  <i>2</i> </div>
-												
-                                            
-                                        </div>
-                                        <div class="col invoice-details">
-                                            <div class="address">Birthday : 23 April 1980</div>
-                                            <div class="email"><a href="mailto:john@example.com">Email : <%= travelerInfos.email_ %> </a></div>
-                                        </div>
-                                    </div>
-                                    <table>
-                                        <thead>
-                                            <tr>
-                                                <th>Airport Code</th>
-                                                <th class="text-left">Itineray</th>
-                                                <th class="text-center">Stops</th>
-                                                <th>Details</th>
-                                                <th class="text-right">Duration</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-											<% flight.itineraries_.forEach((itinerary)=>{%>
-												<% itinerary.segments_.forEach((segment)=>{%>
-													<tr>
-														<td class="no"><%= segment.arrival_.iataCode_ %></td>
-														<td class="text-left">
-															<h3>
-																<a target="_blank" href="javascript:;">
-																	<%= segment.carrierName_ %>
-																</a>
-															</h3>
-															Washington DC Airport JFK <br>
-														</td>
-														<td class="qty">1</td>
-														<td class="unit text-left">
-															<b>Leaves on :</b>  <i><%= segment.departure_.at_ %></i> <br> <b>Arrives to :</b>  <i><%= segment.arrival_.at_ %></i> 
-														</td>
-														<td class="total"><%= segment.duration_ %></td>
-													</tr>
-													<%});%>
-												<% } %>
-                                            <!-- <tr>
-                                                <td class="no">Iata Code</td>
-                                                <td class="text-left">
-                                                    <h3>
-                                                        <a target="_blank" href="javascript:;">
-                                                            Company Name
-                                                        </a>
-                                                    </h3>
-                                                     Washington DC Airport JFK <br> <br>
-                                                </td>
-                                                <td class="qty">1</td>
-                                                <td class="unit text-left">
-                                                     <b>Leaves on :</b>  <i>2022-09-23T23H45</i> <br> <b>Arrives to :</b>  <i>2022-09-24T13H30</i> 
-                                                </td>
-                                                <td class="total">PT2H28M</td>
-                                            </tr>
-                                            <tr>
-                                                <td class="no">Iata Code</td>
-                                                <td class="text-left">
-                                                    <h3>
-                                                        <a target="_blank" href="javascript:;">
-                                                            Company Name
-                                                        </a>
-                                                    </h3>
-                                                     Washington DC Airport JFK <br>
-                                                </td>
-                                                <td class="qty">1</td>
-                                                <td class="unit text-left">
-                                                    <b>Leaves on :</b>  <i>2022-09-23T23H45</i> <br> <b>Arrives to :</b>  <i>2022-09-24T13H30</i> 
-                                                </td>
-                                                <td class="total">PT2H28M</td>
-                                            </tr> -->
-                                        </tbody>
-                                        <tfoot>
-                                            <tr>
-                                                <td colspan="2"></td>
-                                                <td colspan="2">SUBTOTAL</td>
-                                                <td>$<%= flight.price_.total_ %></td>
-                                            </tr>
-                                            <tr>
-                                                <td colspan="2"></td>
-                                                <td colspan="2">VTA 25%</td>
-                                                <td>$0.00</td>
-                                            </tr>
-                                            <tr>
-                                                <td colspan="2"></td>
-                                                <td colspan="2">GRAND TOTAL</td>
-                                                <td>$<%= flight.price_.total_ %></td>
-                                            </tr>
-                                        </tfoot>
-                                    </table>
-									<% } %>
-                                    <div class="thanks">Thank you!</div>
-                                    <div class="notices">
-                                        <div>NOTICE:</div>
-                                        <div class="notice">Please kepp well this invoice, we will not be able to reproduce it.</div>
-                                    </div>
-                                </main>
-                                <footer>Invoice was created on a computer and is valid without the signature and seal.
-                                </footer>
-                            </div>
-                            <!--DO NOT DELETE THIS div. IT is responsible for showing footer always at the bottom-->
-                            <div></div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-
-		<!-- <div class="wrap">
+		<div class="container">
+			<div class="card">
+				<div class="card-body">
+					<div id="invoice">
+						<div class="toolbar hidden-print">
+							<div class="text-end">
+								<button type="button" class="btn btn-dark"><i class="fa fa-print"></i> Print</button>
+								<button type="button" class="btn btn-danger"><i class="fa fa-file-pdf-o"></i> Export as PDF</button>
+							</div>
+							<hr>
+						</div>
+						<div class="invoice overflow-auto">
+							<div style="min-width: 600px">
+								<header>
+									<div class="row">
+										<div class="col">
+											<a href="javascript:;">
+															<img src="assets/images/logo-icon.png" width="80" alt="">
+														</a>
+										</div>
+										<div class="col company-details">
+											<h2 class="name">
+												<a target="_blank" href="javascript:;">
+											Arboshiki
+											</a>
+											</h2>
+											<div>455 Foggy Heights, AZ 85004, US</div>
+											<div>(123) 456-789</div>
+											<div>company@example.com</div>
+										</div>
+									</div>
+								</header>
+								<main>
+									<div class="row contacts">
+										<div class="col invoice-to">
+											<div class="text-gray-light">INVOICE TO:</div>
+											<h2 class="to">John Doe</h2>
+											<div class="address">796 Silver Harbour, TX 79273, US</div>
+											<div class="email"><a href="mailto:john@example.com">john@example.com</a>
+											</div>
+										</div>
+										<div class="col invoice-details">
+											<h1 class="invoice-id">INVOICE 3-2-1</h1>
+											<div class="date">Date of Invoice: 01/10/2018</div>
+											<div class="date">Due Date: 30/10/2018</div>
+										</div>
+									</div>
+									<table>
+										<thead>
+											<tr>
+												<th>#</th>
+												<th class="text-left">DESCRIPTION</th>
+												<th class="text-right">HOUR PRICE</th>
+												<th class="text-right">HOURS</th>
+												<th class="text-right">TOTAL</th>
+											</tr>
+										</thead>
+										<tbody>
+											<tr>
+												<td class="no">04</td>
+												<td class="text-left">
+													<h3>
+														<a target="_blank" href="javascript:;">
+												Youtube channel
+												</a>
+													</h3>
+													<a target="_blank" href="javascript:;">
+												   Useful videos
+											   </a> to improve your Javascript skills. Subscribe and stay tuned :)</td>
+												<td class="unit">$0.00</td>
+												<td class="qty">100</td>
+												<td class="total">$0.00</td>
+											</tr>
+											<tr>
+												<td class="no">01</td>
+												<td class="text-left">
+													<h3>Website Design</h3>Creating a recognizable design solution based on the company's existing visual identity</td>
+												<td class="unit">$40.00</td>
+												<td class="qty">30</td>
+												<td class="total">$1,200.00</td>
+											</tr>
+											<tr>
+												<td class="no">02</td>
+												<td class="text-left">
+													<h3>Website Development</h3>Developing a Content Management System-based Website</td>
+												<td class="unit">$40.00</td>
+												<td class="qty">80</td>
+												<td class="total">$3,200.00</td>
+											</tr>
+											<tr>
+												<td class="no">03</td>
+												<td class="text-left">
+													<h3>Search Engines Optimization</h3>Optimize the site for search engines (SEO)</td>
+												<td class="unit">$40.00</td>
+												<td class="qty">20</td>
+												<td class="total">$800.00</td>
+											</tr>
+										</tbody>
+										<tfoot>
+											<tr>
+												<td colspan="2"></td>
+												<td colspan="2">SUBTOTAL</td>
+												<td>$5,200.00</td>
+											</tr>
+											<tr>
+												<td colspan="2"></td>
+												<td colspan="2">TAX 25%</td>
+												<td>$1,300.00</td>
+											</tr>
+											<tr>
+												<td colspan="2"></td>
+												<td colspan="2">GRAND TOTAL</td>
+												<td>$6,500.00</td>
+											</tr>
+										</tfoot>
+									</table>
+									<div class="thanks">Thank you!</div>
+									<div class="notices">
+										<div>NOTICE:</div>
+										<div class="notice">A finance charge of 1.5% will be made on unpaid balances after 30 days.</div>
+									</div>
+								</main>
+								<footer>Invoice was created on a computer and is valid without the signature and seal.</footer>
+							</div>
+							<!--DO NOT DELETE THIS div. IT is responsible for showing footer always at the bottom-->
+							<div></div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="wrap">
 			<div class="row">
+				<!--three-fourth content-->
 				<div class="three-fourth">
 					<form id="booking" method="post" action="booking" class="static-content booking">
 						<fieldset>
 							<h2><span>03 </span>Confirmation</h2>
 							<div class="text-wrap">
+								<!-- <a href="#" class="gradient-button right print" title="Print booking" onclick="printpage()">Print booking</a> -->
 								<h2 style="text-align:center;">Thank you. Your booking is now confirmed.</h2>
 							</div>
 							
@@ -174,17 +157,36 @@
 									<p> <%= travelerInfos.last_name %>  </p>
 									<p>E-mail address: </p>
 									<p> <%= travelerInfos.email_ %>  </p>
-									<p>Country:</p>
-									<p>Cameroon</p>
 								</div>
 							</div>
 							<% } %>
 						
+							<!-- <h3>Special requirements</h3>
+							<div class="text-wrap">
+								<p>I would like to book a twin room with a definite sea view please. Thank you and kind regards, John Livingston</p>
+							</div>
+							
+							<h3>Payment</h3>
+							<div class="text-wrap">
+								<p>You have now confirmed and guaranteed your booking by credit card.All payments are to be made at the hotel during your stay, unless otherwise stated in the hotel policies or in the room conditions.Please note that your credit card may be pre-authorised prior to your arrival. </p>
+								<p><strong class="dark">This hotel accepts the following forms of payment:</strong></p>
+								<p>American Express, Visa, MasterCard</p>
+							</div>
+							
+							<h3>Don’t forget</h3>
+							<div class="text-wrap">
+								<p>You can change or cancel your booking via our online self service tool myBookYourTravel:
+								<a href="#">https://secure.bookyourtravel.com/myreservations.html?tmpl=profile/myreservations;bn=904054553;pincode=6525</a></p>
+								<p><strong>We wish you a pleasant stay</strong><i>your BookYourTravel team</i></p>
+							</div> -->
 						</fieldset>
 					</form>
 				</div>
+				<!--//three-fourth content-->
 			
+				<!--right sidebar-->
 				<aside class="one-fourth right-sidebar">
+					<!--Booking details-->
 					<article class="hotel-details booking-details">
 						<h1>Flight Summary 
 							<span class="stars">
@@ -212,15 +214,20 @@
 							</div>
 							<% } %>
 					</article>
+					<!--//Booking details-->
 					
+					<!--Need Help Booking?-->
 					<article class="widget">
 						<h4>Need Help Booking?</h4>
 						<p>Call our customer services team on the number below to speak to one of our advisors who will help you with all of your holiday needs.</p>
 						<p class="number">1- 555 - 555 - 555</p>
 					</article>
+					<!--//Need Help Booking?-->
 				</aside>
+				<!--//right sidebar-->
 			</div>
-		</div> -->
+			<!--//main content-->
+		</div>
 	</main>
 	<!--//main-->
 <%- include('footer'); -%>

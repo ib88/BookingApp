@@ -157,13 +157,24 @@
 								<!--deals-->
 								<div class="full-width">
 									<header class="s-title">
-										<h2>Flights Search Results</h2>
+										<% if(typeof business=='undefined' || business==null || business==undefined ) {
+											%>
+											<h2> No Flights Found! </h2>
+											<% } %>
+
+												<% if(typeof business!='undefined' || business!=null ||
+													business!=undefined ) { %>
+													<% if( business.length==0 ) { %>
+														<h2> No Flights Found! </h2>
+														<% } %>
+															<% } %>
 									</header>
 
 									<div class="deals flights">
 										<div class="row">
 											<!--deal-->
-											<% if(typeof business !='undefined' ) { %>
+											<% if(typeof business !='undefined' || business!=null ||
+												business!=undefined) { %>
 												<% business.forEach((elt)=>{%>
 													<!-- <li>Name: <%=elt.name%> -Distance: <%=elt.distance%>Km - Room Type: <%=elt.roomType%> - Price: <%=elt.price%>Euro</li>  -->
 
@@ -187,8 +198,10 @@
 																		<%= elt.departure_.iataCode_ %> to <%=
 																				elt.arrival_.iataCode_ %>
 																	</p>
-																	<h2 class="title">Company Airlines</h2>
-
+																	<h2 class="title">
+																		<%= elt.itineraries_[0].segments_[0].carrierName_
+																			%>
+																	</h2>
 																	<div class="sce">
 																		<div class="icon">
 																			<i class="fa fa-clock-o"></i>

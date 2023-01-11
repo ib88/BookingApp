@@ -26,16 +26,16 @@ app.use(bodyParser.urlencoded({ extended: false }));
 // Create router
 const router = express.Router();
 //Create Amadeus API client
-// const amadeus = new Amadeus({
-//   clientId: API_KEY,
-//   clientSecret: API_SECRET,
-//   hostname: 'production'
-// });
-
 const amadeus = new Amadeus({
   clientId: API_KEY,
-  clientSecret: API_SECRET
+  clientSecret: API_SECRET,
+  hostname: 'production'
 });
+
+// const amadeus = new Amadeus({
+//   clientId: API_KEY,
+//   clientSecret: API_SECRET
+// });
 
 const sgMail = require('@sendgrid/mail');
 sgMail.setApiKey(SENDGRID_API_KEY);
@@ -189,7 +189,7 @@ export class AmadeusRepo implements IAmadeusRepo {
           'flightOffers': [pricingResponse.data.flightOffers[0]],
           'travelers': [{
             "id": "1",
-            "dateOfBirth": birthDate,//"1982-01-16",
+            "dateOfBirth": "1982-01-16",
             "name": {
               "firstName": firstName,//"JORGE",
               "lastName": lastName,//"GONZALES"
@@ -198,21 +198,21 @@ export class AmadeusRepo implements IAmadeusRepo {
             "contact": {
               "emailAddress": email,//"jorge.gonzales833@telefonica.es",
               "phones": [{
-                "deviceType": "",//"MOBILE",
-                "countryCallingCode": "",//"34",
-                "number": ""//"480080076"
+                "deviceType": "MOBILE",
+                "countryCallingCode": "34",
+                "number": "480080076"
               }]
             },
             "documents": [{
-              "documentType": "",//"PASSPORT",
-              "birthPlace": "",//"Madrid",
-              "issuanceLocation": "",//"Madrid",
-              "issuanceDate": "",//"2015-04-14",
-              "number": "",//"00000000",
-              "expiryDate": "",//"2025-04-14",
-              "issuanceCountry": "",//"ES",
-              "validityCountry": "",//"ES",
-              "nationality": "",//"ES",
+              "documentType": "PASSPORT",
+              "birthPlace": "Madrid",
+              "issuanceLocation": "Madrid",
+              "issuanceDate": "2015-04-14",
+              "number": "00000000",
+              "expiryDate": "2025-04-14",
+              "issuanceCountry": "ES",
+              "validityCountry": "ES",
+              "nationality": "ES",
               "holder": true
             }]
           }]

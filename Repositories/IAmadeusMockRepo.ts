@@ -25,17 +25,17 @@ app.use(bodyParser.urlencoded({ extended: false }));
 
 // Create router
 const router = express.Router();
-// Create Amadeus API client
-// const amadeus = new Amadeus({
-//   clientId: API_KEY,
-//   clientSecret: API_SECRET,
-//   hostname: 'production'
-// });
-
+//Create Amadeus API client
 const amadeus = new Amadeus({
   clientId: API_KEY,
-  clientSecret: API_SECRET
+  clientSecret: API_SECRET,
+  hostname: 'production'
 });
+
+// const amadeus = new Amadeus({
+//   clientId: API_KEY,
+//   clientSecret: API_SECRET
+// });
 
 const sgMail = require('@sendgrid/mail');
 sgMail.setApiKey(SENDGRID_API_KEY);
@@ -103,6 +103,20 @@ export class AmadeusMockRepo implements IAmadeusRepo {
       //  { id:'1', type:'', instantTicketingRequired:true, oneWay:true, lastTicketingDate:'', nonHomogeneous:true, source: 'MAD', destination: 'MUC', departure: '2022:11:11', returnDate: '2022:11:13', price: '133', duration: '12:21' },
     ];
     return flights;
+  }
+  async getFlightOfferReturnsUndefined(source: string, destination: string, departureDate: string, adults: string, maxFlights: string): Promise<any> {
+    let flights: Array<FlightOffer> = [
+      // { id:'1', type:'', instantTicketingRequired:true, oneWay:true, lastTicketingDate:'', nonHomogeneous:true, source: 'MAD', destination: 'MUC', departure: '2022:11:11', returnDate: '2022:11:13', price: '133', duration: '12:21' },
+      //  { id:'1', type:'', instantTicketingRequired:true, oneWay:true, lastTicketingDate:'', nonHomogeneous:true, source: 'MAD', destination: 'MUC', departure: '2022:11:11', returnDate: '2022:11:13', price: '133', duration: '12:21' },
+    ];
+    return undefined;
+  }
+  async getFlightOfferReturnsNull(source: string, destination: string, departureDate: string, adults: string, maxFlights: string): Promise<any> {
+    let flights: Array<FlightOffer> = [
+      // { id:'1', type:'', instantTicketingRequired:true, oneWay:true, lastTicketingDate:'', nonHomogeneous:true, source: 'MAD', destination: 'MUC', departure: '2022:11:11', returnDate: '2022:11:13', price: '133', duration: '12:21' },
+      //  { id:'1', type:'', instantTicketingRequired:true, oneWay:true, lastTicketingDate:'', nonHomogeneous:true, source: 'MAD', destination: 'MUC', departure: '2022:11:11', returnDate: '2022:11:13', price: '133', duration: '12:21' },
+    ];
+    return undefined;
   }
 
   async getFlightAvailability(source: string, destination: string, departureDate: string, adults: string): Promise<flightInfo[]> {
@@ -175,7 +189,7 @@ export class AmadeusRepo implements IAmadeusRepo {
           'flightOffers': [pricingResponse.data.flightOffers[0]],
           'travelers': [{
             "id": "1",
-            "dateOfBirth": birthDate,//"1982-01-16",
+            "dateOfBirth": "1982-01-16",
             "name": {
               "firstName": firstName,//"JORGE",
               "lastName": lastName,//"GONZALES"

@@ -190,6 +190,7 @@
 							fetch('/Moqflight/getAirportSuggestion?keyword=' + val).then(function (response) {
 								return response.json();
 							}).then(function (data) {
+								//res.innerHTML = `<div class = "centered"><div class = "blob-1"></div><div class = "blob-2"></div></div>`;
 								for (i = 0; i < data.length; i++) {
 									if (typeof data[i].detailedName != 'undefined')
 										list += '<tr> <td style="cursor: pointer; color: #3D71E9; font-weight: 600px; background-color: #f7f7f; border-width: 2px;"' + 'data-value=' + data[i].iataCode + '>' + data[i].detailedName + "--" +
@@ -208,6 +209,7 @@
 									$(`#${divId}`).empty();
 									return;
 								});
+								$('.alert').show();
 								return true;
 							}).catch(function (err) {
 								console.warn('Something went wrong.', err);

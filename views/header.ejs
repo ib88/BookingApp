@@ -55,7 +55,9 @@
 			<div class="container">
 
 				<!-- <div class="logo"><a href="index.html" title="Book Your Travel"><img src="images/txt/logo.png" alt="Book Your Travel" /></a></div> -->
-				<a class="navbar-brand" href="#"><img src="https://elasticbeanstalk-us-east-1-991586319498.s3.amazonaws.com/images/logo.png" alt="Book Your Travel" /></a>
+				<a class="navbar-brand" href="#"><img
+						src="https://elasticbeanstalk-us-east-1-991586319498.s3.amazonaws.com/images/logo.png"
+						alt="Book Your Travel" /></a>
 				<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
 					aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
 					<span class="navbar-toggler-icon"></span>
@@ -85,31 +87,39 @@
 
 			</div>
 		</nav>
+		<% if(typeof apiError !='undefined' ) { %>
 
-		<div class="alert alert-danger alert-dismissible fade show" role="alert">
-			<b>Warning</b> I display it after mockflight controller show flights propositions
-			<span class="show-msg">Variable Here</span>
-		</div>
-
-		<div id="carouselExampleIndicators" class="carousel slide my-carousel my-carousel" data-ride="carousel">
-			<div class="carousel-inner" role="listbox">
-				<div class="carousel-item active" style="background-image: url('https://imgur.com/yl8Pr7N.jpg')">
-				</div>
-				<div class="carousel-item " style="background-image: url('https://imgur.com/hzAm88B.jpg')">
-				</div>
-				<div class="carousel-item " style="background-image: url('https://imgur.com/YMpzlJo.jpg')">
-				</div>
-				<div class="carousel-item " style="background-image: url('https://imgur.com/hxoxR6l.jpg')">
-				</div>
-
+			<div class="alert alert-danger alert-dismissible fade show" role="alert">
+				<b>Oops!!!</b>
+				
+					<span class="show-msg">
+						<%= apiError %>
+					</span>
 			</div>
-			<a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
-				<span class="carousel-control-prev-icon" aria-hidden="true"></span>
-				<span class="sr-only">Previous</span>
-			</a>
-			<a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
-				<span class="carousel-control-next-icon" aria-hidden="true"></span>
-				<span class="sr-only">Next</span>
-			</a>
-		</div>
-    </header>
+
+			<% } %>
+
+
+				<div id="carouselExampleIndicators" class="carousel slide my-carousel my-carousel" data-ride="carousel">
+					<div class="carousel-inner" role="listbox">
+						<div class="carousel-item active"
+							style="background-image: url('https://imgur.com/yl8Pr7N.jpg')">
+						</div>
+						<div class="carousel-item " style="background-image: url('https://imgur.com/hzAm88B.jpg')">
+						</div>
+						<div class="carousel-item " style="background-image: url('https://imgur.com/YMpzlJo.jpg')">
+						</div>
+						<div class="carousel-item " style="background-image: url('https://imgur.com/hxoxR6l.jpg')">
+						</div>
+
+					</div>
+					<a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+						<span class="carousel-control-prev-icon" aria-hidden="true"></span>
+						<span class="sr-only">Previous</span>
+					</a>
+					<a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+						<span class="carousel-control-next-icon" aria-hidden="true"></span>
+						<span class="sr-only">Next</span>
+					</a>
+				</div>
+	</header>

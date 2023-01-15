@@ -45,31 +45,36 @@ router.get(`/bookFlight`, async (req: any, res: any) => {
   req.session.flightJson = flight;
   //req.session.flight = flight;
   req.session.save();
+  try {
 
-  let flightParsed = objectMapper.parse<FlightOffer>(flight, { mainCreator: () => [FlightOffer] });
+    let flightParsed = objectMapper.parse<FlightOffer>(flight, { mainCreator: () => [FlightOffer] });
 
-  //compute the departure and arrival time of the whole flight by summing up the times for individual flight segments
-  let carrierResult = undefined;
-  let airlineCode = undefined;
+    //compute the departure and arrival time of the whole flight by summing up the times for individual flight segments
+    let carrierResult = undefined;
+    let airlineCode = undefined;
 
-  let results = new DatesInfo(flightParsed).getDates();
-  flightParsed.departure_.at_ = results.departure;
-  flightParsed.departure_.iataCode_ = results.iataCodeDeparture;
+    let results = new DatesInfo(flightParsed).getDates();
+    flightParsed.departure_.at_ = results.departure;
+    flightParsed.departure_.iataCode_ = results.iataCodeDeparture;
 
-  flightParsed.arrival_.at_ = results.arrival;
-  flightParsed.arrival_.iataCode_ = results.iataCodeArrival;
+    flightParsed.arrival_.at_ = results.arrival;
+    flightParsed.arrival_.iataCode_ = results.iataCodeArrival;
 
-  ///compute the operating Airline Names of the flight
-  for (var j = 0; j < flightParsed.itineraries_[0].segments_.length; j++) {
-    airlineCode = flightParsed.itineraries_[0].segments_[j].carrierCode_;
-    carrierResult = await amadeusRepo.getAirline(airlineCode);
-    flightParsed.itineraries_[0].segments_[j].carrierName_ = carrierResult.businessName;
+    ///compute the operating Airline Names of the flight
+    for (var j = 0; j < flightParsed.itineraries_[0].segments_.length; j++) {
+      airlineCode = flightParsed.itineraries_[0].segments_[j].carrierCode_;
+      carrierResult = await amadeusRepo.getAirline(airlineCode);
+      flightParsed.itineraries_[0].segments_[j].carrierName_ = carrierResult.businessName;
+    }
+    //////
+    req.session.flightJson = flight;
+    req.session.flightParsed = flightParsed;
+
+    return res.render("booking_step1.ejs", { flight: flightParsed });
   }
-  //////
-  req.session.flightJson = flight;
-  req.session.flightParsed = flightParsed;
-
-  return res.render("booking_step1.ejs", { flight: flightParsed });
+  catch (err: any) {
+    return res.render("flights.ejs", { business:undefined, apiError: "Error loading the flight. Please try again!" });
+  }
 
 });
 
@@ -125,17 +130,21 @@ router.post(`/bookFlight`, [
   let pricingResponse;
   let bookingResult;
   try {
+
     pricingResponse = await amadeusRepo.confirmFlight(pricingOffer);
 
   } catch (e: any) {
-    return res.render("error.ejs", { alert: "the flihgt might have been booked already!" });
+    //return res.render("booking_step1.ejs", { apiError: "the flihgt might have been booked already!", flight: undefined });
+    return res.render("flights.ejs", { alert: undefined, apiError: "The flight might be full already!", business: undefined });
+
   }
 
   try {
     bookingResult = await amadeusRepo.bookFlight(pricingResponse, firstName, lastName, birthDate, gender, email);
 
   } catch (e: any) {
-    return res.render("error.ejs", { alert: "the flihgt might have been booked already!" });
+    return res.render("flights.ejs", { alert: undefined, apiError: "The flight might be full already!", business: undefined });
+    //return res.render("error.ejs", { alert: "the flihgt might have been booked already!" });
   }
   req.session.bookingResult = bookingResult;
   req.session.traveler = traveler;
@@ -217,7 +226,10 @@ router.post(`/stripePayment`, async (req: any, res: any) => {
           alert = err.message;
           break;
       }
-      return res.render("error.ejs", { alert: alert });
+      //return res.render("error.ejs", { alert: alert });
+      return res.render("flights.ejs", { apiError: alert, business: undefined,alert:undefined});
+      //return res.render("booking_step3.ejs", { result: req.session.bookingResult, flight: req.session.flightParsed, travelerInfos: req.session.traveler, apiError: alert });
+
     });
 
 });
@@ -277,6 +289,7 @@ router.post(`/flightOffer`, [
   var maxFlights = '5';
   let errorMsg = undefined;
   try {
+    //throw new Error('Throw makes it go boom!');
     let flights = await amadeusRepo.getFlightOffer(sourceCode, destinationCode, dateSourceFlight, adults, maxFlights);
     //let flights = await amadeusMockRepo.getFlightOfferReturnsNull(sourceCode, destinationCode, dateSourceFlight, adults, maxFlights);
     if (!flights || flights == undefined || flights == null) {
@@ -307,17 +320,15 @@ router.post(`/flightOffer`, [
         flights[i].itineraries_[0].segments_[j].carrierName_ = carrierResult.businessName;
       }
     }
-    ////confirm a flight
-    //const flight = flights[0];
     // Confirm availability and price
     let pricingOfferStr = flights[1].original;
     let pricingOffer = JSON.parse(pricingOfferStr);
     let bookingOffer = undefined;
 
-    return res.render("flights", { business: flights });
+    return res.render("flights", { business: flights, apiError: undefined, alert: undefined });
   }
   catch (err: any) {
-    return res.render("error.ejs", { alert: "An error occured while loading the flihgts! Or you might have reached the max limit of requests!" });
+    return res.render("flights.ejs", { alert: undefined, apiError: "Something went wrong. Please try again.", business: undefined });
   }
 });
 

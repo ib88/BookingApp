@@ -1507,7 +1507,7 @@ div.containers {
 
 .alert{
 	z-index: 10;
-	display: none;
+	/* display: none; */
 	top: 15px;
 	position: absolute;
 }

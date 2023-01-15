@@ -64,18 +64,38 @@
 									<table>
 										<thead>
 											<tr>
-												<th>Airport Code</th>
-												<th class="text-left">Itineray</th>
-												<th class="text-center">Stops</th>
-												<th>Details</th>
-												<th class="text-right">Duration</th>
+                                                <th class="text-left text-bold">From</th>
+                                                <th class="text-left">To</th>
+                                                <th class="text-center">Company</th>
+                                                <!-- <th>Details</th> -->
+                                                <th class="text-right">Duration</th>
 											</tr>
 										</thead>
 										<tbody>
 											<% flight.itineraries_.forEach((itinerary)=>{%>
 												<% itinerary.segments_.forEach((segment)=>{%>
 													<tr>
-														<td class="no">
+														<td class="text-left">
+															<h3>
+																<a target="_blank" href="javascript:;">
+																	<%= segment.departure_.iataCode_ %>
+																</a>
+															</h3>
+															<b>Leaves on :</b>  <i><%= segment.departure_.at_ %></i> <br> 
+															
+														</td>
+														<td class="text-left">
+															<h3>
+																<a target="_blank" href="javascript:;">
+																	<%= segment.arrival_.iataCode_ %>
+																</a>
+															</h3>
+															<b>Arrives to :</b>  <i><%= segment.arrival_.at_ %></i> <br>
+														</td>
+														<td class="qty"><%= segment.carrierName_ %></td>
+														<td class="total"><%= segment.duration_ %></td>
+		
+														<!-- <td class="no">
 															<%= segment.arrival_.iataCode_ %>
 														</td>
 														<td class="text-left">
@@ -96,58 +116,26 @@
 														</td>
 														<td class="total">
 															<%= segment.duration_ %>
-														</td>
+														</td> -->
 													</tr>
 													<%});%>
 														<%});%>
-															<!-- <tr>
-                                                <td class="no">Iata Code</td>
-                                                <td class="text-left">
-                                                    <h3>
-                                                        <a target="_blank" href="javascript:;">
-                                                            Company Name
-                                                        </a>
-                                                    </h3>
-                                                     Washington DC Airport JFK <br> <br>
-                                                </td>
-                                                <td class="qty">1</td>
-                                                <td class="unit text-left">
-                                                     <b>Leaves on :</b>  <i>2022-09-23T23H45</i> <br> <b>Arrives to :</b>  <i>2022-09-24T13H30</i> 
-                                                </td>
-                                                <td class="total">PT2H28M</td>
-                                            </tr>
-                                            <tr>
-                                                <td class="no">Iata Code</td>
-                                                <td class="text-left">
-                                                    <h3>
-                                                        <a target="_blank" href="javascript:;">
-                                                            Company Name
-                                                        </a>
-                                                    </h3>
-                                                     Washington DC Airport JFK <br>
-                                                </td>
-                                                <td class="qty">1</td>
-                                                <td class="unit text-left">
-                                                    <b>Leaves on :</b>  <i>2022-09-23T23H45</i> <br> <b>Arrives to :</b>  <i>2022-09-24T13H30</i> 
-                                                </td>
-                                                <td class="total">PT2H28M</td>
-                                            </tr> -->
 										</tbody>
 										<tfoot>
 											<tr>
-												<td colspan="2"></td>
-												<td colspan="2">SUBTOTAL</td>
+												<td></td>
+												<td>SUBTOTAL</td>
 												<td>$<%= flight.price_.total_ %>
 												</td>
 											</tr>
 											<tr>
-												<td colspan="2"></td>
-												<td colspan="2">VTA 25%</td>
+												<td></td>
+												<td>VTA 25%</td>
 												<td>$0.00</td>
 											</tr>
 											<tr>
-												<td colspan="2"></td>
-												<td colspan="2">GRAND TOTAL</td>
+												<td></td>
+												<td>GRAND TOTAL</td>
 												<td>$<%= flight.price_.total_ %>
 												</td>
 											</tr>

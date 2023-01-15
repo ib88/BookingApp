@@ -6,7 +6,7 @@
             <a href="/flight/flightOffer" class="cancel">Cancel and return to search</a>
         </div>
         <div class="row">
-            <div class="col-md-6">
+            <div class="col-md-6 col-xl-6">
                 <!-- <h5 class="mb-0 text-success"><%= flight.price_.total_ %>$</h5> -->
                 <h5 class="mb-3">Booking Informations</h5>
                 <!-- <div class="about">
@@ -35,20 +35,20 @@
                         <form action="/flight/stripePayment/" method="POST">
                                 <script src="//checkout.stripe.com/v2/checkout.js" class="btn stripe-button btn-block" data-key="<%= key %>"
                                     data-amount="<%= (flight.price_.total_ * 100)%>" data-amount="50,2" data-currency="eur"
-                                    data-name="Crafty Gourav" data-description="Flight ticket reservation" data-locale="auto">
+                                    data-name="<%= travelerInfos.first_name %>  <%= travelerInfos.last_name %>" data-description="Flight ticket reservation" data-locale="auto">
                                     </script>
                         </form>
                 </div>
-            </div>
-            <div class="col-md-1"> </div>
-            <div class="col-md-4">
-                <div class="bg-pay p-3"> <h3 class="font-weight-bold">Order Recap</h3>
-                    <div class="d-flex justify-content-between mt-2"> <span class="fw-500">Contracted Price</span> <span><%= flight.price_.total_ %>$</span> </div>
-                    <div class="d-flex justify-content-between mt-2"> <span class="fw-500">Ticket Number</span> <span>xxxxxx</span> </div>
-                    <div class="d-flex justify-content-between mt-2"> <span class="fw-500">Amount Deductible</span> <span>$0.0</span> </div>
-                    <hr>
-                    <div class="d-flex justify-content-between mt-2"> <span class="fw-500">Total </span> <span class="text-success"><%= flight.price_.total_ %>$</span> </div>
-                </div>
+                <div class="col-md-1 col-xl-1"> </div>
+                <div class="col-md-4 col-xl-4">
+                    <div class="bg-pay p-3"> <h3 class="font-weight-bold">Order Recap</h3>
+                        <div class="d-flex justify-content-between mt-2"> <span class="fw-500">Contracted Price</span> <span><%= flight.price_.total_ %>$</span> </div>
+                        <div class="d-flex justify-content-between mt-2"> <span class="fw-500">Ticket Number</span> <span>xxxxxx</span> </div>
+                        <div class="d-flex justify-content-between mt-2"> <span class="fw-500">Amount Deductible</span> <span>$0.0</span> </div>
+                        <hr>
+                        <div class="d-flex justify-content-between mt-2"> <span class="fw-500">Total </span> <span class="text-success"><%= flight.price_.total_ %>$</span> </div>
+                    </div>
+                </div>    
             </div>
         </div>
     </div>

@@ -9,11 +9,11 @@ And you have to send the right message to this tag : <span class="show-msg"></sp
 Code de l'alert aà retravailler
 		<!-- Display Alert -->
 		<!-- Decomment these lines  when you will create alert-msg var -->
-		<!-- <% if(alert-msg !='' ) { %> -->
+		<% if(alert-msg !='' ) { %> -->
 			<div class="alert alert-danger alert-dismissible fade show" role="alert">
 				<b>Warning</b> I display it after mockflight controller show flights propositions
-				<!-- <span class="show-msg"><%= alert-msg %></span> -->
+				<span class="show-msg"><%= alert-msg %></span>
 			</div>
-		<!-- <% }) %> -->
+		<!-- <% }) %>
 
 

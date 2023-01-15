@@ -35,7 +35,7 @@
                         <form action="/flight/stripePayment/" method="POST">
                                 <script src="//checkout.stripe.com/v2/checkout.js" class="btn stripe-button btn-block" data-key="<%= key %>"
                                     data-amount="<%= (flight.price_.total_ * 100)%>" data-amount="50,2" data-currency="eur"
-                                    data-name="Crafty Gourav" data-description="Flight ticket reservation" data-locale="auto">
+                                    data-name="<%= travelerInfos.first_name %>  <%= travelerInfos.last_name %>" data-description="Flight ticket reservation" data-locale="auto">
                                     </script>
                         </form>
                 </div>

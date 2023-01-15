@@ -160,7 +160,7 @@ router.post(`/stripePayment`, async (req: any, res: any) => {
   stripe.customers.create({
     email: req.body.stripeEmail,
     source: req.body.stripeToken,
-    name: 'Gourav Hammad',
+    name: req.session.traveler.first_name + ' ' + req.session.traveler.last_name,
     address: {
       line1: 'TC 9/4 Old MES colony',
       postal_code: '452331',
@@ -173,7 +173,7 @@ router.post(`/stripePayment`, async (req: any, res: any) => {
 
       return stripe.charges.create({
         amount: (req.session.flightParsed.price_.total_ * 100),     // Charging Rs 25
-        description: 'Web Development Product',
+        description: 'Flight Invoice',
         currency: 'EUR',
         customer: customer.id
       });

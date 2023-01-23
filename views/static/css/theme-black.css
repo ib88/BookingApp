@@ -68,7 +68,7 @@ ul > li:before,.booking h2 span
 	}
 	
 .carousel-item {
-	  height: 70vh;
+	  height: 100vh;
 	  background: no-repeat center center scroll;
 	  -webkit-background-size: cover;
 	  -moz-background-size: cover;

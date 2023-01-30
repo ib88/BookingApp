@@ -1,14 +1,14 @@
 .section {
 	position: relative;
-	top: -520px;
+	top: 50%;
 	width: 70%;
 	margin: auto;
-	height: 450px;
+	/* height: 450px; */
 }
 
 .section .section-center {
 	position: absolute;
-	top: 30%;
+	top: -430px;
 	left: 0;
 	right: 0;
 	margin: auto;
@@ -35,9 +35,6 @@
 
 }
 
-#booking {
-	/* background: rgba(234, 127, 13, 0.33); */
-}
 
 .booking-form {
 	position: relative;

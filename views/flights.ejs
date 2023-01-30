@@ -8,6 +8,7 @@
 				<% } %>
 					<!--main-->
 					<main class="main">
+
 						<div class="row white-bg">
 							<!-- <div class="white-bg "> -->
 							<div class="col-xl-4 col-lg-6 ">
@@ -78,75 +79,10 @@
 							</div>
 							<!-- </div> -->
 						</div>
+					
 
-						<div id="booking" class="section">
-							<div class="section-center">
-								<div class="container">
-									<div class="row">
-										<div class="booking-form">
-											<div class="booking-bg">
-												<div class="form-header">
-													<br>
-													<br>
-													<h2>Make your reservation</h2>
-													<!-- <p>You can book plane tickets for your trips to all destinations in the world</p> -->
-												</div>
-											</div>
-											<form id="main-search" method="post" action="/flight/flightOffer/">
-												<div class="row">
-													<div class="col-md-6">
-														<div class="form-group">
-															<span class="form-label">Leaving from</span>
-															<input class="form-control" type="text"
-																placeholder="Specify airport" id="sourceFlight"
-																name="sourceFlight" autocomplete="off" required>
-															<input type="hidden" id="sourceFlightCode"
-																name="sourceFlightCode" value="" />
-															<div class="div-results-input" id="resultSourceFlightDiv">
-															</div>
-														</div>
-													</div>
-													<div class="col-md-6">
-														<div class="form-group">
-															<span class="form-label">Going to</span>
-															<input class="form-control" type="text"
-																placeholder="Specify airport" id="destinationFlight"
-																name="destinationFlight" autocomplete="off" required>
-															<input type="hidden" id="destinationFlightCode"
-																name="destinationFlightCode" value="">
-															<div class="div-results-input"
-																id="resultDestinationFlightDiv"></div>
-														</div>
-													</div>
-												</div>
-												<div class="row">
-													<div class="col-md-6">
-														<div class="form-group">
-															<span class="form-label">Departing on</span>
-															<input class="form-control" type="date"
-																id="datepickerSourceFlight"
-																name="datepickerSourceFlight" required>
-														</div>
-													</div>
-													<div class="col-md-6">
-														<div class="form-group">
-															<span class="form-label">Adults</span>
-															<input class="form-control" type="number" id="adultsFlight"
-																name="adultsFlight" required>
-														</div>
-													</div>
-
-												</div>
-												<div class="form-btn">
-													<button class="submit-btn" id="search-submit">Search</button>
-												</div>
-											</form>
-										</div>
-									</div>
-								</div>
-							</div>
-						</div>
-
+						
+				
 						<!--//search-->
 
 

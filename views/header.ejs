@@ -43,7 +43,7 @@
 		integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF"
 		crossorigin="anonymous"></script>
 
-			<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+	<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
 	<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
 	<!--[if lt IE 9]>
       <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
@@ -116,13 +116,13 @@
 							style="background-image: url('https://imgur.com/yl8Pr7N.jpg'); filter: brightness(0.3);">
 						</div>
 						<div class="carousel-item"
-							style="background-image: url('https://imgur.com/hzAm88B.jpg'); filter: blur(3px);">
+							style="background-image: url('https://imgur.com/hzAm88B.jpg'); filter: brightness(0.3);">
 						</div>
 						<div class="carousel-item"
-							style="background-image: url('https://imgur.com/YMpzlJo.jpg'); filter: blur(3px);">
+							style="background-image: url('https://imgur.com/YMpzlJo.jpg'); filter: brightness(0.3);">
 						</div>
 						<div class="carousel-item"
-							style="background-image: url('https://imgur.com/hxoxR6l.jpg'); filter: blur(3px);">
+							style="background-image: url('https://imgur.com/hxoxR6l.jpg'); filter: brightness(0.3);">
 						</div>
 					</div>
 					<a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
@@ -149,130 +149,149 @@
 
 									<form id="main-search" method="post" action="/flight/flightOffer/">
 										<div class="row">
-											<div class="d-flex align-items-start">
-												<div class="nav flex-column nav-pills me-3" id="v-pills-tab"
-													role="tablist" aria-orientation="vertical"
-													style="border: 3px solid #0b6cff; border-radius:7px;">
-													<button class="nav-link  active" id="v-pills-home-tab"
-														data-bs-toggle="pill" data-bs-target="#v-pills-home"
-														type="button" role="tab" aria-controls="v-pills-home"
-														aria-selected="true"> <span
-															style="color: black; font-size: 18px;">Flight</span>
+											<nav>
+												<div class="nav nav-tabs" id="nav-tab" role="tablist">
+													<button class="nav-link active" id="v-pills-home-tab"
+													data-bs-toggle="pill" data-bs-target="#v-pills-home"
+													type="button" role="tab" aria-controls="v-pills-home" aria-selected="true">
+														<span style="color: #f6922b; font-size: 16px;"> Flights</span>
+														
 													</button>
 													<button class="nav-link" id="v-pills-profile-tab"
-														data-bs-toggle="pill" data-bs-target="#v-pills-profile"
-														type="button" role="tab" aria-controls="v-pills-profile"
-														aria-selected="false"> <span
-															style="color: black; font-size: 18px;">Hotel </span>
+													data-bs-toggle="pill" data-bs-target="#v-pills-profile"
+													type="button" role="tab" aria-controls="v-pills-profile" aria-selected="false">
+														<span style="color: #f6922b; font-size: 16px;"> Hotels</span>
 													</button>
 												</div>
-												<div class="tab-content" id="v-pills-tabContent">
-													<div class="tab-pane fade show active" id="v-pills-home"
-														role="tabpanel" aria-labelledby="v-pills-home-tab">
-														<div class="row">
-															<div class="col-md-6 col-lg-6">
-																<div class="form-group">
-																	<span class="form-label">Going to</span>
-																	<input class="form-control" type="text"
-																		placeholder="Specify airport"
-																		id="destinationFlight" name="destinationFlight"
-																		autocomplete="off" required>
-																	<input type="hidden" id="destinationFlightCode"
-																		name="destinationFlightCode" value="">
-																	<div class="div-results-input"
-																		id="resultDestinationFlightDiv">
-																	</div>
-																</div>
-															</div>
-															<div class="col-md-6 col-lg-6">
-																<div class="form-group">
-																	<span class="form-label">Leaving from</span>
-																	<input class="form-control" type="text"
-																		placeholder="Specify airport" id="sourceFlight"
-																		name="sourceFlight" autocomplete="off" required>
-																	<input type="hidden" id="sourceFlightCode"
-																		name="sourceFlightCode" value="" />
-																	<div class="div-results-input"
-																		id="resultSourceFlightDiv">
-																	</div>
+												<br>
+											</nav>
+											<div class="tab-content" id="v-pills-tabContent">
+												<div class="tab-pane show active" id="v-pills-home" role="tabpanel"
+													aria-labelledby="v-pills-home-tab">
+													<div class="row">
+														<div class="col-md-4 col-lg-4">
+															<div class="form-group">
+																<span class="form-label">Going to</span>
+																<input class="form-control" type="text"
+																	placeholder="Specify airport" id="destinationFlight"
+																	name="destinationFlight" autocomplete="off"
+																	required>
+																<input type="hidden" id="destinationFlightCode"
+																	name="destinationFlightCode" value="">
+																<div class="div-results-input"
+																	id="resultDestinationFlightDiv">
 																</div>
 															</div>
 														</div>
-														<div class="row">
-															<div class="col-md-6 col-lg-6">
-																<div class="form-group">
-																	<span class="form-label">Departing on</span>
-																	<input class="form-control" type="date"
-																		id="datepickerSourceFlight"
-																		name="datepickerSourceFlight" required>
+														<div class="col-md-4 col-lg-4">
+															<div class="form-group">
+																<span class="form-label">Leaving from</span>
+																<input class="form-control" type="text"
+																	placeholder="Specify airport" id="sourceFlight"
+																	name="sourceFlight" autocomplete="off" required>
+																<input type="hidden" id="sourceFlightCode"
+																	name="sourceFlightCode" value="" />
+																<div class="div-results-input"
+																	id="resultSourceFlightDiv">
 																</div>
 															</div>
-															<div class="col-md-6 col-lg-6">
-																<div class="form-group">
-																	<span class="form-label">Adults</span>
-																	<input class="form-control" type="number"
-																		id="adultsFlight" name="adultsFlight" required>
-																</div>
+														</div>
+														<div class="col-md-4 col-lg-4">
+															<div class="form-group">
+																<span class="form-label">Type of ways</span>
+																<select class="form-select" aria-label="Default select example">
+																	<option selected>Choose option</option>
+																	<option value="1">One way</option>
+																	<option value="2">Two way</option>
+																	<!-- <option value="3">Three</option> -->
+																  </select>
 															</div>
-
 														</div>
 													</div>
-													<div class="tab-pane fade" id="v-pills-profile" role="tabpanel"
-														aria-labelledby="v-pills-profile-tab">
-														<div class="row">
-															<div class="col-md-6 col-lg-6">
-																<div class="form-group">
-																	<span class="form-label">Destination</span>
-																	<input class="form-control" type="text"
-																		placeholder="Specify airport"
-																		id="destinationFlight" name="destinationFlight"
-																		autocomplete="off" required>
-																	<input type="hidden" id="destinationFlightCode"
-																		name="destinationFlightCode" value="">
-																	<div class="div-results-input"
-																		id="resultDestinationFlightDiv">
-																	</div>
-																</div>
-															</div>
-															<div class="col-md-6 col-lg-6">
-																<div class="form-group">
-																	<span class="form-label">Rooms</span>
-																	<input class="form-control" type="number"
-																		placeholder="Specify airport" id="sourceFlight"
-																		name="sourceFlight" autocomplete="off" required>
-																	<input type="hidden" id="sourceFlightCode"
-																		name="sourceFlightCode" value="" />
-																	<div class="div-results-input"
-																		id="resultSourceFlightDiv">
-																	</div>
-																</div>
+													<div class="row">
+														<div class="col-md-4 col-lg-4">
+															<div class="form-group">
+																<span class="form-label">Departing on</span>
+																<input class="form-control" type="date"
+																	id="datepickerSourceFlight"
+																	name="datepickerSourceFlight" required>
 															</div>
 														</div>
-														<div class="row">
-															<div class="col-md-6 col-lg-6">
-																<div class="form-group">
-																	<span class="form-label">Check in</span>
-																	<input class="form-control" type="date"
-																		id="datepickerSourceFlight"
-																		name="datepickerSourceFlight" required>
-																</div>
+														<div class="col-md-4 col-lg-4">
+															<div class="form-group">
+																<span class="form-label">Adults</span>
+																<input class="form-control" type="number"
+																	id="adultsFlight" name="adultsFlight" required>
 															</div>
-															<div class="col-md-6 col-lg-6">
-																<div class="form-group">
-																	<span class="form-label">Check out</span>
-																	<input class="form-control" type="date"
-																		id="adultsFlight" name="adultsFlight" required>
-																</div>
-															</div>
-
 														</div>
-
+													
+														<div class="col-md-4 col-lg-4">
+															<div class="form-group">
+																<span class="form-label">Children</span>
+																<input class="form-control" type="number"
+																	id="datepickerSourceFlight"
+																	name="datepickerSourceFlight" required>
+															</div>
+														</div>
+														
 													</div>
 												</div>
+												<div class="tab-pane " id="v-pills-profile" role="tabpanel"
+													aria-labelledby="v-pills-profile-tab">
+													<div class="row">
+														<div class="col-md-6 col-lg-6">
+															<div class="form-group">
+																<span class="form-label">Destination</span>
+																<input class="form-control" type="text"
+																	placeholder="Specify airport" id="destinationFlight"
+																	name="destinationFlight" autocomplete="off"
+																	required>
+																<input type="hidden" id="destinationFlightCode"
+																	name="destinationFlightCode" value="">
+																<div class="div-results-input"
+																	id="resultDestinationFlightDiv">
+																</div>
+															</div>
+														</div>
+														<div class="col-md-6 col-lg-6">
+															<div class="form-group">
+																<span class="form-label">Rooms</span>
+																<input class="form-control" type="number"
+																	placeholder="Specify airport" id="sourceFlight"
+																	name="sourceFlight" autocomplete="off" required>
+																<input type="hidden" id="sourceFlightCode"
+																	name="sourceFlightCode" value="" />
+																<div class="div-results-input"
+																	id="resultSourceFlightDiv">
+																</div>
+															</div>
+														</div>
+													</div>
+													<div class="row">
+														<div class="col-md-6 col-lg-6">
+															<div class="form-group">
+																<span class="form-label">Check in</span>
+																<input class="form-control" type="date"
+																	id="datepickerSourceFlight"
+																	name="datepickerSourceFlight" required>
+															</div>
+														</div>
+														<div class="col-md-6 col-lg-6">
+															<div class="form-group">
+																<span class="form-label">Check out</span>
+																<input class="form-control" type="date"
+																	id="adultsFlight" name="adultsFlight" required>
+															</div>
+														</div>
+
+													</div>
+
+												</div>
 											</div>
-											<div class="form-btn">
-												<button class="submit-btn" id="search-submit">Search</button>
-											</div>
+										</div>
+										<div class="form-btn">
+											<button class="submit-btn" id="search-submit">Search</button>
+										</div>
 									</form>
 								</div>
 

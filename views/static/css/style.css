@@ -5310,3 +5310,11 @@ big {
 	top: 15px;
 	position: absolute;
 }
+
+ul>li:before {
+    content: "";
+    font-size: 24px;
+    position: absolute;
+    top: -7px;
+    left: 0;
+}

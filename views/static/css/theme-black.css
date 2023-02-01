@@ -56,7 +56,7 @@ ul > li:before,.booking h2 span
 .ball,.ball1 									{border-color:#333;}
 
 .lb-wrap h3,.lb-wrap label,.lb-wrap p,.lb-wrap .close,.s-title h2,.breadcrumbs,.breadcrumbs li a {
-	color: #43e794;
+	color: #000;
 }
 .s-title h2,.boxes		{border-top-color:rgba(255, 255, 255, 0.2);}
 .breadcrumbs			{-webkit-box-shadow:0 1px 0 rgba(255, 255, 255, 0.2);-moz-box-shadow:0 1px 0 rgba(255, 255, 255, 0.2);box-shadow:0 1px 0 rgba(255, 255, 255, 0.2);}

@@ -489,3 +489,213 @@ body {
 .tab-button {
 	color: #3D71E9;
 }
+
+/* Carrousel for Hotel */
+h2 {
+	color: #000;
+	font-size: 26px;
+	font-weight: 300;
+	text-align: center;
+	padding-top: 10px;
+	text-transform: uppercase;
+	position: relative;
+	margin: 30px 0 60px;
+}
+h2::after {
+	content: "";
+	width: 100px;
+	position: absolute;
+	margin: 0 auto;
+	height: 4px;
+	border-radius: 1px;
+	background: #4ecbad;
+	left: 0;
+	right: 0;
+	bottom: 0px;
+}
+.carousel {
+	margin: 0px auto;
+	/* padding: 0 70px; */
+}
+.carousel .item {
+	color: #747d89;
+	min-height: 325px;
+	text-align: center;
+	overflow: hidden;
+}
+.carousel .thumb-wrapper {
+	padding: 25px 15px;
+	background: #fff;
+	border-radius: 6px;
+	text-align: center;
+	position: relative;
+	box-shadow: 0 2px 3px rgba(0,0,0,0.2);
+}
+.carousel .item .img-box {
+	height: 120px;
+	margin-bottom: 20px;
+	width: 100%;
+	position: relative;
+}
+.carousel .item img {	
+	max-width: 100%;
+	max-height: 100%;
+	display: inline-block;
+	position: absolute;
+	bottom: 0;
+	margin: 0 auto;
+	left: 0;
+	right: 0;
+}
+.carousel .item h4 {
+	font-size: 18px;
+}
+.carousel .item h4, .carousel .item p, .carousel .item ul {
+	margin-bottom: 5px;
+}
+.carousel .thumb-content .btn {
+	color: #4ecbad;
+	font-size: 11px;
+	text-transform: uppercase;
+	font-weight: bold;
+	background: none;
+	border: 1px solid #4ecbad;
+	padding: 6px 14px;
+	margin-top: 5px;
+	line-height: 16px;
+	border-radius: 20px;
+}
+.carousel .thumb-content .btn:hover, .carousel .thumb-content .btn:focus {
+	color: #fff;
+	background: #4ecbad;
+	box-shadow: none;
+}
+.carousel .thumb-content .btn i {
+	font-size: 14px;
+	font-weight: bold;
+	margin-left: 5px;
+}
+.carousel .item-price {
+	font-size: 13px;
+	padding: 2px 0;
+}
+.carousel .item-price strike {
+	opacity: 0.7;
+	margin-right: 5px;
+}
+.carousel .wish-icon {
+	position: absolute;
+	right: 10px;
+	top: 10px;
+	z-index: 99;
+	cursor: pointer;
+	font-size: 16px;
+	color: #abb0b8;
+}
+.carousel .wish-icon .fa-heart {
+	color: #ff6161;
+}
+.star-rating li {
+	padding: 0;
+}
+.star-rating i {
+	font-size: 14px;
+	color: #ffc000;
+}
+
+/* Code for hotels cards */
+.card-sl {
+	border-radius: 8px;
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.card-image img {
+	height: 170px;
+	max-width: 100%;
+	border-radius: 8px 8px 0px 0;
+}
+
+.card-action {
+	position: relative;
+	float: right;
+	margin-top: -25px;
+	margin-right: 20px;
+	z-index: 2;
+	color: #f7982b;
+	background: #fff;
+	border-radius: 100%;
+	padding: 15px;
+	font-size: 15px;
+	box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.2), 0 1px 2px 0 rgba(0, 0, 0, 0.19);
+}
+
+.card-action:hover {
+	color: #fff;
+	background: #f7982b;
+	-webkit-animation: pulse 1.5s infinite;
+}
+
+.card-heading {
+	font-size: 18px;
+	font-weight: bold;
+	background: #fff;
+	padding: 10px 15px;
+}
+
+.card-text {
+	padding: 10px 15px;
+	background: #fff;
+	font-size: 14px;
+	color: #636262;
+}
+
+.card-text-price{
+	padding: 10px 15px;
+	background: #fff;
+	text-align: right;
+	font-weight: bold;
+	color: #000;
+}
+
+.card-button {
+	display: flex;
+	justify-content: center;
+	padding: 10px 0;
+	width: 100%;
+	background-color: #4bc4b1;
+	color: #fff;
+	border-radius: 0 0 8px 8px;
+}
+
+.card-button:hover {
+	text-decoration: none;
+	background-color: #41b197;
+	color: #fff;
+
+}
+
+
+@-webkit-keyframes pulse {
+	0% {
+		-moz-transform: scale(0.9);
+		-ms-transform: scale(0.9);
+		-webkit-transform: scale(0.9);
+		transform: scale(0.9);
+	}
+
+	70% {
+		-moz-transform: scale(1);
+		-ms-transform: scale(1);
+		-webkit-transform: scale(1);
+		transform: scale(1);
+		box-shadow: 0 0 0 50px rgba(90, 153, 212, 0);
+	}
+
+	100% {
+		-moz-transform: scale(0.9);
+		-ms-transform: scale(0.9);
+		-webkit-transform: scale(0.9);
+		transform: scale(0.9);
+		box-shadow: 0 0 0 0 rgba(90, 153, 212, 0);
+	}
+}

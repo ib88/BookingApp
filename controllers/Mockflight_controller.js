@@ -114,4 +114,40 @@ router.get(`/flightsearch`, async (req, res) => {
       res.json(response);
     });
   });
+
+
+  router.get(`/getCitySuggestion`, async (req, res) => 
+  {
+    const { keyword } = req.query;
+  
+    amadeus.referenceData.locations.get({
+          keyword,
+          'page[limit]': 5,
+          'page[offset]': 0,
+          // subType: Amadeus.location.
+          subType: 'CITY'
+        })
+    .then(function (response) {
+      var result = jp.query(JSON.parse(response.body), '$.data[*]');
+      var hotelData = jp.query(JSON.parse(response.body), '$[*][*]');
+  
+      var dataCount = hotelData.length;
+      var results = [] ;
+      for (var i = 1; i < dataCount; i++){
+          if (typeof hotelData[i]!='undefined'){
+          var displayData = {
+              detailedName: hotelData[i].detailedName,
+              name: hotelData[i].name,
+              subType: hotelData[i].subType,
+              iataCode: hotelData[i].iataCode
+            }
+          }
+          results.push(displayData);
+  
+      }// close for loop    
+      return res.send(results);
+    }).catch(function (response) {
+      res.json(response);
+    });
+  });
   module.exports = router;

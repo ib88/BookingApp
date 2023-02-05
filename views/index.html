@@ -43,6 +43,9 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js"
         integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF"
         crossorigin="anonymous"></script>
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js" integrity="sha512-GsLlZN/3F2ErC5ifS5QtgpiJtWd43JWSuIgh7mbzZ8zBps+dvLusV+eNQATqgA/HdeKFVgA5v3S/cIrLF7QnIg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="html2pdf.bundle.min.js"></script>
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -64,7 +67,6 @@
         <nav class=" my-nav navbar navbar-light navbar-expand-lg ">
             <div class="container">
 
-                <!-- <div class="logo"><a href="index.html" title="Book Your Travel"><img src="images/txt/logo.png" alt="Book Your Travel" /></a></div> -->
                 <a class="navbar-brand" href="#"><img
                         src="https://elasticbeanstalk-us-east-1-991586319498.s3.amazonaws.com/images/logo.png"
                         alt="Book Your Travel" /></a>
@@ -80,9 +82,6 @@
                         <li class="nav-item">
                             <a class="nav-link" href="#">Flights</a>
                         </li>
-                        <!-- <li class="nav-item">
-					<a class="nav-link" href="#">Pricing</a>
-				</li> -->
                         <li class="nav-item">
                             <a class="nav-link " href="#">Contact us</a>
                         </li>
@@ -99,12 +98,6 @@
         </nav>
 
         <div id="carouselExampleIndicators" class="carousel slide my-carousel my-carousel" data-ride="carousel">
-            <!-- <ol class="carousel-indicators">
-			<li data-target="#carouselExampleIndicators" class="active"></li>
-			<li data-target="#carouselExampleIndicators"></li>
-			<li data-target="#carouselExampleIndicators"></li>
-			<li data-target="#carouselExampleIndicators"></li>
-		  </ol> -->
             <div class="carousel-inner" role="listbox">
                 <div class="carousel-item active"
                 style="background-image: url('https://imgur.com/yl8Pr7N.jpg'); filter: brightness(0.3);">
@@ -262,177 +255,168 @@
                 </div>
             </div>
         </div>
-        </div>
-
-
-        <div class="container">
-            <div class="card">
-                <div class="card-body">
-                    <div id="invoice">
-                        <div class="toolbar hidden-print">
-                            <div class="text-end">
-                                <button type="button" class="btn btn-dark"><i class="fa fa-print"></i> Print</button>
-                                <button type="button" class="btn btn-danger"><i class="fa fa-file-pdf-o"></i> Export as
-                                    PDF</button>
-                            </div>
-                            <hr>
-                        </div>
-                        <div class="invoice overflow-auto">
-                            <div style="min-width: 600px">
-                                <header>
-                                    <div class="row">
-                                        <div class="col">
-                                            <a href="javascript:;">
-                                                <img src="https://elasticbeanstalk-us-east-1-991586319498.s3.amazonaws.com/images/logo.png"
-                                                    width="200" alt="Booking Logo">
-                                            </a>
-                                        </div>
-                                        <!-- <div class="col company-details">
-                                            <h2 class="name">
-                                                <a target="_blank" href="javascript:;">
-                                                    Customer's Name
-                                                </a>
-                                            </h2>
-                                            <div>455 Foggy Heights, AZ 85004, US</div>
-                                            <div>(123) 456-789</div>
-                                            <div>company@example.com</div>
-                                        </div> -->
+            <div id="invoice" style="display: block;
+            clear: both;
+            page-break-after: always; page-break-inside:avoid;">
+                <div class="container">
+                    <div class="card">
+                        <div class="card-body">
+                            <div id="invoice">
+                                <div class="toolbar hidden-print">
+                                    <div class="text-end">
+                                        <button type="button" class="btn btn-dark" id="download-button" value="Generate PDF"><i class="fa fa-print"></i> Print</button>
+                                        <input type="button" id="create_pdf" value="Generate PDF"> 
                                     </div>
-                                </header>
-                                <main>
-                                    <div class="row contacts">
-                                        <div class="col invoice-to">
-                                            <div class="text-gray-light">
-                                                <h2 class="name">
-                                                    <a target="_blank" href="javascript:;"> Hugues ASSAMBA </a>
-                                                </h2>
+                                    <hr>
+                                </div>
+                                <div class="invoice overflow-auto">
+                                    <div style="min-width: 600px">
+                                        <header>
+                                            <div class="row">
+                                                <div class="col">
+                                                    <a href="javascript:;">
+                                                        <img src="https://elasticbeanstalk-us-east-1-991586319498.s3.amazonaws.com/images/logo.png"
+                                                            width="200" alt="Booking Logo">
+                                                    </a>
+                                                </div>
                                             </div>
-
-                                            <h3 class="invoice-id text-left">Booking number : <b><big>XH78HJ</big></b>
-                                            </h3>
-                                            <div class="date"> <b>Date of departure :</b> <i> 01/10/2018</i></div>
-                                            <div class="date"> <b>Leaving from :</b> <i>Washington DC</i> </div>
-                                            <div class="date"> <b> Going to :</b> <i>Alabama</i> </div>
-                                            <div class="date"> <b>Adults :</b> <i>2</i> </div>
-
-                                        </div>
-                                        <div class="col invoice-details">
-                                            <div class="address">Birthday : 23 April 1980</div>
-                                            <div class="email"><a href="mailto:john@example.com">Email :
-                                                    hassamba8@gmail.con</a></div>
-                                        </div>
+                                        </header>
+                                        <main>
+                                            <div class="row contacts">
+                                                <div class="col invoice-to">
+                                                    <div class="text-gray-light">
+                                                        <h2 class="name">
+                                                            <a target="_blank" href="javascript:;"> Hugues ASSAMBA </a>
+                                                        </h2>
+                                                    </div>
+        
+                                                    <h3 class="invoice-id text-left">Booking number : <b><big>XH78HJ</big></b>
+                                                    </h3>
+                                                    <div class="date"> <b>Date of departure :</b> <i> 01/10/2018</i></div>
+                                                    <div class="date"> <b>Leaving from :</b> <i>Washington DC</i> </div>
+                                                    <div class="date"> <b> Going to :</b> <i>Alabama</i> </div>
+                                                    <div class="date"> <b>Adults :</b> <i>2</i> </div>
+        
+                                                </div>
+                                                <div class="col invoice-details">
+                                                    <div class="address">Birthday : 23 April 1980</div>
+                                                    <div class="email"><a href="mailto:john@example.com">Email :
+                                                            hassamba8@gmail.con</a></div>
+                                                </div>
+                                            </div>
+                                            <table>
+                                                <thead>
+                                                    <tr>
+                                                        <th class="text-left text-bold">From</th>
+                                                        <th class="text-left">To</th>
+                                                        <th class="text-center">Company</th>
+                                                        <!-- <th>Details</th> -->
+                                                        <th class="text-right">Duration</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <tr>
+        
+                                                        <td class="text-left">
+                                                            <h3>
+                                                                <a target="_blank" href="javascript:;">
+                                                                    Washington DC Airport JFK
+                                                                </a>
+                                                            </h3>
+                                                            <b>Leaves on :</b> <i>2022-09-23T23H45</i> <br>
+        
+                                                        </td>
+                                                        <td class="text-left">
+                                                            <h3>
+                                                                <a target="_blank" href="javascript:;">
+                                                                    Seattle United States of America
+                                                                </a>
+                                                            </h3>
+                                                            <b>Arrives to :</b> <i>2022-09-24T13H30</i> <br>
+                                                        </td>
+                                                        <td class="qty">Company name</td>
+                                                        <td class="total">PT2H28M</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td class="text-left">
+                                                            <h3>
+                                                                <a target="_blank" href="javascript:;">
+                                                                    Washington DC Airport JFK
+                                                                </a>
+                                                            </h3>
+                                                            <b>Leaves on :</b> <i>2022-09-23T23H45</i> <br>
+        
+                                                        </td>
+                                                        <td class="text-left">
+                                                            <h3>
+                                                                <a target="_blank" href="javascript:;">
+                                                                    Seattle United States of America
+                                                                </a>
+                                                            </h3>
+                                                            <b>Arrives to :</b> <i>2022-09-24T13H30</i> <br>
+                                                        </td>
+                                                        <td class="qty">Company name</td>
+                                                        <td class="total">PT2H28M</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td class="text-left">
+                                                            <h3>
+                                                                <a target="_blank" href="javascript:;">
+                                                                    Washington DC Airport JFK
+                                                                </a>
+                                                            </h3>
+                                                            <b>Leaves on :</b> <i>2022-09-23T23H45</i> <br>
+        
+                                                        </td>
+                                                        <td class="text-left">
+                                                            <h3>
+                                                                <a target="_blank" href="javascript:;">
+                                                                    Seattle United States of America
+                                                                </a>
+                                                            </h3>
+                                                            <b>Arrives to :</b> <i>2022-09-24T13H30</i> <br>
+                                                        </td>
+                                                        <td class="qty">Company name</td>
+                                                        <td class="total">PT2H28M</td>
+                                                    </tr>
+                                                </tbody>
+                                                <tfoot>
+                                                    <tr>
+                                                        <td></td>
+                                                        <td>SUBTOTAL</td>
+                                                        <td>$5,200.00</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td></td>
+                                                        <td>VTA 25%</td>
+                                                        <td>$1,300.00</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td></td>
+                                                        <td>GRAND TOTAL</td>
+                                                        <td>$6,500.00</td>
+                                                    </tr>
+                                                </tfoot>
+                                            </table>
+                                            <div class="thanks">Thank you!</div>
+                                            <div class="notices">
+                                                <div>NOTICE:</div>
+                                                <div class="notice">Please kepp well this invoice, we will not be able to
+                                                    reproduce it.</div>
+                                            </div>
+                                        </main>
+                                        <footer>Invoice was created on a computer and is valid without the signature and seal.
+                                        </footer>
                                     </div>
-                                    <table>
-                                        <thead>
-                                            <tr>
-                                                <th class="text-left text-bold">From</th>
-                                                <th class="text-left">To</th>
-                                                <th class="text-center">Company</th>
-                                                <!-- <th>Details</th> -->
-                                                <th class="text-right">Duration</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            <tr>
-
-                                                <td class="text-left">
-                                                    <h3>
-                                                        <a target="_blank" href="javascript:;">
-                                                            Washington DC Airport JFK
-                                                        </a>
-                                                    </h3>
-                                                    <b>Leaves on :</b> <i>2022-09-23T23H45</i> <br>
-
-                                                </td>
-                                                <td class="text-left">
-                                                    <h3>
-                                                        <a target="_blank" href="javascript:;">
-                                                            Seattle United States of America
-                                                        </a>
-                                                    </h3>
-                                                    <b>Arrives to :</b> <i>2022-09-24T13H30</i> <br>
-                                                </td>
-                                                <td class="qty">Company name</td>
-                                                <td class="total">PT2H28M</td>
-                                            </tr>
-                                            <tr>
-                                                <td class="text-left">
-                                                    <h3>
-                                                        <a target="_blank" href="javascript:;">
-                                                            Washington DC Airport JFK
-                                                        </a>
-                                                    </h3>
-                                                    <b>Leaves on :</b> <i>2022-09-23T23H45</i> <br>
-
-                                                </td>
-                                                <td class="text-left">
-                                                    <h3>
-                                                        <a target="_blank" href="javascript:;">
-                                                            Seattle United States of America
-                                                        </a>
-                                                    </h3>
-                                                    <b>Arrives to :</b> <i>2022-09-24T13H30</i> <br>
-                                                </td>
-                                                <td class="qty">Company name</td>
-                                                <td class="total">PT2H28M</td>
-                                            </tr>
-                                            <tr>
-                                                <td class="text-left">
-                                                    <h3>
-                                                        <a target="_blank" href="javascript:;">
-                                                            Washington DC Airport JFK
-                                                        </a>
-                                                    </h3>
-                                                    <b>Leaves on :</b> <i>2022-09-23T23H45</i> <br>
-
-                                                </td>
-                                                <td class="text-left">
-                                                    <h3>
-                                                        <a target="_blank" href="javascript:;">
-                                                            Seattle United States of America
-                                                        </a>
-                                                    </h3>
-                                                    <b>Arrives to :</b> <i>2022-09-24T13H30</i> <br>
-                                                </td>
-                                                <td class="qty">Company name</td>
-                                                <td class="total">PT2H28M</td>
-                                            </tr>
-                                        </tbody>
-                                        <tfoot>
-                                            <tr>
-                                                <td></td>
-                                                <td>SUBTOTAL</td>
-                                                <td>$5,200.00</td>
-                                            </tr>
-                                            <tr>
-                                                <td></td>
-                                                <td>VTA 25%</td>
-                                                <td>$1,300.00</td>
-                                            </tr>
-                                            <tr>
-                                                <td></td>
-                                                <td>GRAND TOTAL</td>
-                                                <td>$6,500.00</td>
-                                            </tr>
-                                        </tfoot>
-                                    </table>
-                                    <div class="thanks">Thank you!</div>
-                                    <div class="notices">
-                                        <div>NOTICE:</div>
-                                        <div class="notice">Please kepp well this invoice, we will not be able to
-                                            reproduce it.</div>
-                                    </div>
-                                </main>
-                                <footer>Invoice was created on a computer and is valid without the signature and seal.
-                                </footer>
+                                    <div></div>
+                                </div>
                             </div>
-                            <!--DO NOT DELETE THIS div. IT is responsible for showing footer always at the bottom-->
-                            <div></div>
                         </div>
                     </div>
-                </div>
+                </div>    
+    
             </div>
-        </div>
+
 
     </main>
     <!--footer-->
@@ -529,12 +513,45 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"
         integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous">
         </script>
+    <!-- <script src="js/jsPDF/dist/jspdf.umd.js"></script> -->
+    <script src="es6-promise.auto.min.js"></script>
+    <script src="jspdf.min.js"></script>
+    <script src="html2canvas.min.js"></script>
+    <script src="html2pdf.min.js"></script>
+    <script>
+        const button = document.getElementById('download-button');
 
-    <!-- <script type="text/javascript"
-						src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>-->
+        //function generatePDF() {
+            // Choose the element that your content will be rendered to.
+            //const element = document.getElementById('invoice');
+            // Choose the element and save the PDF for your user.
+            //html2pdf(element).set({
+            //    filename:     'invoice.pdf',
+            //    image:        { type: 'jpeg', quality: 0.98 },
+            //    html2canvas:  { y: '100px', backgroundColor: 'black' },
+            //    jsPDF:        { unit: 'in', format: 'letter', orientation: 'paysage' }
+            //  }).save();
+        //}
+
+        function generatePDF() {
+            // Choose the element that your content will be rendered to.
+            var element = document.getElementById('invoice');
+            var opt = {
+                filename:     'invoice.pdf',
+                image:        { type: 'jpeg', quality: 0.98 },
+                html2canvas:  { y: '1000px', backgroundColor: 'black' },
+                jsPDF:        { unit: 'in', format: 'letter', orientation: 'paysage' }
+              };
+            // Choose the element and save the PDF for your user.
+            html2pdf(element).set(opt).save();
+        }
+
+
+        button.addEventListener('click', generatePDF);
+    </script>
+
+
     <script type="text/javascript">
-
-
 
         (function ($) {
             $(document).ready(function () {

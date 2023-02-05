@@ -48,13 +48,13 @@ app.use(express.json());
 app.use("/api", hotelRouter);
 app.use("/flight", flightRouter);
 app.use("/Moqflight", MoqflightRouter);
-app.use("/", flightRouter);
+// app.use("/", flightRouter);
 // app.get('/', function (req, res) {
 //   res.send('hello world')
 // });
-// app.get("/", (req, res) => {
-//   res.sendFile(__dirname + "/views/index.html");
-// });
+app.get("/", (req, res) => {
+  res.sendFile(__dirname + "/views/index.html");
+});
 
 
 app.listen(PORT, () => {

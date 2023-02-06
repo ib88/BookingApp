@@ -203,7 +203,6 @@
 																	<option selected>Choose option</option>
 																	<option value="1">One way</option>
 																	<option value="2">Two way</option>
-																	<!-- <option value="3">Three</option> -->
 																  </select>
 															</div>
 														</div>
@@ -229,11 +228,13 @@
 															<div class="form-group">
 																<span class="form-label">Children</span>
 																<input class="form-control" type="number"
-																	id="datepickerSourceFlight"
-																	name="datepickerSourceFlight" required>
+																	 required>
 															</div>
 														</div>
 														
+													</div>
+													<div class="form-btn">
+														<button class="submit-btn" id="search-submit">Search</button>
 													</div>
 												</div>
 												<div class="tab-pane " id="v-pills-profile" role="tabpanel"
@@ -244,8 +245,7 @@
 																<span class="form-label">Destination</span>
 																<input class="form-control" type="text"
 																	placeholder="Specify City" id="destinationHotel"
-																	name="destinationHotel" autocomplete="off"
-																	required>
+																	name="destinationHotel" autocomplete="off">
 																<input type="hidden" id="destinationHotelCode"
 																	name="destinationHotelCode" value="">
 																<div class="div-results-input"
@@ -257,13 +257,8 @@
 															<div class="form-group">
 																<span class="form-label">Rooms</span>
 																<input class="form-control" type="number"
-																	placeholder="Specify airport" id="sourceFlight"
-																	name="sourceFlight" autocomplete="off" required>
-																<input type="hidden" id="sourceFlightCode"
-																	name="sourceFlightCode" value="" />
-																<div class="div-results-input"
-																	id="resultSourceFlightDiv">
-																</div>
+																	placeholder="Specify airport" id="rooms" 
+																	 autocomplete="off" name="rooms" >
 															</div>
 														</div>
 													</div>
@@ -271,27 +266,26 @@
 														<div class="col-md-6 col-lg-6">
 															<div class="form-group">
 																<span class="form-label">Check in</span>
-																<input class="form-control" type="date"
-																	id="datepickerSourceFlight"
-																	name="datepickerSourceFlight" required>
+																<input class="form-control" type="date" id="checkin" name="checkin">
 															</div>
 														</div>
 														<div class="col-md-6 col-lg-6">
 															<div class="form-group">
 																<span class="form-label">Check out</span>
-																<input class="form-control" type="date"
-																	id="adultsFlight" name="adultsFlight" required>
+																<input class="form-control" type="date" id="checkout" name="checkout">
 															</div>
 														</div>
 
 													</div>
 
+													<!-- <div class="form-btn">
+														<button class="submit-btn" id="search-submit">Search</button>
+													</div> -->
+	
 												</div>
 											</div>
 										</div>
-										<div class="form-btn">
-											<button class="submit-btn" id="search-submit">Search</button>
-										</div>
+										
 									</form>
 								</div>
 

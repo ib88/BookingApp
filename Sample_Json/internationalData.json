@@ -1,0 +1,35 @@
+'[
+    {
+        "type": "flight-offer",
+        "id": "1",
+        "source": "GDS",
+        "instantTicketingRequired": false,
+        "nonHomogeneous": false,
+        "oneWay": false,
+        "lastTicketingDate": "2023-02-13",
+        "numberOfBookableSeats": 1,
+        "itineraries": [
+            {
+                "duration": "PT13H20M",
+                "segments": [
+                    {
+                        "departure": {
+                            "iataCode": "AMS",
+                            "at": "2023-02-19T20:00:00"
+                        },
+                        "arrival": {
+                            "iataCode": "VIE",
+                            "terminal": "3",
+                            "at": "2023-02-19T21:50:00"
+                        },
+                        "carrierCode": "OS",
+                        "number": "376",
+                        "aircraft": {
+                            "code": "320"
+                        },
+                        "operating": {
+                            "carrierCode": "OS"
+                        },
+                        "duration": "PT1H50M",
+                        "id": "5",
+                        "numberOfStops": 0,…cludedCheckedBagsOnly":true},"validatingAirlineCodes":["LH"],"travelerPricings":[{"travelerId":"1","fareOption":"STANDARD","travelerType":"ADULT","price":{"currency":"GBP","total":"289.60","base":"138.00"},"fareDetailsBySegment":[{"segmentId":"3","cabin":"ECONOMY","fareBasis":"V03CLSEH","brandedFare":"CLASSIC","class":"V","includedCheckedBags":{"quantity":1}},{"segmentId":"4","cabin":"ECONOMY","fareBasis":"V03CLSEH","brandedFare":"CLASSIC","class":"V","includedCheckedBags":{"quantity":1}}]}]}]'

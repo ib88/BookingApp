@@ -513,26 +513,14 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"
         integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous">
         </script>
-    <!-- <script src="js/jsPDF/dist/jspdf.umd.js"></script> -->
+
+    <!-- Begin Javascript for print invoice -->
     <script src="es6-promise.auto.min.js"></script>
     <script src="jspdf.min.js"></script>
     <script src="html2canvas.min.js"></script>
     <script src="html2pdf.min.js"></script>
     <script>
         const button = document.getElementById('download-button');
-
-        //function generatePDF() {
-            // Choose the element that your content will be rendered to.
-            //const element = document.getElementById('invoice');
-            // Choose the element and save the PDF for your user.
-            //html2pdf(element).set({
-            //    filename:     'invoice.pdf',
-            //    image:        { type: 'jpeg', quality: 0.98 },
-            //    html2canvas:  { y: '100px', backgroundColor: 'black' },
-            //    jsPDF:        { unit: 'in', format: 'letter', orientation: 'paysage' }
-            //  }).save();
-        //}
-
         function generatePDF() {
             // Choose the element that your content will be rendered to.
             var element = document.getElementById('invoice');
@@ -545,10 +533,9 @@
             // Choose the element and save the PDF for your user.
             html2pdf(element).set(opt).save();
         }
-
-
         button.addEventListener('click', generatePDF);
     </script>
+    <!-- End Javascript code for print invoice -->
 
 
     <script type="text/javascript">

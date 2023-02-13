@@ -152,14 +152,16 @@
 											<nav>
 												<div class="nav nav-tabs" id="nav-tab" role="tablist">
 													<button class="nav-link active" id="v-pills-home-tab"
-													data-bs-toggle="pill" data-bs-target="#v-pills-home"
-													type="button" role="tab" aria-controls="v-pills-home" aria-selected="true">
+														data-bs-toggle="pill" data-bs-target="#v-pills-home"
+														type="button" role="tab" aria-controls="v-pills-home"
+														aria-selected="true">
 														<span style="color: #f6922b; font-size: 16px;"> Flights</span>
-														
+
 													</button>
 													<button class="nav-link" id="v-pills-profile-tab"
-													data-bs-toggle="pill" data-bs-target="#v-pills-profile"
-													type="button" role="tab" aria-controls="v-pills-profile" aria-selected="false">
+														data-bs-toggle="pill" data-bs-target="#v-pills-profile"
+														type="button" role="tab" aria-controls="v-pills-profile"
+														aria-selected="false">
 														<span style="color: #f6922b; font-size: 16px;"> Hotels</span>
 													</button>
 												</div>
@@ -169,7 +171,7 @@
 												<div class="tab-pane show active" id="v-pills-home" role="tabpanel"
 													aria-labelledby="v-pills-home-tab">
 													<div class="row">
-														
+
 														<div class="col-md-4 col-lg-4">
 															<div class="form-group">
 																<span class="form-label">Leaving from</span>
@@ -201,11 +203,12 @@
 														<div class="col-md-4 col-lg-4">
 															<div class="form-group">
 																<span class="form-label">Type of ways</span>
-																<select class="form-select" aria-label="Default select example">
+																<select class="form-select"
+																	aria-label="Default select example">
 																	<option selected>Choose option</option>
 																	<option value="1">One way</option>
 																	<option value="2">Two way</option>
-																  </select>
+																</select>
 															</div>
 														</div>
 													</div>
@@ -225,76 +228,82 @@
 																	id="adultsFlight" name="adultsFlight" required>
 															</div>
 														</div>
-													
+
 														<div class="col-md-4 col-lg-4">
 															<div class="form-group">
 																<span class="form-label">Children</span>
 																<input class="form-control" type="number"
-																	 required>
+																	id="childrenFlight" name="childrenFlight" required>
 															</div>
 														</div>
-														
+
 													</div>
 													<div class="form-btn">
 														<button class="submit-btn" id="search-submit">Search</button>
 													</div>
 												</div>
-												<div class="tab-pane " id="v-pills-profile" role="tabpanel"
-													aria-labelledby="v-pills-profile-tab">
-													<div class="row">
-														<div class="col-md-6 col-lg-6">
-															<div class="form-group">
-																<span class="form-label">Destination</span>
-																<input class="form-control" type="text"
-																	placeholder="Specify City" id="destinationHotel"
-																	name="destinationHotel" autocomplete="off">
-																<input type="hidden" id="destinationHotelCode"
-																	name="destinationHotelCode" value="">
-																<div class="div-results-input"
-																	id="resultDestinationHotelDiv">
-																</div>
-															</div>
-														</div>
-														<div class="col-md-6 col-lg-6">
-															<div class="form-group">
-																<span class="form-label">Rooms</span>
-																<input class="form-control" type="number"
-																	placeholder="Specify airport" id="rooms" 
-																	 autocomplete="off" name="rooms" >
-															</div>
+									<!-- </form>
+									<form id="main-search" method="post" action="/hotel/city-hotels/" > -->
+
+										<div class="tab-pane " id="v-pills-profile" role="tabpanel"
+											aria-labelledby="v-pills-profile-tab">
+											<div class="row">
+												<div class="col-md-6 col-lg-6">
+													<div class="form-group">
+														<span class="form-label">Destination</span>
+														<input class="form-control" type="text"
+															placeholder="Specify City" id="destinationHotel"
+															name="destinationHotel" autocomplete="off">
+														<input type="hidden" id="destinationHotelCode"
+															name="destinationHotelCode" value="">
+														<div class="div-results-input" id="resultDestinationHotelDiv">
 														</div>
 													</div>
-													<div class="row">
-														<div class="col-md-6 col-lg-6">
-															<div class="form-group">
-																<span class="form-label">Check in</span>
-																<input class="form-control" type="date" id="checkin" name="checkin">
-															</div>
-														</div>
-														<div class="col-md-6 col-lg-6">
-															<div class="form-group">
-																<span class="form-label">Check out</span>
-																<input class="form-control" type="date" id="checkout" name="checkout">
-															</div>
-														</div>
-
+												</div>
+												<div class="col-md-6 col-lg-6">
+													<div class="form-group">
+														<span class="form-label">Rooms</span>
+														<input class="form-control" type="number"
+															placeholder="Specify airport" id="rooms" autocomplete="off"
+															name="rooms">
 													</div>
-
-													<!-- <div class="form-btn">
-														<button class="submit-btn" id="search-submit">Search</button>
-													</div> -->
-	
 												</div>
 											</div>
+											<div class="row">
+												<div class="col-md-6 col-lg-6">
+													<div class="form-group">
+														<span class="form-label">Check in</span>
+														<input class="form-control" type="date" id="checkin"
+															name="checkin">
+													</div>
+												</div>
+												<div class="col-md-6 col-lg-6">
+													<div class="form-group">
+														<span class="form-label">Check out</span>
+														<input class="form-control" type="date" id="checkout"
+															name="checkout">
+													</div>
+												</div>
+												<div class="form-btn">
+													<button class="submit-btn" id="search-submit">Search</button>
+												</div>
+
+											</div>
+
+											<!-- <div class="form-btn">
+														<button class="submit-btn" id="search-submit">Search</button>
+													</div> -->
+
 										</div>
-										
-									</form>
 								</div>
-
-
 							</div>
+							</form>
 						</div>
+
+
 					</div>
+				</div>
+				</div>
 				</div>
 
 	</header>

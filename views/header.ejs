@@ -242,18 +242,20 @@
 														<button class="submit-btn" id="search-submit">Search</button>
 													</div>
 												</div>
-									<!-- </form>
-									<form id="main-search" method="post" action="/hotel/city-hotels/" > -->
-
+										 </form>
+									<!-- <form id="main-search" method="post" action="/hotel/city-hotels/" >  -->
+										<!-- <form id="main-search2" method="post" action="/hotel/city-hotels/" >  -->
 										<div class="tab-pane " id="v-pills-profile" role="tabpanel"
 											aria-labelledby="v-pills-profile-tab">
+											<form id="main-search2" method="post" action="/hotel/city-hotels/" > 
+
 											<div class="row">
 												<div class="col-md-6 col-lg-6">
 													<div class="form-group">
 														<span class="form-label">Destination</span>
 														<input class="form-control" type="text"
 															placeholder="Specify City" id="destinationHotel"
-															name="destinationHotel" autocomplete="off">
+															name="destinationHotel" autocomplete="off" required>
 														<input type="hidden" id="destinationHotelCode"
 															name="destinationHotelCode" value="">
 														<div class="div-results-input" id="resultDestinationHotelDiv">
@@ -265,7 +267,7 @@
 														<span class="form-label">Rooms</span>
 														<input class="form-control" type="number"
 															placeholder="Specify airport" id="rooms" autocomplete="off"
-															name="rooms">
+															name="rooms" required>
 													</div>
 												</div>
 											</div>
@@ -274,18 +276,18 @@
 													<div class="form-group">
 														<span class="form-label">Check in</span>
 														<input class="form-control" type="date" id="checkin"
-															name="checkin">
+															name="checkin" required>
 													</div>
 												</div>
 												<div class="col-md-6 col-lg-6">
 													<div class="form-group">
 														<span class="form-label">Check out</span>
 														<input class="form-control" type="date" id="checkout"
-															name="checkout">
+															name="checkout" required>
 													</div>
 												</div>
 												<div class="form-btn">
-													<button class="submit-btn" id="search-submit">Search</button>
+													<button class="submit-btn" id="search-submit2">Search</button>
 												</div>
 
 											</div>

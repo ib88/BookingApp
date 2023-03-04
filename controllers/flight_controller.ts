@@ -286,11 +286,13 @@ router.post(`/flightOffer`, [
   var destinationCode = req.body.destinationFlightCode;
   var dateSourceFlight = req.body.datepickerSourceFlight;
   var adults = req.body.adultsFlight;
+  var children = req.body.childrenFlight;
   var maxFlights = '5';
+
   let errorMsg = undefined;
   try {
     //throw new Error('Throw makes it go boom!');
-    let flights = await amadeusRepo.getFlightOffer(sourceCode, destinationCode, dateSourceFlight, adults, maxFlights);
+    let flights = await amadeusRepo.getFlightOffer(sourceCode, destinationCode, dateSourceFlight, adults, children, maxFlights);
     //let flights = await amadeusMockRepo.getFlightOfferReturnsNull(sourceCode, destinationCode, dateSourceFlight, adults, maxFlights);
     if (!flights || flights == undefined || flights == null) {
       //return res.render("error.ejs", { alert: "the flihgt might have been booked already!" });

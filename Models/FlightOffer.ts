@@ -262,6 +262,8 @@ export class FlightOffer {
         this.price_ = price;
         this.arrival_ = {iataCode_:'', terminal_:'', at_:''};
         this.departure_ = {iataCode_:'', terminal_:'', at_:''};
+        this.returnArrival_ = {iataCode_:'', terminal_:'', at_:''};
+        this.returnDeparture_ = {iataCode_:'', terminal_:'', at_:''};
         this.travelerPricings = travelerPricings;
         this.original = "";
     }
@@ -325,6 +327,14 @@ export class FlightOffer {
     @JsonProperty() 
     @JsonClassType({type: () => [Arrival]})
     arrival_: Arrival;
+
+    @JsonProperty() 
+    @JsonClassType({type: () => [Departure]})
+    returnDeparture_: Departure;
+
+    @JsonProperty() 
+    @JsonClassType({type: () => [Arrival]})
+    returnArrival_: Arrival;
 
     @JsonProperty() 
     @JsonClassType({type: () => [String]})

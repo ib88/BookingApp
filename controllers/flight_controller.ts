@@ -285,6 +285,7 @@ router.post(`/flightOffer`, [
   var sourceCode = req.body.sourceFlightCode;
   var destinationCode = req.body.destinationFlightCode;
   var dateSourceFlight = req.body.datepickerSourceFlight;
+  var dateReturnFlight = '2023-04-10';
   var adults = req.body.adultsFlight;
   var children = req.body.childrenFlight;
   var maxFlights = '5';
@@ -292,7 +293,14 @@ router.post(`/flightOffer`, [
   let errorMsg = undefined;
   try {
     //throw new Error('Throw makes it go boom!');
-    let flights = await amadeusRepo.getFlightOffer(sourceCode, destinationCode, dateSourceFlight, adults, children, maxFlights);
+    //let flights = await amadeusRepo.getFlightOffer(sourceCode, destinationCode, dateSourceFlight, adults, children, maxFlights);
+    let flights = undefined;
+    if(dateReturnFlight !=undefined || dateReturnFlight != '')
+     flights = await amadeusRepo.getFlightOffer(sourceCode, destinationCode, dateSourceFlight,dateReturnFlight, adults, children, maxFlights);
+    else
+     flights = await amadeusRepo.getFlightOffer(sourceCode, destinationCode, dateSourceFlight,dateReturnFlight, adults, children, maxFlights);
+
+
     //let flights = await amadeusMockRepo.getFlightOfferReturnsNull(sourceCode, destinationCode, dateSourceFlight, adults, maxFlights);
     if (!flights || flights == undefined || flights == null) {
       //return res.render("error.ejs", { alert: "the flihgt might have been booked already!" });
@@ -309,18 +317,35 @@ router.post(`/flightOffer`, [
     for (var i = 0; i < flights.length; i++) {
 
       let results = new DatesInfo(flights[i]).getDates();
+      let returnResults = new DatesInfo(flights[i]).getReturnDates();
+
       flights[i].departure_.at_ = results.departure;
       flights[i].departure_.iataCode_ = results.iataCodeDeparture;
 
       flights[i].arrival_.at_ = results.arrival;
       flights[i].arrival_.iataCode_ = results.iataCodeArrival;
 
-      ///compute the operating Airline Names of the flight
+      //only if the flight is 2 ways
+      flights[i].returnDeparture_.at_ = returnResults.departure;
+      flights[i].returnDeparture_.iataCode_ = returnResults.iataCodeDeparture;
+
+      flights[i].returnArrival_.at_ = returnResults.arrival;
+      flights[i].returnArrival_.iataCode_ = returnResults.iataCodeArrival;
+
+      ///compute the operating Airline Names for the one way flight
       for (var j = 0; j < flights[i].itineraries_[0].segments_.length; j++) {
         airlineCode = flights[i].itineraries_[0].segments_[j].carrierCode_;
         carrierResult = await amadeusRepo.getAirline(airlineCode);
         flights[i].itineraries_[0].segments_[j].carrierName_ = carrierResult.businessName;
       }
+
+      //only if the flight is 2 ways
+         ///compute the operating Airline Names for the one way flight
+         for (var j = 0; j < flights[i].itineraries_[1].segments_.length; j++) {
+          airlineCode = flights[i].itineraries_[1].segments_[j].carrierCode_;
+          carrierResult = await amadeusRepo.getAirline(airlineCode);
+          flights[i].itineraries_[1].segments_[j].carrierName_ = carrierResult.businessName;
+        }
     }
     // Confirm availability and price
     let pricingOfferStr = flights[1].original;

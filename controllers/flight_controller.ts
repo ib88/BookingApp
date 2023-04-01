@@ -54,11 +54,20 @@ router.get(`/bookFlight`, async (req: any, res: any) => {
     let airlineCode = undefined;
 
     let results = new DatesInfo(flightParsed).getDates();
+    let returnResults = new DatesInfo(flightParsed).getReturnDates();
+
     flightParsed.departure_.at_ = results.departure;
     flightParsed.departure_.iataCode_ = results.iataCodeDeparture;
 
     flightParsed.arrival_.at_ = results.arrival;
     flightParsed.arrival_.iataCode_ = results.iataCodeArrival;
+
+    //only if the flight is 2 ways
+    flightParsed.returnDeparture_.at_ = returnResults.departure;
+    flightParsed.returnDeparture_.iataCode_ = returnResults.iataCodeDeparture;
+
+    flightParsed.returnArrival_.at_ = returnResults.arrival;
+    flightParsed.returnArrival_.iataCode_ = returnResults.iataCodeArrival;
 
     ///compute the operating Airline Names of the flight
     for (var j = 0; j < flightParsed.itineraries_[0].segments_.length; j++) {
@@ -66,6 +75,14 @@ router.get(`/bookFlight`, async (req: any, res: any) => {
       carrierResult = await amadeusRepo.getAirline(airlineCode);
       flightParsed.itineraries_[0].segments_[j].carrierName_ = carrierResult.businessName;
     }
+
+      //only if the flight is 2 ways
+         ///compute the operating Airline Names for the one way flight
+         for (var j = 0; j < flightParsed.itineraries_[1].segments_.length; j++) {
+          airlineCode = flightParsed.itineraries_[1].segments_[j].carrierCode_;
+          carrierResult = await amadeusRepo.getAirline(airlineCode);
+          flightParsed.itineraries_[1].segments_[j].carrierName_ = carrierResult.businessName;
+        }
     //////
     req.session.flightJson = flight;
     req.session.flightParsed = flightParsed;

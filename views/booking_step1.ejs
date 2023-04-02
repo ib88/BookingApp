@@ -114,6 +114,16 @@
 							<dt>Arrival Time</dt>
 							<dd> <%= flight.arrival_.at_ %> </dd>
 						</dl>
+						<dl class="booking-info">
+							<dt>From</dt>
+							<dd><%= flight.returnDeparture_.iataCode_ %> </dd>
+							<dt>To</dt>
+							<dd><%= flight.returnArrival_.iataCode_ %> </dd>
+							<dt>Departure Time</dt>
+							<dd> <%= flight.returnDeparture_.at_ %> </dd>
+							<dt>Arrival Time</dt>
+							<dd> <%= flight.returnArrival_.at_ %> </dd>
+						</dl>
 						<div class="price">
 							<p class="total">Total Price:  <%= flight.price_.total_ %> Euros</p>
 							<p>VAT (20%) included</p>

@@ -44,7 +44,8 @@ sgMail.setApiKey(SENDGRID_API_KEY);
 interface IAmadeusRepo {
   getCheapestFlightDates(source: string, destination: string): Promise<flightInfo[]>;
   getFlightAvailability(source: string, destination: string, departureDate: string, adults: string): Promise<flightInfo[]>;
-  getFlightOffer(source: string, destination: string, departureDate: string, returnDate: string, adults: string,children: string, maxFlights: string): Promise<FlightOffer[]>;
+  //getFlightOffer(source: string, destination: string, departureDate: string, returnDate: string, adults: string,children: string, maxFlights: string): Promise<FlightOffer[]>;
+  getFlightOffer(source: string, destination: string, departureDate: string, adults: string, children: string, maxFlights: string,returnDate?: string): Promise<FlightOffer[]> ;
   getAirline(source: string): Promise<airlineInfo>;
   bookFlight(pricingResponse: any, firstName: string, lastName: string, birthDate: string, gender: string, email: string): Promise<any>;
   confirmFlight(searchResponse: any): Promise<any>;
@@ -97,7 +98,7 @@ export class AmadeusMockRepo implements IAmadeusRepo {
     return flights;
   }
 
-  async getFlightOffer(source: string, destination: string, departureDate: string, returnDate: string, adults: string, children: string, maxFlights: string): Promise<FlightOffer[]> {
+  async getFlightOffer(source: string, destination: string, departureDate: string, adults: string, children: string, maxFlights: string,returnDate?: string): Promise<FlightOffer[]> {
     let flights: Array<FlightOffer> = [
       // { id:'1', type:'', instantTicketingRequired:true, oneWay:true, lastTicketingDate:'', nonHomogeneous:true, source: 'MAD', destination: 'MUC', departure: '2022:11:11', returnDate: '2022:11:13', price: '133', duration: '12:21' },
       //  { id:'1', type:'', instantTicketingRequired:true, oneWay:true, lastTicketingDate:'', nonHomogeneous:true, source: 'MAD', destination: 'MUC', departure: '2022:11:11', returnDate: '2022:11:13', price: '133', duration: '12:21' },
@@ -260,13 +261,41 @@ export class AmadeusRepo implements IAmadeusRepo {
     return flights;
   }
 
-  async getFlightOffer(source: string, destination: string, departureDate: string,  returnDate: string, adults: string, children: string, maxFlights: string): Promise<FlightOffer[]> {
-
+  async getFlightOffer(source: string, destination: string, departureDate: string, adults: string, children: string, maxFlights: string,returnDate?: string): Promise<FlightOffer[]> {
+    if (typeof returnDate !== 'undefined')
     return amadeus.shopping.flightOffersSearch.get({
       originLocationCode: source,
       destinationLocationCode: destination,
       departureDate: departureDate,
       returnDate,
+      adults: adults,
+      max: maxFlights
+    }).then(function (response: any) {
+
+      const objectMapper = new ObjectMapper();
+      if (!response)
+        return null;
+      const result = JSON.stringify(response.data);
+      //objectMapper.configure();
+      let flightsParsed: FlightOffer[];
+      //flightsParsed = new Array<FlightOffer>();
+      flightsParsed = objectMapper.parse<FlightOffer[]>(result, { mainCreator: () => [Array, [FlightOffer]] });
+      //const JsonFlights = objectMapper.parse<FlightOffer>(result);
+
+      //keep the json version of the object in the original property
+      for (var i = 0; i < flightsParsed.length; i++) {
+        flightsParsed[i].original = JSON.stringify(response.data[i]); //JSON.stringify([JsonFlights][i]);
+      }
+
+      return flightsParsed;
+    }).catch(function (error: any) {
+      throw error;
+    });
+    else
+    return amadeus.shopping.flightOffersSearch.get({
+      originLocationCode: source,
+      destinationLocationCode: destination,
+      departureDate: departureDate,
       adults: adults,
       max: maxFlights
     }).then(function (response: any) {

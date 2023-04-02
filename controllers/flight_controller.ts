@@ -76,13 +76,13 @@ router.get(`/bookFlight`, async (req: any, res: any) => {
       flightParsed.itineraries_[0].segments_[j].carrierName_ = carrierResult.businessName;
     }
 
-      //only if the flight is 2 ways
-         ///compute the operating Airline Names for the one way flight
-         for (var j = 0; j < flightParsed.itineraries_[1].segments_.length; j++) {
-          airlineCode = flightParsed.itineraries_[1].segments_[j].carrierCode_;
-          carrierResult = await amadeusRepo.getAirline(airlineCode);
-          flightParsed.itineraries_[1].segments_[j].carrierName_ = carrierResult.businessName;
-        }
+    //only if the flight is 2 ways
+    ///compute the operating Airline Names for the one way flight
+    for (var j = 0; j < flightParsed.itineraries_[1].segments_.length; j++) {
+      airlineCode = flightParsed.itineraries_[1].segments_[j].carrierCode_;
+      carrierResult = await amadeusRepo.getAirline(airlineCode);
+      flightParsed.itineraries_[1].segments_[j].carrierName_ = carrierResult.businessName;
+    }
     //////
     req.session.flightJson = flight;
     req.session.flightParsed = flightParsed;
@@ -90,7 +90,7 @@ router.get(`/bookFlight`, async (req: any, res: any) => {
     return res.render("booking_step1.ejs", { flight: flightParsed });
   }
   catch (err: any) {
-    return res.render("flights.ejs", { business:undefined, apiError: "Error loading the flight. Please try again!" });
+    return res.render("flights.ejs", { business: undefined, apiError: "Error loading the flight. Please try again!" });
   }
 
 });
@@ -244,7 +244,7 @@ router.post(`/stripePayment`, async (req: any, res: any) => {
           break;
       }
       //return res.render("error.ejs", { alert: alert });
-      return res.render("flights.ejs", { apiError: alert, business: undefined,alert:undefined});
+      return res.render("flights.ejs", { apiError: alert, business: undefined, alert: undefined });
       //return res.render("booking_step3.ejs", { result: req.session.bookingResult, flight: req.session.flightParsed, travelerInfos: req.session.traveler, apiError: alert });
 
     });
@@ -312,10 +312,10 @@ router.post(`/flightOffer`, [
     //throw new Error('Throw makes it go boom!');
     //let flights = await amadeusRepo.getFlightOffer(sourceCode, destinationCode, dateSourceFlight, adults, children, maxFlights);
     let flights = undefined;
-    if(dateReturnFlight !=undefined || dateReturnFlight != '')
-     flights = await amadeusRepo.getFlightOffer(sourceCode, destinationCode, dateSourceFlight,dateReturnFlight, adults, children, maxFlights);
+    if (typeof dateReturnFlight !== 'undefined' || dateReturnFlight != '')
+      flights = await amadeusRepo.getFlightOffer(sourceCode, destinationCode, dateSourceFlight, adults, children, maxFlights, dateReturnFlight);
     else
-     flights = await amadeusRepo.getFlightOffer(sourceCode, destinationCode, dateSourceFlight,dateReturnFlight, adults, children, maxFlights);
+      flights = await amadeusRepo.getFlightOffer(sourceCode, destinationCode, dateSourceFlight, adults, children, maxFlights);
 
 
     //let flights = await amadeusMockRepo.getFlightOfferReturnsNull(sourceCode, destinationCode, dateSourceFlight, adults, maxFlights);
@@ -334,21 +334,23 @@ router.post(`/flightOffer`, [
     for (var i = 0; i < flights.length; i++) {
 
       let results = new DatesInfo(flights[i]).getDates();
-      let returnResults = new DatesInfo(flights[i]).getReturnDates();
+      let returnResults;
+      if (typeof dateReturnFlight !== 'undefined' || dateReturnFlight != '') 
+        returnResults = new DatesInfo(flights[i]).getReturnDates();
 
       flights[i].departure_.at_ = results.departure;
       flights[i].departure_.iataCode_ = results.iataCodeDeparture;
-
       flights[i].arrival_.at_ = results.arrival;
       flights[i].arrival_.iataCode_ = results.iataCodeArrival;
 
       //only if the flight is 2 ways
-      flights[i].returnDeparture_.at_ = returnResults.departure;
-      flights[i].returnDeparture_.iataCode_ = returnResults.iataCodeDeparture;
-
-      flights[i].returnArrival_.at_ = returnResults.arrival;
-      flights[i].returnArrival_.iataCode_ = returnResults.iataCodeArrival;
-
+      if (typeof dateReturnFlight !== 'undefined' || dateReturnFlight != '') 
+      {
+        flights[i].returnDeparture_.at_ = returnResults.departure;
+        flights[i].returnDeparture_.iataCode_ = returnResults.iataCodeDeparture;
+        flights[i].returnArrival_.at_ = returnResults.arrival;
+        flights[i].returnArrival_.iataCode_ = returnResults.iataCodeArrival;
+      }
       ///compute the operating Airline Names for the one way flight
       for (var j = 0; j < flights[i].itineraries_[0].segments_.length; j++) {
         airlineCode = flights[i].itineraries_[0].segments_[j].carrierCode_;
@@ -357,12 +359,15 @@ router.post(`/flightOffer`, [
       }
 
       //only if the flight is 2 ways
-         ///compute the operating Airline Names for the one way flight
-         for (var j = 0; j < flights[i].itineraries_[1].segments_.length; j++) {
+      ///compute the operating Airline Names for the one way flight
+      if (typeof dateReturnFlight !== 'undefined' || dateReturnFlight != '') 
+      {
+        for (var j = 0; j < flights[i].itineraries_[1].segments_.length; j++) {
           airlineCode = flights[i].itineraries_[1].segments_[j].carrierCode_;
           carrierResult = await amadeusRepo.getAirline(airlineCode);
           flights[i].itineraries_[1].segments_[j].carrierName_ = carrierResult.businessName;
         }
+      }
     }
     // Confirm availability and price
     let pricingOfferStr = flights[1].original;

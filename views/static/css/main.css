@@ -116,7 +116,7 @@
 	font-weight: 700;
 	-webkit-box-shadow: none;
 	box-shadow: none;
-	border-radius: 40px;
+	border-radius: 5px;
 	-webkit-transition: 0.2s all;
 	transition: 0.2s all;
 }

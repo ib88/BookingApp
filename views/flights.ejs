@@ -273,6 +273,52 @@
 																	</a>
 
 																</div> <!-- end item-right -->
+																<!-- return flight -->
+																<div class="item-left">
+																	<p class="event"> <i class="fa fa-map-marker"></i>
+																		<%= elt.returnDeparture_.iataCode_ %> to <%=
+																				elt.returnArrival_.iataCode_ %>
+																	</p>
+																	<h2 class="title">
+																		<%= elt.itineraries_[1].segments_[0].carrierName_
+																			%>
+																	</h2>
+																	<div class="sce">
+																		<div class="icon">
+																			<i class="fa fa-clock-o"></i>
+																		</div>
+																		<p>Leaves on<br> <b> <big>
+																					<%= elt.returnDeparture_.at_ %>
+																				</big> </b></p>
+																	</div>
+																	<div class="loc">
+																		<div class="icon">
+																			<i class="fa fa-clock-o"></i>
+																		</div>
+																		<p>Arrives on <br> <b> <big>
+																					<%= elt.returnArrival_.at_ %>
+																				</big> </b></p>
+																	</div>
+																	<div class="fix"></div>
+																	<div class="loc">
+																		<div class="icon">
+																			<i class="fa fa-pause"></i>
+																		</div>
+																		<p>Seats left : <b> <big>
+																					<%= elt.numberOfBookableSeats_ %>
+																				</big> </b></p>
+																	</div>
+																	<!-- <form
+																		action="/flight/bookFlight?flight=<%=elt.original%>&iataCode=<%=elt.arrival_.iataCode_ %>">
+																		<button class="booked"> <i
+																				class="fa fa-dollar"></i> Book</button>
+																	</form> -->
+																	<!-- <a href="/flight/bookFlight?flight=<%=elt.original %>&iataCode=<%=elt.arrival_.iataCode_ %>"
+																		title="Book Flight" class="booked"> <i
+																			class="fa fa-dollar"></i> Book
+																	</a> -->
+
+																</div> <!-- end item-right -->
 															</div>
 															<% } else { %>
 																<!-- Item for seats left empty -->

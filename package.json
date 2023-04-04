@@ -21,6 +21,7 @@
   "author": "Ibrahim Mefire",
   "license": "ISC",
   "dependencies": {
+    "@coreui/coreui": "^4.2.6",
     "@sendgrid/mail": "^7.7.0",
     "amadeus": "^5.7.1",
     "axios": "^0.27.2",

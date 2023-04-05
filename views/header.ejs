@@ -170,14 +170,14 @@
 														data-bs-toggle="pill" data-bs-target="#v-pills-home"
 														type="button" role="tab" aria-controls="v-pills-home"
 														aria-selected="true">
-														<span style="color: #f7982b; font-size: 16px;"> Flights</span>
+														<span style="color: #f7982b; font-size: 16px;"> <i class="fa fa-plane" aria-hidden="true"></i> Flights </span>
 
 													</button>
 													<button class="nav-link" id="v-pills-profile-tab"
 														data-bs-toggle="pill" data-bs-target="#v-pills-profile"
 														type="button" role="tab" aria-controls="v-pills-profile"
 														aria-selected="false">
-														<span style="color: #f7982b; font-size: 16px;"> Hotels</span>
+														<span style="color: #f7982b; font-size: 16px;"> <i class="fa fa-building" aria-hidden="true"></i> Hotels</span>
 													</button>
 												</div>
 												<br>
@@ -186,7 +186,7 @@
 												<div class="tab-pane show active" id="v-pills-home" role="tabpanel"
 													aria-labelledby="v-pills-home-tab">
 													<div class="row">
-														<!-- Radio --> 
+														<!-- Begin Radio --> 
 														<div>
 															<label for="f-option" class="l-radio">
 															  <input type="radio" id="f-option" value="one" name="selector" tabindex="1" checked>
@@ -195,24 +195,12 @@
 															<label for="s-option" class="l-radio">
 															  <input type="radio" id="s-option" value="two" name="selector" tabindex="2">
 															  <span style="font-size: 10px;">Two ways</span>
-														</div>														
+														</div>			
+														<!-- End Radio -->
 														<div class="row">
-															<div class="col-md-2 col-lg-4 one box">
+															<div class="col">
 																<div class="form-group ">
-																	<span class="form-label one">Leaving from</span>
-																	<input class="form-control" type="text"
-																		placeholder="Specify airport" id="sourceFlight"
-																		name="sourceFlight" autocomplete="off" >
-																	<input type="hidden" id="sourceFlightCode"
-																		name="sourceFlightCode" value="" />
-																	<div class="div-results-input"
-																		id="resultSourceFlightDiv">
-																	</div>
-																</div>
-															</div>
-															<div class="col-md-2 col-lg-3 two box box-two">
-																<div class="form-group ">
-																	<span class="form-label one">Leaving from</span>
+																	<span class="form-label">Leaving from</span>
 																	<input class="form-control" type="text"
 																		placeholder="Specify airport" id="sourceFlight"
 																		name="sourceFlight" autocomplete="off" >
@@ -224,22 +212,8 @@
 																</div>
 															</div>
 	
-															<div class="col-md-2 col-lg-4 one box">
-																<div class="form-group ">
-																	<span class="form-label">Going to</span>
-																	<input class="form-control" type="text"
-																		placeholder="Specify airport" id="destinationFlight"
-																		name="destinationFlight" autocomplete="off"
-																		>
-																	<input type="hidden" id="destinationFlightCode"
-																		name="destinationFlightCode" value="">
-																	<div class="div-results-input"
-																		id="resultDestinationFlightDiv">
-																	</div>
-																</div>
-															</div>
-															<div class="col-md-2 col-lg-3 two box box-two">
-																<div class="form-group ">
+															<div class="col">
+																<div class="form-group">
 																	<span class="form-label">Going to</span>
 																	<input class="form-control" type="text"
 																		placeholder="Specify airport" id="destinationFlight"
@@ -253,15 +227,7 @@
 																</div>
 															</div>
 
-															<div class="col-md-2 col-lg-4 one box">
-																<div class="form-group ">
-																	<span class="form-label">Departing on</span>
-																	<input class="form-control" type="date"
-																		id="datepickerSourceFlight"
-																		name="datepickerSourceFlight" >
-																</div>
-															</div>
-															<div class="col-md-2 col-lg-3 two box box-two">
+															<div class="col">
 																<div class="form-group ">
 																	<span class="form-label">Departing on</span>
 																	<input class="form-control" type="date"
@@ -270,7 +236,7 @@
 																</div>
 															</div>
 
-															<div class="col-md-2 col-lg-3 two box box-two">
+															<div class="col two box">
 																<div class="form-group ">
 																	<span class="form-label">Returning on</span>
 																	<input class="form-control" type="date"

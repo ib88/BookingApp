@@ -274,7 +274,8 @@
 
 																</div> <!-- end item-right -->
 																<!-- return flight -->
-																<div class="item-left">
+																<% if(typeof elt.returnDeparture_.iataCode_ !=='undefined' && elt.returnDeparture_.iataCode_ !='') { %>
+																	<div class="item-left">
 																	<p class="event"> <i class="fa fa-map-marker"></i>
 																		<%= elt.returnDeparture_.iataCode_ %> to <%=
 																				elt.returnArrival_.iataCode_ %>
@@ -319,6 +320,7 @@
 																	</a> -->
 
 																</div> <!-- end item-right -->
+																<% } %>
 															</div>
 															<% } else { %>
 																<!-- Item for seats left empty -->

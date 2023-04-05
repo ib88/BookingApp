@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Exemple de code pour afficher des divs en fonction d'un radio button</title>
+    <script>
+        function afficherDiv(divId) {
+            var divs = document.getElementsByClassName("maDiv");
+            for (var i = 0; i < divs.length; i++) {
+                divs[i].style.display = "none";
+            }
+            document.getElementById(divId).style.display = "block";
+        }
+    </script>
+</head>
+<body>
+    <h1>Exemple de code pour afficher des divs en fonction d'un radio button</h1>
+    <p>Choisissez une option :</p>
+    <input type="radio" name="option" value="option1" onclick="afficherDiv('div1')"> Option 1<br>
+    <input type="radio" name="option" value="option2" onclick="afficherDiv('div2')"> Option 2<br>
+    <input type="radio" name="option" value="option3" onclick="afficherDiv('div3')"> Option 3<br>
+    <p>Test</p>
+    <div id="div1" class="maDiv" style="display:none;">
+        <p>Contenu de la div 1</p>
+    </div>
+    <div id="div3" class="maDiv" style="display:none;">
+        <p>Contenu de la div 3</p>
+    </div>
+    <p>Test</p>
+</body>
+</html>

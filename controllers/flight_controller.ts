@@ -302,7 +302,7 @@ router.post(`/flightOffer`, [
   var sourceCode = req.body.sourceFlightCode;
   var destinationCode = req.body.destinationFlightCode;
   var dateSourceFlight = req.body.datepickerSourceFlight;
-  var dateReturnFlight = '2023-04-10';
+  var dateReturnFlight = req.body.datepickerReturnFlight;//'2023-04-10';
   var adults = req.body.adultsFlight;
   var children = req.body.childrenFlight;
   var maxFlights = '5';

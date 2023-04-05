@@ -117,7 +117,9 @@
 							<dt>Arrival Time</dt>
 							<dd> <%= flight.arrival_.at_ %> </dd>
 						</dl>
+
 						<% if(typeof flight.returnDeparture_.iataCode_ !=='undefined' && flight.returnDeparture_.iataCode_ !='') { %>
+
 
 						<dl class="booking-info">
 							<dt>From</dt>
@@ -129,7 +131,9 @@
 							<dt>Arrival Time</dt>
 							<dd> <%= flight.returnArrival_.at_ %> </dd>
 						</dl>
+
 						<% } %>
+
 						<div class="price">
 							<p class="total">Total Price:  <%= flight.price_.total_ %> Euros</p>
 							<p>VAT (20%) included</p>

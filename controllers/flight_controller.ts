@@ -55,12 +55,17 @@ router.get(`/bookFlight`, async (req: any, res: any) => {
 
     let results = new DatesInfo(flightParsed).getDates();
 
+
+
+
     let returnResults = undefined;
 
         //only if the flight is 2 ways
 
     if (typeof flightParsed.itineraries_[1] !== 'undefined') 
       returnResults = new DatesInfo(flightParsed).getReturnDates();
+
+   
 
 
 
@@ -103,14 +108,8 @@ router.get(`/bookFlight`, async (req: any, res: any) => {
     }
 
   }
-  
-  
-  
- 
-  
-   
-  
-   
+
+
     req.session.flightJson = flight;
     req.session.flightParsed = flightParsed;
 

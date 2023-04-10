@@ -56,19 +56,13 @@ router.get(`/bookFlight`, async (req: any, res: any) => {
     let results = new DatesInfo(flightParsed).getDates();
 
 
-
-
     let returnResults = undefined;
 
         //only if the flight is 2 ways
 
     if (typeof flightParsed.itineraries_[1] !== 'undefined') 
       returnResults = new DatesInfo(flightParsed).getReturnDates();
-
-   
-
-
-
+  
     flightParsed.departure_.at_ = results.departure;
     flightParsed.departure_.iataCode_ = results.iataCodeDeparture;
 
@@ -109,7 +103,14 @@ router.get(`/bookFlight`, async (req: any, res: any) => {
 
   }
 
-
+  
+  
+  
+ 
+  
+   
+  
+   
     req.session.flightJson = flight;
     req.session.flightParsed = flightParsed;
 
@@ -328,8 +329,8 @@ router.post(`/flightOffer`, [
   var sourceCode = req.body.sourceFlightCode;
   var destinationCode = req.body.destinationFlightCode;
   var dateSourceFlight = req.body.datepickerSourceFlight;
-
   var dateReturnFlight = req.body.datepickerReturnFlight;//'2023-04-10';
+
   
   var adults = req.body.adultsFlight;
   var children = req.body.childrenFlight;

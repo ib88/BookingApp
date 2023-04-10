@@ -5153,11 +5153,11 @@ div.containers {
 }
 
 .containers .item-right {
-	/* padding: 79px 50px; */
+	padding: 1px 1px;
 	margin-right: 20px;
 	width: 25%;
 	position: relative;
-	height: 100px
+	/* min-height: 100px */
 }
 
 .containers .item-right .up-border,
@@ -5179,7 +5179,7 @@ div.containers {
 }
 
 .containers .item-right .num {
-	font-size: 60px;
+	font-size: 30px;
 	font-weight: bold;
 	text-align: center;
 	color: #111
@@ -5195,7 +5195,7 @@ div.containers {
 
 .containers .item-right .day {
 	text-align: center;
-	font-size: 25px;
+	font-size: 15px;
 }
 
 .containers .item-left {
@@ -5208,6 +5208,7 @@ div.containers {
 	color: #3D71E9;
 	text-align: left;
 	font-weight: bold;
+	text-transform: uppercase;
 	font-size: 34px;
 	margin-bottom: 12px
 }

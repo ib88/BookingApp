@@ -2,7 +2,7 @@
     <div class="container mt-3 mb-3">
         <div class="d-flex justify-content-between align-items-center mb-5">
             <div class="d-flex flex-row align-items-center">
-            </div> 
+            </div>
             <a href="/flight/flightOffer" class="cancel">Cancel and return to search</a>
         </div>
         <div class="row">
@@ -17,40 +17,104 @@
                             <h6 class="text-success font-weight-bold ml-1">XM765JGGF</h6>
                         </div>
                     </div> -->
-                    <p>Cheick your information before booking to make sure all is okay. </p>
-                    <% if(typeof flight !='undefined' && typeof travelerInfos !='undefined') { %>
+                <p>Cheick your information before booking to make sure all is okay. </p>
+                <% if(typeof flight !='undefined' && typeof travelerInfos !='undefined' ) { %>
 
-                    <div class="d-flex justify-content-between mt-2"> <span class="fw-500"> <b>Customer Name</b>  </span> <span> <i> <%= travelerInfos.first_name %>  <%= travelerInfos.last_name %>
-                    </i> </span> </div>
-                    <div class="d-flex justify-content-between mt-2"> <span class="fw-500"> <b> Customer Email</b></span> <span> <i> <%= travelerInfos.email_ %> </i> </span> </div>
-                    <div class="d-flex justify-content-between mt-2"> <span class="fw-500"> <b>Leaving</b>  </span> <span> <i> <%= flight.departure_.iataCode_ %></i> </span> </div>
-                    <div class="d-flex justify-content-between mt-2"> <span class="fw-500"> <b> Going to</b></span> <span> <i> <%= flight.arrival_.iataCode_ %></i> </span> </div>
-                    <div class="d-flex justify-content-between mt-2"> <span class="fw-500"> <b>Departure time</b>  </span> <span> <i><%= flight.departure_.at_ %></i>  </span> </div>
-                    <hr>
-                    <div class="d-flex flex-column"> <label class="radio"> <input type="radio" name="gender" value="MALE" checked>
-                            <div class="d-flex justify-content-between"> <span>VISA</span> <span>************</span> </div>
-                        </label> <label class="radio"> <input type="radio" name="gender" value="FEMALE">
-                            <div class="d-flex justify-content-between"> <span>MASTER CARD</span> <span>************</span> </div>
-                        </label> </div>
-                        <form action="/flight/stripePayment/" method="POST">
-                                <script src="//checkout.stripe.com/v2/checkout.js" class="btn stripe-button btn-block" data-key="<%= key %>"
-                                    data-amount="<%= (flight.price_.total_ * 100)%>" data-amount="50,2" data-currency="eur"
-                                    data-name="<%= travelerInfos.first_name %>  <%= travelerInfos.last_name %>" data-description="Flight ticket reservation" data-locale="auto">
-                                    </script>
-                        </form>
-                </div>
-                <div class="col-md-1 col-xl-1"> </div>
-                <div class="col-md-4 col-xl-4">
-                    <div class="bg-pay p-3"> <h3 class="font-weight-bold">Order Recap</h3>
-                        <div class="d-flex justify-content-between mt-2"> <span class="fw-500">Contracted Price</span> <span><%= flight.price_.total_ %>$</span> </div>
-                        <div class="d-flex justify-content-between mt-2"> <span class="fw-500">Ticket Number</span> <span>xxxxxx</span> </div>
-                        <div class="d-flex justify-content-between mt-2"> <span class="fw-500">Amount Deductible</span> <span>$0.0</span> </div>
-                        <hr>
-                        <div class="d-flex justify-content-between mt-2"> <span class="fw-500">Total </span> <span class="text-success"><%= flight.price_.total_ %>$</span> </div>
+                    <div class="d-flex justify-content-between mt-2"> <span class="fw-500"> <b>Customer Name</b> </span>
+                        <span> <i>
+                                <%= travelerInfos.first_name %>
+                                    <%= travelerInfos.last_name %>
+                            </i> </span>
                     </div>
-                </div>    
+                    <div class="d-flex justify-content-between mt-2"> <span class="fw-500"> <b> Customer
+                                Email</b></span> <span> <i>
+                                <%= travelerInfos.email_ %>
+                            </i> </span> </div>
+                    <div class="d-flex justify-content-between mt-2"> <span class="fw-500"> <b>Leaving</b> </span>
+                        <span> <i>
+                                <%= flight.departure_.iataCode_ %>
+                            </i> </span>
+                    </div>
+                    <div class="d-flex justify-content-between mt-2"> <span class="fw-500"> <b> Going to</b></span>
+                        <span> <i>
+                                <%= flight.arrival_.iataCode_ %>
+                            </i> </span>
+                    </div>
+                    <div class="d-flex justify-content-between mt-2"> <span class="fw-500"> <b>Departure time</b>
+                        </span> <span> <i>
+                                <%= flight.departure_.at_ %>
+                            </i> </span> </div>
+                    <div class="d-flex justify-content-between mt-2"> <span class="fw-500"> <b>Arrival time</b>
+                        </span> <span> <i>
+                                <%= flight.arrival_.at_ %>
+                            </i> </span> </div>
+                    <hr>
+                    <!-- return flight -->
+                    <% if(typeof flight.returnDeparture_.iataCode_ !=='undefined' && flight.returnDeparture_.iataCode_
+                        !='' ) { %>
+                        <div class="d-flex justify-content-between mt-2"> <span class="fw-500"> <b>Leaving</b> </span>
+                            <span> <i>
+                                    <%= flight.returnDeparture_.iataCode_ %>
+                                </i> </span>
+                        </div>
+                        <div class="d-flex justify-content-between mt-2"> <span class="fw-500"> <b> Going to</b></span>
+                            <span> <i>
+                                    <%= flight.returnArrival_.iataCode_ %>
+                                </i> </span>
+                        </div>
+                        <div class="d-flex justify-content-between mt-2"> <span class="fw-500"> <b>Departure time</b>
+                            </span> <span> <i>
+                                    <%= flight.returnDeparture_.at_ %>
+                                </i> </span> </div>
+                        <div class="d-flex justify-content-between mt-2"> <span class="fw-500"> <b>Arrival time</b>
+                            </span> <span> <i>
+                                    <%= flight.returnArrival_.at_ %>
+                                </i> </span> </div>
+                        <% } %>
+
+                            <div class="d-flex flex-column"> <label class="radio"> <input type="radio" name="gender"
+                                        value="MALE" checked>
+                                    <div class="d-flex justify-content-between"> <span>VISA</span>
+                                        <span>************</span>
+                                    </div>
+                                </label> <label class="radio"> <input type="radio" name="gender" value="FEMALE">
+                                    <div class="d-flex justify-content-between"> <span>MASTER CARD</span>
+                                        <span>************</span>
+                                    </div>
+                                </label> </div>
+                            <form action="/flight/stripePayment/" method="POST">
+                                <script src="//checkout.stripe.com/v2/checkout.js" class="btn stripe-button btn-block"
+                                    data-key="<%= key %>" data-amount="<%= (flight.price_.total_ * 100)%>"
+                                    data-amount="50,2" data-currency="eur"
+                                    data-name="<%= travelerInfos.first_name %>  <%= travelerInfos.last_name %>"
+                                    data-description="Flight ticket reservation" data-locale="auto">
+                                    </script>
+                            </form>
+            </div>
+            <div class="col-md-1 col-xl-1"> </div>
+            <div class="col-md-4 col-xl-4">
+                <div class="bg-pay p-3">
+                    <h3 class="font-weight-bold">Order Recap</h3>
+                    <div class="d-flex justify-content-between mt-2"> <span class="fw-500">Contracted Price</span>
+                        <span>
+                            <%= flight.price_.total_ %>$
+                        </span>
+                    </div>
+                    <div class="d-flex justify-content-between mt-2"> <span class="fw-500">Ticket Number</span>
+                        <span>xxxxxx</span>
+                    </div>
+                    <div class="d-flex justify-content-between mt-2"> <span class="fw-500">Amount Deductible</span>
+                        <span>$0.0</span>
+                    </div>
+                    <hr>
+                    <div class="d-flex justify-content-between mt-2"> <span class="fw-500">Total </span> <span
+                            class="text-success">
+                            <%= flight.price_.total_ %>$
+                        </span> </div>
+                </div>
             </div>
         </div>
     </div>
+    </div>
     <% } %>
-<%- include('footer'); -%>
+        <%- include('footer'); -%>

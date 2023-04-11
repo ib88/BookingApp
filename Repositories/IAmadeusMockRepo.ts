@@ -25,13 +25,14 @@ app.use(bodyParser.urlencoded({ extended: false }));
 
 // Create router
 const router = express.Router();
-//Create Amadeus API client
+//For production
 const amadeus = new Amadeus({
   clientId: API_KEY,
   clientSecret: API_SECRET,
   hostname: 'production'
 });
 
+// for test env
 // const amadeus = new Amadeus({
 //   clientId: API_KEY,
 //   clientSecret: API_SECRET

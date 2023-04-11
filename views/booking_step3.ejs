@@ -53,10 +53,28 @@
 												<div class="date"> <b> Going to :</b> <i>
 														<%= flight.arrival_.iataCode_ %>
 													</i> </div>
-												<div class="date"> <b>Adults :</b> <i>2</i> </div>
+												<!-- <div class="date"> <b>Adults :</b> <i>2</i> </div> -->
 											</div>
+											 <!-- return flight -->
+											 <% if(typeof flight.returnDeparture_.iataCode_ !=='undefined' && flight.returnDeparture_.iataCode_
+											 !='' ) { %>
+												<div class="date"> <b>Date of departure :</b> <i>
+													<%= flight.returnDeparture_.at_ %>
+												</i></div>
+											<div class="date"> <b>Date of arrival :</b> <i>
+													<%= flight.returnArrival_.at_ %>
+												</i></div>
+											<div class="date"> <b>Leaving from :</b> <i>
+													<%= flight.returnDeparture_.iataCode_ %>
+												</i> </div>
+											<div class="date"> <b> Going to :</b> <i>
+													<%= flight.returnArrival_.iataCode_ %>
+												</i> </div>
+											<!-- <div class="date"> <b>Adults :</b> <i>2</i> </div> -->
+										</div>
+												<% } %>
 											<div class="col invoice-details">
-												<div class="address">Birthday : 23 April 1980</div>
+												<!-- <div class="address">Birthday : 23 April 1980</div> -->
 												<div class="email"><a href="mailto:john@example.com">Email : <%=
 															travelerInfos.email_ %> </a></div>
 											</div>
@@ -144,11 +162,11 @@
 										<div class="thanks">Thank you!</div>
 										<div class="notices">
 											<div>NOTICE:</div>
-											<div class="notice">Please kepp well this invoice, we will not be able to
+											<div class="notice">Please keep this invoice safely, we will not be able to
 												reproduce it.</div>
 										</div>
 									</main>
-									<footer>Invoice was created on a computer and is valid without the signature and seal.
+									<footer>Invoice was created on a computer and is valid without any signature or seal.
 									</footer>
 								</div>
 								<!--DO NOT DELETE THIS div. IT is responsible for showing footer always at the bottom-->

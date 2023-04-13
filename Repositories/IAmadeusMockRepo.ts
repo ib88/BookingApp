@@ -191,7 +191,7 @@ export class AmadeusRepo implements IAmadeusRepo {
           'flightOffers': [pricingResponse.data.flightOffers[0]],
           'travelers': [{
             "id": "1",
-            "dateOfBirth": "1982-01-16",
+            "dateOfBirth": birthDate,//"1982-01-16",
             "name": {
               "firstName": firstName,//"JORGE",
               "lastName": lastName,//"GONZALES"

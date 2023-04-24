@@ -19,7 +19,7 @@
 @media only screen and (max-width: 768px) {
 	.section {
 		position: relative;
-		top: 300px;
+		top: 200px;
 		/* height: 450px; */
 	}
 
@@ -38,16 +38,17 @@
 
 .booking-form {
 	position: relative;
-	max-width: 912px;
+	max-width: 1300px;
 	width: 100%;
 	margin: auto;
 	background: #fff;
 	border-radius: 6px;
 	-webkit-box-shadow: 0px 5px 10px -5px rgba(0, 0, 0, 0.1);
 	box-shadow: 0px 5px 10px -5px rgba(0, 0, 0, 0.1);
+	margin-bottom: 20px;
 }
 
-.booking-form .booking-bg {
+/* .booking-form .booking-bg {
 	position: absolute;
 	left: 25px;
 	top: -25px;
@@ -56,7 +57,6 @@
 	background-image: url('https://elasticbeanstalk-us-east-1-991586319498.s3.amazonaws.com/images/4769.jpg');
 	background-size: cover;
 	background-position: center;
-	/* padding: 25px; */
 	border-radius: 6px;
 	-webkit-box-shadow: 0px 5px 10px -5px rgba(0, 0, 0, 0.1);
 	box-shadow: 0px 5px 10px -5px rgba(0, 0, 0, 0.1);
@@ -71,7 +71,7 @@
 	bottom: 0;
 	top: 0;
 	background: rgba(229, 142, 49, 0.704);
-}
+} */
 
 .booking-form>form {
 	/* margin-left: 425px; */
@@ -755,4 +755,8 @@ h2::after {
 
 .box{
 	display: none;
+}
+
+.hotel-card{
+	padding-top: 50px;
 }

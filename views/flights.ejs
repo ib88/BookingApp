@@ -17,17 +17,8 @@
 		</div>
 		<div class="relative z-30 h-48 px-10  lg:h-32">
 			<div class="booking-form">
-				<!-- <div class="booking-bg">
-				<div class="form-header">
-					<br>
-					<br>
-					<h2>Make your reservation</h2>
-				</div>
-			</div> -->
-
-				<form id="main-search" method="post" action="/flight/flightOffer/">
+				<form id="main-search" method="post" action="/flight/flightOffer#flight-results">
 					<div class="row">
-						<!-- <nav style="background-color:#f7982b"> -->
 						<nav>
 							<div class="nav nav-tabs" id="nav-tab" role="tablist">
 								<button class="nav-link active" id="v-pills-home-tab" data-bs-toggle="pill"
@@ -104,23 +95,66 @@
 										</div>
 									</div>
 									<div class="row">
-										<div class="col-lg-3"></div>
-										<div class="col-md-2 col-lg-3">
-											<div class="form-group">
+										<div class="col-lg-5"></div>
+
+										<div class="col-md-1 col-lg-1">
+											<span class="form-label">Adults</span>
+											<select class="form-select" id="adultsFlight" name="adultsFlight"
+												aria-label="Default select example">
+												<option selected value="1">1</option>
+												<option value="2">2</option>
+												<option value="3">3</option>
+												<option>4</option>
+												<option>5</option>
+												<option>6</option>
+												<option>7</option>
+												<option>8</option>
+												<option>9</option>
+												<option>10</option>
+											</select>
+											<!-- <div>
+												<label for="location" class="form-label block text-sm font-medium leading-6 text-gray-900">Adults</label>
+												<select id="adultsFlight" name="adultsFlight" class="rounded-md block w-full form-control text-gray-900 ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-indigo-600 sm:text-sm sm:leading-6">
+												  <option selected>0</option>
+												  <option>1</option>
+												  <option>2</option>
+												  <option>3</option>
+												  <option>4</option>
+												  <option>5</option>
+												  <option>6</option>
+												  <option>7</option>
+												  <option>8</option>
+												  <option>9</option>
+												  <option>10</option>
+												</select>
+											</div> -->
+											<!-- <div class="form-group">
 												<span class="form-label">Adults</span>
 												<input class="form-control" type="number" id="adultsFlight"
 													name="adultsFlight">
-											</div>
+											</div> -->
 										</div>
 
-										<div class="col-md-2 col-lg-3">
+										<div class="col-md-1 col-lg-1">
 											<div class="form-group">
 												<span class="form-label">Children</span>
-												<input class="form-control" type="number" id="childrenFlight"
-													name="childrenFlight">
+												<select class="form-control" id="childrenFlight" name="childrenFlight"
+													aria-label="Default select example">
+													<option selected>0</option>
+													<option value="1">1</option>
+													<option value="2">2</option>
+													<option value="3">3</option>
+													<option>4</option>
+													<option>5</option>
+													<option>6</option>
+													<option>7</option>
+													<option>8</option>
+													<option>9</option>
+													<option>10</option>
+												</select>
 											</div>
 										</div>
-										<div class="col-lg-3"></div>
+										<div class="col-lg-5"></div>
 									</div>
 								</div>
 								<div class="form-btn">
@@ -180,18 +214,6 @@
 		</div>
 		</form>
 		</div>
-		<!-- <form onsubmit="return false;" class="flex flex-col items-center h-auto max-w-lg p-6 mx-auto space-y-3 overflow-hidden transform -translate-y-12 bg-white rounded-lg shadow-md lg:h-24 lg:max-w-6xl lg:flex-row lg:space-y-0 lg:space-x-3">
-            <div class="w-full h-12 border-2 border-gray-200 rounded-lg lg:border-0 lg:w-auto lg:flex-1">
-                <input type="text" class="w-full h-full px-4 font-medium text-gray-700 rounded-lg sm:text-lg focus:bg-gray-50 focus:outline-none" data-rounded="rounded-lg" placeholder="What Are You Searching For?">
-            </div>
-            <div class="relative flex items-center w-full h-12 border-2 border-gray-200 rounded-lg lg:w-auto lg:border-0 lg:flex-1">
-                <input type="text" class="w-full h-full px-4 font-medium text-gray-700 rounded-lg sm:text-lg focus:bg-gray-50 focus:outline-none" data-rounded="rounded-lg" placeholder="Location?">
-                <svg class="absolute right-0 w-6 h-6 mr-4 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
-            </div>
-            <div class="w-full h-full lg:w-auto">
-                <button type="submit" class="inline-flex items-center justify-center w-full h-full px-4 py-2 text-base font-medium leading-6 text-white whitespace-no-wrap bg-indigo-600 border border-transparent rounded-md shadow-sm hover:bg-indigo-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-600 lg:w-64" data-primary="indigo-600" data-rounded="rounded-md">Search</button>
-            </div>
-        </form> -->
 		</div>
 
 	</section>
@@ -379,10 +401,160 @@
 							</div>
 						</div>
 
+
+
 						<!--//search-->
 
+						<div class="max-w-6xl mx-auto">
+							<div class="flex justify-center min-h-screen">
+								<div class="max-w-md w-full p-4 py-6">
 
-						<div class="wrap">
+									<div class="bg-white shadow-xl rounded-lg overflow-hidden">
+										<div class="bg-cover bg-center h-16 p-4 flex justify-end items-center"
+											style="background-image: url(https://mosscm.com/wp-content/uploads/2017/11/news-dallas-skyline.jpg)">
+											<p
+												class="uppercase tracking-widest text-sm text-white bg-black py-1 px-2 rounded opacity-75 shadow-lg">
+												Dallas, TX</p>
+										</div>
+										<div class="p-4 text-gray-700 flex justify-between">
+											<div>
+												<p class="text-3xl text-gray-900"><i
+														class="wi wi-day-sunny text-yellow-500"></i> 84°<span
+														class="text-lg text-gray-500">/ 67°</span></p>
+												<p class="text-sm w-56">Mostly sunny throughout the day.<br />
+													4-8 MPH winds.</p>
+
+											</div>
+											<div class="leading-loose text-sm">
+												<div class="flex items-center">
+													<i class="mr-2 wi wi-horizon-alt text-yellow-500"></i>
+													<p><span class="font-bold">6:57</span> <span
+															class="text-xs text-gray-600">AM</span></p>
+												</div>
+												<div class="flex items-center">
+													<i class="mr-2 wi wi-horizon text-purple-400"></i>
+													<p><span class="font-bold">5:42</span> <span
+															class="text-xs text-gray-600">PM</span></p>
+												</div>
+											</div>
+										</div>
+										<div
+											class="flex justify-between items-center p-4 border-t border-gray-300 text-gray-600">
+											<div class="flex items-center">
+												<i class="mr-2 wi wi-hot"></i>
+												<p><span class="text-gray-900 font-bold">7</span> <span
+														class="text-sm">UV</span></p>
+											</div>
+											<div class="flex items-center">
+												<i class="mr-2 wi wi-rain"></i>
+												<p><span class="text-gray-900 font-bold">8%</span> <span
+														class="text-sm">Precip</span></p>
+											</div>
+											<div class="flex items-center">
+												<i class="mr-2 wi wi-thermometer"></i>
+												<p><span class="text-gray-900 font-bold">59°</span> <span
+														class="text-sm">Dew Point</span></p>
+											</div>
+										</div>
+									</div>
+
+									<div class="text-gray-600 my-3 text-center"><i class="fas fa-ellipsis-v"></i></div>
+									<div
+										class="text-xs uppercase text-gray-400 tracking-wider text-center leading-none">
+										EST Time to Airport: <span class="font-bold text-sm">32 min</span></div>
+									<div class="text-gray-600 my-3 text-center"><i class="fas fa-ellipsis-v"></i></div>
+
+									<div class="bg-white shadow-xl rounded-lg overflow-hidden">
+										<div class="bg-cover bg-center h-16 p-4 flex justify-end items-center"
+											style="background-image: url(https://content.api.news/v3/images/bin/11990db1d540d5c13ea8ca3e01f2083c)">
+											<p
+												class="uppercase tracking-widest text-sm text-white bg-black py-1 px-2 rounded opacity-75 shadow-lg">
+												DFW <span class="tracking-normal">--></span> SEA</p>
+										</div>
+										<div
+											class="px-4 pb-3 pt-4 border-b border-gray-300 bg-gray-100 flex justify-between">
+											<div class="text-xs uppercase font-bold text-gray-600 tracking-wide">TSA:
+												<span class="font-normal">5-12 min</span></div>
+											<div class="text-xs uppercase font-bold text-gray-600 tracking-wide">Airport
+												Status: <span class="font-normal text-green-600">Normal</span></div>
+										</div>
+										<div class="p-4 text-gray-700 flex justify-between items-start">
+											<div>
+												<p class="text-3xl text-gray-900 leading-none my-1">AA 792</p>
+												<p class="text-xs w-56">American Airlines</p>
+												<p class="text-sm w-56">7:11 am --> 10:10 am</p>
+
+
+											</div>
+											<div
+												class="leading-loose bg-green-500 text-white p-1 px-2 rounded-lg uppercase text-xs tracking-wider">
+												On Time</div>
+										</div>
+										<div
+											class="flex justify-between items-center p-4 border-t border-gray-300 text-gray-600">
+											<div class="flex items-center">
+												<p><span class="text-sm pr-1">Terminal</span> <span
+														class="text-gray-900 font-bold">C</span></p>
+											</div>
+											<div class="flex items-center">
+												<p><span class="text-sm pr-1">Gate</span> <span
+														class="text-gray-900 font-bold">C24</span></p>
+											</div>
+											<div class="flex items-center">
+												<p><span class="text-sm pr-1">Seats</span> <span
+														class="text-gray-900 font-bold">12D, 12E</span></p>
+											</div>
+										</div>
+
+									</div>
+
+									<!-- <div class="text-gray-600 my-3 text-center"><i class="fas fa-ellipsis-v"></i></div>
+									<div class="text-xs uppercase text-gray-400 tracking-wider text-center leading-none">EST Flight Time: <span class="font-bold text-sm">2 hr 14 min</span></div>
+									<div class="text-gray-600 my-3 text-center"><i class="fas fa-ellipsis-v"></i></div>
+									<div class="bg-white shadow-xl rounded-lg overflow-hidden">
+										<div class="bg-cover bg-center h-16 p-4 flex justify-end items-center" style="background-image: url(https://images.fineartamerica.com/images/artworkimages/mediumlarge/1/seattle-skyline-with-mount-rainier-during-sunrise-panorama-david-gn.jpg)">
+											<p class="uppercase tracking-widest text-sm text-white bg-black py-1 px-2 rounded opacity-75 shadow-lg">Seattle, WA</p>
+										</div>
+										<div class="p-4 text-gray-700 flex justify-between">
+											<div>
+												<p class="text-3xl text-gray-900"><i class="wi wi-cloudy text-gray-600"></i> 52°<span class="text-lg text-gray-500">/ 39°</span></p>
+												<p class="text-sm w-56">Cloudy with scattered showers.<br />
+												1-3 MPH winds.</p>
+												
+											</div>
+											<div class="leading-loose text-sm">
+												<div class="flex items-center">
+													<i class="mr-2 wi wi-horizon-alt text-yellow-500"></i>
+													<p><span class="font-bold">6:57</span> <span class="text-xs text-gray-600">AM</span></p>
+												</div>
+												<div class="flex items-center">
+													<i class="mr-2 wi wi-horizon text-purple-400"></i>
+													<p><span class="font-bold">5:42</span> <span class="text-xs text-gray-600">PM</span></p>
+												</div>
+											</div>
+										</div>
+										<div class="flex justify-between items-center p-4 border-t border-gray-300 text-gray-600">
+											<div class="flex items-center">
+												<i class="mr-2 wi wi-hot"></i>
+												<p><span class="text-gray-900 font-bold">1</span> <span class="text-sm">UV</span></p>
+											</div>
+											<div class="flex items-center">
+												<i class="mr-2 wi wi-rain"></i>
+												<p><span class="text-gray-900 font-bold">29%</span> <span class="text-sm">Precip</span></p>
+											</div>
+											<div class="flex items-center">
+												<i class="mr-2 wi wi-thermometer"></i>
+												<p><span class="text-gray-900 font-bold">46°</span> <span class="text-sm">Dew Point</span></p>
+											</div>
+										</div>
+									</div> -->
+
+								</div>
+							</div>
+						</div>
+
+
+						<div class="wrap" id="flight-results">
 							<div class="row">
 								<!--deals-->
 								<div class="full-width">
@@ -419,7 +591,7 @@
 																	<h2 class="num">
 																		<%= elt.price_.total_ %>
 																	</h2>
-																	<p class="day">Euros</p>
+																	<p class="day">GBP</p>
 																	<span class="up-border"></span>
 																	<span class="down-border"></span>
 																</div> <!-- end item-right -->
@@ -597,6 +769,7 @@
 
 													<%});%>
 														<% } %>
+
 															<!--//deal-->
 															<!-- <div class="containers">
 																<div class="item">
@@ -661,14 +834,18 @@
 
 										</div> -->
 
+
+
+
 										</div>
 
 									</div>
 								</div>
 								<!--//top destinations-->
 							</div>
+						</div>
 
-							
+
 					</main>
 					<!--//main-->
 

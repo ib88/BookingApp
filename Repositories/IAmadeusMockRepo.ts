@@ -32,7 +32,7 @@ const amadeus = new Amadeus({
   hostname: 'production'
 });
 
-// for test env
+//for test env
 // const amadeus = new Amadeus({
 //   clientId: API_KEY,
 //   clientSecret: API_SECRET

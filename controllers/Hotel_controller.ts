@@ -22,6 +22,7 @@ const router = express.Router();
 const amadeus = new Amadeus({
   clientId: API_KEY,
   clientSecret: API_SECRET,
+  hostname: 'production'
 });
 
 // Location search suggestions
@@ -187,6 +188,18 @@ router.get(`/city-hotels`, async (req: any, res: any) => {
 
 });
 
+// router.get(`/hotelsByCity`, async (req: any, res: any) => {
+
+//   amadeus.referenceData.locations.hotels.byCity.get({
+//     cityCode: 'PAR'
+//   }).then(function (response:any) {
+//     res.json(response);
+//   }).catch(function (response:any) {
+//     res.json(response);
+//   });
+
+// });
+
 router.post(`/city-hotels`, [
   check('destinationHotel')
       .not()
@@ -205,7 +218,8 @@ router.post(`/city-hotels`, [
   var cityCode = req.body.destinationCode;
   var checkInDate = req.body.checkin;
   var checkOutDate = req.body.checkout;
-  var adults = req.body.adults;
+  //var adults = req.body.hotelAdults;
+   var rooms = req.body.rooms;
   var cityCode = req.body.destinationHotelCode;
 
 
@@ -219,13 +233,13 @@ router.post(`/city-hotels`, [
       return res.render("home", {alert});
       //return res.status(422).jsonp(errors.array());
     }
-
-
-  amadeus.shopping.hotelOffers.get({
-    cityCode,
-    checkInDate,
-    checkOutDate,
-    adults
+cityCode="LON";
+amadeus.referenceData.locations.hotels.byCity.get({
+    
+    cityCode:"LON"
+    // checkInDate,
+    // checkOutDate,
+    // rooms
   }).then(function (response:any) {
     var hotelData = jp.query(JSON.parse(response.body), "$.data[*]");
     var dataCount = hotelData.length;
@@ -240,12 +254,12 @@ router.post(`/city-hotels`, [
             roomType: hotelData[i].offers[0].room.typeEstimated.category,
             price: hotelData[i].offers[0].price.total,
             checkInDate: hotelData[i].offers[0].checkInDate,
-            checkOutDate: hotelData[i].offers[0].checkOutDate,
-            adults: adults
+            checkOutDate: hotelData[i].offers[0].checkOutDate
         }
         results.push(displayData);
     }// close for loop
-    return res.render("home", {business: results});
+    return res.json(hotelData);
+    //return res.render("home", {business: results});
   }).catch(function (response:any) {
     // TODO: When an error occurs during booking, don't just display JSON googledigoo, 
     // ... display page with comprehensible error to user

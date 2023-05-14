@@ -240,26 +240,35 @@ amadeus.referenceData.locations.hotels.byCity.get({
     // checkInDate,
     // checkOutDate,
     // rooms
-  }).then(function (response:any) {
-    var hotelData = jp.query(JSON.parse(response.body), "$.data[*]");
-    var dataCount = hotelData.length;
-    var results = [];
-    for (var i = 0; i < dataCount; i++){
-        //console.log("Chek In Date: ", hotelData[i].offers[0].checkInDate);
-        var displayData = {
-            name: hotelData[i].hotel.name,
-            city: hotelData[i].hotel.address.cityName,
-            hotelId: hotelData[i].hotel.hotelId,
-            distance: hotelData[i].hotel.hotelDistance.distance,
-            roomType: hotelData[i].offers[0].room.typeEstimated.category,
-            price: hotelData[i].offers[0].price.total,
-            checkInDate: hotelData[i].offers[0].checkInDate,
-            checkOutDate: hotelData[i].offers[0].checkOutDate
-        }
-        results.push(displayData);
-    }// close for loop
-    return res.json(hotelData);
-    //return res.render("home", {business: results});
+  }).then(function (hotelsList:any) {
+    // var hotelData = jp.query(JSON.parse(response.body), "$.data[*]");
+    // var dataCount = hotelData.length;
+    // var results = [];
+    // for (var i = 0; i < dataCount; i++){
+    //     //console.log("Chek In Date: ", hotelData[i].offers[0].checkInDate);
+    //     var displayData = {
+    //         name: hotelData[i].hotel.name,
+    //         city: hotelData[i].hotel.address.cityName,
+    //         hotelId: hotelData[i].hotel.hotelId,
+    //         distance: hotelData[i].hotel.hotelDistance.distance,
+    //         roomType: hotelData[i].offers[0].room.typeEstimated.category,
+    //         price: hotelData[i].offers[0].price.total,
+    //         checkInDate: hotelData[i].offers[0].checkInDate,
+    //         checkOutDate: hotelData[i].offers[0].checkOutDate
+    //     }
+    //     results.push(displayData);
+    // }// close for loop
+    return amadeus.shopping.hotelOffersSearch.get({
+      'hotelIds': hotelsList.data[0].hotelId,
+      'adults' : 1,
+      'checkInDate': '2023-06-20',
+      'checkOutDate': '2023-06-22'
+    });
+      //return res.render("home", {business: results});
+
+  }).then(function (pricingResponse:any){
+
+      return res.json(pricingResponse);
   }).catch(function (response:any) {
     // TODO: When an error occurs during booking, don't just display JSON googledigoo, 
     // ... display page with comprehensible error to user

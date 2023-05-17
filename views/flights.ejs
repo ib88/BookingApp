@@ -726,36 +726,37 @@
 						
 						<% if(typeof hotels !='undefined' || hotels!=null ||
 						hotels!=undefined) { %>
-						<% hotels.forEach((elt)=>{%>
-							<!-- <li>Name: <%=elt.name%> -Distance: <%=elt.distance%>Km - Room Type: <%=elt.roomType%> - Price: <%=elt.price%>Euro</li>  -->
-
-							<div class="containers">
-
-								<div class="col-md-3 hotel-card">
-									<div class="card-sl">
-										<div class="card-image">
-											<img
-												src="https://elasticbeanstalk-us-east-1-991586319498.s3.amazonaws.com/phuket-1432891_640.jpeg" />
+							<div class="containers"> 
+								<% hotels.forEach((elt)=>{%>
+									<!-- <li>Name: <%=elt.name%> -Distance: <%=elt.distance%>Km - Room Type: <%=elt.roomType%> - Price: <%=elt.price%>Euro</li>  -->
+		
+		
+										<div class="col-md-3 hotel-card">
+											<div class="card-sl">
+												<div class="card-image">
+													<img
+														src="https://elasticbeanstalk-us-east-1-991586319498.s3.amazonaws.com/phuket-1432891_640.jpeg" />
+												</div>
+		
+												<a class="card-action" href="#"><i class="fa fa-heart"></i></a>
+												<div class="card-heading">
+													Hilton Hotel
+												</div>
+												<div class="card-text">
+													Lorem Ipsum is simply dummy text of the printing and typesetting
+													industry. Lorem Ipsum has been the industry's standard dummy
+													text ever since the 1500s. </div>
+												<div class="card-text-price">
+													$3,400
+												</div>
+												<a href="#" class="card-button"> Book now</a>
+											</div>
 										</div>
-
-										<a class="card-action" href="#"><i class="fa fa-heart"></i></a>
-										<div class="card-heading">
-											Hilton Hotel
-										</div>
-										<div class="card-text">
-											Lorem Ipsum is simply dummy text of the printing and typesetting
-											industry. Lorem Ipsum has been the industry's standard dummy
-											text ever since the 1500s. </div>
-										<div class="card-text-price">
-											$3,400
-										</div>
-										<a href="#" class="card-button"> Book now</a>
-									</div>
-								</div>
-
+		
+									<%});%>
+										<% } %>
+		
 							</div>
-							<%});%>
-								<% } %>
 
 
 

@@ -259,12 +259,12 @@ amadeus.referenceData.locations.hotels.byCity.get({
     //     results.push(displayData);
     // }// close for loop
     return amadeus.shopping.hotelOffersSearch.get({
-      'hotelIds': hotelsList.data[0].hotelId,
+      'hotelIds': hotelsList.data[1].hotelId,
       'adults' : 1,
-      'checkInDate': '2023-06-20',
-      'checkOutDate': '2023-06-22'
+      'checkInDate': '2023-05-20',
+      'checkOutDate': '2023-05-22'
     });
-      //return res.render("home", {business: results});
+      //return res.render("home", {buxsiness: results});
 
   }).then(function (pricingResponse:any){
 

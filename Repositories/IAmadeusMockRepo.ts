@@ -32,7 +32,7 @@ const amadeus = new Amadeus({
   hostname: 'production'
 });
 
-// for test env
+//for test env
 // const amadeus = new Amadeus({
 //   clientId: API_KEY,
 //   clientSecret: API_SECRET
@@ -191,7 +191,7 @@ export class AmadeusRepo implements IAmadeusRepo {
           'flightOffers': [pricingResponse.data.flightOffers[0]],
           'travelers': [{
             "id": "1",
-            "dateOfBirth": "1982-01-16",
+            "dateOfBirth": birthDate,//"1982-01-16",
             "name": {
               "firstName": firstName,//"JORGE",
               "lastName": lastName,//"GONZALES"

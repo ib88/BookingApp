@@ -1,4 +1,222 @@
 <%- include('header'); -%>
+	<section class="relative tails-selected-element"
+		style="background-image: url('https://imgur.com/YMpzlJo.jpg'); background-repeat: no-repeat;background-size: cover; background-position: center;"
+		contenteditable="true">
+		<div class="absolute inset-0 bg-gradient-to-b from-black to-transparent opacity-90"></div>
+		<div class="relative z-20 px-4 py-24 mx-auto text-center text-white max-w-7xl lg:py-32">
+			<div class="flex flex-wrap text-white">
+				<div class="relative w-full px-4 mx-auto text-center xl:flex-grow-0 xl:flex-shrink-0">
+					<h1 class="text-6xl font-black  text-[#f7982b] lg:text-7xl tails-selected-element"
+						contenteditable="true">Booking Flights & Hotels</h1>
+					<p class="mt-0 mb-4 text-base italic text-white sm:text-lg lg:text-xl">
+						Booking hotels and flights has never been easier! Our user-friendly platform allows you to book
+						your dream vacation with just a few clicks. Start planning your next adventure today!
+					</p>
+				</div>
+			</div>
+		</div>
+		<div class="relative z-30 h-48 px-10  lg:h-32">
+			<div class="booking-form">
+				<form id="main-search" method="post" action="/flight/flightOffer#flight-results">
+					<div class="row">
+						<nav>
+							<div class="nav nav-tabs" id="nav-tab" role="tablist">
+								<button class="nav-link active" id="v-pills-home-tab" data-bs-toggle="pill"
+									data-bs-target="#v-pills-home" type="button" role="tab" aria-controls="v-pills-home"
+									aria-selected="true">
+									<span style="color: #f7982b; font-size: 16px;"> <i class="fa fa-plane"
+											aria-hidden="true"></i> Flights </span>
+
+								</button>
+								<button class="nav-link" id="v-pills-profile-tab" data-bs-toggle="pill"
+									data-bs-target="#v-pills-profile" type="button" role="tab"
+									aria-controls="v-pills-profile" aria-selected="false">
+									<span style="color: #f7982b; font-size: 16px;"> <i class="fa fa-building"
+											aria-hidden="true"></i> Hotels</span>
+								</button>
+							</div>
+							<br>
+						</nav>
+						<div class="tab-content" id="v-pills-tabContent">
+							<div class="tab-pane show active" id="v-pills-home" role="tabpanel"
+								aria-labelledby="v-pills-home-tab">
+								<div class="row">
+									<!-- Begin Radio -->
+									<div>
+										<label for="f-option" class="l-radio">
+											<input type="radio" id="f-option" value="one" name="selector" tabindex="1"
+												checked>
+											<span style="font-size: 10px;">One way</span>
+										</label>
+										<label for="s-option" class="l-radio">
+											<input type="radio" id="s-option" value="two" name="selector" tabindex="2">
+											<span style="font-size: 10px;">Two ways</span>
+									</div>
+									<!-- End Radio -->
+									<div class="row">
+										<div class="col">
+											<div class="form-group ">
+												<span class="form-label">Leaving from</span>
+												<input class="form-control" type="text" placeholder="Specify airport"
+													id="sourceFlight" name="sourceFlight" autocomplete="off">
+												<input type="hidden" id="sourceFlightCode" name="sourceFlightCode"
+													value="" />
+												<div class="div-results-input" id="resultSourceFlightDiv">
+												</div>
+											</div>
+										</div>
+
+										<div class="col">
+											<div class="form-group">
+												<span class="form-label">Going to</span>
+												<input class="form-control" type="text" placeholder="Specify airport"
+													id="destinationFlight" name="destinationFlight" autocomplete="off">
+												<input type="hidden" id="destinationFlightCode"
+													name="destinationFlightCode" value="">
+												<div class="div-results-input" id="resultDestinationFlightDiv">
+												</div>
+											</div>
+										</div>
+
+										<div class="col">
+											<div class="form-group ">
+												<span class="form-label">Departing on</span>
+												<input class="form-control" type="date" id="datepickerSourceFlight"
+													name="datepickerSourceFlight">
+											</div>
+										</div>
+
+										<div class="col two box">
+											<div class="form-group ">
+												<span class="form-label">Returning on</span>
+												<input class="form-control" type="date" id="datepickerReturnFlight"
+													name="datepickerReturnFlight">
+											</div>
+										</div>
+									</div>
+									<div class="row">
+										<div class="col-lg-5"></div>
+
+										<div class="col-md-1 col-lg-1">
+											<span class="form-label">Adults</span>
+											<select class="form-select" id="adultsFlight" name="adultsFlight"
+												aria-label="Default select example">
+												<option selected value="1">1</option>
+												<option value="2">2</option>
+												<option value="3">3</option>
+												<option>4</option>
+												<option>5</option>
+												<option>6</option>
+												<option>7</option>
+												<option>8</option>
+												<option>9</option>
+												<option>10</option>
+											</select>
+											<!-- <div>
+												<label for="location" class="form-label block text-sm font-medium leading-6 text-gray-900">Adults</label>
+												<select id="adultsFlight" name="adultsFlight" class="rounded-md block w-full form-control text-gray-900 ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-indigo-600 sm:text-sm sm:leading-6">
+												  <option selected>0</option>
+												  <option>1</option>
+												  <option>2</option>
+												  <option>3</option>
+												  <option>4</option>
+												  <option>5</option>
+												  <option>6</option>
+												  <option>7</option>
+												  <option>8</option>
+												  <option>9</option>
+												  <option>10</option>
+												</select>
+											</div> -->
+											<!-- <div class="form-group">
+												<span class="form-label">Adults</span>
+												<input class="form-control" type="number" id="adultsFlight"
+													name="adultsFlight">
+											</div> -->
+										</div>
+
+										<div class="col-md-1 col-lg-1">
+											<div class="form-group">
+												<span class="form-label">Children</span>
+												<select class="form-control" id="childrenFlight" name="childrenFlight"
+													aria-label="Default select example">
+													<option selected>0</option>
+													<option value="1">1</option>
+													<option value="2">2</option>
+													<option value="3">3</option>
+													<option>4</option>
+													<option>5</option>
+													<option>6</option>
+													<option>7</option>
+													<option>8</option>
+													<option>9</option>
+													<option>10</option>
+												</select>
+											</div>
+										</div>
+										<div class="col-lg-5"></div>
+									</div>
+								</div>
+								<div class="form-btn">
+									<button class="submit-btn" id="search-submit">Search</button>
+								</div>
+							</div>
+				</form>
+				<!-- <form id="main-search" method="post" action="/hotel/city-hotels/" >  -->
+				<!-- <form id="main-search2" method="post" action="/hotel/city-hotels/" >  -->
+				<div class="tab-pane " id="v-pills-profile" role="tabpanel" aria-labelledby="v-pills-profile-tab">
+					<form id="main-search2" method="post" action="/hotel/city-hotels/">
+
+						<div class="row">
+							<div class="col-md-6 col-lg-6">
+								<div class="form-group">
+									<span class="form-label">Destination</span>
+									<input class="form-control" type="text" placeholder="Specify City"
+										id="destinationHotel" name="destinationHotel" autocomplete="off">
+									<input type="hidden" id="destinationHotelCode" name="destinationHotelCode" value="">
+									<div class="div-results-input" id="resultDestinationHotelDiv">
+									</div>
+								</div>
+							</div>
+							<div class="col-md-6 col-lg-6">
+								<div class="form-group">
+									<span class="form-label">Rooms</span>
+									<input class="form-control" type="number" placeholder="Specify airport" id="rooms"
+										autocomplete="off" name="rooms">
+								</div>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-md-6 col-lg-6">
+								<div class="form-group">
+									<span class="form-label">Check in</span>
+									<input class="form-control" type="date" id="checkin" name="checkin">
+								</div>
+							</div>
+							<div class="col-md-6 col-lg-6">
+								<div class="form-group">
+									<span class="form-label">Check out</span>
+									<input class="form-control" type="date" id="checkout" name="checkout">
+								</div>
+							</div>
+							<div class="form-btn">
+								<button class="submit-btn" id="search-submit2">Search</button>
+							</div>
+
+						</div>
+
+						<!-- <div class="form-btn">
+								<button class="submit-btn" id="search-submit">Search</button>
+							</div> -->
+
+				</div>
+			</div>
+		</div>
+		</form>
+		</div>
+		</div>
+
+	</section>
 	<% if(typeof alert !='undefined' ) { %>
 		<% alert.forEach(function(error) { %>
 			<div class="alert alert-warning alert-dismissible fade show" role="alert" style="color: firebrick;">
@@ -8,7 +226,7 @@
 				<% } %>
 					<!--main-->
 					<main class="main">
-						<div class="white-bg">
+						<!-- <div class="white-bg">
 							<div class="container-xl">
 								<div class="row white-bg">
 									<div class="col-xl-4 col-lg-4 ">
@@ -84,8 +302,14 @@
 
 							</div>
 
+	
+	
+						</div> -->
 
-						</div>
+
+
+						
+
 						<div class="container-xl">
 							<div class="row">
 								<div class="col-md-12">
@@ -95,7 +319,7 @@
 										<ol class="carousel-indicators">
 										</ol>
 										<div class="row">
-											<div class="col-md-3">
+											<div class="col-md-3 hotel-card">
 												<div class="card-sl">
 													<div class="card-image">
 														<img
@@ -117,7 +341,7 @@
 													<a href="#" class="card-button"> Book now</a>
 												</div>
 											</div>
-											<div class="col-md-3">
+											<div class="col-md-3 hotel-card">
 												<div class="card-sl">
 													<div class="card-image">
 														<img
@@ -138,7 +362,7 @@
 													<a href="#" class="card-button"> Book now</a>
 												</div>
 											</div>
-											<div class="col-md-3">
+											<div class="col-md-3 hotel-card">
 												<div class="card-sl">
 													<div class="card-image">
 														<img
@@ -159,7 +383,7 @@
 													<a href="#" class="card-button"> Book now</a>
 												</div>
 											</div>
-											<div class="col-md-3">
+											<div class="col-md-3 hotel-card">
 												<div class="card-sl">
 													<div class="card-image">
 														<img
@@ -186,10 +410,160 @@
 							</div>
 						</div>
 
+
+
 						<!--//search-->
 
+						<div class="max-w-6xl mx-auto">
+							<div class="flex justify-center min-h-screen">
+								<div class="max-w-md w-full p-4 py-6">
 
-						<div class="wrap">
+									<div class="bg-white shadow-xl rounded-lg overflow-hidden">
+										<div class="bg-cover bg-center h-16 p-4 flex justify-end items-center"
+											style="background-image: url(https://mosscm.com/wp-content/uploads/2017/11/news-dallas-skyline.jpg)">
+											<p
+												class="uppercase tracking-widest text-sm text-white bg-black py-1 px-2 rounded opacity-75 shadow-lg">
+												Dallas, TX</p>
+										</div>
+										<div class="p-4 text-gray-700 flex justify-between">
+											<div>
+												<p class="text-3xl text-gray-900"><i
+														class="wi wi-day-sunny text-yellow-500"></i> 84°<span
+														class="text-lg text-gray-500">/ 67°</span></p>
+												<p class="text-sm w-56">Mostly sunny throughout the day.<br />
+													4-8 MPH winds.</p>
+
+											</div>
+											<div class="leading-loose text-sm">
+												<div class="flex items-center">
+													<i class="mr-2 wi wi-horizon-alt text-yellow-500"></i>
+													<p><span class="font-bold">6:57</span> <span
+															class="text-xs text-gray-600">AM</span></p>
+												</div>
+												<div class="flex items-center">
+													<i class="mr-2 wi wi-horizon text-purple-400"></i>
+													<p><span class="font-bold">5:42</span> <span
+															class="text-xs text-gray-600">PM</span></p>
+												</div>
+											</div>
+										</div>
+										<div
+											class="flex justify-between items-center p-4 border-t border-gray-300 text-gray-600">
+											<div class="flex items-center">
+												<i class="mr-2 wi wi-hot"></i>
+												<p><span class="text-gray-900 font-bold">7</span> <span
+														class="text-sm">UV</span></p>
+											</div>
+											<div class="flex items-center">
+												<i class="mr-2 wi wi-rain"></i>
+												<p><span class="text-gray-900 font-bold">8%</span> <span
+														class="text-sm">Precip</span></p>
+											</div>
+											<div class="flex items-center">
+												<i class="mr-2 wi wi-thermometer"></i>
+												<p><span class="text-gray-900 font-bold">59°</span> <span
+														class="text-sm">Dew Point</span></p>
+											</div>
+										</div>
+									</div>
+
+									<div class="text-gray-600 my-3 text-center"><i class="fas fa-ellipsis-v"></i></div>
+									<div
+										class="text-xs uppercase text-gray-400 tracking-wider text-center leading-none">
+										EST Time to Airport: <span class="font-bold text-sm">32 min</span></div>
+									<div class="text-gray-600 my-3 text-center"><i class="fas fa-ellipsis-v"></i></div>
+
+									<div class="bg-white shadow-xl rounded-lg overflow-hidden">
+										<div class="bg-cover bg-center h-16 p-4 flex justify-end items-center"
+											style="background-image: url(https://content.api.news/v3/images/bin/11990db1d540d5c13ea8ca3e01f2083c)">
+											<p
+												class="uppercase tracking-widest text-sm text-white bg-black py-1 px-2 rounded opacity-75 shadow-lg">
+												DFW <span class="tracking-normal">--></span> SEA</p>
+										</div>
+										<div
+											class="px-4 pb-3 pt-4 border-b border-gray-300 bg-gray-100 flex justify-between">
+											<div class="text-xs uppercase font-bold text-gray-600 tracking-wide">TSA:
+												<span class="font-normal">5-12 min</span></div>
+											<div class="text-xs uppercase font-bold text-gray-600 tracking-wide">Airport
+												Status: <span class="font-normal text-green-600">Normal</span></div>
+										</div>
+										<div class="p-4 text-gray-700 flex justify-between items-start">
+											<div>
+												<p class="text-3xl text-gray-900 leading-none my-1">AA 792</p>
+												<p class="text-xs w-56">American Airlines</p>
+												<p class="text-sm w-56">7:11 am --> 10:10 am</p>
+
+
+											</div>
+											<div
+												class="leading-loose bg-green-500 text-white p-1 px-2 rounded-lg uppercase text-xs tracking-wider">
+												On Time</div>
+										</div>
+										<div
+											class="flex justify-between items-center p-4 border-t border-gray-300 text-gray-600">
+											<div class="flex items-center">
+												<p><span class="text-sm pr-1">Terminal</span> <span
+														class="text-gray-900 font-bold">C</span></p>
+											</div>
+											<div class="flex items-center">
+												<p><span class="text-sm pr-1">Gate</span> <span
+														class="text-gray-900 font-bold">C24</span></p>
+											</div>
+											<div class="flex items-center">
+												<p><span class="text-sm pr-1">Seats</span> <span
+														class="text-gray-900 font-bold">12D, 12E</span></p>
+											</div>
+										</div>
+
+									</div>
+
+									<!-- <div class="text-gray-600 my-3 text-center"><i class="fas fa-ellipsis-v"></i></div>
+									<div class="text-xs uppercase text-gray-400 tracking-wider text-center leading-none">EST Flight Time: <span class="font-bold text-sm">2 hr 14 min</span></div>
+									<div class="text-gray-600 my-3 text-center"><i class="fas fa-ellipsis-v"></i></div>
+									<div class="bg-white shadow-xl rounded-lg overflow-hidden">
+										<div class="bg-cover bg-center h-16 p-4 flex justify-end items-center" style="background-image: url(https://images.fineartamerica.com/images/artworkimages/mediumlarge/1/seattle-skyline-with-mount-rainier-during-sunrise-panorama-david-gn.jpg)">
+											<p class="uppercase tracking-widest text-sm text-white bg-black py-1 px-2 rounded opacity-75 shadow-lg">Seattle, WA</p>
+										</div>
+										<div class="p-4 text-gray-700 flex justify-between">
+											<div>
+												<p class="text-3xl text-gray-900"><i class="wi wi-cloudy text-gray-600"></i> 52°<span class="text-lg text-gray-500">/ 39°</span></p>
+												<p class="text-sm w-56">Cloudy with scattered showers.<br />
+												1-3 MPH winds.</p>
+												
+											</div>
+											<div class="leading-loose text-sm">
+												<div class="flex items-center">
+													<i class="mr-2 wi wi-horizon-alt text-yellow-500"></i>
+													<p><span class="font-bold">6:57</span> <span class="text-xs text-gray-600">AM</span></p>
+												</div>
+												<div class="flex items-center">
+													<i class="mr-2 wi wi-horizon text-purple-400"></i>
+													<p><span class="font-bold">5:42</span> <span class="text-xs text-gray-600">PM</span></p>
+												</div>
+											</div>
+										</div>
+										<div class="flex justify-between items-center p-4 border-t border-gray-300 text-gray-600">
+											<div class="flex items-center">
+												<i class="mr-2 wi wi-hot"></i>
+												<p><span class="text-gray-900 font-bold">1</span> <span class="text-sm">UV</span></p>
+											</div>
+											<div class="flex items-center">
+												<i class="mr-2 wi wi-rain"></i>
+												<p><span class="text-gray-900 font-bold">29%</span> <span class="text-sm">Precip</span></p>
+											</div>
+											<div class="flex items-center">
+												<i class="mr-2 wi wi-thermometer"></i>
+												<p><span class="text-gray-900 font-bold">46°</span> <span class="text-sm">Dew Point</span></p>
+											</div>
+										</div>
+									</div> -->
+
+								</div>
+							</div>
+						</div>
+
+
+						<div class="wrap" id="flight-results">
 							<div class="row">
 								<!--deals-->
 								<div class="full-width">
@@ -226,7 +600,7 @@
 																	<h2 class="num">
 																		<%= elt.price_.total_ %>
 																	</h2>
-																	<p class="day">Euros</p>
+																	<p class="day">GBP</p>
 																	<span class="up-border"></span>
 																	<span class="down-border"></span>
 																</div> <!-- end item-right -->
@@ -342,27 +716,110 @@
 																<!-- Item for seats left empty -->
 																<% } %>
 
+
+
+
+
 													</div>
 													<%});%>
 														<% } %>
+
+
+															<!--//deal-->
+															<!-- <div class="containers">
+																<div class="item">
+																	<div class="item-right">
+																		<img src="https://elasticbeanstalk-us-east-1-991586319498.s3.amazonaws.com/images/undraw_Aircraft_re_m05i.png"
+																			alt="" width="150px">
+																		<h2 class="num">152,65</h2>
+																		<p class="day">Euros</p>
+																		<span class="up-border"></span>
+																		<span class="down-border"></span>
+																	</div>
+	
+																	<div class="item-left">
+																		<h3 class="title">Spirit Airlines</h3>
+																			<div class="sce">
+																				<p class="event"> <i
+																					class="fa fa-map-marker"></i> 
+																					 SEA to DTW    &emsp; &emsp; 
+																				</p>
+																			</div>
+																			<div class="left">
+																			<div class="loc">
+																				<div class="icon">
+																					<i class="fa fa-clock-o"></i>
+																				</div>
+																				<p>Leaves on<br> <b> <big> 2022-09-12</big> </b>&emsp; &emsp; &emsp; </p>
+																			
+																			
+																				<div class="icon">
+																					<i class="fa fa-clock-o"></i>
+																				</div>
+																				<p>Arrives on <br> <b> <big> 2022-09-14</big> </b></p>
+																			</div>
+																		</div>
+																		<hr>
+																		<div class="sce">
+																			<p class="event"> <i
+																				class="fa fa-map-marker"></i> 
+																				 DTW to SEA    &emsp; &emsp; 
+																			</p>
+																		</div>
+																		<div class="left">
+																		<div class="loc">
+																			<div class="icon">
+																				<i class="fa fa-clock-o"></i>
+																			</div>
+																			<p>Leaves on<br> <b> <big> 2022-09-12</big> </b>&emsp; &emsp; &emsp; </p>
+																		
+																		
+																			<div class="icon">
+																				<i class="fa fa-clock-o"></i>
+																			</div>
+																			<p>Arrives on <br> <b> <big> 2022-09-14</big> </b></p>
+																		</div>
+																		<button class="cancel"> <i
+																				class="fa fa-ban"></i> Booked</button>
+																	</div>
+																</div>
+	
+																</div>
+
+
+										</div> -->
+
+
+
+
 										</div>
+
+
+										
+
 
 									</div>
 								</div>
 								<!--//top destinations-->
 							</div>
 
-							<!-- <div class="container">
-							<h2>Our partners</h2>
-							<div class="row">
-								<div class="col-lg-6 logo-partner"> 
-									<img src="https://elasticbeanstalk-us-east-1-991586319498.s3.amazonaws.com/Stripe_Logo-revised_2016.png" alt="Stripe Logo">
-								</div>
-								<div class="col-lg-6 logo-partner">
-									<img src="https://elasticbeanstalk-us-east-1-991586319498.s3.amazonaws.com/Amadeus_IT_Group_Logo.png" alt="Amadeus Logo">
-								</div>
-							</div>
-						</div> -->
+						</div>
+
+
+
+
+							
+							
+							
+								
+									
+								
+								
+									
+								
+							
+						
+
 					</main>
 					<!--//main-->
 

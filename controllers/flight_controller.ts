@@ -301,7 +301,7 @@ router.post(`/flightOffer`, [
   const errors = validationResult(req);
   if (!errors.isEmpty()) {
     const alert = errors.array()
-    return res.render("flights", { alert });
+    return res.render("flights", { alert});
   }
 
   // var sourceCode = "LAX";
@@ -397,7 +397,7 @@ router.post(`/flightOffer`, [
     let pricingOffer = JSON.parse(pricingOfferStr);
     let bookingOffer = undefined;
 
-    return res.render("flights", { business: flights, apiError: undefined, alert: undefined });
+    return res.render("flights", {anchor: '#flight-results', business: flights, apiError: undefined, alert: undefined });
   }
   catch (err: any) {
     return res.render("flights.ejs", { alert: undefined, apiError: "Something went wrong. Please try again.", business: undefined });

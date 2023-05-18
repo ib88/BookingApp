@@ -115,7 +115,7 @@ export class hotelOffer {
 }
 export class room {
     public constructor(type: string, typeEstimated: typeEstimated, description: description) {
-        this.type_ = id;
+        this.type_ = type;
         this.typeEstimated_ = typeEstimated;
         this.description_ = description;
     }

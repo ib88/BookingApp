@@ -67,6 +67,11 @@ export class hotelOffer {
         this.geoCode_ = geoCode;
         this.guests_ = guests;
     }
+
+    //@JsonProperty({ value: "hotel" })
+    @JsonClassType({ type: () => [hotelInfos] })
+    hotelInfos_: hotelInfos | undefined;
+
     @JsonProperty({ value: "id" })
     @JsonClassType({ type: () => [String] })
     id_: string;

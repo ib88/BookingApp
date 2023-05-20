@@ -1,6 +1,12 @@
+<<<<<<< HEAD
 import { ObjectMapper,JsonParser } from "jackson-js";
 //import { Flight } from "../Models/Flight";
 import { hotelOffer,hotelInfos, testClass } from "../Models/hotelOffer";
+=======
+import { ObjectMapper } from "jackson-js";
+//import { Flight } from "../Models/Flight";
+import { hotelOffer,hotelInfos } from "../Models/hotelOffer";
+>>>>>>> e4b250e3 (finished with the HotelRepo class)
 
 // router.js
 const { API_KEY, API_SECRET, SENDGRID_API_KEY } = require("../config");
@@ -14,6 +20,13 @@ var jp = require('jsonpath');
 var app = express();
 app.set("view engine", "ejs");
 
+<<<<<<< HEAD
+=======
+//app.set('views', path.join(__dirname,"views"));
+//app.set("view engine", "ejs");
+//app.use(express.static("public"));
+
+>>>>>>> e4b250e3 (finished with the HotelRepo class)
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 
@@ -67,6 +80,7 @@ export class AmadeusHotelRepo implements IAmadeusHotelRepo {
 
 
         const objectMapper = new ObjectMapper();
+<<<<<<< HEAD
         const jsonParser = new JsonParser();
         if (!pricingResponse)
           return null;
@@ -103,6 +117,24 @@ export class AmadeusHotelRepo implements IAmadeusHotelRepo {
         // {
         //     hotelOffersParsed[i].hotelInfos_ = hotelInfoParsed;
         // }
+=======
+        if (!pricingResponse)
+          return null;
+        const resultOffers = JSON.stringify(pricingResponse.data[0].offers);
+        const resultHotelInfos = JSON.stringify(pricingResponse.data[0].hotel)
+        //objectMapper.configure();
+        let hotelOffersParsed: hotelOffer[];
+        let hotelInfoParsed:hotelInfos;
+        //flightsParsed = new Array<FlightOffer>();
+        hotelOffersParsed = objectMapper.parse<hotelOffer[]>(resultOffers, { mainCreator: () => [Array, [hotelOffer]] });
+        hotelInfoParsed = objectMapper.parse<hotelInfos>(resultHotelInfos, { mainCreator: () => [hotelInfos] });
+
+        //assign the hotel infos object to all the hotel offers. assuming they are all offers of the same hotel.
+        for(var i=0; i<hotelOffersParsed.length; i++)
+        {
+            hotelOffersParsed[i].hotelInfos_ = hotelInfoParsed;
+        }
+>>>>>>> e4b250e3 (finished with the HotelRepo class)
 
           return hotelOffersParsed;
     

@@ -3,7 +3,11 @@
 const { AmadeusHotelRepo, AmadeusMockRepo } = require("../Repositories/IAmadeusHotelRepo");
 import { ObjectMapper } from "jackson-js";
 import { hotelInfos, hotelOffer } from "../Models/hotelOffer";
+<<<<<<< HEAD
 //import { AmadeusHotelMockRepo } from "../Repositories/IAmadeusHotelRepo";
+=======
+import { AmadeusHotelMockRepo } from "../Repositories/IAmadeusHotelRepo";
+>>>>>>> e4b250e3 (finished with the HotelRepo class)
 const { API_KEY, API_SECRET } = require("../config");
 const Amadeus = require("amadeus");
 const express = require("express");
@@ -32,7 +36,11 @@ const amadeus = new Amadeus({
 
 const objectMapper = new ObjectMapper();
 const amadeusHotelRepo = new AmadeusHotelRepo();
+<<<<<<< HEAD
 //const amadeusMockHotelRepo = new AmadeusHotelMockRepo();
+=======
+const amadeusMockHotelRepo = new AmadeusHotelMockRepo();
+>>>>>>> e4b250e3 (finished with the HotelRepo class)
 
 // Location search suggestions
 router.get(`/autosuggest`, async (req:any, res:any) => {
@@ -202,40 +210,16 @@ catch (err: any) {
 }
 =======
 cityCode="LON";
-amadeus.referenceData.locations.hotels.byCity.get({
-    
-    cityCode:"LON"
-    // checkInDate,
-    // checkOutDate,
-    // rooms
-  }).then(function (hotelsList:any) {
-    // var hotelData = jp.query(JSON.parse(response.body), "$.data[*]");
-    // var dataCount = hotelData.length;
-    // var results = [];
-    // for (var i = 0; i < dataCount; i++){
-    //     //console.log("Chek In Date: ", hotelData[i].offers[0].checkInDate);
-    //     var displayData = {
-    //         name: hotelData[i].hotel.name,
-    //         city: hotelData[i].hotel.address.cityName,
-    //         hotelId: hotelData[i].hotel.hotelId,
-    //         distance: hotelData[i].hotel.hotelDistance.distance,
-    //         roomType: hotelData[i].offers[0].room.typeEstimated.category,
-    //         price: hotelData[i].offers[0].price.total,
-    //         checkInDate: hotelData[i].offers[0].checkInDate,
-    //         checkOutDate: hotelData[i].offers[0].checkOutDate
-    //     }
-    //     results.push(displayData);
-    // }// close for loop
-    return amadeus.shopping.hotelOffersSearch.get({
-      'hotelIds': hotelsList.data[5].hotelId,
-      'adults' : 1,
-      'checkInDate': '2023-05-20',
-      'checkOutDate': '2023-05-22'
-    });
-      //return res.render("home", {buxsiness: results});
+try{
+  let hotels = undefined;
+  hotels = await amadeusHotelRepo.getHotelOffers(cityCode, checkInDate, checkOutDate, rooms);
 
-  }).then(function (pricingResponse:any){
+  if (!hotels || hotels == undefined || hotels == null) {
+    //return res.render("error.ejs", { alert: "the hotel might have been booked already!" });
+    return res.render("flights", { business: undefined });
+  }
 
+<<<<<<< HEAD
     var hotelData = pricingResponse.data[0].offers;
     var dataCount = hotelData.length;
     var results = [];
@@ -262,6 +246,16 @@ amadeus.referenceData.locations.hotels.byCity.get({
     res.json(response);
   });
 >>>>>>> 9d515b18 (searching hotels based on date)
+=======
+  if (hotels.length == 0) {
+    return res.render("flights", { business: undefined });
+  }
+  return res.render("flights", {anchor: '#flight-results', business: hotels, apiError: undefined, alert: undefined });
+}
+catch (err: any) {
+  return res.render("flights.ejs", { alert: undefined, apiError: "Something went wrong. Please try again.", business: undefined });
+}
+>>>>>>> e4b250e3 (finished with the HotelRepo class)
 });
 
 // BOOK A HOTEL

@@ -188,7 +188,7 @@ router.post(`/city-hotels`, [
       return res.render("home", {alert});
       //return res.status(422).jsonp(errors.array());
     }
-cityCode="LON";
+
 try{
   let hotels = undefined;
   hotels = await amadeusHotelRepo.getHotelOffers(cityCode, checkInDate, checkOutDate, rooms);

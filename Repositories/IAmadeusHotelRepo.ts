@@ -1,4 +1,4 @@
-import { ObjectMapper } from "jackson-js";
+import { ObjectMapper,JsonParser } from "jackson-js";
 //import { Flight } from "../Models/Flight";
 import { hotelOffer,hotelInfos } from "../Models/hotelOffer";
 
@@ -71,6 +71,7 @@ export class AmadeusHotelRepo implements IAmadeusHotelRepo {
 
 
         const objectMapper = new ObjectMapper();
+        const jsonParser = new JsonParser();
         if (!pricingResponse)
           return null;
           let resultOffers = undefined;
@@ -87,6 +88,8 @@ export class AmadeusHotelRepo implements IAmadeusHotelRepo {
         let hotelInfoParsed:hotelInfos;
         //flightsParsed = new Array<FlightOffer>();
         hotelOffersParsed = objectMapper.parse<hotelOffer[]>(resultOffers, { mainCreator: () => [Array, [hotelOffer]] });
+        //hotelOffersParsed = jsonParser.transform(resultOffers, { mainCreator: () => [Array,[hotelOffer]] });
+
         hotelInfoParsed = objectMapper.parse<hotelInfos>(resultHotelInfos, { mainCreator: () => [hotelInfos] });
 
         //assign the hotel infos object to all the hotel offers. assuming they are all offers of the same hotel.

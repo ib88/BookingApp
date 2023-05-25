@@ -54,11 +54,13 @@ export class geoCode {
 
 export class hotelOffer {
 
-    public constructor(id: string, checkInDate: string, checkOutDate: string, rateCode: string, boardType: string, guests: guests, room: room, price: price, policies: policies, chainCode: string, geoCode: geoCode) {
+    public constructor(id: string, checkInDate: string, checkOutDate: string, rateCode: string, rateFamilyEstimated: rateFamilyEstimated, commission: commission, boardType: string, guests: guests, room: room, price: price, policies: policies, chainCode: string, geoCode: geoCode) {
         this.id_ = id;
         this.checkInDate_ = checkInDate;
         this.checkOutDate_ = checkOutDate;
         this.rateCode_ = rateCode;
+        this.rateFamilyEstimated_ = rateFamilyEstimated;
+        this.commission_ = commission;
         this.boardType_ = boardType;
         this.room_ = room;
         this.price_ = price;
@@ -87,6 +89,16 @@ export class hotelOffer {
     @JsonProperty({ value: "rateCode" })
     @JsonClassType({ type: () => [String] })
     rateCode_: string;
+
+    @JsonProperty({ value: "rateFamilyEstimated" })
+    @JsonClassType({ type: () => [rateFamilyEstimated] })
+    rateFamilyEstimated_: rateFamilyEstimated;
+
+    
+
+    @JsonProperty({ value: "commission" })
+    @JsonClassType({ type: () => [commission] })
+    commission_: commission;
 
     @JsonProperty({ value: "boardType" })
     @JsonClassType({ type: () => [String] })
@@ -144,21 +156,71 @@ export class typeEstimated {
 
 }
 
-export class guests {
-    public constructor(type: string, checkInDate: string, checkOutDate: string, rateCode: string, boardType: string, room: room) {
+export class rateFamilyEstimated {
+    public constructor(code: string, type: string) {
+        this.code_ = code;
+        this.type_ = type;
     }
+
+    @JsonProperty({ value: "code" })
+    @JsonClassType({ type: () => [String] })
+    code_: string;
+
+    @JsonProperty({ value: "type" })
+    @JsonClassType({ type: () => [String] })
+    type_: string;
+
+}
+
+export class commission {
+    public constructor(percentage: string) {
+        this.percentage_ = percentage;
+    
+    }
+
+    @JsonProperty({ value: "percentage" })
+    @JsonClassType({ type: () => [String] })
+    percentage_: string;
+
+
+}
+
+
+
+export class guests {
+    public constructor(adults: string) {
+        this.adults_ = adults;
+    }
+    @JsonProperty({ value: "adults" })
+    @JsonClassType({ type: () => [String] })
+    adults_: string;
 }
 
 class price {
-    public constructor(type: string, checkInDate: string, checkOutDate: string, rateCode: string, boardType: string, room: room) {
+    public constructor(currency: string, total: string, variations: variations) {
+        this.currency_ = currency;
+        this.total_ = total;
+        this.variations_ = variations;
     }
+
+    @JsonProperty({ value: "currency" })
+    @JsonClassType({ type: () => [String] })
+    currency_: string;
+
+    @JsonProperty({ value: "total" })
+    @JsonClassType({ type: () => [String] })
+    total_: string;
+
+    @JsonProperty({ value: "variations" })
+    @JsonClassType({ type: () => [variations] })
+    variations_: variations;
 }
 
 class policies {
-    public constructor(guarantee: guarantee, paymentType: string, cancellation: cancellation) {
+    public constructor(guarantee: guarantee, paymentType: string, cancellation: cancellations[]) {
         this.guarantee_ = guarantee;
         this.paymentType_ = paymentType;
-        this.cancellation_ = cancellation;
+        this.cancellations_ = cancellation;
     }
 
     @JsonProperty({ value: "guarantee" })
@@ -169,9 +231,9 @@ class policies {
     @JsonClassType({ type: () => [String] })
     paymentType_: string;
 
-    @JsonProperty({ value: "cancellation" })
-    @JsonClassType({ type: () => [cancellation] })
-    cancellation_: cancellation;
+    @JsonProperty({ value: "cancellations" })
+    @JsonClassType({type: () => [Array, [cancellations]]})
+    cancellations_: cancellations[];
 }
 
 class description {
@@ -214,12 +276,64 @@ class acceptedPayments{
     methods_: string[];
 }
 
-class cancellation{
-    public constructor(deadline: string) {
+class cancellations{
+    public constructor(deadline: string,numberOfNights:string) {
         this.deadline_ = deadline;
+        this.numberOfNights_ = numberOfNights;
     }
 
-    @JsonProperty({ value: "lang" })
+    @JsonProperty({ value: "deadline" })
     @JsonClassType({ type: () => [String] })
     deadline_: string;
+
+    @JsonProperty({ value: "numberOfNights" })
+    @JsonClassType({ type: () => [String] })
+    numberOfNights_: string;
 }
+
+class average{
+    public constructor(base: string) {
+        this.base_ = base;
+    }
+
+    @JsonProperty({ value: "base" })
+    @JsonClassType({ type: () => [String] })
+    base_: string;
+}
+
+class variations{
+    public constructor(average: average, changes:changes[]) {
+        this.average_ = average;
+        this.changes_= changes;
+    }
+
+    @JsonProperty({ value: "average" })
+    @JsonClassType({ type: () => [average] })
+    average_: average;
+
+    @JsonProperty({ value: "changes" })
+    @JsonClassType({type: () => [Array, [changes]]})
+    changes_: changes[];
+}
+
+class changes{
+    public constructor(startDate: string,endDate: string, base:string) {
+        this.startDate_ = startDate;
+        this.endDate_ = endDate;
+        this.base_ = base;
+    }
+
+    @JsonProperty({ value: "startDate" })
+    @JsonClassType({ type: () => [String] })
+    startDate_: string;
+
+    @JsonProperty({ value: "endDate" })
+    @JsonClassType({ type: () => [String] })
+    endDate_: string;
+
+    @JsonProperty({ value: "base" })
+    @JsonClassType({ type: () => [String] })
+    base_: string;
+}
+
+

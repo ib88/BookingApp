@@ -1,9 +1,8 @@
-
 '[
     {
-        "id": "PC3J64U3RP",
-        "checkInDate": "2023-05-23",
-        "checkOutDate": "2023-05-25",
+        "id": "1ZBGGWMSXL",
+        "checkInDate": "2023-05-25",
+        "checkOutDate": "2023-05-27",
         "rateCode": "RAC",
         "rateFamilyEstimated": {
             "code": "RAC",
@@ -29,26 +28,32 @@
         },
         "price": {
             "currency": "USD",
-            "total": "555.15",
+            "total": "522.87",
             "variations": {
                 "average": {
-                    "base": "211.50"
+                    "base": "197.55"
                 },
                 "changes": [
                     {
-                        "startDate": "2023-05-23",
-                        "endDate": "2023-05-24",
-                        "base": "220.50"
+                        "startDate": "2023-05-25",
+                        "endDate": "2023-05-26",
+                        "base": "191.70"
                     },
                     {
-                        "startDate": "2023-05-24",
-                        "endDate": "2023-05-25",
-                        "base": "202.50"
+                        "startDate": "2023-05-26",
+                        "endDate": "2023-05-27",
+                        "base": "203.40"
                     }
                 ]
             }
         },
         "policies": {
+            "cancellations": [
+                {
+                    "numberOfNights": 1,
+                    "deadline": "2023-05-25T16:00:00-07:00"
+                }
+            ],
             "guarantee": {
                 "acceptedPayments": {
                     "creditCards": [
@@ -63,12 +68,8 @@
                     ]
                 }
             },
-            "paymentType": "guarantee",
-            "cancellation": {
-                "numberOfNights": 1,
-                "deadline": "2023-05-23T16:00:00-07:00"
-            }
+            "paymentType": "guarantee"
         },
-        "self": "https://api.amadeus.com/v3/shopping/hotel-offers/PC3J64U3RP"
+        "self": "https://api.amadeus.com/v3/shopping/hotel-offers/1ZBGGWMSXL"
     }
 ]'

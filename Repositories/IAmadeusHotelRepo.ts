@@ -81,21 +81,22 @@ export class AmadeusHotelRepo implements IAmadeusHotelRepo {
             return null;
         //objectMapper.configure();
         //let hotelOffersParsed: hotelOffer[];
-        let hotelOffersParsed: hotelOffer;
+        let hotelOffersParsed:hotelOffer[]|null = null;
 
         let hotelInfoParsed:hotelInfos;
         //flightsParsed = new Array<FlightOffer>();
-        let resultTest = '[{"name":"ali","age":"12"},{"name":"fran","age":"12"}]';
-        resultOffers = '{"id":"LHBHWKXBO4","checkInDate":"2023-05-30","checkOutDate":"2023-05-31","rateCode":"RAC","rateFamilyEstimated":{"code":"RAC","type":"P"},"commission":{"percentage":"10.00"},"room":{"type":"C1Q","typeEstimated":{"category":"EXECUTIVE_ROOM","beds":1,"bedType":"QUEEN"},"description":{"text":"STANDARD DAILY RATE -PAY LATER \\n1Queen-Shower-2Duvet-30Mb WiFi-Safe Coffee and H2O-Stream HDTV-\\nRobes 30 Mb high speed WiFi on unlimited devices Stream shows to\\nthe HDTV with STREAMPINEAPPLE The Naked Ex…hrobe ","lang":"EN"}},"guests":{"adults":1},"price":{"currency":"USD","total":"231.76","variations":{"average":{"base":"171.90"},"changes":[{"startDate":"2023-05-30","endDate":"2023-05-31","base":"171.90"}]}},"policies":{"cancellations":[{"numberOfNights":1,"deadline":"2023-05-30T16:00:00-07:00"}],"guarantee":{"acceptedPayments":{"creditCards":["AX","DS","CA","VI","UP"],"methods":["CREDIT_CARD"]}},"paymentType":"guarantee"},"self":"https://api.amadeus.com/v3/shopping/hotel-offers/LHBHWKXBO4"}';
+        //let resultTest = '[{"name":"ali","age":"12"},{"name":"fran","age":"12"}]';
+        //resultOffers = '{"id":"LHBHWKXBO4","checkInDate":"2023-05-30","checkOutDate":"2023-05-31","rateCode":"RAC","rateFamilyEstimated":{"code":"RAC","type":"P"},"commission":{"percentage":"10.00"},"room":{"type":"C1Q","typeEstimated":{"category":"EXECUTIVE_ROOM","beds":1,"bedType":"QUEEN"},"description":{"text":"STANDARD DAILY RATE -PAY LATER \\n1Queen-Shower-2Duvet-30Mb WiFi-Safe Coffee and H2O-Stream HDTV-\\nRobes 30 Mb high speed WiFi on unlimited devices Stream shows to\\nthe HDTV with STREAMPINEAPPLE The Naked Ex…hrobe ","lang":"EN"}},"guests":{"adults":1},"price":{"currency":"USD","total":"231.76","variations":{"average":{"base":"171.90"},"changes":[{"startDate":"2023-05-30","endDate":"2023-05-31","base":"171.90"}]}},"policies":{"cancellations":[{"numberOfNights":1,"deadline":"2023-05-30T16:00:00-07:00"}],"guarantee":{"acceptedPayments":{"creditCards":["AX","DS","CA","VI","UP"],"methods":["CREDIT_CARD"]}},"paymentType":"guarantee"},"self":"https://api.amadeus.com/v3/shopping/hotel-offers/LHBHWKXBO4"}';
 
-        let testResponse = objectMapper.parse<testClass[]>(resultTest, { mainCreator: () => [Array,[testClass]] });
+        //let testResponse = objectMapper.parse<testClass[]>(resultTest, { mainCreator: () => [Array,[testClass]] });
 
-        //hotelOffersParsed = objectMapper.parse<hotelOffer[]>(resultOffers, { mainCreator: () => [Array, [hotelOffer]] });
-        hotelOffersParsed = objectMapper.parse<hotelOffer>(resultOffers, { mainCreator: () => [hotelOffer] });
+        hotelOffersParsed = objectMapper.parse<hotelOffer[]>(resultOffers, { mainCreator: () => [Array, [hotelOffer]] });
+        //hotelOffersParsed = objectMapper.parse<hotelOffer>(resultOffers, { mainCreator: () => [hotelOffer] });
 
         //hotelOffersParsed = jsonParser.transform(resultOffers, { mainCreator: () => [hotelOffer] });
 
         hotelInfoParsed = objectMapper.parse<hotelInfos>(resultHotelInfos, { mainCreator: () => [hotelInfos] });
+        hotelOffersParsed[0].hotelInfos_ = hotelInfoParsed;
 
         //assign the hotel infos object to all the hotel offers. assuming they are all offers of the same hotel.
         // for(var i=0; i<hotelOffersParsed.length; i++)

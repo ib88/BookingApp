@@ -17,9 +17,14 @@ export class testClass{
     age_: string;
 }
 
+
+@JsonIgnoreProperties({
+    ignoreUnknown:true
+  })
 export class hotelInfos {
 
-    public constructor(hotelId: string, name: string, dupeId: string, iataCode: string, chainCode: string, geoCode: geoCode) {
+    public constructor(type:string, hotelId: string, name: string, dupeId: string, iataCode: string, chainCode: string, geoCode: geoCode) {
+        this.type_ = type;
         this.hotelId_ = hotelId;
         this.name_ = name;
         this.dupeId_ = dupeId;
@@ -27,6 +32,11 @@ export class hotelInfos {
         this.chainCode_ = chainCode;
         this.geoCode_ = geoCode;
     }
+
+    @JsonProperty({ value: "type" })
+    @JsonClassType({ type: () => [String] })
+    type_: string;
+
     @JsonProperty({ value: "hotelId" })
     @JsonClassType({ type: () => [String] })
     hotelId_: string;
@@ -71,7 +81,7 @@ export class geoCode {
 
 export class hotelOffer {
 
-    public constructor(id: string, checkInDate: string, checkOutDate: string, rateCode: string, rateFamilyEstimated: rateFamilyEstimated, commission: commission, boardType: string, guests: guests, room: room, price: price, policies: policies, chainCode: string, geoCode: geoCode, self:string) {
+    public constructor( id: string, checkInDate: string, checkOutDate: string, rateCode: string, rateFamilyEstimated: rateFamilyEstimated, commission: commission, boardType: string, guests: guests, room: room, price: price, policies: policies, chainCode: string, geoCode: geoCode, self:string) {
         this.id_ = id;
         this.checkInDate_ = checkInDate;
         this.checkOutDate_ = checkOutDate;
@@ -89,8 +99,9 @@ export class hotelOffer {
 
     }
 
+
+
     //@JsonProperty({ value: "hotel" })
-    @JsonClassType({ type: () => [hotelInfos] })
     hotelInfos_: hotelInfos | undefined;
 
     @JsonProperty({ value: "id" })
@@ -173,8 +184,23 @@ export class room {
 }
 
 export class typeEstimated {
-    public constructor(type: string, checkInDate: string, checkOutDate: string, rateCode: string, boardType: string, room: room) {
+    public constructor(category: string, beds: string, bedType: string) {
+        this.category_ = category;
+        this.beds_ = beds;
+        this.bedType_ = bedType;
     }
+
+    @JsonProperty({ value: "category" })
+    @JsonClassType({ type: () => [String] })
+    category_: string;
+
+    @JsonProperty({ value: "beds" })
+    @JsonClassType({ type: () => [String] })
+    beds_: string;
+
+    @JsonProperty({ value: "bedType" })
+    @JsonClassType({ type: () => [String] })
+    bedType_: string;
 
 }
 

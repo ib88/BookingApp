@@ -1,5 +1,22 @@
 import { JsonProperty, JsonClassType, JsonIgnoreProperties, JsonIgnore } from "jackson-js";
 import { ChangeStreamRefineCollectionShardKeyDocument } from "mongodb";
+
+export class testClass{
+    public constructor(name:string, age:string){
+        this.name_ = name;
+        this.age_ = age;
+
+    }
+
+    @JsonProperty({ value: "name" })
+    @JsonClassType({ type: () => [String] })
+    name_: string;
+
+    @JsonProperty({ value: "age" })
+    @JsonClassType({ type: () => [String] })
+    age_: string;
+}
+
 export class hotelInfos {
 
     public constructor(hotelId: string, name: string, dupeId: string, iataCode: string, chainCode: string, geoCode: geoCode) {
@@ -54,7 +71,7 @@ export class geoCode {
 
 export class hotelOffer {
 
-    public constructor(id: string, checkInDate: string, checkOutDate: string, rateCode: string, rateFamilyEstimated: rateFamilyEstimated, commission: commission, boardType: string, guests: guests, room: room, price: price, policies: policies, chainCode: string, geoCode: geoCode) {
+    public constructor(id: string, checkInDate: string, checkOutDate: string, rateCode: string, rateFamilyEstimated: rateFamilyEstimated, commission: commission, boardType: string, guests: guests, room: room, price: price, policies: policies, chainCode: string, geoCode: geoCode, self:string) {
         this.id_ = id;
         this.checkInDate_ = checkInDate;
         this.checkOutDate_ = checkOutDate;
@@ -68,6 +85,8 @@ export class hotelOffer {
         this.chainCode_ = chainCode;
         this.geoCode_ = geoCode;
         this.guests_ = guests;
+        this.self_ = self;
+
     }
 
     //@JsonProperty({ value: "hotel" })
@@ -129,6 +148,9 @@ export class hotelOffer {
     @JsonClassType({ type: () => [geoCode] })
     geoCode_: geoCode;
 
+    @JsonProperty({ value: "self" })
+    @JsonClassType({ type: () => [String] })
+    self_: string;
 }
 export class room {
     public constructor(type: string, typeEstimated: typeEstimated, description: description) {
@@ -271,7 +293,7 @@ class acceptedPayments{
     @JsonClassType({type: () => [Array, [String]]})
     creditCards_: string[];
 
-    @JsonProperty({ value: "creditCards" })
+    @JsonProperty({ value: "methods" })
     @JsonClassType({type: () => [Array, [String]]})
     methods_: string[];
 }

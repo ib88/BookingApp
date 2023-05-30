@@ -1,8 +1,8 @@
-'[
+[
     {
-        "id": "1ZBGGWMSXL",
-        "checkInDate": "2023-05-25",
-        "checkOutDate": "2023-05-27",
+        "id": "H22FODTPSE",
+        "checkInDate": "2023-05-30",
+        "checkOutDate": "2023-05-31",
         "rateCode": "RAC",
         "rateFamilyEstimated": {
             "code": "RAC",
@@ -19,7 +19,7 @@
                 "bedType": "QUEEN"
             },
             "description": {
-                "text": "STANDARD DAILY RATE -PAY LATER \n1Queen-Shower-2Duvet-30Mb WiFi-Safe Coffee and H2O-Stream HDTV-\nRobes 30 Mb high speed WiFi on unlimited devices Stream shows to\nthe HDTV with STREAMPINEAPPLE The Naked Experience features 2 \nduvets per bed oversized fluffy towels-luxury linen-bathrobe ",
+                "text": "STANDARD DAILY RATE -PAY LATER \\n1Queen-Shower-2Duvet-30Mb WiFi-Safe Coffee and H2O-Stream HDTV-\\nRobes 30 Mb high speed WiFi on unlimited devices Stream shows to\\nthe HDTV with STREAMPINEAPPLE The Naked Ex…robe ",
                 "lang": "EN"
             }
         },
@@ -28,21 +28,16 @@
         },
         "price": {
             "currency": "USD",
-            "total": "522.87",
+            "total": "231.76",
             "variations": {
                 "average": {
-                    "base": "197.55"
+                    "base": "171.90"
                 },
                 "changes": [
                     {
-                        "startDate": "2023-05-25",
-                        "endDate": "2023-05-26",
-                        "base": "191.70"
-                    },
-                    {
-                        "startDate": "2023-05-26",
-                        "endDate": "2023-05-27",
-                        "base": "203.40"
+                        "startDate": "2023-05-30",
+                        "endDate": "2023-05-31",
+                        "base": "171.90"
                     }
                 ]
             }
@@ -51,7 +46,7 @@
             "cancellations": [
                 {
                     "numberOfNights": 1,
-                    "deadline": "2023-05-25T16:00:00-07:00"
+                    "deadline": "2023-05-30T16:00:00-07:00"
                 }
             ],
             "guarantee": {
@@ -70,6 +65,6 @@
             },
             "paymentType": "guarantee"
         },
-        "self": "https://api.amadeus.com/v3/shopping/hotel-offers/1ZBGGWMSXL"
+        "self": "https://api.amadeus.com/v3/shopping/hotel-offers/H22FODTPSE"
     }
-]'
+]

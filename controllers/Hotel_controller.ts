@@ -141,11 +141,10 @@ router.get(`/autosearch`, async (req:any, res:any) => {
 router.get(`/city-hotels`, async (req: any, res: any) => {
 
   const { destination, checkInDate, checkoutDate, rooms } = req.query;
-  let hotels = undefined;
   if (!destination || !checkInDate || !checkoutDate || !rooms) {
-    return res.render("flights", { business: [],hotels:hotels });
+    return res.render("flights", { business: [],hotels:[] });
   }
-  return res.render("flights", { business: null, hotels:hotels });
+  return res.render("flights", { business: null, hotels:null });
 });
 
 

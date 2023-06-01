@@ -267,9 +267,9 @@ router.get(`/flightOffer`, async (req: any, res: any) => {
 
   const { source, destination, flightDate, adults } = req.query;
   if (!source || !destination || !flightDate || !adults) {
-    return res.render("flights", { business: [] });
+    return res.render("flights", { business: [], hotels:undefined});
   }
-  return res.render("flights", { business: null });
+  return res.render("flights", { business: null,hotels:undefined });
 
 });
 
@@ -336,10 +336,10 @@ router.post(`/flightOffer`, [
     //let flights = await amadeusMockRepo.getFlightOfferReturnsNull(sourceCode, destinationCode, dateSourceFlight, adults, maxFlights);
     if (!flights || flights == undefined || flights == null) {
       //return res.render("error.ejs", { alert: "the flihgt might have been booked already!" });
-      return res.render("flights", { business: undefined });
+      return res.render("flights", { business: undefined,hotels:undefined });
     }
     if (flights.length == 0) {
-      return res.render("flights", { business: undefined });
+      return res.render("flights", { business: undefined,hotels:undefined });
     }
     //let flightTimes = [];
     let carrierResult = undefined;
@@ -397,10 +397,10 @@ router.post(`/flightOffer`, [
     let pricingOffer = JSON.parse(pricingOfferStr);
     let bookingOffer = undefined;
 
-    return res.render("flights", {anchor: '#flight-results', business: flights, apiError: undefined, alert: undefined });
+    return res.render("flights", {anchor: '#flight-results', business: flights,hotels:undefined, apiError: undefined, alert: undefined });
   }
   catch (err: any) {
-    return res.render("flights.ejs", { alert: undefined, apiError: "Something went wrong. Please try again.", business: undefined });
+    return res.render("flights.ejs", { alert: undefined, apiError: "Something went wrong. Please try again.", business: undefined, hotels:undefined});
   }
 });
 

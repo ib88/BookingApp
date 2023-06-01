@@ -140,21 +140,13 @@ router.get(`/autosearch`, async (req:any, res:any) => {
 
 router.get(`/city-hotels`, async (req: any, res: any) => {
 
-  return res.render("flights", { business: undefined });
-
+  const { destination, checkInDate, checkoutDate, rooms } = req.query;
+  if (!destination || !checkInDate || !checkoutDate || !rooms) {
+    return res.render("flights", { business: [],hotels:[] });
+  }
+  return res.render("flights", { business: null, hotels:null });
 });
 
-// router.get(`/hotelsByCity`, async (req: any, res: any) => {
-
-//   amadeus.referenceData.locations.hotels.byCity.get({
-//     cityCode: 'PAR'
-//   }).then(function (response:any) {
-//     res.json(response);
-//   }).catch(function (response:any) {
-//     res.json(response);
-//   });
-
-// });
 
 router.post(`/city-hotels`, [
   check('destinationHotel')
@@ -199,12 +191,12 @@ try{
   }
 
   if (hotels.length == 0) {
-    return res.render("flights", { business: undefined });
+    return res.render("flights", { business: undefined,hotels:undefined });
   }
-  return res.render("flights", {anchor: '#flight-results', business: hotels, apiError: undefined, alert: undefined });
+  return res.render("flights", {anchor: '#flight-results', business: undefined, hotels:hotels,apiError: undefined, alert: undefined });
 }
 catch (err: any) {
-  return res.render("flights.ejs", { alert: undefined, apiError: "Something went wrong. Please try again.", business: undefined });
+  return res.render("flights.ejs", { alert: undefined, apiError: "Something went wrong. Please try again.", business: undefined, hotels:undefined });
 }
 });
 

@@ -308,7 +308,7 @@
 
 
 
-						
+
 
 						<div class="container-xl">
 							<div class="row">
@@ -483,7 +483,8 @@
 										<div
 											class="px-4 pb-3 pt-4 border-b border-gray-300 bg-gray-100 flex justify-between">
 											<div class="text-xs uppercase font-bold text-gray-600 tracking-wide">TSA:
-												<span class="font-normal">5-12 min</span></div>
+												<span class="font-normal">5-12 min</span>
+											</div>
 											<div class="text-xs uppercase font-bold text-gray-600 tracking-wide">Airport
 												Status: <span class="font-normal text-green-600">Normal</span></div>
 										</div>
@@ -725,69 +726,146 @@
 														<% } %>
 
 
-															<!--//deal-->
-															<!-- <div class="containers">
-																<div class="item">
-																	<div class="item-right">
-																		<img src="https://elasticbeanstalk-us-east-1-991586319498.s3.amazonaws.com/images/undraw_Aircraft_re_m05i.png"
-																			alt="" width="150px">
-																		<h2 class="num">152,65</h2>
-																		<p class="day">Euros</p>
-																		<span class="up-border"></span>
-																		<span class="down-border"></span>
-																	</div>
-	
-																	<div class="item-left">
-																		<h3 class="title">Spirit Airlines</h3>
+														<!-- hotels -->
+
+														<% if(typeof hotels !='undefined' || hotels!=null ||
+														hotels!=undefined) { %>
+														<% hotels.forEach((elt)=>{%>
+															<!-- <li>Name: <%=elt.name%> -Distance: <%=elt.distance%>Km - Room Type: <%=elt.roomType%> - Price: <%=elt.price%>Euro</li>  -->
+		
+															<div class="containers">
+																<% if(elt.numberOfBookableSeats_> 0) { %>
+																	<!-- Item for seats available -->
+																	<div class="item">
+																		<div class="item-right">
+																			<img src="https://elasticbeanstalk-us-east-1-991586319498.s3.amazonaws.com/images/undraw_Aircraft_re_m05i.png"
+																				alt="" width="2000px">
+																			<h2 class="num">
+																				<%= elt.price_.total_ %>
+																			</h2>
+																			<p class="day">GBP</p>
+																			<span class="up-border"></span>
+																			<span class="down-border"></span>
+																		</div> <!-- end item-right -->
+		
+																		<div class="item-left">
+																			<h3 class="title">
+																				<%= elt.itineraries_[0].segments_[0].carrierName_
+																					%>
+																			</h3>
+		
 																			<div class="sce">
 																				<p class="event"> <i
-																					class="fa fa-map-marker"></i> 
-																					 SEA to DTW    &emsp; &emsp; 
+																						class="fa fa-map-marker"></i>
+																					<%= elt.departure_.iataCode_ %> to <%=
+																							elt.arrival_.iataCode_ %> &emsp;
+																							&emsp;
 																				</p>
 																			</div>
-																			<div class="left">
+		
+		
+		
 																			<div class="loc">
 																				<div class="icon">
 																					<i class="fa fa-clock-o"></i>
 																				</div>
-																				<p>Leaves on<br> <b> <big> 2022-09-12</big> </b>&emsp; &emsp; &emsp; </p>
-																			
-																			
+																				<p>Leaves on<br> <b> <big>
+																							<%= elt.departure_.at_ %>
+																						</big> </b></p>
 																				<div class="icon">
 																					<i class="fa fa-clock-o"></i>
 																				</div>
-																				<p>Arrives on <br> <b> <big> 2022-09-14</big> </b></p>
+																				<p>Arrives on <br> <b> <big>
+																							<%= elt.arrival_.at_ %>
+																						</big> </b></p>
 																			</div>
-																		</div>
-																		<hr>
-																		<div class="sce">
-																			<p class="event"> <i
-																				class="fa fa-map-marker"></i> 
-																				 DTW to SEA    &emsp; &emsp; 
-																			</p>
-																		</div>
-																		<div class="left">
-																		<div class="loc">
-																			<div class="icon">
-																				<i class="fa fa-clock-o"></i>
-																			</div>
-																			<p>Leaves on<br> <b> <big> 2022-09-12</big> </b>&emsp; &emsp; &emsp; </p>
-																		
-																		
-																			<div class="icon">
-																				<i class="fa fa-clock-o"></i>
-																			</div>
-																			<p>Arrives on <br> <b> <big> 2022-09-14</big> </b></p>
-																		</div>
-																		<button class="cancel"> <i
-																				class="fa fa-ban"></i> Booked</button>
+																			<!-- <div class="fix"></div> -->
+																			<!-- <div class="loc">
+																				<div class="icon">
+																					<i class="fa fa-pause"></i>
+																				</div>
+																				<p>Seats left : <b> <big>
+																							<%= elt.numberOfBookableSeats_ %>
+																						</big> </b></p>
+																			</div> -->
+																			<!-- <form
+																				action="/flight/bookFlight?flight=<%=elt.original%>&iataCode=<%=elt.arrival_.iataCode_ %>">
+																				<button class="booked"> <i
+																						class="fa fa-dollar"></i> Book</button>
+																			</form> -->
+		
+																			<!-- return flight -->
+		
+																			<% if(typeof elt.returnDeparture_.iataCode_
+																				!=='undefined' && elt.returnDeparture_.iataCode_
+																				!='' ) { %>
+																				<hr>
+																				<!-- <h2 class="title">
+																					<%= elt.itineraries_[1].segments_[0].carrierName_
+																						%>
+																				</h2>	 -->
+		
+																				<div class="sce">
+																					<p class="event"> <i
+																							class="fa fa-map-marker"></i>
+																						<%= elt.returnDeparture_.iataCode_ %> to
+																							<%= elt.returnArrival_.iataCode_ %>
+																								&emsp; &emsp;
+																					</p>
+																				</div>
+																				<div class="loc">
+																					<div class="icon">
+																						<i class="fa fa-clock-o"></i>
+																					</div>
+																					<p>Leaves on<br> <b> <big>
+																								<%= elt.returnDeparture_.at_ %>
+																							</big> </b></p>
+		
+																					<div class="icon">
+																						<i class="fa fa-clock-o"></i>
+																					</div>
+																					<p>Arrives on <br> <b> <big>
+																								<%= elt.returnArrival_.at_ %>
+																							</big> </b></p>
+																				</div>
+																				<!-- <div class="fix"></div> -->
+																				<!-- <div class="loc">
+																				<div class="icon">
+																					<i class="fa fa-pause"></i>
+																				</div>
+																				<p>Seats left : <b> <big>
+																							<%= elt.numberOfBookableSeats_ %>
+																						</big> </b></p>
+																			</div> -->
+																				<!-- <form
+																				action="/flight/bookFlight?flight=<%=elt.original%>&iataCode=<%=elt.arrival_.iataCode_ %>">
+																				<button class="booked"> <i
+																						class="fa fa-dollar"></i> Book</button>
+																			</form> -->
+																				<!-- <a href="/flight/bookFlight?flight=<%=elt.original %>&iataCode=<%=elt.arrival_.iataCode_ %>"
+																				title="Book Flight" class="booked"> <i
+																					class="fa fa-dollar"></i> Book
+																			</a> -->
+		
+																				<% } %>
+																					<a href="/flight/bookFlight?flight=<%=elt.original %>&iataCode=<%=elt.arrival_.iataCode_ %>"
+																						title="Book Flight" class="booked"> <i
+																							class="fa fa-dollar"></i> Book
+																					</a>
+																		</div> <!-- end item-right -->
+		
 																	</div>
-																</div>
-	
-																</div>
-
-
-										</div> -->
+																	<% } else { %>
+																		<!-- Item for seats left empty -->
+																		<% } %>
+		
+		
+		
+		
+		
+															</div>
+															<%});%>
+																<% } %>
 
 
 
@@ -795,7 +873,7 @@
 										</div>
 
 
-										
+
 
 
 									</div>
@@ -808,17 +886,17 @@
 
 
 
-							
-							
-							
-								
-									
-								
-								
-									
-								
-							
-						
+
+
+
+
+
+
+
+
+
+
+
 
 					</main>
 					<!--//main-->

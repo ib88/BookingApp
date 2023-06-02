@@ -1,10 +1,10 @@
-import { JsonProperty, JsonClassType, JsonIgnoreProperties } from "jackson-js";
+import { JsonProperty, JsonClassType, JsonIgnoreProperties, JsonIgnore } from "jackson-js";
 
 @JsonIgnoreProperties({
     ignoreUnknown:true
   })
 export class Segment {
-    public constructor(departure:Departure, arrival:Arrival, carrierCode:string,duration:string, id: string,  numberOfStops:string) {
+    public constructor(departure:Departure, arrival:Arrival, carrierCode:string,duration:string, id: string,  numberOfStops:string, additionalServices:additionalServices[]) {
         this.segmentId_ = id;
         this.carrierCode_ = carrierCode;
         this.numberOfStops_ = numberOfStops;
@@ -12,6 +12,7 @@ export class Segment {
         this.arrival_ = arrival;
         this.duration_ = duration;
         this.carrierName_ = "";
+        //this.additionalServices_ = additionalServices;
     }
 
     @JsonProperty({value: "id"})
@@ -41,6 +42,28 @@ export class Segment {
     @JsonProperty()
     @JsonClassType({type: () => [String]})
     carrierName_:string;
+
+    // @JsonProperty({value: "additionalServices"})
+    // @JsonClassType({type: () => [Array, [additionalServices]]})
+    // additionalServices_: additionalServices[];
+ 
+}
+
+// @JsonIgnoreProperties({
+//     ignoreUnknown:true
+//   })
+export class additionalServices{
+
+    public constructor(amount: string, type: string) {
+        this.amount_ = amount;
+        this.type_ = type;
+    }
+    @JsonProperty({value: "amount"})
+    @JsonClassType({type: () => [String]})
+    amount_: string;
+    @JsonProperty({value: "type"})
+    @JsonClassType({type: () => [String]})
+    type_: string;
 }
 
 export class Departure{
@@ -86,8 +109,12 @@ export class Arrival{
 }
 
 @JsonIgnoreProperties({
-    value: ['base', 'fees','grandTotal']
+    value: ['base', 'fees','grandTotal','additionalServices']
   })
+
+//   @JsonIgnoreProperties({
+//     ignoreUnknown:true
+//   })
 export class Price {
     public constructor(total: string, currency: string, grandTotal: string) {
         this.total_ = total;
@@ -108,6 +135,9 @@ export class Price {
     grandTotal_: string;
 }
 
+@JsonIgnoreProperties({
+    ignoreUnknown:true
+  })
 export class Itineraries{
     public constructor(duration: string, segments: Segment[]) {
         this.duration_ = duration;
@@ -122,6 +152,9 @@ export class Itineraries{
     segments_: Segment[];
 }
 
+@JsonIgnoreProperties({
+    ignoreUnknown:true
+  })
 export class TravelerPricings{
     public constructor(travelerId: string, fareOption:string, travelerType:string, price:Price, fareDetailsBySegment:FareDetailsBySegment[]) {
         this.travelerId = travelerId;
@@ -151,6 +184,9 @@ export class TravelerPricings{
     fareDetailsBySegment: FareDetailsBySegment[];
 }
 
+@JsonIgnoreProperties({
+    ignoreUnknown:true
+  })
 export class FareDetailsBySegment{
     public constructor(segmentId: string, cabin:string, fareBasis:string, includedCheckedBags:IncludedCheckedBags) {
         this.segmentId = segmentId;
@@ -182,6 +218,9 @@ export class FareDetailsBySegment{
 
 }
 
+@JsonIgnoreProperties({
+    ignoreUnknown:true
+  })
 export class IncludedCheckedBags{
     public constructor(weight: string, weightUnit:string) {
         this.weight = weight;
@@ -199,8 +238,12 @@ export class IncludedCheckedBags{
 }
 
 
-@JsonIgnoreProperties({
-    value: ['pricingOptions', 'validatingAirlineCodes', 'travelerPricings']
+// @JsonIgnoreProperties({
+//     value: ['pricingOptions', 'validatingAirlineCodes', 'travelerPricings', 'additionalServices']
+//   })
+
+  @JsonIgnoreProperties({
+    ignoreUnknown:true
   })
 export class FlightOffer {
 
@@ -219,6 +262,8 @@ export class FlightOffer {
         this.price_ = price;
         this.arrival_ = {iataCode_:'', terminal_:'', at_:''};
         this.departure_ = {iataCode_:'', terminal_:'', at_:''};
+        this.returnArrival_ = {iataCode_:'', terminal_:'', at_:''};
+        this.returnDeparture_ = {iataCode_:'', terminal_:'', at_:''};
         this.travelerPricings = travelerPricings;
         this.original = "";
     }
@@ -282,6 +327,14 @@ export class FlightOffer {
     @JsonProperty() 
     @JsonClassType({type: () => [Arrival]})
     arrival_: Arrival;
+
+    @JsonProperty() 
+    @JsonClassType({type: () => [Departure]})
+    returnDeparture_: Departure;
+
+    @JsonProperty() 
+    @JsonClassType({type: () => [Arrival]})
+    returnArrival_: Arrival;
 
     @JsonProperty() 
     @JsonClassType({type: () => [String]})

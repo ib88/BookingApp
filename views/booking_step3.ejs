@@ -2,233 +2,205 @@
 	<!--main-->
 	<main class="main">
 
-		<div class="container">
-			<div class="card">
-				<div class="card-body">
-					<div id="invoice">
-						<div class="toolbar hidden-print">
-							<div class="text-end">
-								<button type="button" class="btn btn-dark"><i class="fa fa-print"></i> Print</button>
-								<button type="button" class="btn btn-danger"><i class="fa fa-file-pdf-o"></i> Export as
-									PDF</button>
+		<div id="invoice" style="display: block; clear: both; page-break-after: always; page-break-inside:avoid;">
+			<div class="container">
+				<div class="card">
+					<div class="card-body">
+						<div id="invoice">
+							<div class="toolbar hidden-print">
+								<div class="text-end">
+									<button type="button" class="btn btn-dark" id="download-button" value="Generate PDF"><i class="fa fa-print"></i> Print</button>
+									<input type="button" id="create_pdf" value="Generate PDF"> 
 							</div>
-							<hr>
-						</div>
-						<div class="invoice overflow-auto">
-							<div style="min-width: 600px">
-								<header>
-									<div class="row">
-										<div class="col">
-											<a href="javascript:;">
-												<img src="https://elasticbeanstalk-us-east-1-991586319498.s3.amazonaws.com/images/logo.png"
-													width="200" alt="Booking Logo">
-											</a>
-										</div>
-									</div>
-								</header>
-								<main>
-									<div class="row contacts">
-										<div class="col invoice-to">
-											<div class="text-gray-light">
-												<h2 class="name">
-													<a target="_blank" href="javascript:;">
-														<%= travelerInfos.first_name %>
-															<%= travelerInfos.last_name %>
-													</a>
-												</h2>
+								<hr>
+							</div>
+							<div class="invoice overflow-auto">
+								<div style="min-width: 600px">
+									<header>
+										<div class="row">
+											<div class="col">
+												<a href="javascript:;">
+													<img src="https://elasticbeanstalk-us-east-1-991586319498.s3.amazonaws.com/images/logo.png"
+														width="200" alt="Booking Logo">
+												</a>
 											</div>
-
-											<h3 class="invoice-id text-left">Booking number : <b><big>
-														<%= result.data.associatedRecords[0].reference %>
-													</big></b> </h3>
-											<div class="date"> <b>Date of departure :</b> <i>
-													<%= flight.departure_.at_ %>
+										</div>
+									</header>
+									<main>
+										<div class="row contacts">
+											<div class="col invoice-to">
+												<div class="text-gray-light">
+													<h2 class="name">
+														<a target="_blank" href="javascript:;">
+															<%= travelerInfos.first_name %>
+																<%= travelerInfos.last_name %>
+														</a>
+													</h2>
+												</div>
+	
+												<h3 class="invoice-id text-left">Booking number : <b><big>
+															<%= result.data.associatedRecords[0].reference %>
+														</big></b> </h3>
+												<div class="date"> <b>Date of departure :</b> <i>
+														<%= flight.departure_.at_ %>
+													</i></div>
+												<div class="date"> <b>Date of arrival :</b> <i>
+														<%= flight.arrival_.at_ %>
+													</i></div>
+												<div class="date"> <b>Leaving from :</b> <i>
+														<%= flight.departure_.iataCode_ %>
+													</i> </div>
+												<div class="date"> <b> Going to :</b> <i>
+														<%= flight.arrival_.iataCode_ %>
+													</i> </div>
+												<!-- <div class="date"> <b>Adults :</b> <i>2</i> </div> -->
+											</div>
+											 <!-- return flight -->
+											 <% if(typeof flight.returnDeparture_.iataCode_ !=='undefined' && flight.returnDeparture_.iataCode_
+											 !='' ) { %>
+												<div class="date"> <b>Date of departure :</b> <i>
+													<%= flight.returnDeparture_.at_ %>
 												</i></div>
 											<div class="date"> <b>Date of arrival :</b> <i>
-													<%= flight.arrival_.at_ %>
+													<%= flight.returnArrival_.at_ %>
 												</i></div>
 											<div class="date"> <b>Leaving from :</b> <i>
-													<%= flight.departure_.iataCode_ %>
+													<%= flight.returnDeparture_.iataCode_ %>
 												</i> </div>
 											<div class="date"> <b> Going to :</b> <i>
-													<%= flight.arrival_.iataCode_ %>
+													<%= flight.returnArrival_.iataCode_ %>
 												</i> </div>
-											<div class="date"> <b>Adults :</b> <i>2</i> </div>
+											<!-- <div class="date"> <b>Adults :</b> <i>2</i> </div> -->
 										</div>
-										<div class="col invoice-details">
-											<div class="address">Birthday : 23 April 1980</div>
-											<div class="email"><a href="mailto:john@example.com">Email : <%=
-														travelerInfos.email_ %> </a></div>
+												<% } %>
+											<div class="col invoice-details">
+												<!-- <div class="address">Birthday : 23 April 1980</div> -->
+												<div class="email"><a href="mailto:john@example.com">Email : <%=
+															travelerInfos.email_ %> </a></div>
+											</div>
 										</div>
-									</div>
-									<table>
-										<thead>
-											<tr>
-                                                <th class="text-left text-bold">From</th>
-                                                <th class="text-left">To</th>
-                                                <th class="text-center">Company</th>
-                                                <!-- <th>Details</th> -->
-                                                <th class="text-right">Duration</th>
-											</tr>
-										</thead>
-										<tbody>
-											<% flight.itineraries_.forEach((itinerary)=>{%>
-												<% itinerary.segments_.forEach((segment)=>{%>
-													<tr>
-														<td class="text-left">
-															<h3>
-																<a target="_blank" href="javascript:;">
-																	<%= segment.departure_.iataCode_ %>
-																</a>
-															</h3>
-															<b>Leaves on :</b>  <i><%= segment.departure_.at_ %></i> <br> 
-															
-														</td>
-														<td class="text-left">
-															<h3>
-																<a target="_blank" href="javascript:;">
-																	<%= segment.arrival_.iataCode_ %>
-																</a>
-															</h3>
-															<b>Arrives to :</b>  <i><%= segment.arrival_.at_ %></i> <br>
-														</td>
-														<td class="qty"><%= segment.carrierName_ %></td>
-														<td class="total"><%= segment.duration_ %></td>
-		
-														<!-- <td class="no">
-															<%= segment.arrival_.iataCode_ %>
-														</td>
-														<td class="text-left">
-															<h3>
-																<a target="_blank" href="javascript:;">
-																	<%= segment.carrierName_ %>
-																</a>
-															</h3>
-															Washington DC Airport JFK <br>
-														</td>
-														<td class="qty">1</td>
-														<td class="unit text-left">
-															<b>Leaves on :</b> <i>
-																<%= segment.departure_.at_ %>
-															</i> <br> <b>Arrives to :</b> <i>
-																<%= segment.arrival_.at_ %>
-															</i>
-														</td>
-														<td class="total">
-															<%= segment.duration_ %>
-														</td> -->
-													</tr>
-													<%});%>
+										<table>
+											<thead>
+												<tr>
+													<th class="text-left text-bold">From</th>
+													<th class="text-left">To</th>
+													<th class="text-center">Company</th>
+													<!-- <th>Details</th> -->
+													<th class="text-right">Duration</th>
+												</tr>
+											</thead>
+											<tbody>
+												<% flight.itineraries_.forEach((itinerary)=>{%>
+													<% itinerary.segments_.forEach((segment)=>{%>
+														<tr>
+															<td class="text-left">
+																<h3>
+																	<a target="_blank" href="javascript:;">
+																		<%= segment.departure_.iataCode_ %>
+																	</a>
+																</h3>
+																<b>Leaves on :</b>  <i><%= segment.departure_.at_ %></i> <br> 
+																
+															</td>
+															<td class="text-left">
+																<h3>
+																	<a target="_blank" href="javascript:;">
+																		<%= segment.arrival_.iataCode_ %>
+																	</a>
+																</h3>
+																<b>Arrives to :</b>  <i><%= segment.arrival_.at_ %></i> <br>
+															</td>
+															<td class="qty"><%= segment.carrierName_ %></td>
+															<td class="total"><%= segment.duration_ %></td>
+			
+															<!-- <td class="no">
+																<%= segment.arrival_.iataCode_ %>
+															</td>
+															<td class="text-left">
+																<h3>
+																	<a target="_blank" href="javascript:;">
+																		<%= segment.carrierName_ %>
+																	</a>
+																</h3>
+																Washington DC Airport JFK <br>
+															</td>
+															<td class="qty">1</td>
+															<td class="unit text-left">
+																<b>Leaves on :</b> <i>
+																	<%= segment.departure_.at_ %>
+																</i> <br> <b>Arrives to :</b> <i>
+																	<%= segment.arrival_.at_ %>
+																</i>
+															</td>
+															<td class="total">
+																<%= segment.duration_ %>
+															</td> -->
+														</tr>
 														<%});%>
-										</tbody>
-										<tfoot>
-											<tr>
-												<td></td>
-												<td>SUBTOTAL</td>
-												<td>$<%= flight.price_.total_ %>
-												</td>
-											</tr>
-											<tr>
-												<td></td>
-												<td>VTA 25%</td>
-												<td>$0.00</td>
-											</tr>
-											<tr>
-												<td></td>
-												<td>GRAND TOTAL</td>
-												<td>$<%= flight.price_.total_ %>
-												</td>
-											</tr>
-										</tfoot>
-									</table>
-									<div class="thanks">Thank you!</div>
-									<div class="notices">
-										<div>NOTICE:</div>
-										<div class="notice">Please kepp well this invoice, we will not be able to
-											reproduce it.</div>
-									</div>
-								</main>
-								<footer>Invoice was created on a computer and is valid without the signature and seal.
-								</footer>
+															<%});%>
+											</tbody>
+											<tfoot>
+												<tr>
+													<td></td>
+													<td>SUBTOTAL</td>
+													<td>$<%= flight.price_.total_ %>
+													</td>
+												</tr>
+												<tr>
+													<td></td>
+													<td>VTA 25%</td>
+													<td>$0.00</td>
+												</tr>
+												<tr>
+													<td></td>
+													<td>GRAND TOTAL</td>
+													<td>$<%= flight.price_.total_ %>
+													</td>
+												</tr>
+											</tfoot>
+										</table>
+										<div class="thanks">Thank you!</div>
+										<div class="notices">
+											<div>NOTICE:</div>
+											<div class="notice">Please keep this invoice safely, we will not be able to
+												reproduce it.</div>
+										</div>
+									</main>
+									<footer>Invoice was created on a computer and is valid without any signature or seal.
+									</footer>
+								</div>
+								<!--DO NOT DELETE THIS div. IT is responsible for showing footer always at the bottom-->
+								<div></div>
 							</div>
-							<!--DO NOT DELETE THIS div. IT is responsible for showing footer always at the bottom-->
-							<div></div>
 						</div>
 					</div>
 				</div>
-			</div>
+			</div>	
 		</div>
 
-
-		<!-- <div class="wrap">
-			<div class="row">
-				<div class="three-fourth">
-					<form id="booking" method="post" action="booking" class="static-content booking">
-						<fieldset>
-							<h2><span>03 </span>Confirmation</h2>
-							<div class="text-wrap">
-								<h2 style="text-align:center;">Thank you. Your booking is now confirmed.</h2>
-							</div>
-							
-							<h3>Traveller info</h3>
-							<% if(typeof result !='undefined' && typeof travelerInfos !='undefined') { %>
-							<div class="text-wrap">
-								<div class="output">
-									<p>Booking number:</p>
-									<p> <%= result.data.id %> </p>
-									<p>Fist name: </p>
-									<p> <%= travelerInfos.first_name %> </p>
-									<p>Last name: </p>
-									<p> <%= travelerInfos.last_name %>  </p>
-									<p>E-mail address: </p>
-									<p> <%= travelerInfos.email_ %>  </p>
-									<p>Country:</p>
-									<p>Cameroon</p>
-								</div>
-							</div>
-							<% } %>
-						
-						</fieldset>
-					</form>
-				</div>
-			
-				<aside class="one-fourth right-sidebar">
-					<article class="hotel-details booking-details">
-						<h1>Flight Summary 
-							<span class="stars">
-								<i class="material-icons">&#xE838;</i>
-								<i class="material-icons">&#xE838;</i>
-								<i class="material-icons">&#xE838;</i>
-							</span>
-						</h1>
-						<span class="address">Marylebone, London</span>
-						<span class="rating"> 8 /10</span>
-						<% if(typeof flight !='undefined' ) { %>
-							<dl class="booking-info">
-								<dt>From</dt>
-								<dd><%= flight.departure_.iataCode_ %> </dd>
-								<dt>To</dt>
-								<dd><%= flight.arrival_.iataCode_ %> </dd>
-								<dt>Departure Time</dt>
-								<dd> <%= flight.departure_.at_ %> </dd>
-								<dt>Arrival Time</dt>
-								<dd> <%= flight.arrival_.at_ %> </dd>
-							</dl>
-							<div class="price">
-								<p class="total">Total Price:  <%= flight.price_.total_ %> Euros</p>
-								<p>VAT (20%) included</p>
-							</div>
-							<% } %>
-					</article>
-					
-					<article class="widget">
-						<h4>Need Help Booking?</h4>
-						<p>Call our customer services team on the number below to speak to one of our advisors who will help you with all of your holiday needs.</p>
-						<p class="number">1- 555 - 555 - 555</p>
-					</article>
-				</aside>
-			</div>
-		</div> -->
 	</main>
 	<!--//main-->
+	    <!-- Begin Javascript for print invoice -->
+		<script src="es6-promise.auto.min.js"></script>
+		<script src="jspdf.min.js"></script>
+		<script src="html2canvas.min.js"></script>
+		<script src="html2pdf.min.js"></script>
+		<script>
+			const button = document.getElementById('download-button');
+			function generatePDF() {
+				// Choose the element that your content will be rendered to.
+				var element = document.getElementById('invoice');
+				var opt = {
+					filename:     'invoice.pdf',
+					image:        { type: 'jpeg', quality: 0.98 },
+					html2canvas:  { y: '1000px', backgroundColor: 'black' },
+					jsPDF:        { unit: 'in', format: 'letter', orientation: 'paysage' }
+				  };
+				// Choose the element and save the PDF for your user.
+				html2pdf(element).set(opt).save();
+			}
+			button.addEventListener('click', generatePDF);
+		</script>
+		<!-- End Javascript code for print invoice -->
+	
 	<%- include('footer'); -%>

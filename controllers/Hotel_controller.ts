@@ -32,8 +32,7 @@ const amadeus = new Amadeus({
 
 const objectMapper = new ObjectMapper();
 const amadeusHotelRepo = new AmadeusHotelRepo();
-// const amadeusMockHotelRepo = new AmadeusHotelMockRepo();
-
+// 
 // Location search suggestions
 router.get(`/autosuggest`, async (req:any, res:any) => {
   try {

@@ -3,7 +3,8 @@
 const { AmadeusHotelRepo, AmadeusMockRepo } = require("../Repositories/IAmadeusHotelRepo");
 import { ObjectMapper } from "jackson-js";
 import { hotelInfos, hotelOffer } from "../Models/hotelOffer";
-// import { AmadeusHotelMockRepo } from "../Repositories/IAmadeusHotelRepo";
+
+//import { AmadeusHotelMockRepo } from "../Repositories/IAmadeusHotelRepo";
 const { API_KEY, API_SECRET } = require("../config");
 const Amadeus = require("amadeus");
 const express = require("express");
@@ -32,7 +33,9 @@ const amadeus = new Amadeus({
 
 const objectMapper = new ObjectMapper();
 const amadeusHotelRepo = new AmadeusHotelRepo();
-// 
+
+
+
 // Location search suggestions
 router.get(`/autosuggest`, async (req:any, res:any) => {
   try {

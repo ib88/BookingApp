@@ -267,7 +267,9 @@ router.get(`/flightOffer`, async (req: any, res: any) => {
 
   const { source, destination, flightDate, adults } = req.query;
   if (!source || !destination || !flightDate || !adults) {
+
     return res.render("flights", { business: [],hotels:undefined });
+
   }
   return res.render("flights", { business: null,hotels:undefined });
 
@@ -400,7 +402,9 @@ router.post(`/flightOffer`, [
     return res.render("flights", {anchor: '#flight-results', business: flights,hotels:undefined, apiError: undefined, alert: undefined });
   }
   catch (err: any) {
+
     return res.render("flights.ejs", { alert: undefined, apiError: "Something went wrong. Please try again.", business: undefined,hotels:undefined });
+
   }
 });
 

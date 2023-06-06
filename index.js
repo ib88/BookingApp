@@ -52,6 +52,9 @@ app.use("/Moqflight", MoqflightRouter);
 // app.get('/', function (req, res) {
 //   res.send('hello world')
 // });
+app.get('/', function(req, res) {
+  res.redirect('/flight/flightOffer');
+ });
 app.get("/", (req, res) => {
   res.sendFile(__dirname + "/views/index.html");
 });

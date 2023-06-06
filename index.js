@@ -48,6 +48,9 @@ app.use(express.json());
 app.use("/hotel", hotelRouter);
 app.use("/flight", flightRouter);
 app.use("/Moqflight", MoqflightRouter);
+app.get('/', function(req, res) {
+  res.redirect('/flight/flightOffer');
+ });
 // app.use("/", flightRouter);
 // app.get('/', function (req, res) {
 //   res.send('hello world')

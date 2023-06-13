@@ -26,6 +26,8 @@ const amadeus = new Amadeus({
   hostname: 'production'
 });
 
+const objectMapper = new ObjectMapper();
+
 //for test env
 // const amadeus = new Amadeus({
 //   clientId: API_KEY,
@@ -55,40 +57,36 @@ export class AmadeusHotelRepo implements IAmadeusHotelRepo {
        
     return amadeus.referenceData.locations.hotels.byCity.get({
         cityCode:destination
-    }).then(function (hotelsList:any) {
+    }).then(async function (hotelsList:any) {
 
-        return amadeus.shopping.hotelOffersSearch.get({
-            'hotelIds': hotelsList.data[5].hotelId,
-            'adults' : rooms,
-            'checkInDate': checkInDate,
-            'checkOutDate': checkOutDate
-          });
-    }).then(function (pricingResponse:any){
+      let offersforAHotel;
+      let results;
+      results = new Array<hotelOffer[]>();
+      let pricingResp;
+      let resultOffers;
+      let resultHotelInfos;
+      let hotelOffersParsed;
+      let hotelInfoParsed;
+      ///////////////////
+      for (var i = 0; i < hotelsList.data.length; i++){
 
+        // console.log("FULL DATA OBJ: ", newData)
 
-        const objectMapper = new ObjectMapper();
-        const jsonParser = new JsonParser();
-        if (!pricingResponse)
-          return null;
-          let resultOffers = undefined;
-          let resultHotelInfos = undefined;
-          if(pricingResponse.data.length > 0)
-          {
-            resultOffers = JSON.stringify(pricingResponse.data[0].offers);
-            resultHotelInfos = JSON.stringify(pricingResponse.data[0].hotel)
-          }
-          else
-            return null;
-        //objectMapper.configure();
-        //let hotelOffersParsed: hotelOffer[];
-        let hotelOffersParsed:hotelOffer[]|null = null;
+        pricingResp = await amadeus.shopping.hotelOffersSearch.get({
+          'hotelIds': hotelsList.data[i].hotelId,
+          'adults' : rooms,
+          'checkInDate': checkInDate,
+          'checkOutDate': checkOutDate
+        });
 
-        let hotelInfoParsed:hotelInfos;
-        //flightsParsed = new Array<FlightOffer>();
-        //let resultTest = '[{"name":"ali","age":"12"},{"name":"fran","age":"12"}]';
-        //resultOffers = '{"id":"LHBHWKXBO4","checkInDate":"2023-05-30","checkOutDate":"2023-05-31","rateCode":"RAC","rateFamilyEstimated":{"code":"RAC","type":"P"},"commission":{"percentage":"10.00"},"room":{"type":"C1Q","typeEstimated":{"category":"EXECUTIVE_ROOM","beds":1,"bedType":"QUEEN"},"description":{"text":"STANDARD DAILY RATE -PAY LATER \\n1Queen-Shower-2Duvet-30Mb WiFi-Safe Coffee and H2O-Stream HDTV-\\nRobes 30 Mb high speed WiFi on unlimited devices Stream shows to\\nthe HDTV with STREAMPINEAPPLE The Naked Ex…hrobe ","lang":"EN"}},"guests":{"adults":1},"price":{"currency":"USD","total":"231.76","variations":{"average":{"base":"171.90"},"changes":[{"startDate":"2023-05-30","endDate":"2023-05-31","base":"171.90"}]}},"policies":{"cancellations":[{"numberOfNights":1,"deadline":"2023-05-30T16:00:00-07:00"}],"guarantee":{"acceptedPayments":{"creditCards":["AX","DS","CA","VI","UP"],"methods":["CREDIT_CARD"]}},"paymentType":"guarantee"},"self":"https://api.amadeus.com/v3/shopping/hotel-offers/LHBHWKXBO4"}';
-
-        //let testResponse = objectMapper.parse<testClass[]>(resultTest, { mainCreator: () => [Array,[testClass]] });
+        if(pricingResp.data.length > 0)
+        {
+          resultOffers = JSON.stringify(pricingResp.data[0].offers);
+          resultHotelInfos = JSON.stringify(pricingResp.data[0].hotel)
+        
+      
+        // if(offersforAHotel.data.length>0)
+        // results.push(offersforAHotel);
 
         hotelOffersParsed = objectMapper.parse<hotelOffer[]>(resultOffers, { mainCreator: () => [Array, [hotelOffer]] });
         //hotelOffersParsed = objectMapper.parse<hotelOffer>(resultOffers, { mainCreator: () => [hotelOffer] });
@@ -97,15 +95,13 @@ export class AmadeusHotelRepo implements IAmadeusHotelRepo {
 
         hotelInfoParsed = objectMapper.parse<hotelInfos>(resultHotelInfos, { mainCreator: () => [hotelInfos] });
         hotelOffersParsed[0].hotelInfos_ = hotelInfoParsed;
+        results.push(hotelOffersParsed);
+        }
 
-        //assign the hotel infos object to all the hotel offers. assuming they are all offers of the same hotel.
-        // for(var i=0; i<hotelOffersParsed.length; i++)
-        // {
-        //     hotelOffersParsed[i].hotelInfos_ = hotelInfoParsed;
-        // }
+    }// close for loop
 
-          return hotelOffersParsed;
-    
+      ////////////////////
+    return results;
       }).catch(function (error: any) {
       throw error;
     });

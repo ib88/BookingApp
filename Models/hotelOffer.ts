@@ -245,11 +245,16 @@ export class guests {
 }
 
 class price {
-    public constructor(currency: string, total: string, variations: variations) {
+    public constructor(base:string, currency: string, total: string, variations: variations) {
         this.currency_ = currency;
         this.total_ = total;
         this.variations_ = variations;
+        this.base_ = base;
     }
+
+    @JsonProperty({ value: "base" })
+    @JsonClassType({ type: () => [String] })
+    base_: string;
 
     @JsonProperty({ value: "currency" })
     @JsonClassType({ type: () => [String] })
@@ -325,10 +330,15 @@ class acceptedPayments{
 }
 
 class cancellations{
-    public constructor(deadline: string,numberOfNights:string) {
+    public constructor(amount:string,deadline: string,numberOfNights:string) {
         this.deadline_ = deadline;
         this.numberOfNights_ = numberOfNights;
+        this.amount_ = amount;
     }
+
+    @JsonProperty({ value: "amount" })
+    @JsonClassType({ type: () => [String] })
+    amount_: string;
 
     @JsonProperty({ value: "deadline" })
     @JsonClassType({ type: () => [String] })

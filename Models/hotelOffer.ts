@@ -1,4 +1,5 @@
 import { JsonProperty, JsonClassType, JsonIgnoreProperties, JsonIgnore } from "jackson-js";
+<<<<<<< HEAD
 import { ChangeStreamRefineCollectionShardKeyDocument } from "mongodb";
 
 export class testClass{
@@ -385,3 +386,9 @@ class changes{
 }
 
 
+=======
+export class hotelInfos{
+
+    
+}
+>>>>>>> ae8620aa (added the hotelOffer model class)

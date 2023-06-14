@@ -120,8 +120,15 @@ export class AmadeusHotelRepo implements IAmadeusHotelRepo {
 =======
         if (!pricingResponse)
           return null;
-        const resultOffers = JSON.stringify(pricingResponse.data[0].offers);
-        const resultHotelInfos = JSON.stringify(pricingResponse.data[0].hotel)
+          let resultOffers = undefined;
+          let resultHotelInfos = undefined;
+          if(pricingResponse.data.length > 0)
+          {
+            resultOffers = JSON.stringify(pricingResponse.data[0].offers);
+            resultHotelInfos = JSON.stringify(pricingResponse.data[0].hotel)
+          }
+          else
+            return null;
         //objectMapper.configure();
         let hotelOffersParsed: hotelOffer[];
         let hotelInfoParsed:hotelInfos;

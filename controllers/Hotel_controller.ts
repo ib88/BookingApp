@@ -190,6 +190,9 @@ router.post(`/city-hotels`, [
       //return res.status(422).jsonp(errors.array());
     }
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> ed73c12c (solving the unexpected token error)
 
 try{
   let hotels = undefined;

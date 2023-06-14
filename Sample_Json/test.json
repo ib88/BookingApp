@@ -1,8 +1,17 @@
+<<<<<<< HEAD
 [
     {
         "id": "H22FODTPSE",
         "checkInDate": "2023-05-30",
         "checkOutDate": "2023-05-31",
+=======
+
+'[
+    {
+        "id": "PC3J64U3RP",
+        "checkInDate": "2023-05-23",
+        "checkOutDate": "2023-05-25",
+>>>>>>> ed73c12c (solving the unexpected token error)
         "rateCode": "RAC",
         "rateFamilyEstimated": {
             "code": "RAC",
@@ -19,7 +28,11 @@
                 "bedType": "QUEEN"
             },
             "description": {
+<<<<<<< HEAD
                 "text": "STANDARD DAILY RATE -PAY LATER \\n1Queen-Shower-2Duvet-30Mb WiFi-Safe Coffee and H2O-Stream HDTV-\\nRobes 30 Mb high speed WiFi on unlimited devices Stream shows to\\nthe HDTV with STREAMPINEAPPLE The Naked Ex…robe ",
+=======
+                "text": "STANDARD DAILY RATE -PAY LATER \n1Queen-Shower-2Duvet-30Mb WiFi-Safe Coffee and H2O-Stream HDTV-\nRobes 30 Mb high speed WiFi on unlimited devices Stream shows to\nthe HDTV with STREAMPINEAPPLE The Naked Experience features 2 \nduvets per bed oversized fluffy towels-luxury linen-bathrobe ",
+>>>>>>> ed73c12c (solving the unexpected token error)
                 "lang": "EN"
             }
         },
@@ -28,6 +41,7 @@
         },
         "price": {
             "currency": "USD",
+<<<<<<< HEAD
             "total": "231.76",
             "variations": {
                 "average": {
@@ -38,17 +52,37 @@
                         "startDate": "2023-05-30",
                         "endDate": "2023-05-31",
                         "base": "171.90"
+=======
+            "total": "555.15",
+            "variations": {
+                "average": {
+                    "base": "211.50"
+                },
+                "changes": [
+                    {
+                        "startDate": "2023-05-23",
+                        "endDate": "2023-05-24",
+                        "base": "220.50"
+                    },
+                    {
+                        "startDate": "2023-05-24",
+                        "endDate": "2023-05-25",
+                        "base": "202.50"
+>>>>>>> ed73c12c (solving the unexpected token error)
                     }
                 ]
             }
         },
         "policies": {
+<<<<<<< HEAD
             "cancellations": [
                 {
                     "numberOfNights": 1,
                     "deadline": "2023-05-30T16:00:00-07:00"
                 }
             ],
+=======
+>>>>>>> ed73c12c (solving the unexpected token error)
             "guarantee": {
                 "acceptedPayments": {
                     "creditCards": [
@@ -63,8 +97,20 @@
                     ]
                 }
             },
+<<<<<<< HEAD
             "paymentType": "guarantee"
         },
         "self": "https://api.amadeus.com/v3/shopping/hotel-offers/H22FODTPSE"
     }
 ]
+=======
+            "paymentType": "guarantee",
+            "cancellation": {
+                "numberOfNights": 1,
+                "deadline": "2023-05-23T16:00:00-07:00"
+            }
+        },
+        "self": "https://api.amadeus.com/v3/shopping/hotel-offers/PC3J64U3RP"
+    }
+]'
+>>>>>>> ed73c12c (solving the unexpected token error)

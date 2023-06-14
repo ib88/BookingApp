@@ -164,53 +164,47 @@
 				</form>
 				<!-- <form id="main-search" method="post" action="/hotel/city-hotels/" >  -->
 				<!-- <form id="main-search2" method="post" action="/hotel/city-hotels/" >  -->
-				<div class="tab-pane " id="v-pills-profile" role="tabpanel" aria-labelledby="v-pills-profile-tab">
-					<form id="main-search2" method="post" action="/hotel/city-hotels/">
-
-						<div class="row">
-							<div class="col-md-6 col-lg-6">
-								<div class="form-group">
-									<span class="form-label">Destination</span>
-									<input class="form-control" type="text" placeholder="Specify City"
-										id="destinationHotel" name="destinationHotel" autocomplete="off">
-									<input type="hidden" id="destinationHotelCode" name="destinationHotelCode" value="">
-									<div class="div-results-input" id="resultDestinationHotelDiv">
+					<div class="tab-pane " id="v-pills-profile" role="tabpanel" aria-labelledby="v-pills-profile-tab">
+						<form id="main-search2" method="post" action="/hotel/city-hotels/">
+	
+							<div class="row">
+								<div class="col-md-6 col-lg-6">
+									<div class="form-group">
+										<span class="form-label">Destination</span>
+										<input class="form-control" type="text" placeholder="Specify City"
+											id="destinationHotel" name="destinationHotel" autocomplete="off">
+										<input type="hidden" id="destinationHotelCode" name="destinationHotelCode" value="">
+										<div class="div-results-input" id="resultDestinationHotelDiv">
+										</div>
+									</div>
+								</div>
+								<div class="col-md-6 col-lg-6">
+									<div class="form-group">
+										<span class="form-label">Rooms</span>
+										<input class="form-control" type="number" placeholder="Specify airport" id="rooms"
+											autocomplete="off" name="rooms">
 									</div>
 								</div>
 							</div>
-							<div class="col-md-6 col-lg-6">
-								<div class="form-group">
-									<span class="form-label">Rooms</span>
-									<input class="form-control" type="number" placeholder="Specify airport" id="rooms"
-										autocomplete="off" name="rooms">
+							<div class="row">
+								<div class="col-md-6 col-lg-6">
+									<div class="form-group">
+										<span class="form-label">Check in</span>
+										<input class="form-control" type="date" id="checkin" name="checkin">
+									</div>
 								</div>
-							</div>
-						</div>
-						<div class="row">
-							<div class="col-md-6 col-lg-6">
-								<div class="form-group">
-									<span class="form-label">Check in</span>
-									<input class="form-control" type="date" id="checkin" name="checkin">
+								<div class="col-md-6 col-lg-6">
+									<div class="form-group">
+										<span class="form-label">Check out</span>
+										<input class="form-control" type="date" id="checkout" name="checkout">
+									</div>
 								</div>
-							</div>
-							<div class="col-md-6 col-lg-6">
-								<div class="form-group">
-									<span class="form-label">Check out</span>
-									<input class="form-control" type="date" id="checkout" name="checkout">
+								<div class="form-btn">
+									<button class="submit-btn" id="search-submit2">Search</button>
 								</div>
+	
 							</div>
-							<div class="form-btn">
-								<button class="submit-btn" id="search-submit2">Search</button>
-							</div>
-
-						</div>
-
-						<!-- <div class="form-btn">
-								<button class="submit-btn" id="search-submit">Search</button>
-							</div> -->
-
 				</div>
-			</div>
 		</div>
 		</form>
 		</div>
@@ -308,7 +302,7 @@
 
 
 
-
+						
 
 						<div class="container-xl">
 							<div class="row">
@@ -414,154 +408,6 @@
 
 						<!--//search-->
 
-						<div class="max-w-6xl mx-auto">
-							<div class="flex justify-center min-h-screen">
-								<div class="max-w-md w-full p-4 py-6">
-
-									<div class="bg-white shadow-xl rounded-lg overflow-hidden">
-										<div class="bg-cover bg-center h-16 p-4 flex justify-end items-center"
-											style="background-image: url(https://mosscm.com/wp-content/uploads/2017/11/news-dallas-skyline.jpg)">
-											<p
-												class="uppercase tracking-widest text-sm text-white bg-black py-1 px-2 rounded opacity-75 shadow-lg">
-												Dallas, TX</p>
-										</div>
-										<div class="p-4 text-gray-700 flex justify-between">
-											<div>
-												<p class="text-3xl text-gray-900"><i
-														class="wi wi-day-sunny text-yellow-500"></i> 84°<span
-														class="text-lg text-gray-500">/ 67°</span></p>
-												<p class="text-sm w-56">Mostly sunny throughout the day.<br />
-													4-8 MPH winds.</p>
-
-											</div>
-											<div class="leading-loose text-sm">
-												<div class="flex items-center">
-													<i class="mr-2 wi wi-horizon-alt text-yellow-500"></i>
-													<p><span class="font-bold">6:57</span> <span
-															class="text-xs text-gray-600">AM</span></p>
-												</div>
-												<div class="flex items-center">
-													<i class="mr-2 wi wi-horizon text-purple-400"></i>
-													<p><span class="font-bold">5:42</span> <span
-															class="text-xs text-gray-600">PM</span></p>
-												</div>
-											</div>
-										</div>
-										<div
-											class="flex justify-between items-center p-4 border-t border-gray-300 text-gray-600">
-											<div class="flex items-center">
-												<i class="mr-2 wi wi-hot"></i>
-												<p><span class="text-gray-900 font-bold">7</span> <span
-														class="text-sm">UV</span></p>
-											</div>
-											<div class="flex items-center">
-												<i class="mr-2 wi wi-rain"></i>
-												<p><span class="text-gray-900 font-bold">8%</span> <span
-														class="text-sm">Precip</span></p>
-											</div>
-											<div class="flex items-center">
-												<i class="mr-2 wi wi-thermometer"></i>
-												<p><span class="text-gray-900 font-bold">59°</span> <span
-														class="text-sm">Dew Point</span></p>
-											</div>
-										</div>
-									</div>
-
-									<div class="text-gray-600 my-3 text-center"><i class="fas fa-ellipsis-v"></i></div>
-									<div
-										class="text-xs uppercase text-gray-400 tracking-wider text-center leading-none">
-										EST Time to Airport: <span class="font-bold text-sm">32 min</span></div>
-									<div class="text-gray-600 my-3 text-center"><i class="fas fa-ellipsis-v"></i></div>
-
-									<div class="bg-white shadow-xl rounded-lg overflow-hidden">
-										<div class="bg-cover bg-center h-16 p-4 flex justify-end items-center"
-											style="background-image: url(https://content.api.news/v3/images/bin/11990db1d540d5c13ea8ca3e01f2083c)">
-											<p
-												class="uppercase tracking-widest text-sm text-white bg-black py-1 px-2 rounded opacity-75 shadow-lg">
-												DFW <span class="tracking-normal">--></span> SEA</p>
-										</div>
-										<div
-											class="px-4 pb-3 pt-4 border-b border-gray-300 bg-gray-100 flex justify-between">
-											<div class="text-xs uppercase font-bold text-gray-600 tracking-wide">TSA:
-												<span class="font-normal">5-12 min</span>
-											</div>
-											<div class="text-xs uppercase font-bold text-gray-600 tracking-wide">Airport
-												Status: <span class="font-normal text-green-600">Normal</span></div>
-										</div>
-										<div class="p-4 text-gray-700 flex justify-between items-start">
-											<div>
-												<p class="text-3xl text-gray-900 leading-none my-1">AA 792</p>
-												<p class="text-xs w-56">American Airlines</p>
-												<p class="text-sm w-56">7:11 am --> 10:10 am</p>
-
-
-											</div>
-											<div
-												class="leading-loose bg-green-500 text-white p-1 px-2 rounded-lg uppercase text-xs tracking-wider">
-												On Time</div>
-										</div>
-										<div
-											class="flex justify-between items-center p-4 border-t border-gray-300 text-gray-600">
-											<div class="flex items-center">
-												<p><span class="text-sm pr-1">Terminal</span> <span
-														class="text-gray-900 font-bold">C</span></p>
-											</div>
-											<div class="flex items-center">
-												<p><span class="text-sm pr-1">Gate</span> <span
-														class="text-gray-900 font-bold">C24</span></p>
-											</div>
-											<div class="flex items-center">
-												<p><span class="text-sm pr-1">Seats</span> <span
-														class="text-gray-900 font-bold">12D, 12E</span></p>
-											</div>
-										</div>
-
-									</div>
-
-									<!-- <div class="text-gray-600 my-3 text-center"><i class="fas fa-ellipsis-v"></i></div>
-									<div class="text-xs uppercase text-gray-400 tracking-wider text-center leading-none">EST Flight Time: <span class="font-bold text-sm">2 hr 14 min</span></div>
-									<div class="text-gray-600 my-3 text-center"><i class="fas fa-ellipsis-v"></i></div>
-									<div class="bg-white shadow-xl rounded-lg overflow-hidden">
-										<div class="bg-cover bg-center h-16 p-4 flex justify-end items-center" style="background-image: url(https://images.fineartamerica.com/images/artworkimages/mediumlarge/1/seattle-skyline-with-mount-rainier-during-sunrise-panorama-david-gn.jpg)">
-											<p class="uppercase tracking-widest text-sm text-white bg-black py-1 px-2 rounded opacity-75 shadow-lg">Seattle, WA</p>
-										</div>
-										<div class="p-4 text-gray-700 flex justify-between">
-											<div>
-												<p class="text-3xl text-gray-900"><i class="wi wi-cloudy text-gray-600"></i> 52°<span class="text-lg text-gray-500">/ 39°</span></p>
-												<p class="text-sm w-56">Cloudy with scattered showers.<br />
-												1-3 MPH winds.</p>
-												
-											</div>
-											<div class="leading-loose text-sm">
-												<div class="flex items-center">
-													<i class="mr-2 wi wi-horizon-alt text-yellow-500"></i>
-													<p><span class="font-bold">6:57</span> <span class="text-xs text-gray-600">AM</span></p>
-												</div>
-												<div class="flex items-center">
-													<i class="mr-2 wi wi-horizon text-purple-400"></i>
-													<p><span class="font-bold">5:42</span> <span class="text-xs text-gray-600">PM</span></p>
-												</div>
-											</div>
-										</div>
-										<div class="flex justify-between items-center p-4 border-t border-gray-300 text-gray-600">
-											<div class="flex items-center">
-												<i class="mr-2 wi wi-hot"></i>
-												<p><span class="text-gray-900 font-bold">1</span> <span class="text-sm">UV</span></p>
-											</div>
-											<div class="flex items-center">
-												<i class="mr-2 wi wi-rain"></i>
-												<p><span class="text-gray-900 font-bold">29%</span> <span class="text-sm">Precip</span></p>
-											</div>
-											<div class="flex items-center">
-												<i class="mr-2 wi wi-thermometer"></i>
-												<p><span class="text-gray-900 font-bold">46°</span> <span class="text-sm">Dew Point</span></p>
-											</div>
-										</div>
-									</div> -->
-
-								</div>
-							</div>
-						</div>
 
 
 						<div class="wrap" id="flight-results">
@@ -585,16 +431,16 @@
 
 									<div class="deals flights">
 										<div class="row">
+											<h2 class="lg:mt-[80px]" > Flight Results </h2>
 											<!--deal-->
 											<% if(typeof business !='undefined' || business!=null ||
 												business!=undefined) { %>
 												<% business.forEach((elt)=>{%>
 													<!-- <li>Name: <%=elt.name%> -Distance: <%=elt.distance%>Km - Room Type: <%=elt.roomType%> - Price: <%=elt.price%>Euro</li>  -->
-
 													<div class="containers">
 														<% if(elt.numberOfBookableSeats_> 0) { %>
 															<!-- Item for seats available -->
-															<div class="item">
+															<div class="item hidden lg:block">
 																<div class="item-right">
 																	<img src="https://elasticbeanstalk-us-east-1-991586319498.s3.amazonaws.com/images/undraw_Aircraft_re_m05i.png"
 																		alt="" width="2000px">
@@ -713,169 +559,160 @@
 																</div> <!-- end item-right -->
 
 															</div>
+
+															<div class="block lg:hidden max-w-6xl mx-auto">
+																<div class="max-w-6xl mx-auto">
+																	<div class="flex justify-center">
+																		<div class="max-w-md w-full p-4 py-6">
+																			<div class="bg-white shadow-xl rounded-lg overflow-hidden">
+																				<div class="bg-cover bg-center h-16 p-4 flex justify-end items-center"
+																					style="background-image: url(https://content.api.news/v3/images/bin/11990db1d540d5c13ea8ca3e01f2083c)">
+																					
+																					<p
+																						class="uppercase tracking-widest text-sm text-white bg-black py-1 px-2 rounded opacity-75 shadow-lg">
+																						<%= elt.departure_.iataCode_ %> <span class="tracking-normal"><--></span> <%=
+																						elt.arrival_.iataCode_ %></p>
+																				</div>
+																				<div
+																					class="px-4 pb-2 pt-2 border-b border-gray-300 bg-gray-100 flex justify-between">
+																					<div class="text-md  font-bold text-gray-600 tracking-wide">
+																						 <span class="font-bold uppercase text-md==lg text-[#3D71E9]"><%= elt.itineraries_[0].segments_[0].carrierName_%></span>
+																					</div>
+																					<div class="text-md  font-bold text-gray-600 tracking-wide">
+																						<span class="inline-flex items-center gap-x-1.5 rounded-md bg-red-100 px-2 py-1 text-md font-medium text-red-700">
+																							<%= elt.price_.total_ %> GBP
+																						  </span>
+																					</div>
+										
+																				</div>
+																				<div
+																					class="flex justify-between pt-1 items-center pr-4 pl-4 text-gray-600">
+																					<div class="flex items-center">
+																						<p><span class="text-sm pr-1">Leaves on</span> <br> <span
+																								class="text-gray-900 font-bold"><%= elt.departure_.at_ %></span></p>
+																					</div>
+																					<div class="flex items-center">
+																						<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-6 h-6">
+																							<path fill-rule="evenodd" d="M12 2.25c-5.385 0-9.75 4.365-9.75 9.75s4.365 9.75 9.75 9.75 9.75-4.365 9.75-9.75S17.385 2.25 12 2.25zm4.28 10.28a.75.75 0 000-1.06l-3-3a.75.75 0 10-1.06 1.06l1.72 1.72H8.25a.75.75 0 000 1.5h5.69l-1.72 1.72a.75.75 0 101.06 1.06l3-3z" clip-rule="evenodd" />
+																						  </svg>												  
+																					</div>
+																					<div class="flex items-center">
+																						<p><span class="text-sm pr-1">Arrives on</span> <br> <span
+																								class="text-gray-900 font-bold"><%= elt.arrival_.at_ %></span></p>
+																					</div>
+																				</div>
+																				<% if(typeof elt.returnDeparture_.iataCode_!=='undefined' && elt.returnDeparture_.iataCode_!='' ) { %>
+																				<hr>
+																				<div class="flex justify-between items-center pr-4 pl-4  text-gray-600">
+																					<div class="flex items-center">
+																						<p><span class="text-sm pr-1">Leaves on</span> <br> <span
+																								class="text-gray-900 font-bold"><%= elt.returnDeparture_.at_ %></span></p>
+																					</div>
+																					<div class="flex items-center">
+																						<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-6 h-6">
+																							<path fill-rule="evenodd" d="M12 2.25c-5.385 0-9.75 4.365-9.75 9.75s4.365 9.75 9.75 9.75 9.75-4.365 9.75-9.75S17.385 2.25 12 2.25zm-4.28 9.22a.75.75 0 000 1.06l3 3a.75.75 0 101.06-1.06l-1.72-1.72h5.69a.75.75 0 000-1.5h-5.69l1.72-1.72a.75.75 0 00-1.06-1.06l-3 3z" clip-rule="evenodd" />
+																						  </svg>
+																					</div>
+																					<div class="flex items-center">
+																						<p><span class="text-sm pr-1">Arrives on</span> <br> <span
+																								class="text-gray-900 font-bold"><%= elt.returnArrival_.at_ %></span></p>
+																					</div>
+																				</div>
+																				<% } %>
+																				<a href="/flight/bookFlight?flight=<%=elt.original %>&iataCode=<%=elt.arrival_.iataCode_ %>" class="card-button">  Book now &nbsp; <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-6 h-6">
+																					<path fill-rule="evenodd" d="M15.75 2.25H21a.75.75 0 01.75.75v5.25a.75.75 0 01-1.5 0V4.81L8.03 17.03a.75.75 0 01-1.06-1.06L19.19 3.75h-3.44a.75.75 0 010-1.5zm-10.5 4.5a1.5 1.5 0 00-1.5 1.5v10.5a1.5 1.5 0 001.5 1.5h10.5a1.5 1.5 0 001.5-1.5V10.5a.75.75 0 011.5 0v8.25a3 3 0 01-3 3H5.25a3 3 0 01-3-3V8.25a3 3 0 013-3h8.25a.75.75 0 010 1.5H5.25z" clip-rule="evenodd" />
+																				  </svg>
+																				  
+																				  </a>
+																			</div>
+																		</div>
+																	</div>
+																</div>
+										
+															</div>
+									
 															<% } else { %>
 																<!-- Item for seats left empty -->
 																<% } %>
 
 
-
-
-
 													</div>
+
+
 													<%});%>
 														<% } %>
 
 
-														<!-- Display hotels here -->
-
-														<% if(typeof hotels !='undefined' || hotels!=null ||
-														hotels!=undefined) { %>
-														<% hotels.forEach((elt)=>{%>
-															<!-- <li>Name: <%=elt.name%> -Distance: <%=elt.distance%>Km - Room Type: <%=elt.roomType%> - Price: <%=elt.price%>Euro</li>  -->
-		
-															<div class="containers">
-																<% if(elt.numberOfBookableSeats_> 0) { %>
-																	<!-- Item for seats available -->
-																	<div class="item">
-																		<div class="item-right">
-																			<img src="https://elasticbeanstalk-us-east-1-991586319498.s3.amazonaws.com/images/undraw_Aircraft_re_m05i.png"
-																				alt="" width="2000px">
-																			<h2 class="num">
-																				<%= elt.price_.total_ %>
-																			</h2>
-																			<p class="day">GBP</p>
-																			<span class="up-border"></span>
-																			<span class="down-border"></span>
-																		</div> <!-- end item-right -->
-		
-																		<div class="item-left">
-																			<h3 class="title">
-																				<%= elt.itineraries_[0].segments_[0].carrierName_
-																					%>
-																			</h3>
-		
+															<!--//deal-->
+															<!-- <div class="containers">
+																<div class="item">
+																	<div class="item-right">
+																		<img src="https://elasticbeanstalk-us-east-1-991586319498.s3.amazonaws.com/images/undraw_Aircraft_re_m05i.png"
+																			alt="" width="150px">
+																		<h2 class="num">152,65</h2>
+																		<p class="day">Euros</p>
+																		<span class="up-border"></span>
+																		<span class="down-border"></span>
+																	</div>
+	
+																	<div class="item-left">
+																		<h3 class="title">Spirit Airlines</h3>
 																			<div class="sce">
 																				<p class="event"> <i
-																						class="fa fa-map-marker"></i>
-																					<%= elt.departure_.iataCode_ %> to <%=
-																							elt.arrival_.iataCode_ %> &emsp;
-																							&emsp;
+																					class="fa fa-map-marker"></i> 
+																					 SEA to DTW    &emsp; &emsp; 
 																				</p>
 																			</div>
-		
-		
-		
+																			<div class="left">
 																			<div class="loc">
 																				<div class="icon">
 																					<i class="fa fa-clock-o"></i>
 																				</div>
-																				<p>Leaves on<br> <b> <big>
-																							<%= elt.departure_.at_ %>
-																						</big> </b></p>
+																				<p>Leaves on<br> <b> <big> 2022-09-12</big> </b>&emsp; &emsp; &emsp; </p>
+																			
+																			
 																				<div class="icon">
 																					<i class="fa fa-clock-o"></i>
 																				</div>
-																				<p>Arrives on <br> <b> <big>
-																							<%= elt.arrival_.at_ %>
-																						</big> </b></p>
+																				<p>Arrives on <br> <b> <big> 2022-09-14</big> </b></p>
 																			</div>
-																			<!-- <div class="fix"></div> -->
-																			<!-- <div class="loc">
-																				<div class="icon">
-																					<i class="fa fa-pause"></i>
-																				</div>
-																				<p>Seats left : <b> <big>
-																							<%= elt.numberOfBookableSeats_ %>
-																						</big> </b></p>
-																			</div> -->
-																			<!-- <form
-																				action="/flight/bookFlight?flight=<%=elt.original%>&iataCode=<%=elt.arrival_.iataCode_ %>">
-																				<button class="booked"> <i
-																						class="fa fa-dollar"></i> Book</button>
-																			</form> -->
-		
-																			<!-- return flight -->
-		
-																			<% if(typeof elt.returnDeparture_.iataCode_
-																				!=='undefined' && elt.returnDeparture_.iataCode_
-																				!='' ) { %>
-																				<hr>
-																				<!-- <h2 class="title">
-																					<%= elt.itineraries_[1].segments_[0].carrierName_
-																						%>
-																				</h2>	 -->
-		
-																				<div class="sce">
-																					<p class="event"> <i
-																							class="fa fa-map-marker"></i>
-																						<%= elt.returnDeparture_.iataCode_ %> to
-																							<%= elt.returnArrival_.iataCode_ %>
-																								&emsp; &emsp;
-																					</p>
-																				</div>
-																				<div class="loc">
-																					<div class="icon">
-																						<i class="fa fa-clock-o"></i>
-																					</div>
-																					<p>Leaves on<br> <b> <big>
-																								<%= elt.returnDeparture_.at_ %>
-																							</big> </b></p>
-		
-																					<div class="icon">
-																						<i class="fa fa-clock-o"></i>
-																					</div>
-																					<p>Arrives on <br> <b> <big>
-																								<%= elt.returnArrival_.at_ %>
-																							</big> </b></p>
-																				</div>
-																				<!-- <div class="fix"></div> -->
-																				<!-- <div class="loc">
-																				<div class="icon">
-																					<i class="fa fa-pause"></i>
-																				</div>
-																				<p>Seats left : <b> <big>
-																							<%= elt.numberOfBookableSeats_ %>
-																						</big> </b></p>
-																			</div> -->
-																				<!-- <form
-																				action="/flight/bookFlight?flight=<%=elt.original%>&iataCode=<%=elt.arrival_.iataCode_ %>">
-																				<button class="booked"> <i
-																						class="fa fa-dollar"></i> Book</button>
-																			</form> -->
-																				<!-- <a href="/flight/bookFlight?flight=<%=elt.original %>&iataCode=<%=elt.arrival_.iataCode_ %>"
-																				title="Book Flight" class="booked"> <i
-																					class="fa fa-dollar"></i> Book
-																			</a> -->
-		
-																				<% } %>
-																					<a href="/flight/bookFlight?flight=<%=elt.original %>&iataCode=<%=elt.arrival_.iataCode_ %>"
-																						title="Book Flight" class="booked"> <i
-																							class="fa fa-dollar"></i> Book
-																					</a>
-																		</div> <!-- end item-right -->
-		
+																		</div>
+																		<hr>
+																		<div class="sce">
+																			<p class="event"> <i
+																				class="fa fa-map-marker"></i> 
+																				 DTW to SEA    &emsp; &emsp; 
+																			</p>
+																		</div>
+																		<div class="left">
+																		<div class="loc">
+																			<div class="icon">
+																				<i class="fa fa-clock-o"></i>
+																			</div>
+																			<p>Leaves on<br> <b> <big> 2022-09-12</big> </b>&emsp; &emsp; &emsp; </p>
+																		
+																		
+																			<div class="icon">
+																				<i class="fa fa-clock-o"></i>
+																			</div>
+																			<p>Arrives on <br> <b> <big> 2022-09-14</big> </b></p>
+																		</div>
+																		<button class="cancel"> <i
+																				class="fa fa-ban"></i> Booked</button>
 																	</div>
-																	<% } else { %>
-																		<!-- Item for seats left empty -->
-																		<% } %>
-		
-		
-		
-		
-		
-															</div>
-															<%});%>
-																<% } %>
+																</div>
+	
+																</div>
 
-																<!-- End of Hotels Display -->
 
+										</div>  -->
 
 
 
 										</div>
 
 
-
+										
 
 
 									</div>
@@ -885,20 +722,54 @@
 
 						</div>
 
+						
+						<% if(typeof hotels !='undefined' || hotels!=null ||
+						hotels!=undefined) { %>
+						<% hotels.forEach((elt)=>{%>
+							<!-- <li>Name: <%=elt.name%> -Distance: <%=elt.distance%>Km - Room Type: <%=elt.roomType%> - Price: <%=elt.price%>Euro</li>  -->
+
+							<div class="containers">
+
+								<div class="col-md-3 hotel-card">
+									<div class="card-sl">
+										<div class="card-image">
+											<img
+												src="https://elasticbeanstalk-us-east-1-991586319498.s3.amazonaws.com/phuket-1432891_640.jpeg" />
+										</div>
+
+										<a class="card-action" href="#"><i class="fa fa-heart"></i></a>
+										<div class="card-heading">
+											Hilton Hotel
+										</div>
+										<div class="card-text">
+											Lorem Ipsum is simply dummy text of the printing and typesetting
+											industry. Lorem Ipsum has been the industry's standard dummy
+											text ever since the 1500s. </div>
+										<div class="card-text-price">
+											$3,400
+										</div>
+										<a href="#" class="card-button"> Book now</a>
+									</div>
+								</div>
+
+							</div>
+							<%});%>
+								<% } %>
 
 
 
 
-
-
-
-
-
-
-
-
-
-
+							
+							
+							
+								
+									
+								
+								
+									
+								
+							
+						
 
 					</main>
 					<!--//main-->

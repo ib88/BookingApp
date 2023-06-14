@@ -1,6 +1,6 @@
-import { ObjectMapper,JsonParser } from "jackson-js";
+import { ObjectMapper, JsonParser } from "jackson-js";
 //import { Flight } from "../Models/Flight";
-import { hotelOffer,hotelInfos, testClass } from "../Models/hotelOffer";
+import { hotelOffer, hotelInfos, testClass } from "../Models/hotelOffer";
 
 // router.js
 const { API_KEY, API_SECRET, SENDGRID_API_KEY } = require("../config");
@@ -39,72 +39,75 @@ sgMail.setApiKey(SENDGRID_API_KEY);
 
 
 interface IAmadeusHotelRepo {
-  getHotelOffers(destination: string, checkInDate:string, checkOutDate:string, adults:string): Promise<hotelOffer[]>;
+  getHotelOffers(destination: string, checkInDate: string, checkOutDate: string, adults: string): Promise<hotelOffer[]>;
 }
 
 export class AmadeusHotelMockRepo implements IAmadeusHotelRepo {
-    async getHotelOffers(destination: string, checkInDate:string, checkOutDate:string, adults: string): Promise<hotelOffer[]> {
-        let hotels: Array<hotelOffer> = [
-          // { id:'1', type:'', instantTicketingRequired:true, oneWay:true, lastTicketingDate:'', nonHomogeneous:true, source: 'MAD', destination: 'MUC', departure: '2022:11:11', returnDate: '2022:11:13', price: '133', duration: '12:21' },
-          //  { id:'1', type:'', instantTicketingRequired:true, oneWay:true, lastTicketingDate:'', nonHomogeneous:true, source: 'MAD', destination: 'MUC', departure: '2022:11:11', returnDate: '2022:11:13', price: '133', duration: '12:21' },
-        ];
-        return hotels;
-      }
+  async getHotelOffers(destination: string, checkInDate: string, checkOutDate: string, adults: string): Promise<hotelOffer[]> {
+    let hotels: Array<hotelOffer> = [
+      // { id:'1', type:'', instantTicketingRequired:true, oneWay:true, lastTicketingDate:'', nonHomogeneous:true, source: 'MAD', destination: 'MUC', departure: '2022:11:11', returnDate: '2022:11:13', price: '133', duration: '12:21' },
+      //  { id:'1', type:'', instantTicketingRequired:true, oneWay:true, lastTicketingDate:'', nonHomogeneous:true, source: 'MAD', destination: 'MUC', departure: '2022:11:11', returnDate: '2022:11:13', price: '133', duration: '12:21' },
+    ];
+    return hotels;
+  }
 }
 
 export class AmadeusHotelRepo implements IAmadeusHotelRepo {
-    async getHotelOffers(destination: string, checkInDate:string, checkOutDate:string, rooms: string): Promise<hotelOffer[]> {
-       
+  async getHotelOffers(destination: string, checkInDate: string, checkOutDate: string, rooms: string): Promise<hotelOffer[]> {
+
     return amadeus.referenceData.locations.hotels.byCity.get({
-        cityCode:destination
-    }).then(async function (hotelsList:any) {
+      cityCode: destination
+    }).then(async function (hotelsList: any) {
 
       let offersforAHotel;
       let results;
-      results = new Array<hotelOffer[]>();
+      results = new Array<hotelOffer>();
       let pricingResp;
       let resultOffers;
       let resultHotelInfos;
       let hotelOffersParsed;
       let hotelInfoParsed;
-      ///////////////////
-      for (var i = 0; i < hotelsList.data.length; i++){
+      ///////////////////go through each hotel and process offers.
+      for (var i = 0; i < 5; i++) {
 
         // console.log("FULL DATA OBJ: ", newData)
 
         pricingResp = await amadeus.shopping.hotelOffersSearch.get({
           'hotelIds': hotelsList.data[i].hotelId,
-          'adults' : rooms,
+          'adults': rooms,
           'checkInDate': checkInDate,
           'checkOutDate': checkOutDate
         });
 
-        if(pricingResp.data.length > 0)
-        {
+        if (pricingResp.data.length > 0) {
           resultOffers = JSON.stringify(pricingResp.data[0].offers);
           resultHotelInfos = JSON.stringify(pricingResp.data[0].hotel)
-        
-      
-        // if(offersforAHotel.data.length>0)
-        // results.push(offersforAHotel);
 
-        hotelOffersParsed = objectMapper.parse<hotelOffer[]>(resultOffers, { mainCreator: () => [Array, [hotelOffer]] });
-        //hotelOffersParsed = objectMapper.parse<hotelOffer>(resultOffers, { mainCreator: () => [hotelOffer] });
 
-        //hotelOffersParsed = jsonParser.transform(resultOffers, { mainCreator: () => [hotelOffer] });
+          // if(offersforAHotel.data.length>0)
+          // results.push(offersforAHotel);
 
-        hotelInfoParsed = objectMapper.parse<hotelInfos>(resultHotelInfos, { mainCreator: () => [hotelInfos] });
-        hotelOffersParsed[0].hotelInfos_ = hotelInfoParsed;
-        results.push(hotelOffersParsed);
+          hotelOffersParsed = objectMapper.parse<hotelOffer[]>(resultOffers, { mainCreator: () => [Array, [hotelOffer]] });
+          //hotelOffersParsed = objectMapper.parse<hotelOffer>(resultOffers, { mainCreator: () => [hotelOffer] });
+
+          //hotelOffersParsed = jsonParser.transform(resultOffers, { mainCreator: () => [hotelOffer] });
+
+          hotelInfoParsed = objectMapper.parse<hotelInfos>(resultHotelInfos, { mainCreator: () => [hotelInfos] });
+          hotelOffersParsed[0].hotelInfos_ = hotelInfoParsed;
+          for (var j = 0; j < hotelOffersParsed.length; j++) {
+            hotelOffersParsed[j].hotelInfos_ = hotelInfoParsed;
+            results.push(hotelOffersParsed[j]);
+
+          }
         }
 
-    }// close for loop
+      }// close for loop
 
       ////////////////////
-    return results;
-      }).catch(function (error: any) {
+      return results;
+    }).catch(function (error: any) {
       throw error;
     });
 
-      }
+  }
 }

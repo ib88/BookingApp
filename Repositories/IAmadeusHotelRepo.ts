@@ -68,7 +68,7 @@ export class AmadeusHotelRepo implements IAmadeusHotelRepo {
       let hotelOffersParsed;
       let hotelInfoParsed;
       ///////////////////go through each hotel and process offers.
-      for (var i = 0; i < 5; i++) {
+      for (var i = 0; i < 2; i++) {
 
         // console.log("FULL DATA OBJ: ", newData)
 

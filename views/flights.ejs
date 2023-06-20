@@ -722,13 +722,13 @@
 
 						</div>
 
-						
+						<div class="containers row">
+
 						<% if(typeof hotels !='undefined' || hotels!=null ||
 						hotels!=undefined) { %>
 						<% hotels.forEach((elt)=>{%>
 							<!-- <li>Name: <%=elt.name%> -Distance: <%=elt.distance%>Km - Room Type: <%=elt.roomType%> - Price: <%=elt.price%>Euro</li>  -->
 
-							<div class="containers">
 
 								<div class="col-md-3 hotel-card">
 									<div class="card-sl">
@@ -752,9 +752,10 @@
 									</div>
 								</div>
 
-							</div>
 							<%});%>
 								<% } %>
+						</div>
+
 
 
 

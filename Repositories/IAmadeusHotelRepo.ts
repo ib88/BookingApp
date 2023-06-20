@@ -100,7 +100,6 @@ export class AmadeusHotelRepo implements IAmadeusHotelRepo {
 
           }
         }
-
       }// close for loop
       return results;
     }).catch(function (error: any) {

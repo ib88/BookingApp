@@ -1,8 +1,8 @@
 import { JsonProperty, JsonClassType, JsonIgnoreProperties, JsonIgnore } from "jackson-js";
 import { ChangeStreamRefineCollectionShardKeyDocument } from "mongodb";
 
-export class testClass{
-    public constructor(name:string, age:string){
+export class testClass {
+    public constructor(name: string, age: string) {
         this.name_ = name;
         this.age_ = age;
 
@@ -19,11 +19,11 @@ export class testClass{
 
 
 @JsonIgnoreProperties({
-    ignoreUnknown:true
-  })
+    ignoreUnknown: true
+})
 export class hotelInfos {
 
-    public constructor(type:string, hotelId: string, name: string, dupeId: string, iataCode: string, chainCode: string, geoCode: geoCode) {
+    public constructor(type: string, hotelId: string, name: string, dupeId: string, iataCode: string, chainCode: string, geoCode: geoCode) {
         this.type_ = type;
         this.hotelId_ = hotelId;
         this.name_ = name;
@@ -81,7 +81,7 @@ export class geoCode {
 
 export class hotelOffer {
 
-    public constructor( id: string, checkInDate: string, checkOutDate: string, rateCode: string, rateFamilyEstimated: rateFamilyEstimated, commission: commission, boardType: string, guests: guests, room: room, price: price, policies: policies, chainCode: string, geoCode: geoCode, self:string) {
+    public constructor(id: string, checkInDate: string, checkOutDate: string, rateCode: string, rateFamilyEstimated: rateFamilyEstimated, commission: commission, boardType: string, guests: guests, room: room, price: price, policies: policies, chainCode: string, geoCode: geoCode, self: string) {
         this.id_ = id;
         this.checkInDate_ = checkInDate;
         this.checkOutDate_ = checkOutDate;
@@ -96,10 +96,10 @@ export class hotelOffer {
         this.geoCode_ = geoCode;
         this.guests_ = guests;
         this.self_ = self;
+        this.original = "";
+        this.hotelName_ = "";
 
     }
-
-
 
     //@JsonProperty({ value: "hotel" })
     hotelInfos_: hotelInfos | undefined;
@@ -124,7 +124,7 @@ export class hotelOffer {
     @JsonClassType({ type: () => [rateFamilyEstimated] })
     rateFamilyEstimated_: rateFamilyEstimated;
 
-    
+
 
     @JsonProperty({ value: "commission" })
     @JsonClassType({ type: () => [commission] })
@@ -162,6 +162,14 @@ export class hotelOffer {
     @JsonProperty({ value: "self" })
     @JsonClassType({ type: () => [String] })
     self_: string;
+
+    @JsonProperty()
+    @JsonClassType({ type: () => [String] })
+    original: string;
+
+    @JsonProperty()
+    @JsonClassType({ type: () => [String] })
+    hotelName_: string;
 }
 export class room {
     public constructor(type: string, typeEstimated: typeEstimated, description: description) {
@@ -223,7 +231,7 @@ export class rateFamilyEstimated {
 export class commission {
     public constructor(percentage: string) {
         this.percentage_ = percentage;
-    
+
     }
 
     @JsonProperty({ value: "percentage" })
@@ -245,7 +253,7 @@ export class guests {
 }
 
 class price {
-    public constructor(base:string, currency: string, total: string, variations: variations) {
+    public constructor(base: string, currency: string, total: string, variations: variations) {
         this.currency_ = currency;
         this.total_ = total;
         this.variations_ = variations;
@@ -285,7 +293,7 @@ class policies {
     paymentType_: string;
 
     @JsonProperty({ value: "cancellations" })
-    @JsonClassType({type: () => [Array, [cancellations]]})
+    @JsonClassType({ type: () => [Array, [cancellations]] })
     cancellations_: cancellations[];
 }
 
@@ -304,7 +312,7 @@ class description {
     lang_: string;
 }
 
-class guarantee{
+class guarantee {
     public constructor(acceptedPayments: acceptedPayments) {
         this.acceptedPayments_ = acceptedPayments;
     }
@@ -314,23 +322,23 @@ class guarantee{
     acceptedPayments_: acceptedPayments;
 }
 
-class acceptedPayments{
+class acceptedPayments {
     public constructor(creditCards: string[], methods: string[]) {
         this.creditCards_ = creditCards;
         this.methods_ = methods;
     }
 
     @JsonProperty({ value: "creditCards" })
-    @JsonClassType({type: () => [Array, [String]]})
+    @JsonClassType({ type: () => [Array, [String]] })
     creditCards_: string[];
 
     @JsonProperty({ value: "methods" })
-    @JsonClassType({type: () => [Array, [String]]})
+    @JsonClassType({ type: () => [Array, [String]] })
     methods_: string[];
 }
 
-class cancellations{
-    public constructor(amount:string,deadline: string,numberOfNights:string) {
+class cancellations {
+    public constructor(amount: string, deadline: string, numberOfNights: string) {
         this.deadline_ = deadline;
         this.numberOfNights_ = numberOfNights;
         this.amount_ = amount;
@@ -349,7 +357,7 @@ class cancellations{
     numberOfNights_: string;
 }
 
-class average{
+class average {
     public constructor(base: string) {
         this.base_ = base;
     }
@@ -359,10 +367,10 @@ class average{
     base_: string;
 }
 
-class variations{
-    public constructor(average: average, changes:changes[]) {
+class variations {
+    public constructor(average: average, changes: changes[]) {
         this.average_ = average;
-        this.changes_= changes;
+        this.changes_ = changes;
     }
 
     @JsonProperty({ value: "average" })
@@ -370,12 +378,12 @@ class variations{
     average_: average;
 
     @JsonProperty({ value: "changes" })
-    @JsonClassType({type: () => [Array, [changes]]})
+    @JsonClassType({ type: () => [Array, [changes]] })
     changes_: changes[];
 }
 
-class changes{
-    public constructor(startDate: string,endDate: string, base:string) {
+class changes {
+    public constructor(startDate: string, endDate: string, base: string) {
         this.startDate_ = startDate;
         this.endDate_ = endDate;
         this.base_ = base;

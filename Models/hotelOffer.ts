@@ -81,7 +81,11 @@ export class geoCode {
 
 export class hotelOffer {
 
+<<<<<<< HEAD
     public constructor(id: string, checkInDate: string, checkOutDate: string, rateCode: string, category:string, rateFamilyEstimated: rateFamilyEstimated, commission: commission, boardType: string, guests: guests, room: room, price: price, policies: policies, chainCode: string, geoCode: geoCode, self: string) {
+=======
+    public constructor(id: string, checkInDate: string, checkOutDate: string, rateCode: string, rateFamilyEstimated: rateFamilyEstimated, commission: commission, boardType: string, guests: guests, room: room, price: price, policies: policies, chainCode: string, geoCode: geoCode, self: string) {
+>>>>>>> f7102439 (User can now be redirected to the hotel Booking detail page after the search)
         this.id_ = id;
         this.checkInDate_ = checkInDate;
         this.checkOutDate_ = checkOutDate;

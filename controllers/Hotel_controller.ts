@@ -230,6 +230,34 @@ router.get(`/bookHotel`, async (req: any, res: any) => {
 
 });
 
+router.get(`/bookHotel`, async (req: any, res: any) => {
+
+  const { hotel, hotelName } = req.query;
+  req.session.hotelJson = hotel;
+  //req.session.flight = flight;
+  req.session.save();
+  try {
+
+    let hotelParsed = objectMapper.parse<hotelOffer>(hotel, { mainCreator: () => [hotelOffer] });
+
+    //compute the departure and arrival time of the whole flight by summing up the times for individual flight segments
+    let carrierResult = undefined;
+    let airlineCode = undefined;
+
+    let returnResults = undefined;
+
+    req.session.hotelJson = hotel;
+    hotelParsed.hotelName_ = hotelName;
+    req.session.hotelParsed = hotelParsed;
+
+    return res.render("bookingHotel_step1.ejs", { hotel: hotelParsed });
+  }
+  catch (err: any) {
+    return res.render("flights.ejs", { business: undefined, apiError: "Error loading the flight. Please try again!" });
+  }
+
+});
+
 // BOOK A HOTEL
 router.post(`/bookHotel`, [
   check('firstName')

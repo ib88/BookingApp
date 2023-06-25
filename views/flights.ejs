@@ -418,7 +418,7 @@
 										<!-- <h2> Flight Results </h2> -->
 										<% if(typeof business=='undefined' || business==null || business==undefined ) {
 											%>
-											<h2 style="margin-top: 80px"> Flight Results </h2>
+											<h2 style="margin-top: 80px"> Search Results </h2>
 											<% } %>
 
 												<% if(typeof business!='undefined' || business!=null ||
@@ -431,7 +431,7 @@
 
 									<div class="deals flights">
 										<div class="row">
-											<h2 class="lg:mt-[80px]" > Flight Results </h2>
+											<!-- <h2 class="lg:mt-[80px]" > Search Results </h2> -->
 											<!--deal-->
 											<% if(typeof business !='undefined' || business!=null ||
 												business!=undefined) { %>
@@ -748,7 +748,7 @@
 										<div class="card-text-price">
 											<%= elt.price_.total_ %> GBP
 										</div>
-										<a href="#" class="card-button"> Book now</a>
+										<a href="/hotel/bookHotel?hotel=<%=elt.original %>&hotelName=<%=elt.hotelInfos_.name_ %>" class="card-button"> Book now</a>
 									</div>
 								</div>
 

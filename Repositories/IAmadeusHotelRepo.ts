@@ -70,8 +70,6 @@ export class AmadeusHotelRepo implements IAmadeusHotelRepo {
       ///////////////////go through each hotel and process offers.
       for (var i = 0; i < 2; i++) {
 
-        // console.log("FULL DATA OBJ: ", newData)
-
         pricingResp = await amadeus.shopping.hotelOffersSearch.get({
           'hotelIds': hotelsList.data[i].hotelId,
           'adults': rooms,
@@ -83,18 +81,12 @@ export class AmadeusHotelRepo implements IAmadeusHotelRepo {
           resultOffers = JSON.stringify(pricingResp.data[0].offers);
           resultHotelInfos = JSON.stringify(pricingResp.data[0].hotel)
 
-
-          // if(offersforAHotel.data.length>0)
-          // results.push(offersforAHotel);
-
           hotelOffersParsed = objectMapper.parse<hotelOffer[]>(resultOffers, { mainCreator: () => [Array, [hotelOffer]] });
-          //hotelOffersParsed = objectMapper.parse<hotelOffer>(resultOffers, { mainCreator: () => [hotelOffer] });
-
-          //hotelOffersParsed = jsonParser.transform(resultOffers, { mainCreator: () => [hotelOffer] });
 
           hotelInfoParsed = objectMapper.parse<hotelInfos>(resultHotelInfos, { mainCreator: () => [hotelInfos] });
           hotelOffersParsed[0].hotelInfos_ = hotelInfoParsed;
           for (var j = 0; j < hotelOffersParsed.length; j++) {
+            hotelOffersParsed[j].original = JSON.stringify(pricingResp.data[0].offers[j]); //JSON.stringify([JsonFlights][i]);
             hotelOffersParsed[j].hotelInfos_ = hotelInfoParsed;
             results.push(hotelOffersParsed[j]);
 

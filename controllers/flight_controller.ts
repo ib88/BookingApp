@@ -163,7 +163,7 @@ router.post(`/bookFlight`, [
 
   } catch (e: any) {
     //return res.render("booking_step1.ejs", { apiError: "the flihgt might have been booked already!", flight: undefined });
-    return res.render("flights.ejs", { alert: undefined, apiError: "The flight might be full already!", business: undefined });
+    return res.render("flights.ejs", { alert: undefined, apiError: "The flight might be full already!", business: undefined,hotels:undefined });
 
   }
 
@@ -171,7 +171,7 @@ router.post(`/bookFlight`, [
     bookingResult = await amadeusRepo.bookFlight(pricingResponse, firstName, lastName, birthDate, gender, email);
 
   } catch (e: any) {
-    return res.render("flights.ejs", { alert: undefined, apiError: "The flight might be full already!", business: undefined });
+    return res.render("flights.ejs", { alert: undefined, apiError: "The flight might be full already!", business: undefined,hotels:undefined });
     //return res.render("error.ejs", { alert: "the flihgt might have been booked already!" });
   }
   req.session.bookingResult = bookingResult;

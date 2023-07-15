@@ -19,7 +19,7 @@ const { addListener } = require("nodemon");
 var app = express();
 app.set("view engine", "ejs");
 app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({extended: false}));
+app.use(bodyParser.urlencoded({ extended: false }));
 
 // Create router
 const router = express.Router();
@@ -37,7 +37,7 @@ const amadeusHotelRepo = new AmadeusHotelRepo();
 
 
 // Location search suggestions
-router.get(`/autosuggest`, async (req:any, res:any) => {
+router.get(`/autosuggest`, async (req: any, res: any) => {
   try {
 
     return res.render("autoSuggest");
@@ -47,7 +47,7 @@ router.get(`/autosuggest`, async (req:any, res:any) => {
   }
 });
 
-router.get(`/homepage`, async (req:any, res:any) => {
+router.get(`/homepage`, async (req: any, res: any) => {
   try {
 
     return res.render("home");
@@ -57,86 +57,86 @@ router.get(`/homepage`, async (req:any, res:any) => {
   }
 });
 
-router.get(`/getSuggestion`, async (req:any, res:any) => {
+router.get(`/getSuggestion`, async (req: any, res: any) => {
 
   const { keyword } = req.query;
 
   amadeus.referenceData.locations.get({
-        keyword,
-        'page[limit]': 5,
-        'page[offset]': 0,
-        subType: Amadeus.location.any
-        //subType: 'CITY,AIRPORT'
-      })
-  .then(function (response:any) {
-    var result = jp.query(JSON.parse(response.body), '$.data[*]');
-    var hotelData = jp.query(JSON.parse(response.body), '$[*][*]');
+    keyword,
+    'page[limit]': 5,
+    'page[offset]': 0,
+    subType: Amadeus.location.any
+    //subType: 'CITY,AIRPORT'
+  })
+    .then(function (response: any) {
+      var result = jp.query(JSON.parse(response.body), '$.data[*]');
+      var hotelData = jp.query(JSON.parse(response.body), '$[*][*]');
 
-    var dataCount = hotelData.length;
-    var results = []
-    //var testCode = hotelData[i].address.cityCode;
-    //console.log("FULL DATA OBJ: ", hotelData);
-    var displayData;
-    for (var i = 2; i < dataCount; i++){
-        if (typeof hotelData[i]!='undefined'){
-            displayData = {
+      var dataCount = hotelData.length;
+      var results = []
+      //var testCode = hotelData[i].address.cityCode;
+      //console.log("FULL DATA OBJ: ", hotelData);
+      var displayData;
+      for (var i = 2; i < dataCount; i++) {
+        if (typeof hotelData[i] != 'undefined') {
+          displayData = {
             detailedName: hotelData[i].detailedName,
             name: hotelData[i].name,
             subType: hotelData[i].subType,
             iataCode: hotelData[i].iataCode,
             cityCode: hotelData[i].address.cityCode
           }
-            //console.log('searching loc...',hotelData[i].geoCode);
+          //console.log('searching loc...',hotelData[i].geoCode);
         }
         results.push(displayData);
 
-    }// close for loop    
-    return res.send(results);
-  }).catch(function (response:any) {
-    res.json(response);
-  });
+      }// close for loop    
+      return res.send(results);
+    }).catch(function (response: any) {
+      res.json(response);
+    });
 });
 
 
-router.get(`/autosearch`, async (req:any, res:any) => {
-  
-    try {
-        const { keyword, pageLimit, pageOffset } = req.query;
-        //const { keyword } = req.query;
-        const response = await amadeus.referenceData.locations.get({
-          keyword,
-          'page[limit]': pageLimit,
-          'page[offset]': pageOffset,
-          subType: 'CITY,AIRPORT'
-        });
-        //console.log('searching loc...');
-        
-        var result = jp.query(JSON.parse(response.body), '$.data[*]');
-        var hotelData = jp.query(JSON.parse(response.body), '$[*][*]');
-    
-        var dataCount = hotelData.length;
-        var results = []
-        for (var i = 0; i < dataCount; i++){
-    
-            // console.log("FULL DATA OBJ: ", newData)
-            
-            var displayData = {
-                detailedName: hotelData[i].detailedName,
-                name: hotelData[i].name,
-                subType: hotelData[i].subType,
-                cityName: hotelData[i].cityName
-            }
-            results.push(displayData);
-    
-        }// close for loop    
-        
-        return res.render("autosearch", {business: results});  
-        //res.json(JSON.parse(response.body));
-    
+router.get(`/autosearch`, async (req: any, res: any) => {
+
+  try {
+    const { keyword, pageLimit, pageOffset } = req.query;
+    //const { keyword } = req.query;
+    const response = await amadeus.referenceData.locations.get({
+      keyword,
+      'page[limit]': pageLimit,
+      'page[offset]': pageOffset,
+      subType: 'CITY,AIRPORT'
+    });
+    //console.log('searching loc...');
+
+    var result = jp.query(JSON.parse(response.body), '$.data[*]');
+    var hotelData = jp.query(JSON.parse(response.body), '$[*][*]');
+
+    var dataCount = hotelData.length;
+    var results = []
+    for (var i = 0; i < dataCount; i++) {
+
+      // console.log("FULL DATA OBJ: ", newData)
+
+      var displayData = {
+        detailedName: hotelData[i].detailedName,
+        name: hotelData[i].name,
+        subType: hotelData[i].subType,
+        cityName: hotelData[i].cityName
       }
-        catch (err) {
-          res.json(err);
-        }
+      results.push(displayData);
+
+    }// close for loop    
+
+    return res.render("autosearch", { business: results });
+    //res.json(JSON.parse(response.body));
+
+  }
+  catch (err) {
+    res.json(err);
+  }
 });
 
 
@@ -144,32 +144,32 @@ router.get(`/city-hotels`, async (req: any, res: any) => {
 
   const { destination, checkInDate, checkoutDate, rooms } = req.query;
   if (!destination || !checkInDate || !checkoutDate || !rooms) {
-    return res.render("flights", { business: [],hotels:[] });
+    return res.render("flights", { business: [], hotels: [] });
   }
-  return res.render("flights", { business: null, hotels:null });
+  return res.render("flights", { business: null, hotels: null });
 });
 
 
 router.post(`/city-hotels`, [
   check('destinationHotel')
-      .not()
-      .isEmpty()
-      .withMessage('Chose a destination'),
-      check('checkin')
-      .not()
-      .isEmpty()
-      .withMessage('Chose a check in date'),
-      check('checkout')
-      .not()
-      .isEmpty()
-      .withMessage('Chose a check out date')
-],async (req:any, res:any) => {
+    .not()
+    .isEmpty()
+    .withMessage('Chose a destination'),
+  check('checkin')
+    .not()
+    .isEmpty()
+    .withMessage('Chose a check in date'),
+  check('checkout')
+    .not()
+    .isEmpty()
+    .withMessage('Chose a check out date')
+], async (req: any, res: any) => {
 
   var cityCode = req.body.destinationHotelCode;
   var checkInDate = req.body.checkin;
   var checkOutDate = req.body.checkout;
   //var adults = req.body.hotelAdults;
-   var rooms = req.body.rooms;
+  var rooms = req.body.rooms;
 
 
   // if(!cityCode || !checkInDate || !checkOutDate || !adults) {
@@ -177,29 +177,29 @@ router.post(`/city-hotels`, [
   // }
 
   const errors = validationResult(req);
-    if (!errors.isEmpty()) {
-      const alert = errors.array()
-      return res.render("home", {alert});
-      //return res.status(422).jsonp(errors.array());
+  if (!errors.isEmpty()) {
+    const alert = errors.array()
+    return res.render("home", { alert });
+    //return res.status(422).jsonp(errors.array());
+  }
+
+  try {
+    let hotels = undefined;
+    hotels = await amadeusHotelRepo.getHotelOffers(cityCode, checkInDate, checkOutDate, rooms);
+
+    if (!hotels || hotels == undefined || hotels == null) {
+      //return res.render("error.ejs", { alert: "the hotel might have been booked already!" });
+      return res.render("flights", { business: undefined });
     }
 
-try{
-  let hotels = undefined;
-  hotels = await amadeusHotelRepo.getHotelOffers(cityCode, checkInDate, checkOutDate, rooms);
-
-  if (!hotels || hotels == undefined || hotels == null) {
-    //return res.render("error.ejs", { alert: "the hotel might have been booked already!" });
-    return res.render("flights", { business: undefined });
+    if (hotels.length == 0) {
+      return res.render("flights", { business: undefined, hotels: undefined });
+    }
+    return res.render("flights", { anchor: '#flight-results', business: undefined, hotels: hotels, apiError: undefined, alert: undefined });
   }
-
-  if (hotels.length == 0) {
-    return res.render("flights", { business: undefined,hotels:undefined });
+  catch (err: any) {
+    return res.render("flights.ejs", { alert: undefined, apiError: "Something went wrong. Please try again.", business: undefined, hotels: undefined });
   }
-  return res.render("flights", {anchor: '#flight-results', business: undefined, hotels:hotels,apiError: undefined, alert: undefined });
-}
-catch (err: any) {
-  return res.render("flights.ejs", { alert: undefined, apiError: "Something went wrong. Please try again.", business: undefined, hotels:undefined });
-}
 });
 
 router.get(`/bookHotel`, async (req: any, res: any) => {
@@ -231,50 +231,82 @@ router.get(`/bookHotel`, async (req: any, res: any) => {
 });
 
 // BOOK A HOTEL
-router.get(`/Book-hotel`, async (req:any, res:any) => {
-  
-  const {offerId} = req.query;
+router.post(`/bookHotel`, [
+  check('firstName')
+    .not()
+    .isEmpty()
+    .withMessage('Enter a first name'),
+  check('lastName')
+    .not()
+    .isEmpty()
+    .withMessage('Enter a last name'),
+  check('email')
+    .not()
+    .isEmpty()
+    .withMessage('Enter an email'),
+  check('birthDate')
+    .not()
+    .isEmpty()
+    .withMessage('Chose a birth date')
+], async (req: any, res: any) => {
 
-    amadeus.booking.hotelBookings.post(
-      JSON.stringify({
-        'data': {
-          'offerId': offerId,
-          'guests': [{
-            'id': 1,
-            'name': {
-              'title': 'MR',
-              'firstName': 'BOB',
-              'lastName': 'SMITH'
-            },
-            'contact': {
-              'phone': '+33679278416',
-              'email': 'bob.smith@email.com'
-            }
-          }],
-          'payments': [{
-            'id': 1,
-            'method': 'creditCard',
-            'card': {
-              'vendorCode': 'VI',
-              'cardNumber': '4151289722471370',
-              'expiryDate': '2022-09'
-            }
-          }]
-        }
-      })).then(function (response:any) {
-        console.log(response);
-    }).catch(function (response:any) {
-      console.log("MY ERROR \n"); 
-      console.log(response)
-      res.json(response);
-    });
+  let hotelParsed: hotelOffer;
+  let alert = undefined;
+
+  if (req.session.hotelParsed)
+    hotelParsed = req.session.hotelParsed;
+  else
+    return res.render("flights.ejs", { business: undefined, apiError: "Error loading the Hotel. Please try again!" });
+
+  //let flightParsed = objectMapper.parse < FlightOffer > (flight, { mainCreator: () => [FlightOffer] });
+
+  const errors = validationResult(req);
+  if (!errors.isEmpty()) {
+    alert = errors.array()
+    return res.render("bookingHotel_step1.ejs", { alert, flight: undefined, hotel: hotelParsed });
+  }
+  let firstName = req.body.firstName;
+  let lastName = req.body.lastName;
+  let birthDate = req.body.birthDate;
+  let gender = "MALE";
+  let email = req.body.email;
+  let traveler = undefined;
+  let cardNumber = req.body.cardNumber;
+  let expiryDate = req.body.expiryDate;
+  let CsvCode = req.body.CsvCode;
+
+
+
+  traveler = {
+    first_name: firstName,
+    last_name: lastName,
+    email_: email,
+    cardNumber: cardNumber,
+    expiryDate: expiryDate,
+    CsvCode: CsvCode
+  };
+  let bookingResult;
+
+  try {
+    bookingResult = await amadeusHotelRepo.bookHotel(traveler, hotelParsed);
+
+  } catch (e: any) {
+    return res.render("flights.ejs", { alert: undefined, apiError: "The Hotel offer might have been taken already!", business: undefined, hotels: undefined });
+    //return res.render("error.ejs", { alert: "the flihgt might have been booked already!" });
+  }
+  req.session.bookingResult = bookingResult;
+  req.session.traveler = traveler;
+
+  if (req.session.bookingResult && req.session.flightParsed && req.session.traveler)
+  return res.render("bookingHotel_step3.ejs", { result: req.session.bookingResult, hotel: req.session.hotelParsed, travelerInfos: req.session.traveler });
+
 });
 
 
 //search hotels by names
-router.get(`/city-hotelsByname`, async (req:any, res:any) => {
+router.get(`/city-hotelsByname`, async (req: any, res: any) => {
   try {
-    const {hotelName} = req.query;
+    const { hotelName } = req.query;
 
     const response = await amadeus.shopping.hotelOffers.get({
       hotelName
@@ -286,9 +318,9 @@ router.get(`/city-hotelsByname`, async (req:any, res:any) => {
 });
 
 // Querying hotel offers By hotel ID
-router.get(`/hotel-offers`, async (req:any, res:any) => {
+router.get(`/hotel-offers`, async (req: any, res: any) => {
   try {
-    const { hotelId,checkInDate, checkOutDate,adults} = req.query;
+    const { hotelId, checkInDate, checkOutDate, adults } = req.query;
     const response = await amadeus.shopping.hotelOffersByHotel.get({
       hotelId,
       checkInDate,
@@ -300,37 +332,37 @@ router.get(`/hotel-offers`, async (req:any, res:any) => {
     //get only the offers
     var hotelOffers = jp.query(JSON.parse(response.body), "$.data.offers[*]");
     var offerCount = hotelOffers.length;
-     var results = [];
-    for (var i = 0; i < offerCount; i++){
+    var results = [];
+    for (var i = 0; i < offerCount; i++) {
 
-        // console.log("FULL DATA OBJ: ", newData)
-        
-        var displayData = {
-            Id: hotelOffers[i].id,
-            rateCode: hotelOffers[i].rateCode,
-            roomType: hotelOffers[i].room.type,
-            category: hotelOffers[i].room.typeEstimated.category,
-            bedsCount: hotelOffers[i].room.typeEstimated.beds,
-            bedType: hotelOffers[i].room.typeEstimated.bedType,
-            description: hotelOffers[i].room.description.text,
-            guests: hotelOffers[i].guests.adults,
-            price: hotelOffers[i].price.total
-        }
-        //console.log(displayData);
-        //if(displayData.price>=200&&displayData.price<=900)
-        results.push(displayData);
-        //console.log("DISPLAY DATA: ", displayData);
-        // var handlebarsData = ;
+      // console.log("FULL DATA OBJ: ", newData)
+
+      var displayData = {
+        Id: hotelOffers[i].id,
+        rateCode: hotelOffers[i].rateCode,
+        roomType: hotelOffers[i].room.type,
+        category: hotelOffers[i].room.typeEstimated.category,
+        bedsCount: hotelOffers[i].room.typeEstimated.beds,
+        bedType: hotelOffers[i].room.typeEstimated.bedType,
+        description: hotelOffers[i].room.description.text,
+        guests: hotelOffers[i].guests.adults,
+        price: hotelOffers[i].price.total
+      }
+      //console.log(displayData);
+      //if(displayData.price>=200&&displayData.price<=900)
+      results.push(displayData);
+      //console.log("DISPLAY DATA: ", displayData);
+      // var handlebarsData = ;
 
     }// close for loop
-    return res.render("hotelOffers", {business: results});
+    return res.render("hotelOffers", { business: results });
   } catch (err) {
     res.json(err);
   }
 });
 
 // Get hotel offer details
-router.get(`/hotel-offer`, async (req:any, res:any) => {
+router.get(`/hotel-offer`, async (req: any, res: any) => {
   try {
     const { offerId } = req.query;
     const response = await amadeus.shopping.hotelOffer(offerId).get();
@@ -351,7 +383,7 @@ router.get(`/hotel-offer`, async (req:any, res:any) => {
 //       subType: 'CITY,AIRPORT'
 //     });
 //     //console.log('searching loc...');
-    
+
 //     var result = jp.query(JSON.parse(response.body), '$.data[*]');
 //     var hotelData = jp.query(JSON.parse(response.body), '$[*][*]');
 
@@ -372,7 +404,7 @@ router.get(`/hotel-offer`, async (req:any, res:any) => {
 //         results.push(displayData);
 
 //     }// close for loop    
-    
+
 //     res.json(results);   
 //     //res.json(JSON.parse(response.body));
 

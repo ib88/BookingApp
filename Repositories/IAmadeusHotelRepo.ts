@@ -99,4 +99,43 @@ export class AmadeusHotelRepo implements IAmadeusHotelRepo {
     });
 
   }
+
+  async bookHotel(travelerInfos:any, hotelParsed:hotelOffer): Promise<any> {
+
+    return  amadeus.booking.hotelBookings.post(
+      JSON.stringify({
+        'data': {
+          'offerId': hotelParsed.id_,
+          'guests': [{
+            'id': 1,
+            'name': {
+              'title': 'MR',
+              'firstName': 'BOB',
+              'lastName': 'SMITH'
+            },
+            'contact': {
+              'phone': '+33679278416',
+              'email': 'bob.smith@email.com'
+            }
+          }],
+          'payments': [{
+            'id': 1,
+            'method': 'creditCard',
+            'card': {
+              'vendorCode': 'VI',
+              'cardNumber': '4151289722471370',
+              'expiryDate': '2024-09'
+            }
+          }]
+        }
+      }))
+      .then(function (response: any) {
+        return response;
+      }
+      )
+      .catch(function (error: any) {
+        throw error;
+      });
+
+  }
 }

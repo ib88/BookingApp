@@ -297,7 +297,7 @@ router.post(`/bookHotel`, [
   req.session.bookingResult = bookingResult;
   req.session.traveler = traveler;
 
-  if (req.session.bookingResult && req.session.flightParsed && req.session.traveler)
+  // if (req.session.bookingResult && req.session.hotelParsed && req.session.traveler)
   return res.render("bookingHotel_step3.ejs", { result: req.session.bookingResult, hotel: req.session.hotelParsed, travelerInfos: req.session.traveler });
 
 });

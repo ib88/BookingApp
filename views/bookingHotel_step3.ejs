@@ -39,11 +39,17 @@
                                                     </h2>
                                                 </div>
 
-                                                <h3 class="invoice-id text-left">Booking number : <b><big>
-                                                            <%= 123455fd234 %>
+                                                <h3 class="invoice-id text-left">Booking ID : <b><big>
+                                                            <%= result.data[0].id %>
                                                         </big></b> </h3>
+                                                        <div class="date"> <b>Booking Confirmation :</b> <i>
+                                                            <%= result.data[0].providerConfirmationId %>
+                                                        </i></div>
+                                                        <div class="date"> <b>Description :</b> <i>
+                                                            <%= hotel.hotelName_ %>
+                                                        </i></div>
                                                         <div class="date"> <b>Name :</b> <i>
-                                                            <%= hotel Name %>
+                                                            <%= hotel.room_.description_.text_  %> 
                                                         </i></div>
                                                 <div class="date"> <b>Check In :</b> <i>
                                                         <%= hotel.checkInDate_ %>

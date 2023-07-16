@@ -81,11 +81,12 @@ export class geoCode {
 
 export class hotelOffer {
 
-    public constructor(id: string, checkInDate: string, checkOutDate: string, rateCode: string, rateFamilyEstimated: rateFamilyEstimated, commission: commission, boardType: string, guests: guests, room: room, price: price, policies: policies, chainCode: string, geoCode: geoCode, self: string) {
+    public constructor(id: string, checkInDate: string, checkOutDate: string, rateCode: string, category:string, rateFamilyEstimated: rateFamilyEstimated, commission: commission, boardType: string, guests: guests, room: room, price: price, policies: policies, chainCode: string, geoCode: geoCode, self: string) {
         this.id_ = id;
         this.checkInDate_ = checkInDate;
         this.checkOutDate_ = checkOutDate;
         this.rateCode_ = rateCode;
+        this.category_ = category;
         this.rateFamilyEstimated_ = rateFamilyEstimated;
         this.commission_ = commission;
         this.boardType_ = boardType;
@@ -98,6 +99,7 @@ export class hotelOffer {
         this.self_ = self;
         this.original = "";
         this.hotelName_ = "";
+    
 
     }
 
@@ -119,6 +121,10 @@ export class hotelOffer {
     @JsonProperty({ value: "rateCode" })
     @JsonClassType({ type: () => [String] })
     rateCode_: string;
+
+    @JsonProperty({ value: "category" })
+    @JsonClassType({ type: () => [String] })
+    category_: string;
 
     @JsonProperty({ value: "rateFamilyEstimated" })
     @JsonClassType({ type: () => [rateFamilyEstimated] })
@@ -172,10 +178,13 @@ export class hotelOffer {
     hotelName_: string;
 }
 export class room {
-    public constructor(type: string, typeEstimated: typeEstimated, description: description) {
+    public constructor(type: string, typeEstimated: typeEstimated, description: description, category:string, beds:string, bedType:string) {
         this.type_ = type;
         this.typeEstimated_ = typeEstimated;
         this.description_ = description;
+        this.category_ = category;
+        this.beds_ = beds;
+        this.bedType_ = bedType;
     }
     @JsonProperty({ value: "type" })
     @JsonClassType({ type: () => [String] })
@@ -189,6 +198,17 @@ export class room {
     @JsonClassType({ type: () => [description] })
     description_: description;
 
+    @JsonProperty({ value: "category" })
+    @JsonClassType({ type: () => [String] })
+    category_: string;
+
+    @JsonProperty({ value: "beds" })
+    @JsonClassType({ type: () => [String] })
+    beds_: string;
+
+    @JsonProperty({ value: "bedType" })
+    @JsonClassType({ type: () => [String] })
+    bedType_: string;
 }
 
 export class typeEstimated {

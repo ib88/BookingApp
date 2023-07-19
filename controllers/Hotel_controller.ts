@@ -301,9 +301,7 @@ router.post(`/bookHotel`, [
   let traveler = undefined;
   let cardNumber = req.body.cardNumber;
   let expiryDate = req.body.expiryDate;
-  let CsvCode = req.body.CsvCode;
-
-
+  let cvcCode = req.body.cvcCode;
 
   traveler = {
     first_name: firstName,
@@ -311,7 +309,7 @@ router.post(`/bookHotel`, [
     email_: email,
     cardNumber: cardNumber,
     expiryDate: expiryDate,
-    CsvCode: CsvCode
+    CsvCode: cvcCode
   };
   let bookingResult;
 

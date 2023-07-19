@@ -216,6 +216,15 @@ export class AmadeusRepo implements IAmadeusRepo {
               "validityCountry": "ES",
               "nationality": "ES",
               "holder": true
+            }],
+            'payments': [{
+              'id': 1,
+              'method': 'creditCard',
+              'card': {
+                'vendorCode': 'VI',
+                'cardNumber': '4151289722471370',
+                'expiryDate': '2024-09'
+              }
             }]
           }]
         }

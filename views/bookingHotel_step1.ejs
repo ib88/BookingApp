@@ -223,7 +223,7 @@ contenteditable="true">
 			</div>
 			<% }) %>
 				<% } %>
-	<main class="main">		
+	<main class="main container">		
 		<div class="wrap">
 			
 			<div class="row">
@@ -260,6 +260,70 @@ contenteditable="true">
 								<span class="info">You’ll receive a confirmation email</span>
 							</div>
 							
+
+							<div>
+								<div class="max-width">
+								  <section class="payment turquoise">
+									<div class="grid-full padded-reverse">
+									  <div class="grid-whole padded">
+										<h1 style="font-size: 25px">Payment Infos</h1>
+										<hr>
+									  </div>
+									  <div class="grid-7 padded m-grid-whole s-grid-whole xs-grid-whole">
+										<form id="payment-form" action="/cards" accept-charset="UTF-8" method="post">
+										  <input name="utf8" type="hidden" value="✓">
+										  <div class="grid-whole">
+											<label for="card-number">
+											  <span class="upper-bryant small-bold">Card Number</span>
+											</label>
+											<input type="number" class="space" size="20" name="card-number" id="card-number">
+										  </div>
+										  <br>
+										  <div class="grid-whole row padded-reverse">
+											<div class="col-lg-3 padded">
+											  <div class="grid-5">
+												<label for="cvc">
+												  <span class="upper-bryant small-bold">CVC</span>
+												  <input type="number" class="space" size="4" name="cvc" id="cvc">
+												</label>
+											  </div>
+											  <!-- <div class="grid-7 cvc-box center">
+												<img class="cvc" src="http://www.thisisstar.com/images/100UI/002/cvc_opt.svg">
+											  </div> -->
+											</div>
+											<div class="col-lg-9 padded">
+											  <div class="grid-whole">
+												<span class="upper-bryant small-bold">
+											<label for="exp-month">
+											  Expiration
+											</label>
+										  </span>
+												<span class="upper-bryant micro">
+											<label for="exp-year">
+											  (MM/YY)
+											</label>
+										  </span>
+											  </div>
+											  <div class="grid-4">
+												<input type="text" pattern="(0[1-9]|1[0-2])\/[0-9]{2}" placeholder="MM/YY" required>												   
+											  </div>
+											  <!-- <div class="grid-2 center huge valign-dollar">
+												<span class="upper-bryant tall-slash"> / </span>
+											  </div>
+											  <div class="grid-6">
+												<input type="number" class="space" size="4" id="exp-year">
+											  </div> -->
+											</div>
+										  </div>
+										  <!-- <button type="submit" class="btn" id="update-payment">Update Card</button> -->
+										</form>
+									  </div>
+									  <div class="clear"></div>
+									</div>
+								  </section>
+								</div>
+							  </div>	
+						
 						
 							
 							<div class="row">

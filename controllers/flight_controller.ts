@@ -138,16 +138,24 @@ router.post(`/bookFlight`, [
     alert = errors.array()
     return res.render("booking_step1.ejs", { alert, flight: flightParsed });
   }
+
   let firstName = req.body.firstName;
   let lastName = req.body.lastName;
   let birthDate = req.body.birthDate;
   let gender = "MALE";
   let email = req.body.email;
   let traveler = undefined;
+  let cardNumber = req.body.cardNumber;
+  let expiryDate = req.body.expiryDate;
+  let cvcCode = req.body.cvcCode;
+
   traveler = {
     first_name: firstName,
     last_name: lastName,
-    email_: email
+    email: email,
+    cardNumber: cardNumber,
+    expiryDate: expiryDate,
+    cvcCode: cvcCode
   };
 
   //let pricingOfferStr = flights[1].original;
@@ -168,7 +176,7 @@ router.post(`/bookFlight`, [
   }
 
   try {
-    bookingResult = await amadeusRepo.bookFlight(pricingResponse, firstName, lastName, birthDate, gender, email);
+    bookingResult = await amadeusRepo.bookFlight(pricingResponse, traveler);
 
   } catch (e: any) {
     return res.render("flights.ejs", { alert: undefined, apiError: "The flight might be full already!", business: undefined,hotels:undefined });
@@ -182,7 +190,9 @@ router.post(`/bookFlight`, [
   //let emailResult = await amadeusRepo.sendEmail("imefire@gmail.com", "imefire@gmail.com", "Booking confirmation", bookingResult.data.id,"<b>"+ bookingResult.data.id + "</b>");
 
   //return res.render("booking_step3.ejs", { alert:alert, result: bookingResult, flight: flightParsed, travelerInfos: traveler });
-  return res.render("stripe_payment", { key: STRIPE_PUBLISHABLE_KEY, flight: flightParsed, travelerInfos: traveler });
+  //return res.render("booking_step3", { key: STRIPE_PUBLISHABLE_KEY, flight: flightParsed, travelerInfos: traveler });
+  return res.render("booking_step3.ejs", { result: req.session.bookingResult, flight: req.session.flightParsed, travelerInfos: req.session.traveler });
+
 
 
 

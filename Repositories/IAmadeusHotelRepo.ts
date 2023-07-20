@@ -89,6 +89,7 @@ export class AmadeusHotelRepo implements IAmadeusHotelRepo {
           for (var j = 0; j < hotelOffersParsed.length; j++) {
             hotelOffersParsed[j].original = JSON.stringify(pricingResp.data[0].offers[j]); //JSON.stringify([JsonFlights][i]);
             hotelOffersParsed[j].hotelInfos_ = hotelInfoParsed;
+            // reduce the description size of the offer so that it fits in the UI element.
             results.push(hotelOffersParsed[j]);
 
           }
@@ -111,12 +112,12 @@ export class AmadeusHotelRepo implements IAmadeusHotelRepo {
             'id': 1,
             'name': {
               'title': 'MR',
-              'firstName': 'BOB',
-              'lastName': 'SMITH'
+              'firstName': travelerInfos.first_name,
+              'lastName': travelerInfos.last_name
             },
             'contact': {
               'phone': '+33679278416',
-              'email': 'bob.smith@email.com'
+              'email': travelerInfos.email//'bob.smith@email.com'
             }
           }],
           'payments': [{
@@ -124,8 +125,8 @@ export class AmadeusHotelRepo implements IAmadeusHotelRepo {
             'method': 'creditCard',
             'card': {
               'vendorCode': 'VI',
-              'cardNumber': '4151289722471370',
-              'expiryDate': '2024-09'
+              'cardNumber': travelerInfos.cardNumber,//'4151289722471370',
+              'expiryDate': travelerInfos.expiryDate
             }
           }]
         }

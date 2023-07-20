@@ -239,7 +239,6 @@ router.get(`/bookHotel`, async (req: any, res: any) => {
   try {
 
     let hotelParsed = objectMapper.parse<hotelOffer>(hotel, { mainCreator: () => [hotelOffer] });
-
     //compute the departure and arrival time of the whole flight by summing up the times for individual flight segments
     let carrierResult = undefined;
     let airlineCode = undefined;
@@ -249,7 +248,6 @@ router.get(`/bookHotel`, async (req: any, res: any) => {
     req.session.hotelJson = hotel;
     hotelParsed.hotelName_ = hotelName;
     req.session.hotelParsed = hotelParsed;
-
     return res.render("bookingHotel_step1.ejs", { hotel: hotelParsed });
   }
   catch (err: any) {
@@ -306,10 +304,10 @@ router.post(`/bookHotel`, [
   traveler = {
     first_name: firstName,
     last_name: lastName,
-    email_: email,
+    email: email,
     cardNumber: cardNumber,
     expiryDate: expiryDate,
-    CsvCode: cvcCode
+    cvcCode: cvcCode
   };
   let bookingResult;
 

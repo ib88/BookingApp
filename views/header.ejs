@@ -57,7 +57,19 @@
       <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
+	<% if(typeof apiError !='undefined'  ) { %>
+	<div class="alert alert-warning alert-dismissible fade show" role="alert" style="color: firebrick;">
+		<%= apiError %>
+	</div>
+	<% } %>
 
+	<% if(typeof alert !='undefined' ) { %>
+		<% alert.forEach(function(error) { %>
+			<div class="alert alert-warning alert-dismissible fade show" role="alert" style="color: firebrick;">
+				<%= error.msg %>
+			</div>
+			<% }) %>
+				<% } %>
 </head>
 
 <body>
@@ -100,7 +112,7 @@
 				</div>
 				<div class="contact">
 					<span>24/7 Support number</span>
-					<span class="number">1- 555 - 555 - 555</span>
+					<span class="number">02076840868</span>
 				</div>
 			</div>
 		</nav>

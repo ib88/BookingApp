@@ -179,7 +179,7 @@ router.post(`/city-hotels`, [
   const errors = validationResult(req);
   if (!errors.isEmpty()) {
     const alert = errors.array()
-    return res.render("home", { alert });
+    return res.render("flights", { alert:alert, business:undefined, hotels:undefined, apiError:undefined });
     //return res.status(422).jsonp(errors.array());
   }
 
@@ -189,7 +189,9 @@ router.post(`/city-hotels`, [
 
     if (!hotels || hotels == undefined || hotels == null) {
       //return res.render("error.ejs", { alert: "the hotel might have been booked already!" });
-      return res.render("flights", { business: undefined });
+      //return res.render("flights", { business: undefined });
+      return res.render("flights", { alert:undefined, business:undefined, hotels:undefined, apiError:"the hotel might have been booked already" });
+
     }
 
     if (hotels.length == 0) {
@@ -198,7 +200,8 @@ router.post(`/city-hotels`, [
     return res.render("flights", { anchor: '#flight-results', business: undefined, hotels: hotels, apiError: undefined, alert: undefined });
   }
   catch (err: any) {
-    return res.render("flights.ejs", { alert: undefined, apiError: "Something went wrong. Please try again.", business: undefined, hotels: undefined });
+    return res.render("flights.ejs", { alert: undefined, apiError: "Something went wrong. Please see weither the inputs you entered is correct and try again.", business: undefined, hotels: undefined });
+    
   }
 });
 

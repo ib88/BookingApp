@@ -101,7 +101,7 @@ router.get(`/bookFlight`, async (req: any, res: any) => {
     return res.render("booking_step1.ejs", { flight: flightParsed });
   }
   catch (err: any) {
-    return res.render("flights.ejs", { business: undefined, apiError: "Error loading the flight. Please try again!" });
+    return res.render("flights.ejs", { business: undefined, apiError: "Error loading the flight. Please try again!",alert:undefined, hotels:undefined });
   }
 
 });
@@ -136,7 +136,7 @@ router.post(`/bookFlight`, [
   const errors = validationResult(req);
   if (!errors.isEmpty()) {
     alert = errors.array()
-    return res.render("booking_step1.ejs", { alert, flight: flightParsed });
+    return res.render("booking_step1.ejs", { alert:alert, flight: flightParsed });
   }
 
   let firstName = req.body.firstName;
@@ -278,10 +278,10 @@ router.get(`/flightOffer`, async (req: any, res: any) => {
   const { source, destination, flightDate, adults } = req.query;
   if (!source || !destination || !flightDate || !adults) {
 
-    return res.render("flights", { business: [],hotels:undefined });
+    return res.render("flights", {alert:undefined, business: [],hotels:undefined,apiError:undefined });
 
   }
-  return res.render("flights", { business: null,hotels:undefined });
+  return res.render("flights", {alert:undefined,business: null,hotels:undefined,apiError:undefined });
 
 });
 
@@ -313,7 +313,7 @@ router.post(`/flightOffer`, [
   const errors = validationResult(req);
   if (!errors.isEmpty()) {
     const alert = errors.array()
-    return res.render("flights", { alert,hotels:undefined});
+    return res.render("flights", { alert:alert,hotels:undefined,business:undefined,apiError:undefined});
   }
 
   // var sourceCode = "LAX";
@@ -348,7 +348,7 @@ router.post(`/flightOffer`, [
     //let flights = await amadeusMockRepo.getFlightOfferReturnsNull(sourceCode, destinationCode, dateSourceFlight, adults, maxFlights);
     if (!flights || flights == undefined || flights == null) {
       //return res.render("error.ejs", { alert: "the flihgt might have been booked already!" });
-      return res.render("flights", { business: undefined,hotels:undefined });
+      return res.render("flights", { alert:undefined, apiError:"An error has occured while loading the flight. Please try again!", business: undefined,hotels:undefined });
     }
     if (flights.length == 0) {
       return res.render("flights", { business: undefined,hotels:undefined });
@@ -413,7 +413,7 @@ router.post(`/flightOffer`, [
   }
   catch (err: any) {
 
-    return res.render("flights.ejs", { alert: undefined, apiError: "Something went wrong. Please try again.", business: undefined,hotels:undefined });
+    return res.render("flights.ejs", { alert: undefined, apiError: "Something went wrong. Please see weither the inputs you entered is correct and try again.", business: undefined,hotels:undefined });
 
   }
 });

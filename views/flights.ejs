@@ -19,12 +19,11 @@
 		<div class="relative z-30 h-48 px-10  lg:h-32">
 			<div class="booking-form">
 				<!-- If business object is not empty -->
-				<% if(typeof business =='undefined' && typeof alert !='undefined' ) { %>
-					<form id="main-search" method="post" action="/flight/flightOffer#flight-results">
+				<% if(typeof alert =='undefined' ) { %>
+					<form id="main-search" method="post" action="/flight/flightOffer#alert">
 				<%}%>
 				<!-- If business object is empty and alert is not empty. Show it	 -->
-				<form id="main-search" method="post" action="/flight/flightOffer#alert">
-
+				<form id="main-search" method="post" action="/flight/flightOffer#flight-results">
 					<div class="row">
 						<nav>
 							<div class="nav nav-tabs" id="nav-tab" role="tablist">

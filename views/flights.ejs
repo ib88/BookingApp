@@ -843,4 +843,24 @@
 					</main>
 					<!--//main-->
 
-					<%- include('footer'); -%>
+					<script>
+						// Récupère tous les champs de saisie de type "date"
+						const dateInputs = document.querySelectorAll('input[type="date"]');
+					  
+						// Obtient la date actuelle
+						const today = new Date();
+						const year = today.getFullYear();
+						let month = today.getMonth() + 1;
+						if (month < 10) {
+						  month = '0' + month;
+						}
+						const day = today.getDate();
+					  
+						// Définit la date minimale en format AAAA-MM-JJ pour chaque champ de saisie de type "date"
+						dateInputs.forEach(input => {
+						  input.min = `${year}-${month}-${day}`;
+						});
+					  </script>
+					  
+											
+<%- include('footer'); -%>

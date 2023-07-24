@@ -1521,10 +1521,11 @@ aside .widget h5 {
 
 /* 07 Content*/
 .main {
-	float: left;
+	/* float: left; */
 	width: 100%;
 	min-height: 500px;
 	margin-top: 200px;
+	/* margin: auto; */
 	padding-bottom: 100px;
 }
 

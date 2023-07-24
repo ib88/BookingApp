@@ -306,7 +306,7 @@ contenteditable="true">
 											  </div>
 											  <div class="grid-4">
 												<!-- <input type="text" pattern="(0[1-9]|1[0-2])\/[0-9]{2}" placeholder="MM/YY" required name="expiryDate" id="expiryDate"> -->
-                                                <input type="text" pattern="[0-9]{4}-[0-9]{2}"  placeholder="YYYY/MM" required name="expiryDate" id="expiryDate">
+                                                <input type="text" pattern="[0-9]{4}-[0-9]{2}"  placeholder="YYYY-MM" required name="expiryDate" id="expiryDate">
 											  </div>
 											  <!-- <div class="grid-2 center huge valign-dollar">
 												<span class="upper-bryant tall-slash"> / </span>
@@ -373,7 +373,7 @@ contenteditable="true">
 						
 
 						<div class="price">
-							<p class="total">Total Price:  <%= hotel.price_.total_ %> GBP</p>
+							<p class="total">Total Price:  <%= hotel.price_.total_ %> <%= hotel.price_.currency_ %></p>
 							<p>VAT (20%) included</p>
 						</div>
 						<% } %>

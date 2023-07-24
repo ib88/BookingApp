@@ -223,6 +223,7 @@
 		</div>
 
 	</section>
+
 	<!-- <% if(typeof alert !='undefined' ) { %>
 		<% alert.forEach(function(error) { %>
 			<div class="alert alert-warning alert-dismissible fade show" role="alert" style="color: firebrick;">
@@ -459,7 +460,7 @@
 																	<h2 class="num">
 																		<%= elt.price_.total_ %>
 																	</h2>
-																	<p class="day">GBP</p>
+																	<p class="day"><%= elt.price_.currency_ %></p>
 																	<span class="up-border"></span>
 																	<span class="down-border"></span>
 																</div> <!-- end item-right -->
@@ -813,7 +814,7 @@
 											<%= elt.room_.description_.text_ %>
 										</div> -->
 											<div class="card-text-price">
-												<%= elt.price_.total_ %> GBP
+												<%= elt.price_.total_ %> <%= elt.price_.currency_  %>
 											</div>
 											<a href="/hotel/bookHotel?hotel=<%=elt.original %>&hotelName=<%=elt.hotelInfos_.name_ %>"
 												class="card-button"> Book now</a>

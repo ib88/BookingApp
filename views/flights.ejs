@@ -18,7 +18,13 @@
 		</div>
 		<div class="relative z-30 h-48 px-10  lg:h-32">
 			<div class="booking-form">
-				<form id="main-search" method="post" action="/flight/flightOffer#flight-results">
+				<!-- If business object is not empty -->
+				<% if(typeof business =='undefined' && typeof alert !='undefined' ) { %>
+					<form id="main-search" method="post" action="/flight/flightOffer#flight-results">
+				<%}%>
+				<!-- If business object is empty and alert is not empty. Show it	 -->
+				<form id="main-search" method="post" action="/flight/flightOffer#alert">
+
 					<div class="row">
 						<nav>
 							<div class="nav nav-tabs" id="nav-tab" role="tablist">
@@ -163,6 +169,7 @@
 								</div>
 							</div>
 				</form>
+
 				<!-- <form id="main-search" method="post" action="/hotel/city-hotels/" >  -->
 				<!-- <form id="main-search2" method="post" action="/hotel/city-hotels/" >  -->
 				<div class="tab-pane " id="v-pills-profile" role="tabpanel" aria-labelledby="v-pills-profile-tab">

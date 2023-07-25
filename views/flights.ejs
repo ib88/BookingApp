@@ -18,6 +18,11 @@
 		</div>
 		<div class="relative z-30 h-48 px-10  lg:h-32">
 			<div class="booking-form">
+				<!-- If business object is not empty -->
+				<% if(typeof alert =='undefined' ) { %>
+					<form id="main-search" method="post" action="/flight/flightOffer#alert">
+				<%}%>
+				<!-- If business object is empty and alert is not empty. Show it	 -->
 				<form id="main-search" method="post" action="/flight/flightOffer#flight-results">
 					<div class="row">
 						<nav>
@@ -163,10 +168,11 @@
 								</div>
 							</div>
 				</form>
+
 				<!-- <form id="main-search" method="post" action="/hotel/city-hotels/" >  -->
 				<!-- <form id="main-search2" method="post" action="/hotel/city-hotels/" >  -->
 				<div class="tab-pane " id="v-pills-profile" role="tabpanel" aria-labelledby="v-pills-profile-tab">
-					<form id="main-search2" method="post" action="/hotel/city-hotels/">
+					<form id="main-search2" method="post" action="/hotel/city-hotels#hotel/">
 
 						<div class="row">
 							<div class="col-md-6 col-lg-6">
@@ -791,7 +797,7 @@
 
 						</div>
 
-						<div class="containers row">
+						<div class="containers row" id="hotel">
 
 							<% if(typeof hotels !='undefined' || hotels!=null || hotels!=undefined) { %>
 								<% hotels.forEach((elt)=>{%>
@@ -844,4 +850,24 @@
 					</main>
 					<!--//main-->
 
-					<%- include('footer'); -%>
+					<script>
+						// Récupère tous les champs de saisie de type "date"
+						const dateInputs = document.querySelectorAll('input[type="date"]');
+					  
+						// Obtient la date actuelle
+						const today = new Date();
+						const year = today.getFullYear();
+						let month = today.getMonth() + 1;
+						if (month < 10) {
+						  month = '0' + month;
+						}
+						const day = today.getDate();
+					  
+						// Définit la date minimale en format AAAA-MM-JJ pour chaque champ de saisie de type "date"
+						dateInputs.forEach(input => {
+						  input.min = `${year}-${month}-${day}`;
+						});
+					  </script>
+					  
+											
+<%- include('footer'); -%>

@@ -19,9 +19,13 @@
 		<div class="relative z-30 h-48 px-10  lg:h-32">
 			<div class="booking-form">
 				<!-- If business object is not empty -->
-				<% if(typeof alert =='undefined' ) { %>
+				<% if(typeof alert != undefined && typeof business == undefined) { %>
 					<form id="main-search" method="post" action="/flight/flightOffer#alert">
-				<%}%>
+						</form>
+				<% } if(typeof business != undefined){ %>
+				<!-- <%  else { %> -->
+					<!-- Item for seats left empty -->
+					
 				<!-- If business object is empty and alert is not empty. Show it	 -->
 				<form id="main-search" method="post" action="/flight/flightOffer#flight-results">
 					<div class="row">
@@ -168,6 +172,7 @@
 								</div>
 							</div>
 				</form>
+				<% } %>
 
 				<!-- <form id="main-search" method="post" action="/hotel/city-hotels/" >  -->
 				<!-- <form id="main-search2" method="post" action="/hotel/city-hotels/" >  -->

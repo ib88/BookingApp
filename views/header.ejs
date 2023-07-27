@@ -63,7 +63,7 @@
 	</div>
 	<% } %>
 
-	<% if(typeof alert !='undefined' ) { %>
+	<% if(typeof alert != 'undefined' && typeof business == 'undefined' ) { %>
 		<% alert.forEach(function(error) { %>
 			<div class="alert alert-warning alert-dismissible fade show" role="alert" id="alert" style="color: firebrick;">
 				<%= error.msg %>

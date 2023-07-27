@@ -79,6 +79,9 @@ export class geoCode {
     longitude_: string;
 }
 
+@JsonIgnoreProperties({
+    ignoreUnknown:true
+  })
 export class hotelOffer {
 
     public constructor(id: string, checkInDate: string, checkOutDate: string, rateCode: string, category:string, rateFamilyEstimated: rateFamilyEstimated, commission: commission, boardType: string, guests: guests, room: room, price: price, policies: policies, chainCode: string, geoCode: geoCode, self: string) {
@@ -297,6 +300,9 @@ class price {
     variations_: variations;
 }
 
+@JsonIgnoreProperties({
+    ignoreUnknown:true
+  })
 class policies {
     public constructor(guarantee: guarantee, paymentType: string, cancellation: cancellations[]) {
         this.guarantee_ = guarantee;
@@ -357,6 +363,10 @@ class acceptedPayments {
     methods_: string[];
 }
 
+
+@JsonIgnoreProperties({
+    ignoreUnknown:true
+  })
 class cancellations {
     public constructor(amount: string, deadline: string, numberOfNights: string) {
         this.deadline_ = deadline;

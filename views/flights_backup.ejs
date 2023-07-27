@@ -1,0 +1,865 @@
+<%- include('header'); -%>
+
+	<section class="relative tails-selected-element"
+		style="background-image: url('https://imgur.com/YMpzlJo.jpg'); background-repeat: no-repeat;background-size: cover; background-position: center;"
+		contenteditable="true">
+		<div class="absolute inset-0 bg-gradient-to-b from-black to-transparent opacity-90"></div>
+		<div class="relative z-20 px-4 py-24 mx-auto text-center text-white max-w-7xl lg:py-32">
+			<div class="flex flex-wrap text-white">
+				<div class="relative w-full px-4 mx-auto text-center xl:flex-grow-0 xl:flex-shrink-0">
+					<h1 class="text-6xl font-black  text-[#f7982b] lg:text-7xl tails-selected-element"
+						contenteditable="true">Booking Flights & Hotels</h1>
+					<p class="mt-0 mb-4 text-base italic text-white sm:text-lg lg:text-xl">
+						Booking hotels and flights has never been easier! Our user-friendly platform allows you to book
+						your dream vacation with just a few clicks. Start planning your next adventure today!
+					</p>
+				</div>
+			</div>
+		</div>
+		<div class="relative z-30 h-48 px-10  lg:h-32">
+			<div class="booking-form">
+				<!-- If business object is not empty -->
+				<!-- <% if(typeof alert !=undefined && typeof business==undefined) { %>
+					<form id="main-search" method="post" action="/flight/flightOffer#alert">
+					</form>
+					<% } %> -->
+					<!-- <%  if(typeof business !=undefined){ %> -->
+						<!-- <%  else { %> -->
+						<!-- Item for seats left empty -->
+
+						<!-- If business object is empty and alert is not empty. Show it	 -->
+						<form id="main-search" method="post" action="/flight/flightOffer#flight-results">
+							<div class="row">
+								<nav>
+									<div class="nav nav-tabs" id="nav-tab" role="tablist">
+										<button class="nav-link active" id="v-pills-home-tab" data-bs-toggle="pill"
+											data-bs-target="#v-pills-home" type="button" role="tab"
+											aria-controls="v-pills-home" aria-selected="true">
+											<span style="color: #f7982b; font-size: 16px;"> <i class="fa fa-plane"
+													aria-hidden="true"></i> Flights </span>
+
+										</button>
+										<button class="nav-link" id="v-pills-profile-tab" data-bs-toggle="pill"
+											data-bs-target="#v-pills-profile" type="button" role="tab"
+											aria-controls="v-pills-profile" aria-selected="false">
+											<span style="color: #f7982b; font-size: 16px;"> <i class="fa fa-building"
+													aria-hidden="true"></i> Hotels</span>
+										</button>
+									</div>
+									<br>
+								</nav>
+								<div class="tab-content" id="v-pills-tabContent">
+									<div class="tab-pane show active" id="v-pills-home" role="tabpanel"
+										aria-labelledby="v-pills-home-tab">
+										<div class="row">
+											<!-- Begin Radio -->
+											<div>
+												<label for="f-option" class="l-radio">
+													<input type="radio" id="f-option" value="one" name="selector"
+														tabindex="1" checked>
+													<span style="font-size: 10px;">One way</span>
+												</label>
+												<label for="s-option" class="l-radio">
+													<input type="radio" id="s-option" value="two" name="selector"
+														tabindex="2">
+													<span style="font-size: 10px;">Two ways</span>
+											</div>
+											<!-- End Radio -->
+											<div class="row">
+												<div class="col">
+													<div class="form-group ">
+														<span class="form-label">Leaving from</span>
+														<input class="form-control" type="text"
+															placeholder="Specify airport" id="sourceFlight"
+															name="sourceFlight" autocomplete="off">
+														<input type="hidden" id="sourceFlightCode"
+															name="sourceFlightCode" value="" />
+														<div class="div-results-input" id="resultSourceFlightDiv">
+														</div>
+													</div>
+												</div>
+
+												<div class="col">
+													<div class="form-group">
+														<span class="form-label">Going to</span>
+														<input class="form-control" type="text"
+															placeholder="Specify airport" id="destinationFlight"
+															name="destinationFlight" autocomplete="off">
+														<input type="hidden" id="destinationFlightCode"
+															name="destinationFlightCode" value="">
+														<div class="div-results-input" id="resultDestinationFlightDiv">
+														</div>
+													</div>
+												</div>
+
+												<div class="col">
+													<div class="form-group ">
+														<span class="form-label">Departing on</span>
+														<input class="form-control" type="date"
+															id="datepickerSourceFlight" name="datepickerSourceFlight">
+													</div>
+												</div>
+
+												<div class="col two box">
+													<div class="form-group ">
+														<span class="form-label">Returning on</span>
+														<input class="form-control" type="date"
+															id="datepickerReturnFlight" name="datepickerReturnFlight">
+													</div>
+												</div>
+											</div>
+											<div class="row">
+												<div class="col-lg-5"></div>
+
+												<div class="col-md-1 col-lg-1">
+													<span class="form-label">Adults</span>
+													<select class="form-select" id="adultsFlight" name="adultsFlight"
+														aria-label="Default select example">
+														<option selected value="1">1</option>
+														<option value="2">2</option>
+														<option value="3">3</option>
+														<option>4</option>
+														<option>5</option>
+														<option>6</option>
+														<option>7</option>
+														<option>8</option>
+														<option>9</option>
+														<option>10</option>
+													</select>
+													<!-- <div>
+												<label for="location" class="form-label block text-sm font-medium leading-6 text-gray-900">Adults</label>
+												<select id="adultsFlight" name="adultsFlight" class="rounded-md block w-full form-control text-gray-900 ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-indigo-600 sm:text-sm sm:leading-6">
+												  <option selected>0</option>
+												  <option>1</option>
+												  <option>2</option>
+												  <option>3</option>
+												  <option>4</option>
+												  <option>5</option>
+												  <option>6</option>
+												  <option>7</option>
+												  <option>8</option>
+												  <option>9</option>
+												  <option>10</option>
+												</select>
+											</div> -->
+													<!-- <div class="form-group">
+												<span class="form-label">Adults</span>
+												<input class="form-control" type="number" id="adultsFlight"
+													name="adultsFlight">
+											</div> -->
+												</div>
+
+												<div class="col-md-1 col-lg-1">
+													<div class="form-group">
+														<span class="form-label">Children</span>
+														<select class="form-control" id="childrenFlight"
+															name="childrenFlight" aria-label="Default select example">
+															<option selected>0</option>
+															<option value="1">1</option>
+															<option value="2">2</option>
+															<option value="3">3</option>
+															<option>4</option>
+															<option>5</option>
+															<option>6</option>
+															<option>7</option>
+															<option>8</option>
+															<option>9</option>
+															<option>10</option>
+														</select>
+													</div>
+												</div>
+												<div class="col-lg-5"></div>
+											</div>
+										</div>
+										<div class="form-btn">
+											<button class="submit-btn" id="search-submit">Search</button>
+										</div>
+									</div>
+						</form>
+						<!-- <% } %> -->
+
+							<!-- <form id="main-search" method="post" action="/hotel/city-hotels/" >  -->
+							<!-- <form id="main-search2" method="post" action="/hotel/city-hotels/" >  -->
+							<div class="tab-pane " id="v-pills-profile" role="tabpanel"
+								aria-labelledby="v-pills-profile-tab">
+								<form id="main-search2" method="post" action="/hotel/city-hotels#hotel/">
+
+									<div class="row">
+										<div class="col-md-6 col-lg-6">
+											<div class="form-group">
+												<span class="form-label">Destination</span>
+												<input class="form-control" type="text" placeholder="Specify City"
+													id="destinationHotel" name="destinationHotel" autocomplete="off">
+												<input type="hidden" id="destinationHotelCode"
+													name="destinationHotelCode" value="">
+												<div class="div-results-input" id="resultDestinationHotelDiv">
+												</div>
+											</div>
+										</div>
+										<div class="col-md-6 col-lg-6">
+											<div class="form-group">
+												<span class="form-label">Rooms</span>
+												<select class="form-select" id="rooms" name="rooms"
+													aria-label="Default select example">
+													<option selected value="1">1</option>
+													<option value="2">2</option>
+													<option value="3">3</option>
+													<option>4</option>
+													<option>5</option>
+													<option>6</option>
+													<option>7</option>
+													<option>8</option>
+													<option>9</option>
+													<option>10</option>
+												</select>
+											</div>
+										</div>
+									</div>
+									<div class="row">
+										<div class="col-md-6 col-lg-6">
+											<div class="form-group">
+												<span class="form-label">Check in</span>
+												<input class="form-control" type="date" id="checkin" name="checkin">
+											</div>
+										</div>
+										<div class="col-md-6 col-lg-6">
+											<div class="form-group">
+												<span class="form-label">Check out</span>
+												<input class="form-control" type="date" id="checkout" name="checkout">
+											</div>
+										</div>
+										<div class="form-btn">
+											<button class="submit-btn" id="search-submit2">Search</button>
+										</div>
+
+									</div>
+							</div>
+			</div>
+			</form>
+		</div>
+		</div>
+
+	</section>
+
+	<!-- <% if(typeof alert !='undefined' ) { %>
+		<% alert.forEach(function(error) { %>
+			<div class="alert alert-warning alert-dismissible fade show" role="alert" style="color: firebrick;">
+				<%= error.msg %>
+			</div>
+			<% }) %>
+				<% } %> -->
+	<!--main-->
+	<main class="main">
+		<!-- <div class="white-bg">
+							<div class="container-xl">
+								<div class="row white-bg">
+									<div class="col-xl-4 col-lg-4 ">
+										<div class="card l-bg-orange">
+											<div class="card-statistic-3 p-4">
+												<div class="card-icon card-icon-large"><i class="fas fa-plane"></i>
+												</div>
+												<div class="mb-4">
+													<h5 class="card-title text-left mb-0">New flights</h5>
+												</div>
+												<div class="row align-items-center mb-2 d-flex">
+													<div class="col-8">
+														<h3 class="d-flex align-items-center mb-0">
+															3,243
+														</h3>
+													</div>
+												</div>
+												<div class="progress mt-1 " data-height="8" style="height: 8px;">
+													<div class="progress-bar l-bg-cyan" role="progressbar"
+														data-width="25%" aria-valuenow="25" aria-valuemin="0"
+														aria-valuemax="100" style="width: 25%;"></div>
+												</div>
+											</div>
+										</div>
+									</div>
+									<div class="col-xl-4 col-lg-4">
+										<div class="card l-bg-green">
+											<div class="card-statistic-3 p-4">
+												<div class="card-icon card-icon-large"><i class="fas fa-users"></i>
+												</div>
+												<div class="mb-4">
+													<h5 class="card-title text-left mb-0">Customers</h5>
+												</div>
+												<div class="row align-items-center mb-2 d-flex">
+													<div class="col-8">
+														<h3 class="d-flex align-items-center mb-0">
+															15.07k
+														</h3>
+													</div>
+												</div>
+												<div class="progress mt-1 " data-height="8" style="height: 8px;">
+													<div class="progress-bar l-bg-green" role="progressbar"
+														data-width="25%" aria-valuenow="25" aria-valuemin="0"
+														aria-valuemax="100" style="width: 25%;"></div>
+												</div>
+											</div>
+										</div>
+									</div>
+									<div class="col-xl-4 col-lg-4">
+										<div class="card l-bg-cyan">
+											<div class="card-statistic-3 p-4">
+												<div class="card-icon card-icon-large"><i class="fas fa-ticket-alt"></i>
+												</div>
+												<div class="mb-4">
+													<h5 class="card-title text-left mb-0">Ticket Resolved</h5>
+												</div>
+												<div class="row align-items-center mb-2 d-flex">
+													<div class="col-8">
+														<h3 class="d-flex align-items-center mb-0">
+															578
+														</h3>
+													</div>
+												</div>
+												<div class="progress mt-1 " data-height="8" style="height: 8px;">
+													<div class="progress-bar l-bg-orange" role="progressbar"
+														data-width="25%" aria-valuenow="25" aria-valuemin="0"
+														aria-valuemax="100" style="width: 25%;"></div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+
+							</div>
+
+	
+	
+						</div> -->
+
+
+
+
+
+		<div class="container-xl">
+			<div class="row">
+				<div class="col-md-12">
+					<h2 style="padding-top: 50px">Favorites <b>Destinations</b></h2>
+					<div id="myCarousel" class="carousel slide" data-ride="carousel" data-interval="0">
+						<!-- Carousel indicators -->
+						<ol class="carousel-indicators">
+						</ol>
+						<div class="row">
+							<div class="col-md-3 hotel-card">
+								<div class="card-sl">
+									<div class="card-image">
+										<img src="https://bookingsylvester.s3.eu-west-3.amazonaws.com/greece-g261592f33_640.jpeg"
+											width="100%" />
+									</div>
+
+									<a class="card-action" href="#"><i class="fa fa-heart"></i></a>
+									<div class="card-heading">
+										Universal Palace
+									</div>
+									<div class="card-text">
+										Lorem Ipsum is simply dummy text of the printing and typesetting
+										industry. Lorem Ipsum has been the industry's standard dummy
+										text ever since the 1500s.
+									</div>
+									<div class="card-text-price">
+										$1,400
+									</div>
+									<a href="#" class="card-button"> Book now</a>
+								</div>
+							</div>
+							<div class="col-md-3 hotel-card">
+								<div class="card-sl">
+									<div class="card-image">
+										<img src="https://bookingsylvester.s3.eu-west-3.amazonaws.com/hotel-ge8f310c10_640.jpeg"
+											width="100%" />
+									</div>
+
+									<a class="card-action" href="#"><i class="fa fa-heart"></i></a>
+									<div class="card-heading">
+										Paris
+									</div>
+									<div class="card-text">
+										Lorem Ipsum is simply dummy text of the printing and typesetting
+										industry. Lorem Ipsum has been the industry's standard dummy
+										text ever since the 1500s. </div>
+									<div class="card-text-price">
+										$400
+									</div>
+									<a href="#" class="card-button"> Book now</a>
+								</div>
+							</div>
+							<div class="col-md-3 hotel-card">
+								<div class="card-sl">
+									<div class="card-image">
+										<img src="https://bookingsylvester.s3.eu-west-3.amazonaws.com/window-view-gfe433cc59_640.jpeg"
+											width="100%" />
+									</div>
+
+									<a class="card-action" href="#"><i class="fa fa-heart"></i></a>
+									<div class="card-heading">
+										Miami Palace
+									</div>
+									<div class="card-text">
+										Lorem Ipsum is simply dummy text of the printing and typesetting
+										industry. Lorem Ipsum has been the industry's standard dummy
+										text ever since the 1500s. </div>
+									<div class="card-text-price">
+										$400
+									</div>
+									<a href="#" class="card-button"> Book now</a>
+								</div>
+							</div>
+							<div class="col-md-3 hotel-card">
+								<div class="card-sl">
+									<div class="card-image">
+										<img src="https://bookingsylvester.s3.eu-west-3.amazonaws.com/pool-bar-gb271d6959_640.jpeg"
+											width="100%" />
+									</div>
+
+									<a class="card-action" href="#"><i class="fa fa-heart"></i></a>
+									<div class="card-heading">
+										Hilton Hotel
+									</div>
+									<div class="card-text">
+										Lorem Ipsum is simply dummy text of the printing and typesetting
+										industry. Lorem Ipsum has been the industry's standard dummy
+										text ever since the 1500s. </div>
+									<div class="card-text-price">
+										$400
+									</div>
+									<a href="#" class="card-button"> Book now</a>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+
+
+		<!--//search-->
+
+
+
+		<div class="wrap" id="flight-results">
+			<div class="row">
+				<!--deals-->
+				<div class="full-width">
+					<header class="s-title">
+						<!-- <h2> Flight Results </h2> -->
+						<% if(typeof business=='undefined' || business==null || business==undefined ) { %>
+							<h2 style="margin-top: 80px"> Search Results </h2>
+							<% } %>
+
+								<% if(typeof business!='undefined' || business!=null || business!=undefined ) { %>
+									<% if( business.length==0 ) { %>
+										<!-- <h2> No Flights Found! </h2> -->
+										<% } %>
+											<% } %>
+					</header>
+
+					<div class="deals flights">
+						<div class="row">
+							<!-- <h2 class="lg:mt-[80px]" > Search Results </h2> -->
+							<!--deal-->
+							<% if(typeof business !='undefined' || business!=null || business!=undefined) { %>
+								<% business.forEach((elt)=>{%>
+									<!-- <li>Name: <%=elt.name%> -Distance: <%=elt.distance%>Km - Room Type: <%=elt.roomType%> - Price: <%=elt.price%>Euro</li>  -->
+									<div class="containers">
+										<% if(elt.numberOfBookableSeats_> 0) { %>
+											<!-- Item for seats available -->
+											<div class="item hidden lg:block">
+												<div class="item-right">
+													<img src="https://bookingsylvester.s3.eu-west-3.amazonaws.com/undraw_aircraft_re_m05i.svg"
+														alt="" width="100%">
+													<h2 class="num">
+														<%= elt.price_.total_ %>
+													</h2>
+													<p class="day">
+														<%= elt.price_.currency_ %>
+													</p>
+													<span class="up-border"></span>
+													<span class="down-border"></span>
+												</div> <!-- end item-right -->
+
+												<div class="item-left">
+													<h3 class="title">
+														<%= elt.itineraries_[0].segments_[0].carrierName_ %>
+													</h3>
+
+													<div class="sce">
+														<p class="event"> <i class="fa fa-map-marker"></i>
+															<%= elt.departure_.iataCode_ %> to <%=
+																	elt.arrival_.iataCode_ %> &emsp;
+																	&emsp;
+														</p>
+													</div>
+
+
+
+													<div class="loc">
+														<div class="icon">
+															<i class="fa fa-clock-o"></i>
+														</div>
+														<p>Leaves on<br> <b> <big>
+																	<%= elt.departure_.at_ %>
+																</big> </b></p>
+														<div class="icon">
+															<i class="fa fa-clock-o"></i>
+														</div>
+														<p>Arrives on <br> <b> <big>
+																	<%= elt.arrival_.at_ %>
+																</big> </b></p>
+													</div>
+													<!-- <div class="fix"></div> -->
+													<!-- <div class="loc">
+																		<div class="icon">
+																			<i class="fa fa-pause"></i>
+																		</div>
+																		<p>Seats left : <b> <big>
+																					<%= elt.numberOfBookableSeats_ %>
+																				</big> </b></p>
+																	</div> -->
+													<!-- <form
+																		action="/flight/bookFlight?flight=<%=elt.original%>&iataCode=<%=elt.arrival_.iataCode_ %>">
+																		<button class="booked"> <i
+																				class="fa fa-dollar"></i> Book</button>
+																	</form> -->
+
+													<!-- return flight -->
+
+													<% if(typeof elt.returnDeparture_.iataCode_ !=='undefined' &&
+														elt.returnDeparture_.iataCode_ !='' ) { %>
+														<hr>
+														<!-- <h2 class="title">
+																			<%= elt.itineraries_[1].segments_[0].carrierName_
+																				%>
+																		</h2>	 -->
+
+														<div class="sce">
+															<p class="event"> <i class="fa fa-map-marker"></i>
+																<%= elt.returnDeparture_.iataCode_ %> to
+																	<%= elt.returnArrival_.iataCode_ %>
+																		&emsp; &emsp;
+															</p>
+														</div>
+														<div class="loc">
+															<div class="icon">
+																<i class="fa fa-clock-o"></i>
+															</div>
+															<p>Leaves on<br> <b> <big>
+																		<%= elt.returnDeparture_.at_ %>
+																	</big> </b></p>
+
+															<div class="icon">
+																<i class="fa fa-clock-o"></i>
+															</div>
+															<p>Arrives on <br> <b> <big>
+																		<%= elt.returnArrival_.at_ %>
+																	</big> </b></p>
+														</div>
+														<!-- <div class="fix"></div> -->
+														<!-- <div class="loc">
+																		<div class="icon">
+																			<i class="fa fa-pause"></i>
+																		</div>
+																		<p>Seats left : <b> <big>
+																					<%= elt.numberOfBookableSeats_ %>
+																				</big> </b></p>
+																	</div> -->
+														<!-- <form
+																		action="/flight/bookFlight?flight=<%=elt.original%>&iataCode=<%=elt.arrival_.iataCode_ %>">
+																		<button class="booked"> <i
+																				class="fa fa-dollar"></i> Book</button>
+																	</form> -->
+														<!-- <a href="/flight/bookFlight?flight=<%=elt.original %>&iataCode=<%=elt.arrival_.iataCode_ %>"
+																		title="Book Flight" class="booked"> <i
+																			class="fa fa-dollar"></i> Book
+																	</a> -->
+
+														<% } %>
+															<a href="/flight/bookFlight?flight=<%=elt.original %>&iataCode=<%=elt.arrival_.iataCode_ %>"
+																title="Book Flight" class="booked"> <i
+																	class="fa fa-dollar"></i> Book
+															</a>
+												</div> <!-- end item-right -->
+
+											</div>
+
+											<div class="block lg:hidden max-w-6xl mx-auto">
+												<div class="max-w-6xl mx-auto">
+													<div class="flex justify-center">
+														<div class="max-w-md w-full p-4 py-6">
+															<div class="bg-white shadow-xl rounded-lg overflow-hidden">
+																<div class="bg-cover bg-center h-16 p-4 flex justify-end items-center"
+																	style="background-image: url(https://content.api.news/v3/images/bin/11990db1d540d5c13ea8ca3e01f2083c)">
+
+																	<p
+																		class="uppercase tracking-widest text-sm text-white bg-black py-1 px-2 rounded opacity-75 shadow-lg">
+																		<%= elt.departure_.iataCode_ %>
+																			<span class="tracking-normal">
+																				<-->
+																			</span>
+																			<%= elt.arrival_.iataCode_ %>
+																	</p>
+																</div>
+																<div
+																	class="px-4 pb-2 pt-2 border-b border-gray-300 bg-gray-100 flex justify-between">
+																	<div
+																		class="text-md  font-bold text-gray-600 tracking-wide">
+																		<span
+																			class="font-bold uppercase text-md==lg text-[#3D71E9]">
+																			<%=
+																				elt.itineraries_[0].segments_[0].carrierName_%>
+																		</span>
+																	</div>
+																	<div
+																		class="text-md  font-bold text-gray-600 tracking-wide">
+																		<span
+																			class="inline-flex items-center gap-x-1.5 rounded-md bg-red-100 px-2 py-1 text-md font-medium text-red-700">
+																			<%= elt.price_.total_ %> GBP
+																		</span>
+																	</div>
+
+																</div>
+																<div
+																	class="flex justify-between pt-1 items-center pr-4 pl-4 text-gray-600">
+																	<div class="flex items-center">
+																		<p><span class="text-sm pr-1">Leaves
+																				on</span> <br> <span
+																				class="text-gray-900 font-bold">
+																				<%= elt.departure_.at_ %>
+																			</span></p>
+																	</div>
+																	<div class="flex items-center">
+																		<svg xmlns="http://www.w3.org/2000/svg"
+																			viewBox="0 0 24 24" fill="currentColor"
+																			class="w-6 h-6">
+																			<path fill-rule="evenodd"
+																				d="M12 2.25c-5.385 0-9.75 4.365-9.75 9.75s4.365 9.75 9.75 9.75 9.75-4.365 9.75-9.75S17.385 2.25 12 2.25zm4.28 10.28a.75.75 0 000-1.06l-3-3a.75.75 0 10-1.06 1.06l1.72 1.72H8.25a.75.75 0 000 1.5h5.69l-1.72 1.72a.75.75 0 101.06 1.06l3-3z"
+																				clip-rule="evenodd" />
+																		</svg>
+																	</div>
+																	<div class="flex items-center">
+																		<p><span class="text-sm pr-1">Arrives
+																				on</span> <br> <span
+																				class="text-gray-900 font-bold">
+																				<%= elt.arrival_.at_ %>
+																			</span></p>
+																	</div>
+																</div>
+																<% if(typeof
+																	elt.returnDeparture_.iataCode_!=='undefined' &&
+																	elt.returnDeparture_.iataCode_!='' ) { %>
+																	<hr>
+																	<div
+																		class="flex justify-between items-center pr-4 pl-4  text-gray-600">
+																		<div class="flex items-center">
+																			<p><span class="text-sm pr-1">Leaves
+																					on</span> <br> <span
+																					class="text-gray-900 font-bold">
+																					<%= elt.returnDeparture_.at_ %>
+																				</span></p>
+																		</div>
+																		<div class="flex items-center">
+																			<svg xmlns="http://www.w3.org/2000/svg"
+																				viewBox="0 0 24 24" fill="currentColor"
+																				class="w-6 h-6">
+																				<path fill-rule="evenodd"
+																					d="M12 2.25c-5.385 0-9.75 4.365-9.75 9.75s4.365 9.75 9.75 9.75 9.75-4.365 9.75-9.75S17.385 2.25 12 2.25zm-4.28 9.22a.75.75 0 000 1.06l3 3a.75.75 0 101.06-1.06l-1.72-1.72h5.69a.75.75 0 000-1.5h-5.69l1.72-1.72a.75.75 0 00-1.06-1.06l-3 3z"
+																					clip-rule="evenodd" />
+																			</svg>
+																		</div>
+																		<div class="flex items-center">
+																			<p><span class="text-sm pr-1">Arrives
+																					on</span> <br> <span
+																					class="text-gray-900 font-bold">
+																					<%= elt.returnArrival_.at_ %>
+																				</span></p>
+																		</div>
+																	</div>
+																	<% } %>
+																		<a href="/flight/bookFlight?flight=<%=elt.original %>&iataCode=<%=elt.arrival_.iataCode_ %>"
+																			class="card-button"> Book
+																			now &nbsp; <svg
+																				xmlns="http://www.w3.org/2000/svg"
+																				viewBox="0 0 24 24" fill="currentColor"
+																				class="w-6 h-6">
+																				<path fill-rule="evenodd"
+																					d="M15.75 2.25H21a.75.75 0 01.75.75v5.25a.75.75 0 01-1.5 0V4.81L8.03 17.03a.75.75 0 01-1.06-1.06L19.19 3.75h-3.44a.75.75 0 010-1.5zm-10.5 4.5a1.5 1.5 0 00-1.5 1.5v10.5a1.5 1.5 0 001.5 1.5h10.5a1.5 1.5 0 001.5-1.5V10.5a.75.75 0 011.5 0v8.25a3 3 0 01-3 3H5.25a3 3 0 01-3-3V8.25a3 3 0 013-3h8.25a.75.75 0 010 1.5H5.25z"
+																					clip-rule="evenodd" />
+																			</svg>
+
+																		</a>
+															</div>
+														</div>
+													</div>
+												</div>
+
+											</div>
+
+											<% } %>
+												<!-- Item for seats left empty -->
+
+
+
+									</div>
+
+
+									<%});%>
+										<% } %>
+
+
+											<!--//deal-->
+											<!-- <div class="containers">
+																<div class="item">
+																	<div class="item-right">
+																		<img src="https://elasticbeanstalk-us-east-1-991586319498.s3.amazonaws.com/images/undraw_Aircraft_re_m05i.png"
+																			alt="" width="150px">
+																		<h2 class="num">152,65</h2>
+																		<p class="day">Euros</p>
+																		<span class="up-border"></span>
+																		<span class="down-border"></span>
+																	</div>
+	
+																	<div class="item-left">
+																		<h3 class="title">Spirit Airlines</h3>
+																			<div class="sce">
+																				<p class="event"> <i
+																					class="fa fa-map-marker"></i> 
+																					 SEA to DTW    &emsp; &emsp; 
+																				</p>
+																			</div>
+																			<div class="left">
+																			<div class="loc">
+																				<div class="icon">
+																					<i class="fa fa-clock-o"></i>
+																				</div>
+																				<p>Leaves on<br> <b> <big> 2022-09-12</big> </b>&emsp; &emsp; &emsp; </p>
+																			
+																			
+																				<div class="icon">
+																					<i class="fa fa-clock-o"></i>
+																				</div>
+																				<p>Arrives on <br> <b> <big> 2022-09-14</big> </b></p>
+																			</div>
+																		</div>
+																		<hr>
+																		<div class="sce">
+																			<p class="event"> <i
+																				class="fa fa-map-marker"></i> 
+																				 DTW to SEA    &emsp; &emsp; 
+																			</p>
+																		</div>
+																		<div class="left">
+																		<div class="loc">
+																			<div class="icon">
+																				<i class="fa fa-clock-o"></i>
+																			</div>
+																			<p>Leaves on<br> <b> <big> 2022-09-12</big> </b>&emsp; &emsp; &emsp; </p>
+																		
+																		
+																			<div class="icon">
+																				<i class="fa fa-clock-o"></i>
+																			</div>
+																			<p>Arrives on <br> <b> <big> 2022-09-14</big> </b></p>
+																		</div>
+																		<button class="cancel"> <i
+																				class="fa fa-ban"></i> Booked</button>
+																	</div>
+																</div>
+	
+																</div>
+
+
+										</div>  -->
+
+
+
+						</div>
+
+
+
+
+
+					</div>
+				</div>
+				<!--//top destinations-->
+			</div>
+
+		</div>
+
+		<div class="containers row" id="hotel">
+
+			<% if(typeof hotels !='undefined' || hotels!=null || hotels!=undefined) { %>
+				<% hotels.forEach((elt)=>{%>
+					<!-- <li>Name: <%=elt.name%> -Distance: <%=elt.distance%>Km - Room Type: <%=elt.roomType%> - Price: <%=elt.price%>Euro</li>  -->
+
+
+					<div class="col-md-3 hotel-card">
+						<div class="card-sl">
+							<div class="card-image">
+								<img src="https://bookingsylvester.s3.eu-west-3.amazonaws.com/pool-bar-gb271d6959_640.jpeg"
+									width="100%" />
+							</div>
+
+							<a class="card-action" href="#"><i class="fa fa-heart"></i></a>
+							<div class="card-heading">
+								<%= elt.hotelInfos_.name_ %>
+									<!-- Hilton Hotel -->
+							</div>
+							<!-- <div class="card-text">
+											<%= elt.room_.description_.text_ %>
+										</div> -->
+							<div class="card-text-price">
+								<%= elt.price_.total_ %>
+									<%= elt.price_.currency_ %>
+							</div>
+							<a href="/hotel/bookHotel?hotel=<%=elt.original %>&hotelName=<%=elt.hotelInfos_.name_ %>"
+								class="card-button"> Book now</a>
+						</div>
+					</div>
+
+					<%});%>
+						<% } %>
+		</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	</main>
+	<!--//main-->
+
+	<script>
+		// Récupère tous les champs de saisie de type "date"
+		const dateInputs = document.querySelectorAll('input[type="date"]');
+
+		// Obtient la date actuelle
+		const today = new Date();
+		const year = today.getFullYear();
+		let month = today.getMonth() + 1;
+		if (month < 10) {
+			month = '0' + month;
+		}
+		const day = today.getDate();
+
+		// Définit la date minimale en format AAAA-MM-JJ pour chaque champ de saisie de type "date"
+		dateInputs.forEach(input => {
+			input.min = `${year}-${month}-${day}`;
+		});
+	</script>
+
+
+	<%- include('footer'); -%>

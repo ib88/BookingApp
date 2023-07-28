@@ -275,6 +275,9 @@ export class guests {
     adults_: string;
 }
 
+@JsonIgnoreProperties({
+    ignoreUnknown:true
+  })
 class price {
     public constructor(base: string, currency: string, total: string, variations: variations) {
         this.currency_ = currency;
@@ -387,6 +390,9 @@ class cancellations {
     numberOfNights_: string;
 }
 
+@JsonIgnoreProperties({
+    ignoreUnknown:true
+  })
 class average {
     public constructor(base: string) {
         this.base_ = base;
@@ -397,6 +403,9 @@ class average {
     base_: string;
 }
 
+@JsonIgnoreProperties({
+    ignoreUnknown:true
+  })
 class variations {
     public constructor(average: average, changes: changes[]) {
         this.average_ = average;
@@ -412,6 +421,9 @@ class variations {
     changes_: changes[];
 }
 
+@JsonIgnoreProperties({
+    ignoreUnknown:true
+  })
 class changes {
     public constructor(startDate: string, endDate: string, base: string) {
         this.startDate_ = startDate;

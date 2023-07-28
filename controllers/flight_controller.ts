@@ -313,7 +313,7 @@ router.post(`/flightOffer`, [
   const errors = validationResult(req);
   if (!errors.isEmpty()) {
     const alert = errors.array()
-    return res.render("flights", { alert:alert,hotels:undefined,business:undefined,apiError:undefined});
+    return res.render("flights", {anchor: '#alert',alert:alert,hotels:undefined,business:undefined,apiError:undefined});
   }
 
   // var sourceCode = "LAX";

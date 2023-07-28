@@ -18,7 +18,13 @@
 		</div>
 		<div class="relative z-30 h-48 px-10  lg:h-32">
 			<div class="booking-form">
+                <!-- <% if(typeof business != 'undefined' ) { %> -->
 				<form id="main-search" method="post" action="/flight/flightOffer#flight-results">
+                <!-- <% } %> -->
+
+                <!-- <% if(typeof business == 'undefined' ) { %>
+                    <form id="main-search" method="post" action="/flight/flightOffer">
+                    <% } %> -->
 					<div class="row">
 						<nav>
 							<div class="nav nav-tabs" id="nav-tab" role="tablist">
@@ -321,98 +327,7 @@
 							<div class="row">
 								<div class="col-md-12">
 									<h2 style="padding-top: 50px">Favorites <b>Destinations</b></h2>
-									<div id="myCarousel" class="carousel slide" data-ride="carousel" data-interval="0">
-										<!-- Carousel indicators -->
-										<ol class="carousel-indicators">
-										</ol>
-										<div class="row">
-											<div class="col-md-3 hotel-card">
-												<div class="card-sl">
-													<div class="card-image">
-														<img src="https://bookingsylvester.s3.eu-west-3.amazonaws.com/greece-g261592f33_640.jpeg"
-															width="100%" />
-													</div>
-
-													<a class="card-action" href="#"><i class="fa fa-heart"></i></a>
-													<div class="card-heading">
-														Universal Palace
-													</div>
-													<div class="card-text">
-														Lorem Ipsum is simply dummy text of the printing and typesetting
-														industry. Lorem Ipsum has been the industry's standard dummy
-														text ever since the 1500s.
-													</div>
-													<div class="card-text-price">
-														$10,400
-													</div>
-													<a href="#" class="card-button"> Book now</a>
-												</div>
-											</div>
-											<div class="col-md-3 hotel-card">
-												<div class="card-sl">
-													<div class="card-image">
-														<img src="https://bookingsylvester.s3.eu-west-3.amazonaws.com/hotel-ge8f310c10_640.jpeg"
-															width="100%" />
-													</div>
-
-													<a class="card-action" href="#"><i class="fa fa-heart"></i></a>
-													<div class="card-heading">
-														Paris
-													</div>
-													<div class="card-text">
-														Lorem Ipsum is simply dummy text of the printing and typesetting
-														industry. Lorem Ipsum has been the industry's standard dummy
-														text ever since the 1500s. </div>
-													<div class="card-text-price">
-														$400
-													</div>
-													<a href="#" class="card-button"> Book now</a>
-												</div>
-											</div>
-											<div class="col-md-3 hotel-card">
-												<div class="card-sl">
-													<div class="card-image">
-														<img src="https://bookingsylvester.s3.eu-west-3.amazonaws.com/window-view-gfe433cc59_640.jpeg"
-															width="100%" />
-													</div>
-
-													<a class="card-action" href="#"><i class="fa fa-heart"></i></a>
-													<div class="card-heading">
-														Miami Palace
-													</div>
-													<div class="card-text">
-														Lorem Ipsum is simply dummy text of the printing and typesetting
-														industry. Lorem Ipsum has been the industry's standard dummy
-														text ever since the 1500s. </div>
-													<div class="card-text-price">
-														$1400
-													</div>
-													<a href="#" class="card-button"> Book now</a>
-												</div>
-											</div>
-											<div class="col-md-3 hotel-card">
-												<div class="card-sl">
-													<div class="card-image">
-														<img src="https://bookingsylvester.s3.eu-west-3.amazonaws.com/pool-bar-gb271d6959_640.jpeg"
-															width="100%" />
-													</div>
-
-													<a class="card-action" href="#"><i class="fa fa-heart"></i></a>
-													<div class="card-heading">
-														Hilton Hotel
-													</div>
-													<div class="card-text">
-														Lorem Ipsum is simply dummy text of the printing and typesetting
-														industry. Lorem Ipsum has been the industry's standard dummy
-														text ever since the 1500s. </div>
-													<div class="card-text-price">
-														$400
-													</div>
-													<a href="#" class="card-button"> Book now</a>
-												</div>
-											</div>
-										</div>
-									</div>
+									
 								</div>
 							</div>
 						</div>

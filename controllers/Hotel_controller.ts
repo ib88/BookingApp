@@ -318,7 +318,7 @@ router.post(`/bookHotel`, [
     bookingResult = await amadeusHotelRepo.bookHotel(traveler, hotelParsed);
 
   } catch (e: any) {
-    return res.render("flights.ejs", { alert: undefined, apiError: "The Hotel offer might have been taken already!", business: undefined, hotels: undefined });
+    return res.render("flights.ejs", { alert: undefined, apiError: "Either The Hotel offer might have been taken already, or there is an issue with your card!", business: undefined, hotels: undefined });
     //return res.render("error.ejs", { alert: "the flihgt might have been booked already!" });
   }
   req.session.bookingResult = bookingResult;

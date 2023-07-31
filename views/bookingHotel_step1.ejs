@@ -1,4 +1,4 @@
-﻿<%- include('header'); -%>
+<%- include('header'); -%>
 <section class="relative tails-selected-element"
 style="background-image: url('https://imgur.com/YMpzlJo.jpg'); background-repeat: no-repeat;background-size: cover; background-position: center;"
 contenteditable="true">
@@ -213,23 +213,26 @@ contenteditable="true">
 </section>
 
 	<!--main-->
-	<!-- <% if(typeof alert !='undefined' ) { %>
+	<% if(typeof alert !='undefined' ) { %>
 		<% alert.forEach(function(error) { %>
 			<div class="alert alert-warning alert-dismissible fade show" role="alert" style="color: firebrick;">
 				<%= error.msg %>
+					<!-- <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+				  <span aria-hidden="true">×</span>
+				</button> -->
 			</div>
 			<% }) %>
-				<% } %> -->
+				<% } %>
 	<main class="main container">		
 		<div class="wrap">
 			
 			<div class="row">
 				<!--three-fourth content-->
 				<div class="col-lg-8">
-					<form id="booking" method="post" action="/flight/bookFlight" class="static-content booking">
+					<form id="booking" method="post" action="/hotel/bookHotel" class="static-content booking">
 						<fieldset>
-							<h1 style="font-size: 25px">Traveller info</h1>
-							<hr>
+							<h2><span>01 </span>Traveller info</h2>
+							<br>
 							<div class="row">
 								<div class="f-item col-lg-6">
 									<label for="firstName">First name</label>
@@ -240,7 +243,7 @@ contenteditable="true">
 									<input type="text" id="lastName" name="lastName" />
 								</div>
 							</div>
-							<br>
+							
 							<div class="row">
 								<div class="f-item col-lg-6">
 									<label for="email">Email address</label>
@@ -254,71 +257,76 @@ contenteditable="true">
 								</div>
 								<br>
 								<br>
-								<span>You’ll receive a confirmation email</span>
-								<div>
-									<div class="max-width">
-									  <section class="payment turquoise">
-										<div class="grid-full padded-reverse">
-										  <div class="grid-whole padded">
-											<h1 style="font-size: 25px">Payment Infos</h1>
-											<hr>
-										  </div>
-										  <div class="grid-7 padded m-grid-whole s-grid-whole xs-grid-whole">
-											<form id="payment-form" action="/cards" accept-charset="UTF-8" method="post">
-											  <input name="utf8" type="hidden" value="✓">
-											  <div class="grid-whole">
-												<label for="card-number">
-												  <span class="upper-bryant small-bold">Card Number</span>
-												</label>
-												<input type="number" class="space" size="20" name="cardNumber" id="cardNumber">
-											  </div>
-											  <br>
-											  <div class="grid-whole row padded-reverse">
-												<div class="col-lg-3 padded">
-												  <div class="grid-5">
-													<label for="cvc">
-													  <span class="upper-bryant small-bold">CVC</span>
-													  <input type="number" class="space" size="4" name="cvc" id="cvcCode">
-													</label>
-												  </div>
-												  <!-- <div class="grid-7 cvc-box center">
-													<img class="cvc" src="http://www.thisisstar.com/images/100UI/002/cvc_opt.svg">
-												  </div> -->
-												</div>
-												<div class="col-lg-9 padded">
-												  <div class="grid-whole">
-													<span class="upper-bryant small-bold">
-												<label for="exp-month">
-												  Expiration
-												</label>
-											  </span>
-													<span class="upper-bryant micro">
-												<label for="exp-year">
-												  (YYYY-MM)
-												</label>
-											  </span>
-												  </div>
-												  <div class="grid-4">
-													<input type="text" pattern="[0-9]{4}-[0-9]{2}"  placeholder="YYYY-MM" required name="expiryDate" id="expiryDate">
-												</div>
-												  <!-- <div class="grid-2 center huge valign-dollar">
-													<span class="upper-bryant tall-slash"> / </span>
-												  </div>
-												  <div class="grid-6">
-													<input type="number" class="space" size="4" id="exp-year">
-												  </div> -->
-												</div>
-											  </div>
-											  <!-- <button type="submit" class="btn" id="update-payment">Update Card</button> -->
-											</form>
-										  </div>
-										  <div class="clear"></div>
-										</div>
-									  </section>
-									</div>
-								  </div>	
+								<span class="info">You’ll receive a confirmation email</span>
 							</div>
+							
 
+							<div>
+								<div class="max-width">
+								  <section class="payment turquoise">
+									<div class="grid-full padded-reverse">
+									  <div class="grid-whole padded">
+										<h1 style="font-size: 25px">Payment Infos</h1>
+										<hr>
+									  </div>
+									  <div class="grid-7 padded m-grid-whole s-grid-whole xs-grid-whole">
+										<form id="payment-form" action="/cards" accept-charset="UTF-8" method="post">
+										  <input name="utf8" type="hidden" value="✓">
+										  <div class="grid-whole">
+											<label for="card-number">
+											  <span class="upper-bryant small-bold">Card Number</span>
+											</label>
+											<input type="number" class="space" size="20" name="cardNumber" id="cardNumber">
+										  </div>
+										  <br>
+										  <div class="grid-whole row padded-reverse">
+											<div class="col-lg-3 padded">
+											  <div class="grid-5">
+												<label for="cvc">
+												  <span class="upper-bryant small-bold">CVC</span>
+												  <input type="number" class="space" size="4" name="cvc" id="cvcCode" name="cvcCode">
+												</label>
+											  </div>
+											  <!-- <div class="grid-7 cvc-box center">
+												<img class="cvc" src="http://www.thisisstar.com/images/100UI/002/cvc_opt.svg">
+											  </div> -->
+											</div>
+											<div class="col-lg-9 padded">
+											  <div class="grid-whole">
+												<span class="upper-bryant small-bold">
+											<label for="exp-month">
+											  Expiration
+											</label>
+										  </span>
+												<span class="upper-bryant micro">
+											<label for="exp-year">
+											  (YYYY/MM)
+											</label>
+										  </span>
+											  </div>
+											  <div class="grid-4">
+												<!-- <input type="text" pattern="(0[1-9]|1[0-2])\/[0-9]{2}" placeholder="MM/YY" required name="expiryDate" id="expiryDate"> -->
+                                                <input type="text" pattern="[0-9]{4}-[0-9]{2}"  placeholder="YYYY-MM" required name="expiryDate" id="expiryDate">
+											  </div>
+											  <!-- <div class="grid-2 center huge valign-dollar">
+												<span class="upper-bryant tall-slash"> / </span>
+											  </div>
+											  <div class="grid-6">
+												<input type="number" class="space" size="4" id="exp-year">
+											  </div> -->
+											</div>
+										  </div>
+										  <!-- <button type="submit" class="btn" id="update-payment">Update Card</button> -->
+										</form>
+									  </div>
+									  <div class="clear"></div>
+									</div>
+								  </section>
+								</div>
+							  </div>	
+						
+						
+							
 							<div class="row">
 								<div class="col-lg-6">
 									<a href="/flight/flightOffer" title="Back to search" class="gradient-button">
@@ -339,7 +347,7 @@ contenteditable="true">
 				<aside class="col-lg-4 right-sidebar">
 					<!--Booking details-->
 					<article class="hotel-details booking-details">
-						<h1>Flight Summary
+						<h1>Hotel Summary
 							<span class="stars">
 								<i class="material-icons">&#xE838;</i>
 								<i class="material-icons">&#xE838;</i>
@@ -348,36 +356,23 @@ contenteditable="true">
 						</h1>
 						<span class="address"></span>
 						<span class="rating"> 8 /10</span>
-						<% if(typeof flight !='undefined' ) { %>
+						<% if(typeof hotel !='undefined' ) { %>
 						<dl class="booking-info">
-							<dt>From</dt>
-							<dd><%= flight.departure_.iataCode_ %> </dd>
-							<dt>To</dt>
-							<dd><%= flight.arrival_.iataCode_ %> </dd>
-							<dt>Departure Time</dt>
-							<dd> <%= flight.departure_.at_ %> </dd>
-							<dt>Arrival Time</dt>
-							<dd> <%= flight.arrival_.at_ %> </dd>
+							<dt>Name</dt>
+							<dd><%= hotel.hotelName_ %> </dd>
+							<dt>Description</dt>
+							<dd><%= hotel.room_.description_.text_  %> </dd>
+							<dt>Check In Date</dt>
+							<dd> <%= hotel.checkInDate_ %> </dd>
+							<dt>Check Out Date</dt>
+							<dd> <%= hotel.checkOutDate_ %> </dd>
+                            <dt>Price</dt>
+							<dd> <%= hotel.price_.total_ %> </dd>
 						</dl>
-
-						<% if(typeof flight.returnDeparture_.iataCode_ !=='undefined' && flight.returnDeparture_.iataCode_ !='') { %>
-
-
-						<dl class="booking-info">
-							<dt>From</dt>
-							<dd><%= flight.returnDeparture_.iataCode_ %> </dd>
-							<dt>To</dt>
-							<dd><%= flight.returnArrival_.iataCode_ %> </dd>
-							<dt>Departure Time</dt>
-							<dd> <%= flight.returnDeparture_.at_ %> </dd>
-							<dt>Arrival Time</dt>
-							<dd> <%= flight.returnArrival_.at_ %> </dd>
-						</dl>
-
-						<% } %>
+						
 
 						<div class="price">
-							<p class="total">Total Price:  <%= flight.price_.total_ %> Euros</p>
+							<p class="total">Total Price:  <%= hotel.price_.total_ %> <%= hotel.price_.currency_ %></p>
 							<p>VAT (20%) included</p>
 						</div>
 						<% } %>

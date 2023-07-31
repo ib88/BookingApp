@@ -182,7 +182,7 @@ export class AmadeusRepo implements IAmadeusRepo {
       });
   }
 
-  async bookFlight(pricingResponse: any, firstName: string, lastName: string, birthDate: string, gender: string, email: string): Promise<any> {
+  async bookFlight(pricingResponse: any, travelerInfos:any): Promise<any> {
 
     return amadeus.booking.flightOrders.post(
       JSON.stringify({
@@ -191,14 +191,14 @@ export class AmadeusRepo implements IAmadeusRepo {
           'flightOffers': [pricingResponse.data.flightOffers[0]],
           'travelers': [{
             "id": "1",
-            "dateOfBirth": birthDate,//"1982-01-16",
+            "dateOfBirth": travelerInfos.birthDate,//"1982-01-16",
             "name": {
-              "firstName": firstName,//"JORGE",
-              "lastName": lastName,//"GONZALES"
+              "firstName": travelerInfos.first_name,//"JORGE",
+              "lastName": travelerInfos.last_name,//"GONZALES"
             },
-            "gender": gender,//"MALE",
+            "gender": travelerInfos.gender,//"MALE",
             "contact": {
-              "emailAddress": email,//"jorge.gonzales833@telefonica.es",
+              "emailAddress": travelerInfos.email,//"jorge.gonzales833@telefonica.es",
               "phones": [{
                 "deviceType": "MOBILE",
                 "countryCallingCode": "34",
@@ -216,6 +216,15 @@ export class AmadeusRepo implements IAmadeusRepo {
               "validityCountry": "ES",
               "nationality": "ES",
               "holder": true
+            }],
+            'payments': [{
+              'id': 1,
+              'method': 'creditCard',
+              'card': {
+                'vendorCode': 'VI',
+                'cardNumber': travelerInfos.cardNumber,//'4151289722471370',
+                'expiryDate': travelerInfos.expiryDate
+              }
             }]
           }]
         }

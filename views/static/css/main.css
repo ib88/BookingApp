@@ -228,6 +228,10 @@
 	.booking-form>form {
 		margin-left: 0px;
 	}
+	mobile-hidden{
+		display: none;
+	}
+	
 }
 
 /* css for loaders */
@@ -671,14 +675,14 @@ h2::after {
 	justify-content: center;
 	padding: 10px 0;
 	width: 100%;
-	background-color: #4bc4b1;
+	background-color: #3D71E9;
 	color: #fff;
 	border-radius: 0 0 8px 8px;
 }
 
 .card-button:hover {
 	text-decoration: none;
-	background-color: #41b197;
+	background-color: #5985eb;
 	color: #fff;
 
 }
@@ -762,4 +766,7 @@ h2::after {
 }
 
 
-  
+pc-hidden{
+	display: none;
+}
+

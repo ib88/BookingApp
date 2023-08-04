@@ -272,6 +272,10 @@ router.post(`/stripePayment`, async (req: any, res: any) => {
 
 });
 
+router.get(`/faqs`, async (req: any, res: any) => {
+  return res.render("faqs");
+});
+
 
 router.get(`/flightOffer`, async (req: any, res: any) => {
 

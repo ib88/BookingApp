@@ -3461,8 +3461,8 @@ h5 {
 .footer {
 	float: left;
 	width: 100%;
-	margin-top: 300px;
-	background: #fff;
+	/* margin-top: 300px; */
+	background: #656464;
 	-webkit-box-shadow: 0 0 2px rgba(0, 0, 0, 0.2);
 	-moz-box-shadow: 0 0 2px rgba(0, 0, 0, 0.2);
 	box-shadow: 0 0 2px rgba(0, 0, 0, 0.2);
@@ -5365,7 +5365,7 @@ input.btn {
 }
 
 section {
-  margin: 20px 0;
+  margin: 0px 0;
 }
 
 .cvc-box {

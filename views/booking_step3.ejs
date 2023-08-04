@@ -42,10 +42,14 @@
 															<%= result.data.associatedRecords[0].reference %>
 														</big></b> </h3>
 												<div class="date"> <b>Date of departure :</b> <i>
-														<%= flight.departure_.at_ %>
+														<!-- <%= flight.departure_.at_ %> -->
+														<%= new Date(flight.departure_.at_).toDateString() + ' AT ' + new Date(flight.departure_.at_).toLocaleTimeString() %>
+
 													</i></div>
 												<div class="date"> <b>Date of arrival :</b> <i>
-														<%= flight.arrival_.at_ %>
+														<!-- <%= flight.arrival_.at_ %> -->
+														<%= new Date(flight.arrival_.at_).toDateString() + ' AT ' + new Date(flight.arrival_.at_).toLocaleTimeString() %>
+
 													</i></div>
 												<div class="date"> <b>Leaving from :</b> <i>
 														<%= flight.departure_.iataCode_ %>
@@ -59,10 +63,14 @@
 											 <% if(typeof flight.returnDeparture_.iataCode_ !=='undefined' && flight.returnDeparture_.iataCode_
 											 !='' ) { %>
 												<div class="date"> <b>Date of departure :</b> <i>
-													<%= flight.returnDeparture_.at_ %>
+													<!-- <%= flight.returnDeparture_.at_ %> -->
+													<%= new Date(flight.returnDeparture_.at_).toDateString() + ' AT ' + new Date(flight.returnDeparture_.at_).toLocaleTimeString() %>
+
 												</i></div>
 											<div class="date"> <b>Date of arrival :</b> <i>
-													<%= flight.returnArrival_.at_ %>
+													<!-- <%= flight.returnArrival_.at_ %> -->
+													<%= new Date(flight.returnArrival_.at_).toDateString() + ' AT ' + new Date(flight.returnArrival_.at_).toLocaleTimeString() %>
+
 												</i></div>
 											<div class="date"> <b>Leaving from :</b> <i>
 													<%= flight.returnDeparture_.iataCode_ %>
@@ -99,7 +107,11 @@
 																		<%= segment.departure_.iataCode_ %>
 																	</a>
 																</h3>
-																<b>Leaves on :</b>  <i><%= segment.departure_.at_ %></i> <br> 
+																<!-- <b>Leaves on :</b>  <i><%= segment.departure_.at_ %></i> <br>  -->
+																<b>Leaves on :</b>  <i><%= new Date(segment.departure_.at_).toDateString() + ' AT ' + new Date(segment.departure_.at_).toLocaleTimeString() %>
+																</i> <br> 
+
+
 																
 															</td>
 															<td class="text-left">
@@ -108,7 +120,9 @@
 																		<%= segment.arrival_.iataCode_ %>
 																	</a>
 																</h3>
-																<b>Arrives on :</b>  <i><%= segment.arrival_.at_ %></i> <br>
+																<b>Arrives on :</b>  <i><%= new Date(segment.arrival_.at_).toDateString() + ' AT ' + new Date(segment.arrival_.at_).toLocaleTimeString() %>
+																</i> <br>
+
 															</td>
 															<td class="qty"><%= segment.carrierName_ %></td>
 															<td class="total"><%= segment.duration_ %></td>

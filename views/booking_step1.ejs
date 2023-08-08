@@ -355,9 +355,13 @@ contenteditable="true">
 							<dt>To</dt>
 							<dd><%= flight.arrival_.iataCode_ %> </dd>
 							<dt>Departure Time</dt>
-							<dd> <%= flight.departure_.at_ %> </dd>
+							<!-- <dd> <%= flight.departure_.at_ %> </dd> -->
+							<dd><%= new Date(flight.departure_.at_).toDateString() + ' AT ' + new Date(flight.departure_.at_).toLocaleTimeString() %></dd>
+
 							<dt>Arrival Time</dt>
-							<dd> <%= flight.arrival_.at_ %> </dd>
+							<!-- <dd> <%= flight.arrival_.at_ %> </dd> -->
+							<dd><%= new Date(flight.arrival_.at_).toDateString() + ' AT ' + new Date(flight.arrival_.at_).toLocaleTimeString() %></dd>
+
 						</dl>
 
 						<% if(typeof flight.returnDeparture_.iataCode_ !=='undefined' && flight.returnDeparture_.iataCode_ !='') { %>
@@ -369,9 +373,12 @@ contenteditable="true">
 							<dt>To</dt>
 							<dd><%= flight.returnArrival_.iataCode_ %> </dd>
 							<dt>Departure Time</dt>
-							<dd> <%= flight.returnDeparture_.at_ %> </dd>
+							<!-- <dd> <%= flight.returnDeparture_.at_ %> </dd> -->
+							<dd><%= new Date(flight.returnDeparture_.at_).toDateString() + ' AT ' + new Date(flight.returnDeparture_.at_).toLocaleTimeString() %></dd>
 							<dt>Arrival Time</dt>
-							<dd> <%= flight.returnArrival_.at_ %> </dd>
+							<!-- <dd> <%= flight.returnArrival_.at_ %> </dd> -->
+							<dd><%= new Date(flight.returnArrival_.at_).toDateString() + ' AT ' + new Date(flight.returnArrival_.at_).toLocaleTimeString() %></dd>
+
 						</dl>
 
 						<% } %>

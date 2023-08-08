@@ -48,7 +48,30 @@ app.use(express.json());
 app.use("/hotel", hotelRouter);
 app.use("/flight", flightRouter);
 app.use("/Moqflight", MoqflightRouter);
-app.get('/', function(req, res) {
+app.get('/faqs', async (req, res) => {
+  return res.render("faqs");
+});
+app.get('/about', async (req, res) => {
+  return res.render("about");
+});
+app.get('/contact', async (req, res) => {
+  return res.render("contact");
+});
+app.get('/terms', async (req, res) => {
+  return res.render("terms");
+});
+app.get('/career', async (req, res) => {
+  return res.render("career");
+});
+app.get('/sustainability', async (req, res) => {
+  return res.render("sustainability");
+});
+app.get('/media', async (req, res) => {
+  return res.render("media");
+});
+
+
+app.get('/', (req, res) =>{
   res.redirect('/flight/flightOffer');
  });
 // app.use("/", flightRouter);

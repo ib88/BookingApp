@@ -402,13 +402,17 @@
 																			<i class="fa fa-clock-o"></i>
 																		</div>
 																		<p>Leaves on<br> <b> <big>
-																					<%= elt.departure_.at_ %>
+																					<!-- <%= elt.departure_.at_ %> -->
+                                                                                    <%= new Date(elt.departure_.at_).toDateString() + ' AT ' + new Date(elt.departure_.at_).toLocaleTimeString() %>
+
 																				</big> </b></p>
 																		<div class="icon">
 																			<i class="fa fa-clock-o"></i>
 																		</div>
 																		<p>Arrives on <br> <b> <big>
-																					<%= elt.arrival_.at_ %>
+																					<!-- <%= elt.arrival_.at_ %> -->
+                                                                                    <%= new Date(elt.arrival_.at_).toDateString() + ' AT ' + new Date(elt.arrival_.at_).toLocaleTimeString() %>
+
 																				</big> </b></p>
 																	</div>
 																	<!-- <div class="fix"></div> -->
@@ -450,14 +454,18 @@
 																				<i class="fa fa-clock-o"></i>
 																			</div>
 																			<p>Leaves on<br> <b> <big>
-																						<%= elt.returnDeparture_.at_ %>
+																						<!-- <%= elt.returnDeparture_.at_ %> -->
+                                                                                        <%= new Date(elt.returnDeparture_.at_).toDateString() + ' AT ' + new Date(elt.returnDeparture_.at_).toLocaleTimeString() %>
+
 																					</big> </b></p>
 
 																			<div class="icon">
 																				<i class="fa fa-clock-o"></i>
 																			</div>
 																			<p>Arrives on <br> <b> <big>
-																						<%= elt.returnArrival_.at_ %>
+																						<!-- <%= elt.returnArrival_.at_ %> -->
+                                                                                        <%= new Date(elt.returnArrival_.at_).toDateString() + ' AT ' + new Date(elt.returnArrival_.at_).toLocaleTimeString() %>
+
 																					</big> </b></p>
 																		</div>
 																		<!-- <div class="fix"></div> -->
@@ -533,8 +541,10 @@
 																						<p><span class="text-sm pr-1">Leaves
 																								on</span> <br> <span
 																								class="text-gray-900 font-bold">
-																								<%= elt.departure_.at_
-																									%>
+																								<!-- <%= elt.departure_.at_
+																									%> -->
+                                                                                                    <%= new Date(elt.departure_.at_).toDateString() + ' AT ' + new Date(elt.departure_.at_).toLocaleTimeString() %>
+
 																							</span></p>
 																					</div>
 																					<div class="flex items-center">
@@ -551,7 +561,9 @@
 																						<p><span class="text-sm pr-1">Arrives
 																								on</span> <br> <span
 																								class="text-gray-900 font-bold">
-																								<%= elt.arrival_.at_ %>
+																								<!-- <%= elt.arrival_.at_ %> -->
+                                                                                                <%= new Date(elt.arrival_.at_).toDateString() + ' AT ' + new Date(elt.arrival_.at_).toLocaleTimeString() %>
+
 																							</span></p>
 																					</div>
 																				</div>
@@ -568,8 +580,10 @@
 																									class="text-sm pr-1">Leaves
 																									on</span> <br> <span
 																									class="text-gray-900 font-bold">
-																									<%= elt.returnDeparture_.at_
-																										%>
+																									<!-- <%= elt.returnDeparture_.at_
+																										%> -->
+                                                                                                        <%= new Date(elt.returnDeparture_.at_).toDateString() + ' AT ' + new Date(elt.returnDeparture_.at_).toLocaleTimeString() %>
+
 																								</span></p>
 																						</div>
 																						<div class="flex items-center">
@@ -588,8 +602,11 @@
 																									class="text-sm pr-1">Arrives
 																									on</span> <br> <span
 																									class="text-gray-900 font-bold">
-																									<%= elt.returnArrival_.at_
-																										%>
+																									<!-- <%= elt.returnArrival_.at_
+																										%> -->
+
+                                                                                                        <%= new Date(elt.returnArrival_.at_).toDateString() + ' AT ' + new Date(elt.returnArrival_.at_).toLocaleTimeString() %>
+
 																								</span></p>
 																						</div>
 																					</div>

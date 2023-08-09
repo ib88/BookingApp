@@ -1,26 +1,42 @@
 ﻿<%- include('header'); -%>
-	<!--main-->
-	<main class="main">
+<!-- <script src="https://cdn.tailwindcss.com"></script> -->
+<section class="hero-pages relative tails-selected-element"
+style="background-image: url('https://imgur.com/YMpzlJo.jpg'); background-repeat: no-repeat;background-size: cover; background-position: center;"
+contenteditable="true">
+<div class="absolute inset-0 bg-gradient-to-b from-black to-transparent opacity-90"></div>
+		<div class="relative z-20 px-4 py-24 mx-auto text-center text-white max-w-7xl lg:py-32">
+			<div class="flex flex-wrap text-white">
+				<div class="relative w-full px-4 mx-auto text-center xl:flex-grow-0 xl:flex-shrink-0">
+					<h1 class="text-6xl font-black  text-[#f7982b] lg:text-7xl tails-selected-element"
+						contenteditable="true">Booking Flights & Hotels</h1>
+					<p class="mt-0 mb-4 text-base italic text-white sm:text-lg lg:text-xl">
+						Booking hotels and flights has never been easier! Our user-friendly platform allows you to book
+						your dream vacation with just a few clicks. Start planning your next adventure today!
+					</p>
+				</div>
+			</div>
+		</div>
+</section>
 
-		<div id="invoice" style="display: block; clear: both; page-break-after: always; page-break-inside:avoid;">
+		<div id="invoice" class="hidden lg:block"  style="clear: both; page-break-after: always; page-break-inside:avoid;">
 			<div class="container">
 				<div class="card">
 					<div class="card-body">
 						<div id="invoice">
 							<div class="toolbar hidden-print">
 								<div class="text-end">
-									<button type="button" class="btn btn-dark" id="download-button" value="Generate PDF"><i class="fa fa-print"></i> Print</button>
-									<input type="button" id="create_pdf" value="Generate PDF"> 
+									<!-- <button type="button" class="gradient-button"  id="download-button" value="Generate PDF"><i class="fa fa-print"></i> Print</button> -->
+									<!-- <button type="button" id="create_pdf" value="Generate PDF">  -->
 							</div>
 								<hr>
 							</div>
-							<div class="invoice overflow-auto">
+							<div class="invoice  overflow-auto">
 								<div style="min-width: 600px">
 									<header>
 										<div class="row">
 											<div class="col">
 												<a href="javascript:;">
-													<img src="https://elasticbeanstalk-us-east-1-991586319498.s3.amazonaws.com/images/logo.png"
+													<img src="https://bookingsylvester.s3.eu-west-3.amazonaws.com/logo.png"
 														width="200" alt="Booking Logo">
 												</a>
 											</div>
@@ -81,11 +97,10 @@
 											<!-- <div class="date"> <b>Adults :</b> <i>2</i> </div> -->
 										</div>
 												<% } %>
-											<div class="col invoice-details">
-												<!-- <div class="address">Birthday : 23 April 1980</div> -->
+											<!-- <div class="col invoice-details">
 												<div class="email"><a href="mailto:john@example.com">Email : <%=
 															travelerInfos.email_ %> </a></div>
-											</div>
+											</div> -->
 										</div>
 										<table>
 											<thead>
@@ -127,28 +142,6 @@
 															<td class="qty"><%= segment.carrierName_ %></td>
 															<td class="total"><%= segment.duration_ %></td>
 			
-															<!-- <td class="no">
-																<%= segment.arrival_.iataCode_ %>
-															</td>
-															<td class="text-left">
-																<h3>
-																	<a target="_blank" href="javascript:;">
-																		<%= segment.carrierName_ %>
-																	</a>
-																</h3>
-																Washington DC Airport JFK <br>
-															</td>
-															<td class="qty">1</td>
-															<td class="unit text-left">
-																<b>Leaves on :</b> <i>
-																	<%= segment.departure_.at_ %>
-																</i> <br> <b>Arrives to :</b> <i>
-																	<%= segment.arrival_.at_ %>
-																</i>
-															</td>
-															<td class="total">
-																<%= segment.duration_ %>
-															</td> -->
 														</tr>
 														<%});%>
 															<%});%>
@@ -192,8 +185,120 @@
 			</div>	
 		</div>
 
-	</main>
-	<!--//main-->
+		<div class="block lg:hidden">
+			<div class="container">
+				<div class="card">
+					<div class="card-body">
+						<div id="invoice">
+							<div class="toolbar hidden-print">
+								<div class="text-end">
+									<!-- <button type="button" class="btn btn-dark" id="download-button" value="Generate PDF"><i class="fa fa-print"></i> Print</button> -->
+									<!-- <button type="button" id="create_pdf" value="Generate PDF">  -->
+							</div>
+								<hr>
+							</div>
+							<div class="invoice  overflow-auto">
+								<div style="min-width: 600px">
+									<header>
+										<div class="row">
+											<div class="col">
+												<a href="javascript:;">
+													<img src="https://bookingsylvester.s3.eu-west-3.amazonaws.com/logo.png"
+														width="200" alt="Booking Logo">
+												</a>
+											</div>
+										</div>
+									</header>
+									<main>
+										<div class="row contacts">
+											<div class="col invoice-to">
+												<div class="text-gray-light">
+													<h2 class="name text-left">
+														<a target="_blank" href="javascript:;">
+															<%= travelerInfos.first_name %>
+																<%= travelerInfos.last_name %>
+														</a>
+													</h2>
+												</div>
+	
+												<h3 class="invoice-id text-left">Booking number : <b> <br> <big>
+															<%= result.data.associatedRecords[0].reference %>
+														</big></b> </h3>
+												<h3 class="invoice-id text-left">Price : <b> <br> <big>
+													$<%= flight.price_.total_ %>
+														</big></b> </h3>
+
+												<div class="date"> <b>Date of departure :</b> <br> <i>
+														<!-- <%= flight.departure_.at_ %> -->
+														<%= new Date(flight.departure_.at_).toDateString() + ' AT ' + new Date(flight.departure_.at_).toLocaleTimeString() %>
+
+													</i></div>
+												<div class="date"> <b>Date of arrival :</b> <br> <i>
+														<!-- <%= flight.arrival_.at_ %> -->
+														<%= new Date(flight.arrival_.at_).toDateString() + ' AT ' + new Date(flight.arrival_.at_).toLocaleTimeString() %>
+
+													</i></div>
+												<div class="date"> <b>Leaving from :</b> <br> <i>
+														<%= flight.departure_.iataCode_ %>
+													</i> </div>
+												<div class="date"> <b> Going to :</b> <br> <i>
+														<%= flight.arrival_.iataCode_ %>
+													</i> </div>
+											</div>
+											 <!-- return flight -->
+											 <% if(typeof flight.returnDeparture_.iataCode_ !=='undefined' && flight.returnDeparture_.iataCode_
+											 !='' ) { %>
+												<div class="date"> <b>Date of departure :</b> <i>
+													<!-- <%= flight.returnDeparture_.at_ %> -->
+													<%= new Date(flight.returnDeparture_.at_).toDateString() + ' AT ' + new Date(flight.returnDeparture_.at_).toLocaleTimeString() %>
+
+												</i></div>
+											<div class="date"> <b>Date of arrival :</b> <i>
+													<!-- <%= flight.returnArrival_.at_ %> -->
+													<%= new Date(flight.returnArrival_.at_).toDateString() + ' AT ' + new Date(flight.returnArrival_.at_).toLocaleTimeString() %>
+
+												</i></div>
+											<div class="date"> <b>Leaving from :</b> <i>
+													<%= flight.returnDeparture_.iataCode_ %>
+												</i> </div>
+											<div class="date"> <b> Going to :</b> <i>
+													<%= flight.returnArrival_.iataCode_ %>
+												</i> </div>
+												<!-- <div class="date">
+													<h4>SUBTOTAL : $<%= flight.price_.total_ %></h4>
+													<h4>VTA 25% : 00.0</h4>
+													<h4>GRAND TOTAL : $<%= flight.price_.total_ %></h4>
+												</div> -->
+		
+										</div>
+												<% } %>
+												<!-- <div class="date">
+													<h4>SUBTOTAL : $<%= flight.price_.total_ %></h4>
+													<h4>VTA 25% : 00.0</h4>
+													<h4>GRAND TOTAL : $<%= flight.price_.total_ %></h4>
+												</div> -->
+
+											<div class="col invoice-details">
+												<div class="email"><a href="mailto:john@example.com">Email : <%=
+															travelerInfos.email_ %> </a></div>
+											</div>
+										</div>
+										<!-- <div class="date">
+											<h4>SUBTOTAL : $<%= flight.price_.total_ %></h4>
+											<h4>VTA 25% : 00.0</h4>
+											<h4>GRAND TOTAL : $<%= flight.price_.total_ %></h4>
+										</div> -->
+								</div>
+								<!--DO NOT DELETE THIS div. IT is responsible for showing footer always at the bottom-->
+								<div></div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>	
+		</div>
+
+
 	    <!-- Begin Javascript for print invoice -->
 		<script src="es6-promise.auto.min.js"></script>
 		<script src="jspdf.min.js"></script>

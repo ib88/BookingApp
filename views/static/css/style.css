@@ -4417,7 +4417,7 @@ ul.slimmenu.collapsed li {
 
 ul.slimmenu.collapsed li>ul {
 	position: static;
-	display: none
+	display:block
 }
 
 ul.slimmenu.collapsed li a {
@@ -4461,7 +4461,7 @@ ul.slimmenu li>ul>li ul {
 	left: 100%;
 	top: 0;
 	z-index: 999;
-	display: none;
+	display: block;
 	width: 100%
 }
 

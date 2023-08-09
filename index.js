@@ -51,6 +51,9 @@ app.use("/Moqflight", MoqflightRouter);
 app.get('/faqs', async (req, res) => {
   return res.render("faqs");
 });
+app.get('/inedex', async (req, res) => {
+  return res.render("index");
+});
 app.get('/about', async (req, res) => {
   return res.render("about");
 });

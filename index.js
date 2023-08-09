@@ -71,6 +71,7 @@ app.get('/media', async (req, res) => {
 });
 
 
+
 app.get('/', (req, res) =>{
   res.redirect('/flight/');
  });
@@ -81,6 +82,12 @@ app.get('/', (req, res) =>{
 // });
 app.get("/", (req, res) => {
   res.sendFile(__dirname + "/views/index.html");
+});
+
+// Default route
+app.get("*", (req, res) => {
+  
+  res.send("PAGE NOT FOUND");
 });
 
 

@@ -71,15 +71,23 @@ app.get('/media', async (req, res) => {
 });
 
 
+
 app.get('/', (req, res) =>{
-  res.redirect('/flight/flightOffer');
+  res.redirect('/flight/');
  });
+
 // app.use("/", flightRouter);
 // app.get('/', function (req, res) {
 //   res.send('hello world')
 // });
 app.get("/", (req, res) => {
   res.sendFile(__dirname + "/views/index.html");
+});
+
+// Default route
+app.get("*", (req, res) => {
+  
+  res.send("PAGE NOT FOUND");
 });
 
 

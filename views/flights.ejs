@@ -1,14 +1,14 @@
 <%- include('header'); -%>
 
-	<section class="relative tails-selected-element"
+	<section class="relative "
 		style="background-image: url('https://imgur.com/YMpzlJo.jpg'); background-repeat: no-repeat;background-size: cover; background-position: center;"
-		contenteditable="true">
+		contenteditable="false">
 		<div class="absolute inset-0 bg-gradient-to-b from-black to-transparent opacity-90"></div>
 		<div class="relative z-20 px-4 py-24 mx-auto text-center text-white max-w-7xl lg:py-32">
 			<div class="flex flex-wrap text-white">
 				<div class="relative w-full px-4 mx-auto text-center xl:flex-grow-0 xl:flex-shrink-0">
 					<h1 class="text-6xl font-black  text-[#f7982b] lg:text-7xl tails-selected-element"
-						contenteditable="true">Booking Flights & Hotels</h1>
+						contenteditable="false">Booking Flights & Hotels</h1>
 					<p class="mt-0 mb-4 text-base italic text-white sm:text-lg lg:text-xl">
 						Booking hotels and flights has never been easier! Our user-friendly platform allows you to book
 						your dream vacation with just a few clicks. Start planning your next adventure today!
@@ -346,7 +346,7 @@
 										<!-- <h2> Flight Results </h2> -->
 										<% if(typeof business=='undefined' || business==null || business==undefined ) {
 											%>
-											<h2 style="margin-top: 80px"> Search Results </h2>
+											<h2 style="margin-top: 80px; position:relative"> Search Results </h2>
 											<% } %>
 
 												<% if(typeof business!='undefined' || business!=null ||
@@ -756,24 +756,24 @@
 									<%});%>
 										<% } %>
 						</div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 					</main>
 					<!--//main-->
-
+					<script>
+						// Récupère tous les champs de saisie de type "date"
+						const dateInputs = document.querySelectorAll('input[type="date"]:not(#birthDate)');
+					  
+						// Obtient la date actuelle
+						const today = new Date();
+						const year = today.getFullYear();
+						let month = today.getMonth() + 1;
+						if (month < 10) {
+						  month = '0' + month;
+						}
+						const day = today.getDate();
+					  
+						// Définit la date minimale en format AAAA-MM-JJ pour chaque champ de saisie de type "date"
+						dateInputs.forEach(input => {
+						  input.min = `${year}-${month}-${day}`;
+						});
+					  </script>
 					<%- include('footer'); -%>

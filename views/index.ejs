@@ -46,6 +46,8 @@
     
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js" integrity="sha512-GsLlZN/3F2ErC5ifS5QtgpiJtWd43JWSuIgh7mbzZ8zBps+dvLusV+eNQATqgA/HdeKFVgA5v3S/cIrLF7QnIg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script src="html2pdf.bundle.min.js"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -121,147 +123,11 @@
         </div>
     </header>
     <main>
-        <div id="booking" class="section">
-            <div class="section-center">
-                <div class="container">
-                    <div class="row">
-                        <div class="booking-form">
-                            <div class="booking-bg">
-                                <div class="form-header">
-                                    <br>
-                                    <br>
-                                    <h2>Make your reservation</h2>
-                                </div>
-                            </div>
-
-                            <form id="main-search" method="post" action="/flight/flightOffer/">
-                                <div class="row">
-                                    <div class="d-flex align-items-start">
-                                        <div class="nav flex-column nav-pills me-3" id="v-pills-tab" role="tablist"
-                                            aria-orientation="vertical" style="border: 3px solid #0b6cff; border-radius:7px;">
-                                                <button class="nav-link  active" id="v-pills-home-tab" data-bs-toggle="pill"
-                                                data-bs-target="#v-pills-home" type="button" role="tab"
-                                                aria-controls="v-pills-home" aria-selected="true"> <span style="color: black; font-size: 18px;">Flight</span> </button>
-                                                <button class="nav-link" id="v-pills-profile-tab" data-bs-toggle="pill"
-                                                data-bs-target="#v-pills-profile" type="button" role="tab"
-                                                aria-controls="v-pills-profile" aria-selected="false"> <span style="color: white; font-size: 18px;">Hotel </span>  </button>                                            
-                                        </div>
-                                        <div class="tab-content" id="v-pills-tabContent">
-                                            <div class="tab-pane fade show active" id="v-pills-home" role="tabpanel"
-                                                aria-labelledby="v-pills-home-tab">
-                                                <div class="row">
-                                                    <div class="col-md-6 col-lg-6">
-                                                        <div class="form-group">
-                                                            <span class="form-label">Going to</span>
-                                                            <input class="form-control" type="text"
-                                                                placeholder="Specify airport" id="destinationFlight"
-                                                                name="destinationFlight" autocomplete="off" required>
-                                                            <input type="hidden" id="destinationFlightCode"
-                                                                name="destinationFlightCode" value="">
-                                                            <div class="div-results-input" id="resultDestinationFlightDiv">
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-md-6 col-lg-6">
-                                                        <div class="form-group">
-                                                            <span class="form-label">Leaving from</span>
-                                                            <input class="form-control" type="text"
-                                                                placeholder="Specify airport" id="sourceFlight"
-                                                                name="sourceFlight" autocomplete="off" required>
-                                                            <input type="hidden" id="sourceFlightCode"
-                                                                name="sourceFlightCode" value="" />
-                                                            <div class="div-results-input" id="resultSourceFlightDiv">
-                                                            </div>
-                                                        </div>
-                                                    </div>    
-                                                </div>
-                                                <div class="row">
-                                                    <div class="col-md-6 col-lg-6">
-                                                        <div class="form-group">
-                                                            <span class="form-label">Departing on</span>
-                                                            <input class="form-control" type="date"
-                                                                id="datepickerSourceFlight" name="datepickerSourceFlight"
-                                                                required>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-md-6 col-lg-6">
-                                                        <div class="form-group">
-                                                            <span class="form-label">Adults</span>
-                                                            <input class="form-control" type="number" id="adultsFlight"
-                                                                name="adultsFlight" required>
-                                                        </div>
-                                                    </div>
-    
-                                                </div>
-                                        </div>
-                                        <div class="tab-pane fade" id="v-pills-profile" role="tabpanel"
-                                            aria-labelledby="v-pills-profile-tab">
-                                            <div class="row">
-                                                <div class="col-md-6 col-lg-6">
-                                                    <div class="form-group">
-                                                        <span class="form-label">Destination</span>
-                                                        <input class="form-control" type="text"
-                                                            placeholder="Specify airport" id="destinationFlight"
-                                                            name="destinationFlight" autocomplete="off" required>
-                                                        <input type="hidden" id="destinationFlightCode"
-                                                            name="destinationFlightCode" value="">
-                                                        <div class="div-results-input" id="resultDestinationFlightDiv">
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="col-md-6 col-lg-6">
-                                                    <div class="form-group">
-                                                        <span class="form-label">Rooms</span>
-                                                        <input class="form-control" type="number"
-                                                            placeholder="Specify airport" id="sourceFlight"
-                                                            name="sourceFlight" autocomplete="off" required>
-                                                        <input type="hidden" id="sourceFlightCode"
-                                                            name="sourceFlightCode" value="" />
-                                                        <div class="div-results-input" id="resultSourceFlightDiv">
-                                                        </div>
-                                                    </div>
-                                                </div>    
-                                            </div>
-                                            <div class="row">
-                                                <div class="col-md-6 col-lg-6">
-                                                    <div class="form-group">
-                                                        <span class="form-label">Check in</span>
-                                                        <input class="form-control" type="date"
-                                                            id="datepickerSourceFlight" name="datepickerSourceFlight"
-                                                            required>
-                                                    </div>
-                                                </div>
-                                                <div class="col-md-6 col-lg-6">
-                                                    <div class="form-group">
-                                                        <span class="form-label">Check out</span>
-                                                        <input class="form-control" type="date" id="adultsFlight"
-                                                            name="adultsFlight" required>
-                                                    </div>
-                                                </div>
-
-                                            </div>
-
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="form-btn">
-                                    <button class="submit-btn" id="search-submit">Search</button>
-                                </div>
-                            </form>
-                        </div>
-
-
-                    </div>
-                </div>
-            </div>
-        </div>
-            <div id="invoice" style="display: block;
-            clear: both;
-            page-break-after: always; page-break-inside:avoid;">
-                <div class="container">
+            <div id="invoice" class="hidden lg:block">
+                <div class="">
                     <div class="card">
                         <div class="card-body">
-                            <div id="invoice">
+                            <div>
                                 <div class="toolbar hidden-print">
                                     <div class="text-end">
                                         <button type="button" class="btn btn-dark" id="download-button" value="Generate PDF"><i class="fa fa-print"></i> Print</button>
@@ -382,23 +248,23 @@
                                                 </tbody>
                                                 <tfoot>
                                                     <tr>
-                                                        <td></td>
+                                                        <!-- <td></td> -->
                                                         <td>SUBTOTAL</td>
                                                         <td>$5,200.00</td>
                                                     </tr>
                                                     <tr>
-                                                        <td></td>
+                                                        <!-- <td></td> -->
                                                         <td>VTA 25%</td>
                                                         <td>$1,300.00</td>
                                                     </tr>
                                                     <tr>
-                                                        <td></td>
+                                                        <!-- <td></td> -->
                                                         <td>GRAND TOTAL</td>
                                                         <td>$6,500.00</td>
                                                     </tr>
                                                 </tfoot>
                                             </table>
-                                            <div class="thanks">Thank you!</div>
+                                            <!-- <div class="thanks">Thank you!</div> -->
                                             <div class="notices">
                                                 <div>NOTICE:</div>
                                                 <div class="notice">Please kepp well this invoice, we will not be able to
@@ -417,18 +283,164 @@
     
             </div>
 
-            <div class="flex justify-center items-center min-h-screen bg-blue-300">
-                <div class="h-auto w-80 bg-white p-3 rounded-lg">
-                    <p class="text-xl font-semibold">Payment Details</p>
-                    <div class="input_text mt-6 relative"> <input type="text" class="h-12 pl-7 outline-none px-2 focus:border-blue-900 transition-all w-full border-b " placeholder="John Row" /> <span class="absolute left-0 text-sm -top-4">Cardholder Name</span>  </div>
-                    <div class="input_text mt-8 relative"> <input type="text" class="h-12 pl-7 outline-none px-2 focus:border-blue-900 transition-all w-full border-b " placeholder="0000 0000 0000 0000" data-slots="0" data-accept="\d" size="19" /> <span class="absolute left-0 text-sm -top-4">Card Number</span> </div>
-                    <div class="mt-8 flex gap-5 ">
-                        <div class="input_text relative w-full"> <input type="text" class="h-12 pl-7 outline-none px-2 focus:border-blue-900 transition-all w-full border-b " placeholder="mm/yyyy" data-slots="my" /> <span class="absolute left-0 text-sm -top-4">Expiry</span>  </div>
-                        <div class="input_text relative w-full"> <input type="text" class="h-12 pl-7 outline-none px-2 focus:border-blue-900 transition-all w-full border-b " placeholder="000" data-slots="0" data-accept="\d" size="3" /> <span class="absolute left-0 text-sm -top-4">CVV</span>  </div>
+            <div  class="block lg:hidden">
+                <div class="">
+                    <div class="card">
+                        <div class="card-body">
+                            <div >
+                                <div class="toolbar hidden-print">
+                                    <div class="text-end">
+                                        <button type="button" class="btn btn-dark" id="download-button" value="Generate PDF"><i class="fa fa-print"></i> Print</button>
+                                        <input type="button" id="create_pdf" value="Generate PDF"> 
+                                    </div>
+                                    <hr>
+                                </div>
+                                <div class="invoice overflow-auto">
+                                    <div style="min-width: 600px">
+                                        <header>
+                                            <div class="row">
+                                                <div class="col">
+                                                    <a href="javascript:;">
+                                                        <img src="https://elasticbeanstalk-us-east-1-991586319498.s3.amazonaws.com/images/logo.png"
+                                                            width="200" alt="Booking Logo">
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        </header>
+                                        <main>
+                                            <div class="row contacts">
+                                                <div class="col invoice-to">
+                                                    <div class="text-gray-light">
+                                                        <h2 class="name">
+                                                            <a target="_blank" href="javascript:;"> Hugues ASSAMBA </a>
+                                                        </h2>
+                                                    </div>
+        
+                                                    <h3 class="invoice-id text-left">Booking number : <b><big>XH78HJ</big></b>
+                                                    </h3>
+                                                    <div class="date"> <b>Date of departure :</b> <i> 01/10/2018</i></div>
+                                                    <div class="date"> <b>Leaving from :</b> <i>Washington DC</i> </div>
+                                                    <div class="date"> <b> Going to :</b> <i>Alabama</i> </div>
+                                                    <div class="date"> <b>Adults :</b> <i>2</i> </div>
+        
+                                                </div>
+                                                <div class="col invoice-details">
+                                                    <div class="address">Birthday : 23 April 1980</div>
+                                                    <div class="email"><a href="mailto:john@example.com">Email :
+                                                            hassamba8@gmail.con</a></div>
+                                                </div>
+                                            </div>
+                                            <table>
+                                                <thead>
+                                                    <tr>
+                                                        <th class="text-left text-bold">From</th>
+                                                        <th class="text-left">To</th>
+                                                        <th class="text-center">Company</th>
+                                                        <!-- <th>Details</th> -->
+                                                        <th class="text-right">Duration</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <tr>
+        
+                                                        <td class="text-left">
+                                                            <h3>
+                                                                <a target="_blank" href="javascript:;">
+                                                                    Washington DC Airport JFK
+                                                                </a>
+                                                            </h3>
+                                                            <b>Leaves on :</b> <i>2022-09-23T23H45</i> <br>
+        
+                                                        </td>
+                                                        <td class="text-left">
+                                                            <h3>
+                                                                <a target="_blank" href="javascript:;">
+                                                                    Seattle United States of America
+                                                                </a>
+                                                            </h3>
+                                                            <b>Arrives to :</b> <i>2022-09-24T13H30</i> <br>
+                                                        </td>
+                                                        <td class="qty">Company name</td>
+                                                        <td class="total">PT2H28M</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td class="text-left">
+                                                            <h3>
+                                                                <a target="_blank" href="javascript:;">
+                                                                    Washington DC Airport JFK
+                                                                </a>
+                                                            </h3>
+                                                            <b>Leaves on :</b> <i>2022-09-23T23H45</i> <br>
+        
+                                                        </td>
+                                                        <td class="text-left">
+                                                            <h3>
+                                                                <a target="_blank" href="javascript:;">
+                                                                    Seattle United States of America
+                                                                </a>
+                                                            </h3>
+                                                            <b>Arrives to :</b> <i>2022-09-24T13H30</i> <br>
+                                                        </td>
+                                                        <td class="qty">Company name</td>
+                                                        <td class="total">PT2H28M</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td class="text-left">
+                                                            <h3>
+                                                                <a target="_blank" href="javascript:;">
+                                                                    Washington DC Airport JFK
+                                                                </a>
+                                                            </h3>
+                                                            <b>Leaves on :</b> <i>2022-09-23T23H45</i> <br>
+        
+                                                        </td>
+                                                        <td class="text-left">
+                                                            <h3>
+                                                                <a target="_blank" href="javascript:;">
+                                                                    Seattle United States of America
+                                                                </a>
+                                                            </h3>
+                                                            <b>Arrives to :</b> <i>2022-09-24T13H30</i> <br>
+                                                        </td>
+                                                        <td class="qty">Company name</td>
+                                                        <td class="total">PT2H28M</td>
+                                                    </tr>
+                                                </tbody>
+                                                <tfoot>
+                                                    <tr>
+                                                        <!-- <td></td> -->
+                                                        <td>SUBTOTAL</td>
+                                                        <td>$5,200.00</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <!-- <td></td> -->
+                                                        <td>VTA 25%</td>
+                                                        <td>$1,300.00</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <!-- <td></td> -->
+                                                        <td>GRAND TOTAL</td>
+                                                        <td>$6,500.00</td>
+                                                    </tr>
+                                                </tfoot>
+                                            </table>
+                                            <!-- <div class="thanks">Thank you!</div> -->
+                                            <div class="notices">
+                                                <div>NOTICE:</div>
+                                                <div class="notice">Please kepp well this invoice, we will not be able to
+                                                    reproduce it.</div>
+                                            </div>
+                                        </main>
+                                        <footer>Invoice was created on a computer and is valid without the signature and seal.
+                                        </footer>
+                                    </div>
+                                    <div></div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                    <!-- <p class="text-lg text-center mt-4 text-gray-600 font-semibold">Payment amount:$12.98</p> -->
-                    <div class="flex justify-center mt-4"> <button class="outline-none pay h-12 bg-orange-600 text-white mb-3 hover:bg-orange-700 rounded-lg w-1/2 cursor-pointer transition-all">Pay</button> </div>
-                </div>
+                </div>    
+    
             </div>
 
 

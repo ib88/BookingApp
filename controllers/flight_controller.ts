@@ -39,6 +39,10 @@ const objectMapper = new ObjectMapper();
 const amadeusRepo = new AmadeusRepo();
 const amadeusMockRepo = new AmadeusMockRepo();
 
+router.get(`/`, async (req: any, res: any) => {
+    return res.render("flights", {alert:undefined, business: [],hotels:undefined,apiError:undefined });
+});
+
 router.get(`/bookFlight`, async (req: any, res: any) => {
 
   const { flight, iataCode } = req.query;
@@ -284,6 +288,8 @@ router.get(`/flightOffer`, async (req: any, res: any) => {
   return res.render("flights", {alert:undefined,business: null,hotels:undefined,apiError:undefined });
 
 });
+
+
 
 router.post(`/flightOffer`, [
   check('sourceFlight')

@@ -72,8 +72,9 @@ app.get('/media', async (req, res) => {
 
 
 app.get('/', (req, res) =>{
-  res.redirect('/flight/flightOffer');
+  res.redirect('/flight/');
  });
+
 // app.use("/", flightRouter);
 // app.get('/', function (req, res) {
 //   res.send('hello world')

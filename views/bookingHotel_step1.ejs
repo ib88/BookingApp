@@ -82,7 +82,7 @@ contenteditable="true">
 									<div class="form-group ">
 										<span class="form-label">Departing on</span>
 										<input class="form-control" type="date" id="datepickerSourceFlight"
-											name="datepickerSourceFlight">
+											name="datepickerSourceFlight" required>
 									</div>
 								</div>
 
@@ -90,7 +90,7 @@ contenteditable="true">
 									<div class="form-group ">
 										<span class="form-label">Returning on</span>
 										<input class="form-control" type="date" id="datepickerReturnFlight"
-											name="datepickerReturnFlight">
+											name="datepickerReturnFlight" required>
 									</div>
 								</div>
 							</div>
@@ -190,13 +190,13 @@ contenteditable="true">
 						<div class="col-md-6 col-lg-6">
 							<div class="form-group">
 								<span class="form-label">Check in</span>
-								<input class="form-control" type="date" id="checkin" name="checkin">
+								<input class="form-control" type="date" id="checkin" name="checkin" required>
 							</div>
 						</div>
 						<div class="col-md-6 col-lg-6">
 							<div class="form-group">
 								<span class="form-label">Check out</span>
-								<input class="form-control" type="date" id="checkout" name="checkout">
+								<input class="form-control" type="date" id="checkout" name="checkout" required>
 							</div>
 						</div>
 						<div class="form-btn">
@@ -236,24 +236,24 @@ contenteditable="true">
 							<div class="row">
 								<div class="f-item col-lg-6">
 									<label for="firstName">First name</label>
-									<input type="text" id="firstName" name="firstName" />
+									<input type="text" id="firstName" name="firstName" required/>
 								</div>
 								<div class="f-item col-lg-6">
 									<label for="lastName">Last name</label>
-									<input type="text" id="lastName" name="lastName" />
+									<input type="text" id="lastName" name="lastName" required/>
 								</div>
 							</div>
 							
 							<div class="row">
 								<div class="f-item col-lg-6">
 									<label for="email">Email address</label>
-									<input type="email" id="email" name="email" />
+									<input type="email" id="email" name="email" required/>
 								</div>
 								<div class="f-item col-lg-6">
 									<label for="birthDate">Date of birth</label>
 									<div class="datepicker-wrap"><input type="text"
 										placeholder="" id="birthDate"
-										name="birthDate" /></div>
+										name="birthDate" required/></div>
 								</div>
 								<br>
 								<br>
@@ -276,7 +276,7 @@ contenteditable="true">
 											<label for="card-number">
 											  <span class="upper-bryant small-bold">Card Number</span>
 											</label>
-											<input type="number" class="space" size="20" name="cardNumber" id="cardNumber">
+											<input type="number" class="space" size="20" name="cardNumber" id="cardNumber" required>
 										  </div>
 										  <br>
 										  <div class="grid-whole row padded-reverse">
@@ -284,7 +284,7 @@ contenteditable="true">
 											  <div class="grid-5">
 												<label for="cvc">
 												  <span class="upper-bryant small-bold">CVC</span>
-												  <input type="number" class="space" size="4" name="cvc" id="cvcCode" name="cvcCode">
+												  <input type="number" class="space" size="4" name="cvc" id="cvcCode" name="cvcCode" required>
 												</label>
 											  </div>
 											  <!-- <div class="grid-7 cvc-box center">

@@ -172,7 +172,7 @@
 				<!-- <form id="main-search" method="post" action="/hotel/city-hotels/" >  -->
 				<!-- <form id="main-search2" method="post" action="/hotel/city-hotels/" >  -->
 				<div class="tab-pane " id="v-pills-profile" role="tabpanel" aria-labelledby="v-pills-profile-tab">
-					<form id="main-search2" method="post" action="/hotel/city-hotels/">
+					<form id="main-search2" method="post" action="/hotel/city-hotels#hotels">
 
 						<div class="row">
 							<div class="col-md-6 col-lg-6">
@@ -323,14 +323,14 @@
 
 
 
-						<div class="container-xl">
+						<!-- <div class="container-xl">
 							<div class="row">
 								<div class="col-md-12">
 									<h2 style="padding-top: 50px">Favorites <b>Destinations</b></h2>
 									
 								</div>
 							</div>
-						</div>
+						</div> -->
 
 
 
@@ -723,7 +723,7 @@
 
 						</div>
 
-						<div class="containers row">
+						<div class="containers row" id="hotels">
 
 							<% if(typeof hotels !='undefined' || hotels!=null || hotels!=undefined) { %>
 								<% hotels.forEach((elt)=>{%>

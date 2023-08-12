@@ -228,7 +228,7 @@ router.get(`/bookHotel`, async (req: any, res: any) => {
     return res.render("bookingHotel_step1.ejs", { hotel: hotelParsed });
   }
   catch (err: any) {
-    return res.render("flights.ejs", { business: undefined, apiError: "Error booking the hotel. Please try again!" });
+    return res.render("flights.ejs", { business: undefined, apiError: "Error booking the hotel. Please try again!",hotels: undefined });
   }
 
 });
@@ -254,7 +254,7 @@ router.get(`/bookHotel`, async (req: any, res: any) => {
     return res.render("bookingHotel_step1.ejs", { hotel: hotelParsed });
   }
   catch (err: any) {
-    return res.render("flights.ejs", { business: undefined, apiError: "Error loading the flight. Please try again!" });
+    return res.render("flights.ejs", { business: undefined, apiError: "Error loading the Hotel. Please try again!",hotels: undefined });
   }
 
 });

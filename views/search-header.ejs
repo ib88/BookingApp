@@ -1,0 +1,229 @@
+<section class="relative "
+style="background-image: url('https://imgur.com/YMpzlJo.jpg'); background-repeat: no-repeat;background-size: cover; background-position: center;"
+contenteditable="false">
+<div class="absolute inset-0 bg-gradient-to-b from-black to-transparent opacity-90"></div>
+<div class="relative z-20 px-4 py-24 mx-auto text-center text-white max-w-7xl lg:py-32">
+    <div class="flex flex-wrap text-white">
+        <div class="relative w-full px-4 mx-auto text-center xl:flex-grow-0 xl:flex-shrink-0">
+            <h1 class="text-6xl font-black  text-[#f7982b] lg:text-7xl tails-selected-element"
+                contenteditable="false">Booking Flights & Hotels</h1>
+            <p class="mt-0 mb-4 text-base italic text-white sm:text-lg lg:text-xl">
+                Booking hotels and flights has never been easier! Our user-friendly platform allows you to book
+                your dream vacation with just a few clicks. Start planning your next adventure today!
+            </p>
+        </div>
+    </div>
+</div>
+<div class="relative z-30 h-48 px-10  lg:h-32">
+    <div class="booking-form">
+        <!-- <% if(typeof business != 'undefined' ) { %> -->
+        <form id="main-search" method="post" action="/flight/flightOffer#flight-results">
+        <!-- <% } %> -->
+
+        <!-- <% if(typeof business == 'undefined' ) { %>
+            <form id="main-search" method="post" action="/flight/flightOffer">
+            <% } %> -->
+            <div class="row">
+                <nav>
+                    <div class="nav nav-tabs" id="nav-tab" role="tablist">
+                        <button class="nav-link active" id="v-pills-home-tab" data-bs-toggle="pill"
+                            data-bs-target="#v-pills-home" type="button" role="tab" aria-controls="v-pills-home"
+                            aria-selected="true">
+                            <span style="color: #f7982b; font-size: 16px;"> <i class="fa fa-plane"
+                                    aria-hidden="true"></i> Flights </span>
+
+                        </button>
+                        <button class="nav-link" id="v-pills-profile-tab" data-bs-toggle="pill"
+                            data-bs-target="#v-pills-profile" type="button" role="tab"
+                            aria-controls="v-pills-profile" aria-selected="false">
+                            <span style="color: #f7982b; font-size: 16px;"> <i class="fa fa-building"
+                                    aria-hidden="true"></i> Hotels</span>
+                        </button>
+                    </div>
+                    <br>
+                </nav>
+                <div class="tab-content" id="v-pills-tabContent">
+                    <div class="tab-pane show active" id="v-pills-home" role="tabpanel"
+                        aria-labelledby="v-pills-home-tab">
+                        <div class="row">
+                            <!-- Begin Radio -->
+                            <div>
+                                <label for="f-option" class="l-radio">
+                                    <input type="radio" id="f-option" value="one" name="selector" tabindex="1"
+                                        checked>
+                                    <span style="font-size: 10px;">One way</span>
+                                </label>
+                                <label for="s-option" class="l-radio">
+                                    <input type="radio" id="s-option" value="two" name="selector" tabindex="2">
+                                    <span style="font-size: 10px;">Two ways</span>
+                            </div>
+                            <!-- End Radio -->
+                            <div class="row">
+                                <div class="col">
+                                    <div class="form-group ">
+                                        <span class="form-label">Leaving from</span>
+                                        <input class="form-control" type="text" placeholder="Specify airport"
+                                            id="sourceFlight" name="sourceFlight" autocomplete="off" required/>
+                                        <input type="hidden" id="sourceFlightCode" name="sourceFlightCode"
+                                            value="" />
+                                        <div class="div-results-input" id="resultSourceFlightDiv">
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col">
+                                    <div class="form-group">
+                                        <span class="form-label">Going to</span>
+                                        <input class="form-control" type="text" placeholder="Specify airport"
+                                            id="destinationFlight" name="destinationFlight" autocomplete="off" required/>
+                                        <input type="hidden" id="destinationFlightCode"
+                                            name="destinationFlightCode" value="" >
+                                        <div class="div-results-input" id="resultDestinationFlightDiv">
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col">
+                                    <div class="form-group ">
+                                        <span class="form-label">Departing on</span>
+                                        <input class="form-control" type="date" id="datepickerSourceFlight"
+                                            name="datepickerSourceFlight" required>
+                                    </div>
+                                </div>
+
+                                <div class="col two box">
+                                    <div class="form-group ">
+                                        <span class="form-label">Returning on</span>
+                                        <input class="form-control" type="date" id="datepickerReturnFlight"
+                                            name="datepickerReturnFlight">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-lg-5"></div>
+
+                                <div class="col-md-1 col-lg-1">
+                                    <span class="form-label">Adults</span>
+                                    <select class="form-select" id="adultsFlight" name="adultsFlight"
+                                        aria-label="Default select example">
+                                        <option selected value="1">1</option>
+                                        <option value="2">2</option>
+                                        <option value="3">3</option>
+                                        <option>4</option>
+                                        <option>5</option>
+                                        <option>6</option>
+                                        <option>7</option>
+                                        <option>8</option>
+                                        <option>9</option>
+                                        <option>10</option>
+                                    </select>
+                                    <!-- <div>
+                                        <label for="location" class="form-label block text-sm font-medium leading-6 text-gray-900">Adults</label>
+                                        <select id="adultsFlight" name="adultsFlight" class="rounded-md block w-full form-control text-gray-900 ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-indigo-600 sm:text-sm sm:leading-6">
+                                          <option selected>0</option>
+                                          <option>1</option>
+                                          <option>2</option>
+                                          <option>3</option>
+                                          <option>4</option>
+                                          <option>5</option>
+                                          <option>6</option>
+                                          <option>7</option>
+                                          <option>8</option>
+                                          <option>9</option>
+                                          <option>10</option>
+                                        </select>
+                                    </div> -->
+                                    <!-- <div class="form-group">
+                                        <span class="form-label">Adults</span>
+                                        <input class="form-control" type="number" id="adultsFlight"
+                                            name="adultsFlight">
+                                    </div> -->
+                                </div>
+
+                                <div class="col-md-1 col-lg-1">
+                                    <div class="form-group">
+                                        <span class="form-label">Children</span>
+                                        <select class="form-control" id="childrenFlight" name="childrenFlight"
+                                            aria-label="Default select example">
+                                            <option selected>0</option>
+                                            <option value="1">1</option>
+                                            <option value="2">2</option>
+                                            <option value="3">3</option>
+                                            <option>4</option>
+                                            <option>5</option>
+                                            <option>6</option>
+                                            <option>7</option>
+                                            <option>8</option>
+                                            <option>9</option>
+                                            <option>10</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-lg-5"></div>
+                            </div>
+                        </div>
+                        <div class="form-btn">
+                            <button class="submit-btn" id="search-submit">Search</button>
+                        </div>
+                    </div>
+        </form>
+        <!-- <form id="main-search" method="post" action="/hotel/city-hotels/" >  -->
+        <!-- <form id="main-search2" method="post" action="/hotel/city-hotels/" >  -->
+        <div class="tab-pane " id="v-pills-profile" role="tabpanel" aria-labelledby="v-pills-profile-tab">
+            <form id="main-search2" method="post" action="/hotel/city-hotels/">
+
+                <div class="row">
+                    <div class="col-md-6 col-lg-6">
+                        <div class="form-group">
+                            <span class="form-label">Destination</span>
+                            <input class="form-control" type="text" placeholder="Specify City"
+                                id="destinationHotel" name="destinationHotel" autocomplete="off" required>
+                            <input type="hidden" id="destinationHotelCode" name="destinationHotelCode" value="" >
+                            <div class="div-results-input" id="resultDestinationHotelDiv">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-6">
+                        <div class="form-group">
+                            <span class="form-label">Rooms</span>
+                            <select class="form-select" id="rooms" name="rooms"
+                                aria-label="Default select example">
+                                <option selected value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                                <option>4</option>
+                                <option>5</option>
+                                <option>6</option>
+                                <option>7</option>
+                                <option>8</option>
+                                <option>9</option>
+                                <option>10</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6 col-lg-6">
+                        <div class="form-group">
+                            <span class="form-label">Check in</span>
+                            <input class="form-control" type="date" id="checkin" name="checkin" required pattern="/^\d{2}([./-])\d{2}\1\d{4}$/">
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-6">
+                        <div class="form-group">
+                            <span class="form-label">Check out</span>
+                            <input class="form-control" type="date" id="checkout" name="checkout" required>
+                        </div>
+                    </div>
+                    <div class="form-btn">
+                        <button class="submit-btn" id="search-submit2">Search</button>
+                    </div>
+
+                </div>
+        </div>
+    </div>
+    </form>
+</div>
+</div>
+
+</section>

@@ -1,17 +1,33 @@
 <%- include('header'); -%>
-    <!--main-->
-    <main class="main">
+<section class="hero-pages relative tails-selected-element"
+style="background-image: url('https://imgur.com/YMpzlJo.jpg'); background-repeat: no-repeat;background-size: cover; background-position: center;"
+contenteditable="false">
+<div class="absolute inset-0 bg-gradient-to-b from-black to-transparent opacity-90"></div>
+		<div class="relative z-20 px-4 py-24 mx-auto text-center text-white max-w-7xl lg:py-32">
+			<div class="flex flex-wrap text-white">
+				<div class="relative w-full px-4 mx-auto text-center xl:flex-grow-0 xl:flex-shrink-0">
+					<h1 class="text-6xl font-black  text-[#f7982b] lg:text-7xl tails-selected-element"
+						contenteditable="false">Booking Flights & Hotels</h1>
+					<p class="mt-0 mb-4 text-base italic text-white sm:text-lg lg:text-xl">
+						Booking hotels and flights has never been easier! Our user-friendly platform allows you to book
+						your dream vacation with just a few clicks. Start planning your next adventure today!
+					</p>
+				</div>
+			</div>
+		</div>
+</section>
 
-        <div id="invoice" style="display: block; clear: both; page-break-after: always; page-break-inside:avoid;">
+    <!--main-->
+        <div id="invoice"  class="hidden lg:block" style="clear: both; page-break-after: always; page-break-inside:avoid;">
             <div class="container">
                 <div class="card">
                     <div class="card-body">
                         <div id="invoice">
                             <div class="toolbar hidden-print">
                                 <div class="text-end">
-                                    <button type="button" class="btn btn-dark" id="download-button"
+                                    <!-- <button type="button" class="btn btn-dark" id="download-button"
                                         value="Generate PDF"><i class="fa fa-print"></i> Print</button>
-                                    <input type="button" id="create_pdf" value="Generate PDF">
+                                    <input type="button" id="create_pdf" value="Generate PDF"> -->
                                 </div>
                                 <hr>
                             </div>
@@ -21,7 +37,7 @@
                                         <div class="row">
                                             <div class="col">
                                                 <a href="javascript:;">
-                                                    <img src="https://elasticbeanstalk-us-east-1-991586319498.s3.amazonaws.com/images/logo.png"
+                                                    <img src="https://bookingsylvester.s3.eu-west-3.amazonaws.com/logo.png"
                                                         width="200" alt="Booking Logo">
                                                 </a>
                                             </div>
@@ -61,14 +77,13 @@
                                             </div>
                                             <!-- return flight -->
 
-                                            <div class="col invoice-details">
-                                                <!-- <div class="address">Birthday : 23 April 1980</div> -->
+                                            <!-- <div class="col invoice-details">
                                                 <div class="email"><a href="mailto:john@example.com">Email : <%=
                                                             travelerInfos.email_ %> </a></div>
-                                            </div>
+                                            </div> -->
                                         </div>
                                         
-                                        <div class="thanks">Thank you!</div>
+                                        <!-- <div class="thanks">Thank you!</div> -->
                                         <div class="notices">
                                             <div>NOTICE:</div>
                                             <div class="notice">Please keep this invoice safely, we will not be able to
@@ -87,9 +102,95 @@
                 </div>
             </div>
         </div>
+        <div class="container">
+            <div id="invoice" class="block lg:hidden" style="clear: both; page-break-after: always; page-break-inside:avoid;">
+                <div class="container">
+                    <div class="card">
+                        <div class="card-body">
+                            <div id="invoice">
+                                <div class="toolbar hidden-print">
+                                    <div class="text-end">
+                                        <!-- <button type="button" class="btn btn-dark" id="download-button"
+                                            value="Generate PDF"><i class="fa fa-print"></i> Print</button>
+                                        <input type="button" id="create_pdf" value="Generate PDF"> -->
+                                    </div>
+                                    <hr>
+                                </div>
+                                <div class="invoice overflow-auto">
+                                    <div>
+                                        <header>
+                                            <div class="row">
+                                                <div class="col">
+                                                    <a href="javascript:;">
+                                                        <img src="https://bookingsylvester.s3.eu-west-3.amazonaws.com/logo.png"
+                                                            width="200" alt="Booking Logo">
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        </header>
+                                        <main>
+                                            <div class="row contacts">
+                                                <div class="col invoice-to" style="width: 40%;">
+                                                    <div class="text-gray-light">
+                                                        <h2 class="name">
+                                                            <a target="_blank" href="javascript:;">
+                                                                <%= travelerInfos.first_name %>
+                                                                    <%= travelerInfos.last_name %>
+                                                            </a>
+                                                        </h2>
+                                                    </div>
+    
+                                                    <h3 class="invoice-id text-left">Booking ID :  <b><big>
+                                                                <%= result.data[0].id %>
+                                                            </big></b> </h3>
+                                                            <div class="date"> <b>Booking Confirmation : <br></b> <i>
+                                                                <%= result.data[0].providerConfirmationId %>
+                                                            </i></div>
+                                                            <div class="date"> <b>Name :</b> <br> <i>
+                                                                <%= hotel.hotelName_ %>
+                                                            </i></div>
+                                                            <div class="date"> <b>Description :</b> <br> <i>
+                                                                <%= hotel.room_.description_.text_  %> 
+                                                            </i></div>
+                                                    <div class="date"> <b>Check In :</b> <br> <i>
+                                                            <%= hotel.checkInDate_ %>
+                                                        </i></div>
+                                                    <div class="date"> <b>Check Out :</b> <br> <i>
+                                                            <%= hotel.checkOutDate_ %>
+                                                        </i></div>
+    
+                                                </div>
+                                                <!-- return flight -->
+    
+                                                <!-- <div class="col invoice-details">
+                                                    <div class="email"><a href="mailto:john@example.com">Email : <%=
+                                                                travelerInfos.email_ %> </a></div>
+                                                </div> -->
+                                            </div>
+                                            
+                                            <!-- <div class="thanks">Thank you!</div> -->
+                                            <!-- <div class="notices">
+                                                <div>NOTICE:</div>
+                                                <div class="notice">Please keep this invoice safely, we will not be able to
+                                                    reproduce it.</div>
+                                            </div> -->
+                                        </main>
+                                        <!-- <footer>Invoice was created on a computer and is valid without any signature or
+                                            seal.
+                                        </footer> -->
+                                    </div>
+                                    <!--DO NOT DELETE THIS div. IT is responsible for showing footer always at the bottom-->
+                                    <div></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+    
+        </div>
 
-    </main>
-    <!--//main-->
+
     <!-- Begin Javascript for print invoice -->
     <script src="es6-promise.auto.min.js"></script>
     <script src="jspdf.min.js"></script>

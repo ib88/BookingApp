@@ -651,6 +651,7 @@ h2::after {
 .card-heading {
 	font-size: 18px;
 	font-weight: bold;
+	height: 120px;
 	background: #fff;
 	padding: 10px 15px;
 }

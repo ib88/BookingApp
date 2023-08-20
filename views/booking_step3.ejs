@@ -140,7 +140,7 @@ contenteditable="false">
 
 															</td>
 															<td class="qty"><%= segment.carrierName_ %></td>
-															<td class="total"><%= segment.duration_ %></td>
+															<td class="total"><%= segment.duration_.replace('PT','') %></td>
 			
 														</tr>
 														<%});%>
@@ -155,7 +155,7 @@ contenteditable="false">
 												</tr>
 												<tr>
 													<td></td>
-													<td>VTA 25%</td>
+													<td>VTA 0%</td>
 													<td>$0.00</td>
 												</tr>
 												<tr>

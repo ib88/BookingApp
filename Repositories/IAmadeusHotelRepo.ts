@@ -69,7 +69,7 @@ export class AmadeusHotelRepo implements IAmadeusHotelRepo {
       let hotelInfoParsed;
       ///////////////////go through each hotel and process offers.
       //length should be hotelsList.data.length
-      for (var i = 0; i < 10; i++) {
+      for (var i = 0; i < 15; i++) {
 
         pricingResp = await amadeus.shopping.hotelOffersSearch.get({
           'hotelIds': hotelsList.data[i].hotelId,

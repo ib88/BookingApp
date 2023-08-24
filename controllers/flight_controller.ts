@@ -336,7 +336,7 @@ router.post(`/flightOffer`, [
 
   var adults = req.body.adultsFlight;
   var children = req.body.childrenFlight;
-  var maxFlights = '5';
+  var maxFlights = '10';
 
   let errorMsg = undefined;
   try {

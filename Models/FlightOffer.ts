@@ -11,6 +11,7 @@ export class Segment {
         this.departure_ = departure;
         this.arrival_ = arrival;
         this.duration_ = duration;
+        this.numberOfStops_ = numberOfStops;
         this.carrierName_ = "";
         //this.additionalServices_ = additionalServices;
     }

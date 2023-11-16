@@ -94,6 +94,9 @@ contenteditable="false">
 											<div class="date"> <b> Going to :</b> <i>
 													<%= flight.returnArrival_.iataCode_ %>
 												</i> </div>
+												<div class="date"> <b> Going to :</b> <i>
+													<%= flight.returnArrival_.iataCode_ %>
+												</i> </div>
 											<!-- <div class="date"> <b>Adults :</b> <i>2</i> </div> -->
 										</div>
 												<% } %>
@@ -110,6 +113,8 @@ contenteditable="false">
 													<th class="text-center">Company</th>
 													<!-- <th>Details</th> -->
 													<th class="text-right">Duration</th>
+													<th class="text-right">Stops</th>
+
 												</tr>
 											</thead>
 											<tbody>
@@ -141,6 +146,8 @@ contenteditable="false">
 															</td>
 															<td class="qty"><%= segment.carrierName_ %></td>
 															<td class="total"><%= segment.duration_.replace('PT','') %></td>
+															<td class="total"><%= segment.numberOfStops %></td>
+
 			
 														</tr>
 														<%});%>

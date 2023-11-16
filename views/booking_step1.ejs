@@ -178,6 +178,75 @@
 						</div>
 						<% } %>
 					</article>
+
+					<table>
+						<thead>
+							<tr>
+								<th class="text-left text-bold">From</th>
+								<th class="text-left">To</th>
+								<th class="text-center">Company</th>
+								<!-- <th>Details</th> -->
+								<th class="text-right">Duration</th>
+								<th class="text-right">Stops</th>
+
+							</tr>
+						</thead>
+						<tbody>
+							<% flight.itineraries_.forEach((itinerary)=>{%>
+								<% itinerary.segments_.forEach((segment)=>{%>
+									<tr>
+										<td class="text-left">
+											<h3>
+												<a target="_blank" href="javascript:;">
+													<%= segment.departure_.iataCode_ %>
+												</a>
+											</h3>
+											<!-- <b>Leaves on :</b>  <i><%= segment.departure_.at_ %></i> <br>  -->
+											<b>Leaves on :</b>  <i><%= new Date(segment.departure_.at_).toDateString() + ' AT ' + new Date(segment.departure_.at_).toLocaleTimeString() %>
+											</i> <br> 
+
+
+											
+										</td>
+										<td class="text-left">
+											<h3>
+												<a target="_blank" href="javascript:;">
+													<%= segment.arrival_.iataCode_ %>
+												</a>
+											</h3>
+											<b>Arrives on :</b>  <i><%= new Date(segment.arrival_.at_).toDateString() + ' AT ' + new Date(segment.arrival_.at_).toLocaleTimeString() %>
+											</i> <br>
+
+										</td>
+										<td class="qty"><%= segment.carrierName_ %></td>
+										<td class="total"><%= segment.duration_.replace('PT','') %></td>
+										<td class="total"><%= segment.numberOfStops %></td>
+
+
+									</tr>
+									<%});%>
+										<%});%>
+						</tbody>
+						<tfoot>
+							<tr>
+								<td></td>
+								<td>SUBTOTAL</td>
+								<td>$<%= flight.price_.total_ %>
+								</td>
+							</tr>
+							<tr>
+								<td></td>
+								<td>VTA 0%</td>
+								<td>$0.00</td>
+							</tr>
+							<tr>
+								<td></td>
+								<td>GRAND TOTAL</td>
+								<td>$<%= flight.price_.total_ %>
+								</td>
+							</tr>
+						</tfoot>
+					</table>
 					<!--//Booking details-->
 					
 					<!--Need Help Booking?-->

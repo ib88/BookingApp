@@ -18,11 +18,11 @@
 		</div>
 		<div class="relative z-30 h-48 px-10  lg:h-32">
 			<div class="booking-form">
-                <!-- <% if(typeof business != 'undefined' ) { %> -->
+				<!-- <% if(typeof business != 'undefined' ) { %> -->
 				<form id="main-search" method="post" action="/flight/flightOffer#flight-results">
-                <!-- <% } %> -->
+					<!-- <% } %> -->
 
-                <!-- <% if(typeof business == 'undefined' ) { %>
+					<!-- <% if(typeof business == 'undefined' ) { %>
                     <form id="main-search" method="post" action="/flight/flightOffer">
                     <% } %> -->
 					<div class="row">
@@ -65,8 +65,7 @@
 											<div class="form-group ">
 												<span class="form-label">Leaving from</span>
 												<input class="form-control" type="text" placeholder="Specify airport"
-
-													id="sourceFlight" name="sourceFlight" autocomplete="off" required/>
+													id="sourceFlight" name="sourceFlight" autocomplete="off" required />
 												<input type="hidden" id="sourceFlightCode" name="sourceFlightCode"
 													value="" />
 												<div class="div-results-input" id="resultSourceFlightDiv">
@@ -78,10 +77,10 @@
 											<div class="form-group">
 												<span class="form-label">Going to</span>
 												<input class="form-control" type="text" placeholder="Specify airport"
-
-													id="destinationFlight" name="destinationFlight" autocomplete="off" required/>
+													id="destinationFlight" name="destinationFlight" autocomplete="off"
+													required />
 												<input type="hidden" id="destinationFlightCode"
-													name="destinationFlightCode" value="" >
+													name="destinationFlightCode" value="">
 												<div class="div-results-input" id="resultDestinationFlightDiv">
 												</div>
 											</div>
@@ -182,7 +181,7 @@
 									<span class="form-label">Destination</span>
 									<input class="form-control" type="text" placeholder="Specify City"
 										id="destinationHotel" name="destinationHotel" autocomplete="off" required>
-									<input type="hidden" id="destinationHotelCode" name="destinationHotelCode" value="" >
+									<input type="hidden" id="destinationHotelCode" name="destinationHotelCode" value="">
 									<div class="div-results-input" id="resultDestinationHotelDiv">
 									</div>
 								</div>
@@ -211,7 +210,8 @@
 								<div class="form-group">
 									<span class="form-label">Check in</span>
 
-									<input class="form-control" type="date" id="checkin" name="checkin" required pattern="/^\d{2}([./-])\d{2}\1\d{4}$/">
+									<input class="form-control" type="date" id="checkin" name="checkin" required
+										pattern="/^\d{2}([./-])\d{2}\1\d{4}$/">
 								</div>
 							</div>
 							<div class="col-md-6 col-lg-6">
@@ -240,186 +240,89 @@
 			</div>
 			<% }) %>
 				<% } %> -->
-					<!--main-->
-					<main class="main">
-						<!-- <div class="white-bg">
-							<div class="container-xl">
-								<div class="row white-bg">
-									<div class="col-xl-4 col-lg-4 ">
-										<div class="card l-bg-orange">
-											<div class="card-statistic-3 p-4">
-												<div class="card-icon card-icon-large"><i class="fas fa-plane"></i>
-												</div>
-												<div class="mb-4">
-													<h5 class="card-title text-left mb-0">New flights</h5>
-												</div>
-												<div class="row align-items-center mb-2 d-flex">
-													<div class="col-8">
-														<h3 class="d-flex align-items-center mb-0">
-															3,243
-														</h3>
-													</div>
-												</div>
-												<div class="progress mt-1 " data-height="8" style="height: 8px;">
-													<div class="progress-bar l-bg-cyan" role="progressbar"
-														data-width="25%" aria-valuenow="25" aria-valuemin="0"
-														aria-valuemax="100" style="width: 25%;"></div>
-												</div>
-											</div>
-										</div>
-									</div>
-									<div class="col-xl-4 col-lg-4">
-										<div class="card l-bg-green">
-											<div class="card-statistic-3 p-4">
-												<div class="card-icon card-icon-large"><i class="fas fa-users"></i>
-												</div>
-												<div class="mb-4">
-													<h5 class="card-title text-left mb-0">Customers</h5>
-												</div>
-												<div class="row align-items-center mb-2 d-flex">
-													<div class="col-8">
-														<h3 class="d-flex align-items-center mb-0">
-															15.07k
-														</h3>
-													</div>
-												</div>
-												<div class="progress mt-1 " data-height="8" style="height: 8px;">
-													<div class="progress-bar l-bg-green" role="progressbar"
-														data-width="25%" aria-valuenow="25" aria-valuemin="0"
-														aria-valuemax="100" style="width: 25%;"></div>
-												</div>
-											</div>
-										</div>
-									</div>
-									<div class="col-xl-4 col-lg-4">
-										<div class="card l-bg-cyan">
-											<div class="card-statistic-3 p-4">
-												<div class="card-icon card-icon-large"><i class="fas fa-ticket-alt"></i>
-												</div>
-												<div class="mb-4">
-													<h5 class="card-title text-left mb-0">Ticket Resolved</h5>
-												</div>
-												<div class="row align-items-center mb-2 d-flex">
-													<div class="col-8">
-														<h3 class="d-flex align-items-center mb-0">
-															578
-														</h3>
-													</div>
-												</div>
-												<div class="progress mt-1 " data-height="8" style="height: 8px;">
-													<div class="progress-bar l-bg-orange" role="progressbar"
-														data-width="25%" aria-valuenow="25" aria-valuemin="0"
-														aria-valuemax="100" style="width: 25%;"></div>
-												</div>
-											</div>
-										</div>
-									</div>
-								</div>
+	<!--main-->
+	<main class="main">
 
-							</div>
+		<div class="wrap" id="flight-results">
+			<div class="row">
+				<!--deals-->
+				<div class="full-width">
+					<header class="s-title">
+						<!-- <h2> Flight Results </h2> -->
+						<% if(typeof business=='undefined' || business==null || business==undefined ) { %>
+							<h2 style="margin-top: 80px; position:relative"> Search Results </h2>
+							<% } %>
 
-	
-	
-						</div> -->
-
-
-
-
-
-						<!-- <div class="container-xl">
-							<div class="row">
-								<div class="col-md-12">
-									<h2 style="padding-top: 50px">Favorites <b>Destinations</b></h2>
-									
-								</div>
-							</div>
-						</div> -->
-
-
-
-						<!--//search-->
-
-
-
-						<div class="wrap" id="flight-results">
-							<div class="row">
-								<!--deals-->
-								<div class="full-width">
-									<header class="s-title">
-										<!-- <h2> Flight Results </h2> -->
-										<% if(typeof business=='undefined' || business==null || business==undefined ) {
-											%>
-											<h2 style="margin-top: 80px; position:relative"> Search Results </h2>
+								<% if(typeof business!='undefined' || business!=null || business!=undefined ) { %>
+									<% if( business.length==0 ) { %>
+										<!-- <h2> No Flights Found! </h2> -->
+										<% } %>
 											<% } %>
+					</header>
 
-												<% if(typeof business!='undefined' || business!=null ||
-													business!=undefined ) { %>
-													<% if( business.length==0 ) { %>
-														<!-- <h2> No Flights Found! </h2> -->
-														<% } %>
-															<% } %>
-									</header>
+					<div class="deals flights">
+						<div class="row">
+							<!-- <h2 class="lg:mt-[80px]" > Search Results </h2> -->
+							<!--deal-->
+							<% if(typeof business !='undefined' || business!=null || business!=undefined) { %>
+								<% business.forEach((elt)=>{%>
+									<!-- <li>Name: <%=elt.name%> -Distance: <%=elt.distance%>Km - Room Type: <%=elt.roomType%> - Price: <%=elt.price%>Euro</li>  -->
+									<div class="containers">
+										<% if(elt.numberOfBookableSeats_> 0) { %>
+											<!-- Item for seats available -->
+											<div class="item hidden lg:block">
+												<div class="item-right">
+													<img src="https://bookingsylvester.s3.eu-west-3.amazonaws.com/undraw_aircraft_re_m05i.svg"
+														alt="" width="100%">
+													<h2 class="num">
+														<%= elt.price_.total_ %>
+													</h2>
+													<p class="day">
+														<%= elt.price_.currency_ %>
+													</p>
+													<span class="up-border"></span>
+													<span class="down-border"></span>
+												</div> <!-- end item-right -->
 
-									<div class="deals flights">
-										<div class="row">
-											<!-- <h2 class="lg:mt-[80px]" > Search Results </h2> -->
-											<!--deal-->
-											<% if(typeof business !='undefined' || business!=null ||
-												business!=undefined) { %>
-												<% business.forEach((elt)=>{%>
-													<!-- <li>Name: <%=elt.name%> -Distance: <%=elt.distance%>Km - Room Type: <%=elt.roomType%> - Price: <%=elt.price%>Euro</li>  -->
-													<div class="containers">
-														<% if(elt.numberOfBookableSeats_> 0) { %>
-															<!-- Item for seats available -->
-															<div class="item hidden lg:block">
-																<div class="item-right">
-																	<img src="https://bookingsylvester.s3.eu-west-3.amazonaws.com/undraw_aircraft_re_m05i.svg"
-																		alt="" width="100%">
-																	<h2 class="num">
-																		<%= elt.price_.total_ %>
-																	</h2>
-																	<p class="day"> <%= elt.price_.currency_ %></p>
-																	<span class="up-border"></span>
-																	<span class="down-border"></span>
-																</div> <!-- end item-right -->
+												<div class="item-left">
+													<h3 class="title">
+														<%= elt.itineraries_[0].segments_[0].carrierName_ %>
+													</h3>
 
-																<div class="item-left">
-																	<h3 class="title">
-																		<%= elt.itineraries_[0].segments_[0].carrierName_
-																			%>
-																	</h3>
-
-																	<div class="sce">
-																		<p class="event"> <i
-																				class="fa fa-map-marker"></i>
-																			<%= elt.departure_.iataCode_ %> to <%=
-																					elt.arrival_.iataCode_ %> &emsp;
-																					&emsp;
-																		</p>
-																	</div>
+													<div class="sce">
+														<p class="event"> <i class="fa fa-map-marker"></i>
+															<%= elt.departure_.iataCode_ %> to <%=
+																	elt.arrival_.iataCode_ %> &emsp;
+																	&emsp;
+														</p>
+													</div>
 
 
 
-																	<div class="loc">
-																		<div class="icon">
-																			<i class="fa fa-clock-o"></i>
-																		</div>
-																		<p>Leaves on<br> <b> <big>
-																					<!-- <%= elt.departure_.at_ %> -->
-                                                                                    <%= new Date(elt.departure_.at_).toDateString() + ' AT ' + new Date(elt.departure_.at_).toLocaleTimeString() %>
+													<div class="loc">
+														<div class="icon">
+															<i class="fa fa-clock-o"></i>
+														</div>
+														<p>Leaves on<br> <b> <big>
+																	<!-- <%= elt.departure_.at_ %> -->
+																	<%= new Date(elt.departure_.at_).toDateString()
+																		+ ' AT ' + new
+																		Date(elt.departure_.at_).toLocaleTimeString() %>
 
-																				</big> </b></p>
-																		<div class="icon">
-																			<i class="fa fa-clock-o"></i>
-																		</div>
-																		<p>Arrives on <br> <b> <big>
-																					<!-- <%= elt.arrival_.at_ %> -->
-                                                                                    <%= new Date(elt.arrival_.at_).toDateString() + ' AT ' + new Date(elt.arrival_.at_).toLocaleTimeString() %>
+																</big> </b></p>
+														<div class="icon">
+															<i class="fa fa-clock-o"></i>
+														</div>
+														<p>Arrives on <br> <b> <big>
+																	<!-- <%= elt.arrival_.at_ %> -->
+																	<%= new Date(elt.arrival_.at_).toDateString()
+																		+ ' AT ' + new
+																		Date(elt.arrival_.at_).toLocaleTimeString() %>
 
-																				</big> </b></p>
-																	</div>
-																	<!-- <div class="fix"></div> -->
-																	<!-- <div class="loc">
+																</big> </b></p>
+													</div>
+													<!-- <div class="fix"></div> -->
+													<!-- <div class="loc">
 																		<div class="icon">
 																			<i class="fa fa-pause"></i>
 																		</div>
@@ -427,52 +330,58 @@
 																					<%= elt.numberOfBookableSeats_ %>
 																				</big> </b></p>
 																	</div> -->
-																	<!-- <form
+													<!-- <form
 																		action="/flight/bookFlight?flight=<%=elt.original%>&iataCode=<%=elt.arrival_.iataCode_ %>">
 																		<button class="booked"> <i
 																				class="fa fa-dollar"></i> Book</button>
 																	</form> -->
 
-																	<!-- return flight -->
+													<!-- return flight -->
 
-																	<% if(typeof elt.returnDeparture_.iataCode_
-																		!=='undefined' && elt.returnDeparture_.iataCode_
-																		!='' ) { %>
-																		<hr>
-																		<!-- <h2 class="title">
+													<% if(typeof elt.returnDeparture_.iataCode_ !=='undefined' &&
+														elt.returnDeparture_.iataCode_ !='' ) { %>
+														<hr>
+														<!-- <h2 class="title">
 																			<%= elt.itineraries_[1].segments_[0].carrierName_
 																				%>
 																		</h2>	 -->
 
-																		<div class="sce">
-																			<p class="event"> <i
-																					class="fa fa-map-marker"></i>
-																				<%= elt.returnDeparture_.iataCode_ %> to
-																					<%= elt.returnArrival_.iataCode_ %>
-																						&emsp; &emsp;
-																			</p>
-																		</div>
-																		<div class="loc">
-																			<div class="icon">
-																				<i class="fa fa-clock-o"></i>
-																			</div>
-																			<p>Leaves on<br> <b> <big>
-																						<!-- <%= elt.returnDeparture_.at_ %> -->
-                                                                                        <%= new Date(elt.returnDeparture_.at_).toDateString() + ' AT ' + new Date(elt.returnDeparture_.at_).toLocaleTimeString() %>
+														<div class="sce">
+															<p class="event"> <i class="fa fa-map-marker"></i>
+																<%= elt.returnDeparture_.iataCode_ %> to
+																	<%= elt.returnArrival_.iataCode_ %>
+																		&emsp; &emsp;
+															</p>
+														</div>
+														<div class="loc">
+															<div class="icon">
+																<i class="fa fa-clock-o"></i>
+															</div>
+															<p>Leaves on<br> <b> <big>
+																		<!-- <%= elt.returnDeparture_.at_ %> -->
+																		<%= new
+																			Date(elt.returnDeparture_.at_).toDateString()
+																			+ ' AT ' + new
+																			Date(elt.returnDeparture_.at_).toLocaleTimeString()
+																			%>
 
-																					</big> </b></p>
+																	</big> </b></p>
 
-																			<div class="icon">
-																				<i class="fa fa-clock-o"></i>
-																			</div>
-																			<p>Arrives on <br> <b> <big>
-																						<!-- <%= elt.returnArrival_.at_ %> -->
-                                                                                        <%= new Date(elt.returnArrival_.at_).toDateString() + ' AT ' + new Date(elt.returnArrival_.at_).toLocaleTimeString() %>
+															<div class="icon">
+																<i class="fa fa-clock-o"></i>
+															</div>
+															<p>Arrives on <br> <b> <big>
+																		<!-- <%= elt.returnArrival_.at_ %> -->
+																		<%= new
+																			Date(elt.returnArrival_.at_).toDateString()
+																			+ ' AT ' + new
+																			Date(elt.returnArrival_.at_).toLocaleTimeString()
+																			%>
 
-																					</big> </b></p>
-																		</div>
-																		<!-- <div class="fix"></div> -->
-																		<!-- <div class="loc">
+																	</big> </b></p>
+														</div>
+														<!-- <div class="fix"></div> -->
+														<!-- <div class="loc">
 																		<div class="icon">
 																			<i class="fa fa-pause"></i>
 																		</div>
@@ -480,175 +389,180 @@
 																					<%= elt.numberOfBookableSeats_ %>
 																				</big> </b></p>
 																	</div> -->
-																		<!-- <form
+														<!-- <form
 																		action="/flight/bookFlight?flight=<%=elt.original%>&iataCode=<%=elt.arrival_.iataCode_ %>">
 																		<button class="booked"> <i
 																				class="fa fa-dollar"></i> Book</button>
 																	</form> -->
-																		<!-- <a href="/flight/bookFlight?flight=<%=elt.original %>&iataCode=<%=elt.arrival_.iataCode_ %>"
+														<!-- <a href="/flight/bookFlight?flight=<%=elt.original %>&iataCode=<%=elt.arrival_.iataCode_ %>"
 																		title="Book Flight" class="booked"> <i
 																			class="fa fa-dollar"></i> Book
 																	</a> -->
 
-																		<% } %>
-																			<a href="/flight/bookFlight?flight=<%=elt.original %>&iataCode=<%=elt.arrival_.iataCode_ %>"
-																				title="Book Flight" class="booked"> <i
-																					class="fa fa-dollar"></i> Book
-																			</a>
-																</div> <!-- end item-right -->
+														<% } %>
+															<a href="/flight/bookFlight?flight=<%=elt.original %>&iataCode=<%=elt.arrival_.iataCode_ %>"
+																title="Book Flight" class="booked"> <i
+																	class="fa fa-dollar"></i> Book
+															</a>
+												</div> <!-- end item-right -->
 
-															</div>
+											</div>
 
-															<div class="block lg:hidden max-w-6xl mx-auto">
-																<div class="max-w-6xl mx-auto">
-																	<div class="flex justify-center">
-																		<div class="max-w-md w-full p-4 py-6">
-																			<div
-																				class="bg-white shadow-xl rounded-lg overflow-hidden">
-																				<div class="bg-cover bg-center h-16 p-4 flex justify-end items-center"
-																					style="background-image: url(https://content.api.news/v3/images/bin/11990db1d540d5c13ea8ca3e01f2083c)">
+											<div class="block lg:hidden max-w-6xl mx-auto">
+												<div class="max-w-6xl mx-auto">
+													<div class="flex justify-center">
+														<div class="max-w-md w-full p-4 py-6">
+															<div class="bg-white shadow-xl rounded-lg overflow-hidden">
+																<div class="bg-cover bg-center h-16 p-4 flex justify-end items-center"
+																	style="background-image: url(https://content.api.news/v3/images/bin/11990db1d540d5c13ea8ca3e01f2083c)">
 
-																					<p
-																						class="uppercase tracking-widest text-sm text-white bg-black py-1 px-2 rounded opacity-75 shadow-lg">
-																						<%= elt.departure_.iataCode_ %>
-																							<span
-																								class="tracking-normal">
-																								<-->
-																							</span>
-																							<%= elt.arrival_.iataCode_
-																								%>
-																					</p>
-																				</div>
-																				<div
-																					class="px-4 pb-2 pt-2 border-b border-gray-300 bg-gray-100 flex justify-between">
-																					<div
-																						class="text-md  font-bold text-gray-600 tracking-wide">
-																						<span
-																							class="font-bold uppercase text-md==lg text-[#3D71E9]">
-																							<%=
-																								elt.itineraries_[0].segments_[0].carrierName_ %>
-																						</span>
-																					</div>
-																					<div
-																						class="text-md  font-bold text-gray-600 tracking-wide">
-																						<span
-																							class="inline-flex items-center gap-x-1.5 rounded-md bg-red-100 px-2 py-1 text-md font-medium text-red-700">
-																							<%= elt.price_.total_ %> <%= elt.price_.currency_ %>
-																						</span>
-																					</div>
+																	<p
+																		class="uppercase tracking-widest text-sm text-white bg-black py-1 px-2 rounded opacity-75 shadow-lg">
+																		<%= elt.departure_.iataCode_ %>
+																			<span class="tracking-normal">
+																				<-->
+																			</span>
+																			<%= elt.arrival_.iataCode_ %>
+																	</p>
+																</div>
+																<div
+																	class="px-4 pb-2 pt-2 border-b border-gray-300 bg-gray-100 flex justify-between">
+																	<div
+																		class="text-md  font-bold text-gray-600 tracking-wide">
+																		<span
+																			class="font-bold uppercase text-md==lg text-[#3D71E9]">
+																			<%= elt.itineraries_[0].segments_[0].carrierName_
+																				%>
+																		</span>
+																	</div>
+																	<div
+																		class="text-md  font-bold text-gray-600 tracking-wide">
+																		<span
+																			class="inline-flex items-center gap-x-1.5 rounded-md bg-red-100 px-2 py-1 text-md font-medium text-red-700">
+																			<%= elt.price_.total_ %>
+																				<%= elt.price_.currency_ %>
+																		</span>
+																	</div>
 
-																				</div>
-																				<div
-																					class="flex justify-between pt-1 items-center pr-4 pl-4 text-gray-600">
-																					<div class="flex items-center">
-																						<p><span class="text-sm pr-1">Leaves
-																								on</span> <br> <span
-																								class="text-gray-900 font-bold">
-																								<!-- <%= elt.departure_.at_
+																</div>
+																<div
+																	class="flex justify-between pt-1 items-center pr-4 pl-4 text-gray-600">
+																	<div class="flex items-center">
+																		<p><span class="text-sm pr-1">Leaves
+																				on</span> <br> <span
+																				class="text-gray-900 font-bold">
+																				<!-- <%= elt.departure_.at_
 																									%> -->
-                                                                                                    <%= new Date(elt.departure_.at_).toDateString() + ' AT ' + new Date(elt.departure_.at_).toLocaleTimeString() %>
+																				<%= new
+																					Date(elt.departure_.at_).toDateString()
+																					+ ' AT ' + new
+																					Date(elt.departure_.at_).toLocaleTimeString()
+																					%>
 
-																							</span></p>
-																					</div>
-																					<div class="flex items-center">
-																						<svg xmlns="http://www.w3.org/2000/svg"
-																							viewBox="0 0 24 24"
-																							fill="currentColor"
-																							class="w-6 h-6">
-																							<path fill-rule="evenodd"
-																								d="M12 2.25c-5.385 0-9.75 4.365-9.75 9.75s4.365 9.75 9.75 9.75 9.75-4.365 9.75-9.75S17.385 2.25 12 2.25zm4.28 10.28a.75.75 0 000-1.06l-3-3a.75.75 0 10-1.06 1.06l1.72 1.72H8.25a.75.75 0 000 1.5h5.69l-1.72 1.72a.75.75 0 101.06 1.06l3-3z"
-																								clip-rule="evenodd" />
-																						</svg>
-																					</div>
-																					<div class="flex items-center">
-																						<p><span class="text-sm pr-1">Arrives
-																								on</span> <br> <span
-																								class="text-gray-900 font-bold">
-																								<!-- <%= elt.arrival_.at_ %> -->
-                                                                                                <%= new Date(elt.arrival_.at_).toDateString() + ' AT ' + new Date(elt.arrival_.at_).toLocaleTimeString() %>
+																			</span></p>
+																	</div>
+																	<div class="flex items-center">
+																		<svg xmlns="http://www.w3.org/2000/svg"
+																			viewBox="0 0 24 24" fill="currentColor"
+																			class="w-6 h-6">
+																			<path fill-rule="evenodd"
+																				d="M12 2.25c-5.385 0-9.75 4.365-9.75 9.75s4.365 9.75 9.75 9.75 9.75-4.365 9.75-9.75S17.385 2.25 12 2.25zm4.28 10.28a.75.75 0 000-1.06l-3-3a.75.75 0 10-1.06 1.06l1.72 1.72H8.25a.75.75 0 000 1.5h5.69l-1.72 1.72a.75.75 0 101.06 1.06l3-3z"
+																				clip-rule="evenodd" />
+																		</svg>
+																	</div>
+																	<div class="flex items-center">
+																		<p><span class="text-sm pr-1">Arrives
+																				on</span> <br> <span
+																				class="text-gray-900 font-bold">
+																				<!-- <%= elt.arrival_.at_ %> -->
+																				<%= new
+																					Date(elt.arrival_.at_).toDateString()
+																					+ ' AT ' + new
+																					Date(elt.arrival_.at_).toLocaleTimeString()
+																					%>
 
-																							</span></p>
-																					</div>
-																				</div>
-																				<% if(typeof
-																					elt.returnDeparture_.iataCode_!=='undefined'
-																					&&
-																					elt.returnDeparture_.iataCode_!='' )
-																					{ %>
-																					<hr>
-																					<div
-																						class="flex justify-between items-center pr-4 pl-4  text-gray-600">
-																						<div class="flex items-center">
-																							<p><span
-																									class="text-sm pr-1">Leaves
-																									on</span> <br> <span
-																									class="text-gray-900 font-bold">
-																									<!-- <%= elt.returnDeparture_.at_
-																										%> -->
-                                                                                                        <%= new Date(elt.returnDeparture_.at_).toDateString() + ' AT ' + new Date(elt.returnDeparture_.at_).toLocaleTimeString() %>
-
-																								</span></p>
-																						</div>
-																						<div class="flex items-center">
-																							<svg xmlns="http://www.w3.org/2000/svg"
-																								viewBox="0 0 24 24"
-																								fill="currentColor"
-																								class="w-6 h-6">
-																								<path
-																									fill-rule="evenodd"
-																									d="M12 2.25c-5.385 0-9.75 4.365-9.75 9.75s4.365 9.75 9.75 9.75 9.75-4.365 9.75-9.75S17.385 2.25 12 2.25zm-4.28 9.22a.75.75 0 000 1.06l3 3a.75.75 0 101.06-1.06l-1.72-1.72h5.69a.75.75 0 000-1.5h-5.69l1.72-1.72a.75.75 0 00-1.06-1.06l-3 3z"
-																									clip-rule="evenodd" />
-																							</svg>
-																						</div>
-																						<div class="flex items-center">
-																							<p><span
-																									class="text-sm pr-1">Arrives
-																									on</span> <br> <span
-																									class="text-gray-900 font-bold">
-																									<!-- <%= elt.returnArrival_.at_
-																										%> -->
-
-                                                                                                        <%= new Date(elt.returnArrival_.at_).toDateString() + ' AT ' + new Date(elt.returnArrival_.at_).toLocaleTimeString() %>
-
-																								</span></p>
-																						</div>
-																					</div>
-																					<% } %>
-																						<a href="/flight/bookFlight?flight=<%=elt.original %>&iataCode=<%=elt.arrival_.iataCode_ %>"
-																							class="card-button"> Book
-																							now &nbsp; <svg
-																								xmlns="http://www.w3.org/2000/svg"
-																								viewBox="0 0 24 24"
-																								fill="currentColor"
-																								class="w-6 h-6">
-																								<path
-																									fill-rule="evenodd"
-																									d="M15.75 2.25H21a.75.75 0 01.75.75v5.25a.75.75 0 01-1.5 0V4.81L8.03 17.03a.75.75 0 01-1.06-1.06L19.19 3.75h-3.44a.75.75 0 010-1.5zm-10.5 4.5a1.5 1.5 0 00-1.5 1.5v10.5a1.5 1.5 0 001.5 1.5h10.5a1.5 1.5 0 001.5-1.5V10.5a.75.75 0 011.5 0v8.25a3 3 0 01-3 3H5.25a3 3 0 01-3-3V8.25a3 3 0 013-3h8.25a.75.75 0 010 1.5H5.25z"
-																									clip-rule="evenodd" />
-																							</svg>
-
-																						</a>
-																			</div>
-																		</div>
+																			</span></p>
 																	</div>
 																</div>
+																<% if(typeof
+																	elt.returnDeparture_.iataCode_!=='undefined' &&
+																	elt.returnDeparture_.iataCode_!='' ) { %>
+																	<hr>
+																	<div
+																		class="flex justify-between items-center pr-4 pl-4  text-gray-600">
+																		<div class="flex items-center">
+																			<p><span class="text-sm pr-1">Leaves
+																					on</span> <br> <span
+																					class="text-gray-900 font-bold">
+																					<!-- <%= elt.returnDeparture_.at_
+																										%> -->
+																					<%= new
+																						Date(elt.returnDeparture_.at_).toDateString()
+																						+ ' AT ' + new
+																						Date(elt.returnDeparture_.at_).toLocaleTimeString()
+																						%>
 
+																				</span></p>
+																		</div>
+																		<div class="flex items-center">
+																			<svg xmlns="http://www.w3.org/2000/svg"
+																				viewBox="0 0 24 24" fill="currentColor"
+																				class="w-6 h-6">
+																				<path fill-rule="evenodd"
+																					d="M12 2.25c-5.385 0-9.75 4.365-9.75 9.75s4.365 9.75 9.75 9.75 9.75-4.365 9.75-9.75S17.385 2.25 12 2.25zm-4.28 9.22a.75.75 0 000 1.06l3 3a.75.75 0 101.06-1.06l-1.72-1.72h5.69a.75.75 0 000-1.5h-5.69l1.72-1.72a.75.75 0 00-1.06-1.06l-3 3z"
+																					clip-rule="evenodd" />
+																			</svg>
+																		</div>
+																		<div class="flex items-center">
+																			<p><span class="text-sm pr-1">Arrives
+																					on</span> <br> <span
+																					class="text-gray-900 font-bold">
+																					<!-- <%= elt.returnArrival_.at_
+																										%> -->
+
+																					<%= new
+																						Date(elt.returnArrival_.at_).toDateString()
+																						+ ' AT ' + new
+																						Date(elt.returnArrival_.at_).toLocaleTimeString()
+																						%>
+
+																				</span></p>
+																		</div>
+																	</div>
+																	<% } %>
+																		<a href="/flight/bookFlight?flight=<%=elt.original %>&iataCode=<%=elt.arrival_.iataCode_ %>"
+																			class="card-button"> Book
+																			now &nbsp; <svg
+																				xmlns="http://www.w3.org/2000/svg"
+																				viewBox="0 0 24 24" fill="currentColor"
+																				class="w-6 h-6">
+																				<path fill-rule="evenodd"
+																					d="M15.75 2.25H21a.75.75 0 01.75.75v5.25a.75.75 0 01-1.5 0V4.81L8.03 17.03a.75.75 0 01-1.06-1.06L19.19 3.75h-3.44a.75.75 0 010-1.5zm-10.5 4.5a1.5 1.5 0 00-1.5 1.5v10.5a1.5 1.5 0 001.5 1.5h10.5a1.5 1.5 0 001.5-1.5V10.5a.75.75 0 011.5 0v8.25a3 3 0 01-3 3H5.25a3 3 0 01-3-3V8.25a3 3 0 013-3h8.25a.75.75 0 010 1.5H5.25z"
+																					clip-rule="evenodd" />
+																			</svg>
+
+																		</a>
 															</div>
-
-															<% } else { %>
-																<!-- Item for seats left empty -->
-																<% } %>
-
-
+														</div>
 													</div>
+												</div>
+
+											</div>
+
+											<% } else { %>
+												<!-- Item for seats left empty -->
+												<% } %>
 
 
-													<%});%>
-														<% } %>
+									</div>
 
 
-															<!--//deal-->
-															<!-- <div class="containers">
+									<%});%>
+										<% } %>
+
+
+											<!--//deal-->
+											<!-- <div class="containers">
 																<div class="item">
 																	<div class="item-right">
 																		<img src="https://elasticbeanstalk-us-east-1-991586319498.s3.amazonaws.com/images/undraw_Aircraft_re_m05i.png"
@@ -713,70 +627,71 @@
 
 
 
-										</div>
+						</div>
 
 
 
 
 
-									</div>
-								</div>
-								<!--//top destinations-->
+					</div>
+				</div>
+				<!--//top destinations-->
+			</div>
+
+		</div>
+
+		<div class="containers row" id="hotels">
+
+			<% if(typeof hotels !='undefined' || hotels!=null || hotels!=undefined) { %>
+				<% hotels.forEach((elt)=>{%>
+					<!-- <li>Name: <%=elt.name%> -Distance: <%=elt.distance%>Km - Room Type: <%=elt.roomType%> - Price: <%=elt.price%>Euro</li>  -->
+
+
+					<div class="col-md-3 hotel-card">
+						<div class="card-sl">
+							<div class="card-image">
+								<img src="https://bookingsylvester.s3.eu-west-3.amazonaws.com/pool-bar-gb271d6959_640.jpeg"
+									width="100%" />
 							</div>
 
-						</div>
-
-						<div class="containers row" id="hotels">
-
-							<% if(typeof hotels !='undefined' || hotels!=null || hotels!=undefined) { %>
-								<% hotels.forEach((elt)=>{%>
-									<!-- <li>Name: <%=elt.name%> -Distance: <%=elt.distance%>Km - Room Type: <%=elt.roomType%> - Price: <%=elt.price%>Euro</li>  -->
-
-
-									<div class="col-md-3 hotel-card">
-										<div class="card-sl">
-											<div class="card-image">
-												<img src="https://bookingsylvester.s3.eu-west-3.amazonaws.com/pool-bar-gb271d6959_640.jpeg"
-													width="100%" />
-											</div>
-
-											<a class="card-action" href="#"><i class="fa fa-heart"></i></a>
-											<div class="card-heading">
-												<%= elt.hotelInfos_.name_ %>
-													<!-- Hilton Hotel -->
-											</div>
-											<!-- <div class="card-text">
+							<a class="card-action" href="#"><i class="fa fa-heart"></i></a>
+							<div class="card-heading">
+								<%= elt.hotelInfos_.name_ %>
+									<!-- Hilton Hotel -->
+							</div>
+							<!-- <div class="card-text">
 											<%= elt.room_.description_.text_ %>
 										</div> -->
-											<div class="card-text-price">
-												<%= elt.price_.total_ %> <%= elt.price_.currency_  %>
-											</div>
-											<a href="/hotel/bookHotel?hotel=<%=elt.original %>&hotelName=<%=elt.hotelInfos_.name_ %>"
-												class="card-button"> Book now</a>
-										</div>
-									</div>
-
-									<%});%>
-										<% } %>
+							<div class="card-text-price">
+								<%= elt.price_.total_ %>
+									<%= elt.price_.currency_ %>
+							</div>
+							<a href="/hotel/bookHotel?hotel=<%=elt.original %>&hotelName=<%=elt.hotelInfos_.name_ %>"
+								class="card-button"> Book now</a>
 						</div>
-					</main>
-					<!--//main-->
-					<script>
-						// Récupère tous les champs de saisie de type "date"
-						const dateInputs = document.querySelectorAll('input[type="date"]:not(#birthDate)');
-					  
-						// Obtient la date actuelle
-						const today = new Date();
-						const year = today.getFullYear();
-						let month = today.getMonth() + 1;
-						if (month < 10) {
-						  month = '0' + month;
-						}
-						const day = today.getDate();
-					  
-						// Définit la date minimale en format AAAA-MM-JJ pour chaque champ de saisie de type "date"
-						dateInputs.forEach(input => {
-						  input.min = `${year}-${month}-${day}`;
-						});
-					  </script>
-					<%- include('footer'); -%>
+					</div>
+
+					<%});%>
+						<% } %>
+		</div>
+	</main>
+	<!--//main-->
+	<script>
+		// Récupère tous les champs de saisie de type "date"
+		const dateInputs = document.querySelectorAll('input[type="date"]:not(#birthDate)');
+
+		// Obtient la date actuelle
+		const today = new Date();
+		const year = today.getFullYear();
+		let month = today.getMonth() + 1;
+		if (month < 10) {
+			month = '0' + month;
+		}
+		const day = today.getDate();
+
+		// Définit la date minimale en format AAAA-MM-JJ pour chaque champ de saisie de type "date"
+		dateInputs.forEach(input => {
+			input.min = `${year}-${month}-${day}`;
+		});
+	</script>
+	<%- include('footer'); -%>
